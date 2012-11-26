@@ -1,0 +1,67 @@
+\chapter{Details zur Lösung} 
+\label{Kapitel 6}
+\lhead{Kapitel 6. \emph{Details zur Lösung}}  
+Implementierungsdetails (nur die interessanten)
+Erfahrungen / Evaluation
+
+\subsection{Ablauf holen der Daten}
+WookieConnectorBundle
+Der Loginname  connection getUser() setLoginName("demo2"); ist dafür verantwortlich, dass Wookie eine neue Widgetinstanz erstellt oder eine bestehende zurück liefert.
+
+Man muss sich jetzt fragen, ob es möglich sein soll, dass jeder Workspace die selben Instanzen von Widgets hat oder nicht.
+Wenn ja, kann einfach die User Id aus Plesynd als identifier genommen werden, wenn nicht, sollte zum Beispiel eine Kombination aus UserId und WorkspaceId als Identifier benutzt werden.
+
+==> eigener unique Identifier beim Widget
+jedes Widgets bekommt seinen eigenen localStorage über window.name prefix
+
+
+\subsection{Preloads der Widgets}
+Es ist notwendig, dass alle widgets, aller workspaces bei dem ersten aufruf geladen werden.
+Gründe:
+
+    es müssen alle appcache dateien runtergeladen werden, ohne, dass man sich durch alle workspaces klickt,
+    das Dashboard benötigt die Infos aller Widgets zur Ausgabe
+
+Wie kann dies umgesetzt werden?
+
+ 
+
+Ich habe keine Wahl als alle iframes immer zu laden und ihre sichtbarkeit zu ändern. Dies wird mir wahrscheinlich ziemlich Probleme mit dem drag and drop geben, aber es geht nicht anders.
+
+ 
+
+Insbesondere beim online/offline Wechsel müssen *alle* iframes aktualisiert werden. Durch den Workspace Wechsel ist es allerdings so, dass angular bei der container arbeitsweise, die iframes immer komplett aus dem dom entfernt. dies bringt dann natürlich gar nichts, da man sich dann immer durch alle Workspaces bewegen müsste
+
+
+\subsection{Widgets auf Hauptebene}
+
+Worskpace => Widget
+
+Eigentlich ist es so gedacht, dass nur die Hauptentities im LocalStorage gespeichert werden.
+Die Widgets würden dann in ihren Workspaces liegen. Das Storage/Resource System kann nur mit Hauptdatensätzen arbeiten, es ist nicht möglich aus einem Workspace ein Widget zu löschen. Der Workspace muss geholt werden, der Eintrag gelöscht werden und der Workspace muss wieder geschrieben werden
+Probleme:
+
+    Wie kann man local mit Subentities arbeiten, wenn man keinen direkten Zugriff auf sie hat, man muss immer über die Workspaces gehen
+    Als RestService wäre es kein Problem direkt Widgets zu löschen etc, aber dies geht nicht ohne weiteres im Local Storage
+    Der Local Storage muss aber geupdatet werden, damit das System auch offline die richtigen Daten hat
+    Bei angular Ressourcen kann es nur eine URL geben, dies macht den Rest Zugriff problematisch.
+
+ 
+
+Widgets als eigenes Entity speichern? also quasi eine Ressource für Widgets und eine für Workspace?
+
+Das System so umbauen, dass es freier entscheiden kann, was wie in welchen Storage geschrieben werden kann?
+
+Nicht mehr mit Resourcen arbeiten?
+
+IndexedDb?
+
+Ich arbeite jetzt so, dass die Widgets in ihrem eigenen Local Storage gespeichert werden. Sie werden dann für die Ausgabe je nach Workspace gefiltert
+
+\subsection{Identische Widgets auf unterschiedlichen Workspaces}
+Probleme, weil POST nicht idempotent ist (selbes Widget mit selben Local Storage)
+gelöst: jedes Widgets hat eigene Instanz und eigenen lokal storage. Kann natrürlich sein, dass es mit gleichen Daten arbeitet (todo Liste) Hierfür keine Lösung
+
+\subsection{Cors}
+
+Beschreiben wie Cors umgesetzt, NelmioCors Bundle

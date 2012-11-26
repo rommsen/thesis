@@ -1,0 +1,14 @@
+\chapter{Übersicht Stand der Forschung} 
+\label{Kapitel 4}
+\lhead{Kapitel 4. \emph{Übersicht Stand der Forschung}} 
+Darstellung existierender Anstze (ggf. Klassifikation dieser Ansätze)
+Analyse der Anstze in Bezug auf die Anforderungen
+Zusammenfassung der Defizite des Stands der Forschung
+
+Offline Apps,
+Widgets,
+unterschiedliche Formate,
+Rest,
+Cors,
+Cross Origin Policy
+http://enable-cors.org/
