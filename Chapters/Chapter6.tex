@@ -14,6 +14,8 @@ Wenn ja, kann einfach die User Id aus Plesynd als identifier genommen werden, we
 ==> eigener unique Identifier beim Widget
 jedes Widgets bekommt seinen eigenen localStorage über window.name prefix
 
+\subsection{Api der Offline Services}
+
 
 \subsection{Preloads der Widgets}
 Es ist notwendig, dass alle widgets, aller workspaces bei dem ersten aufruf geladen werden.
@@ -24,7 +26,6 @@ Gründe:
 
 Wie kann dies umgesetzt werden?
 
- 
 
 Ich habe keine Wahl als alle iframes immer zu laden und ihre sichtbarkeit zu ändern. Dies wird mir wahrscheinlich ziemlich Probleme mit dem drag and drop geben, aber es geht nicht anders.
 
@@ -58,6 +59,8 @@ IndexedDb?
 
 Ich arbeite jetzt so, dass die Widgets in ihrem eigenen Local Storage gespeichert werden. Sie werden dann für die Ausgabe je nach Workspace gefiltert
 
+
+
 \subsection{Identische Widgets auf unterschiedlichen Workspaces}
 Probleme, weil POST nicht idempotent ist (selbes Widget mit selben Local Storage)
 gelöst: jedes Widgets hat eigene Instanz und eigenen lokal storage. Kann natrürlich sein, dass es mit gleichen Daten arbeitet (todo Liste) Hierfür keine Lösung
@@ -65,3 +68,5 @@ gelöst: jedes Widgets hat eigene Instanz und eigenen lokal storage. Kann natrü
 \subsection{Cors}
 
 Beschreiben wie Cors umgesetzt, NelmioCors Bundle
+
+\subsection{Kommunikation der IFrames}

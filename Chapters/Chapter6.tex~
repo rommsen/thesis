@@ -6,7 +6,7 @@ Erfahrungen / Evaluation
 
 \subsection{Ablauf holen der Daten}
 WookieConnectorBundle
-Der Loginname  connection getUser() setLoginName("demo2"); ist dafür verantwortlich, dass Wookie eine neue Widgetinstanz erstellt oder eine bestehende zurück liefert.
+Der Loginname  connection getUser() setLoginName(demo2); ist dafür verantwortlich, dass Wookie eine neue Widgetinstanz erstellt oder eine bestehende zurück liefert.
 
 Man muss sich jetzt fragen, ob es möglich sein soll, dass jeder Workspace die selben Instanzen von Widgets hat oder nicht.
 Wenn ja, kann einfach die User Id aus Plesynd als identifier genommen werden, wenn nicht, sollte zum Beispiel eine Kombination aus UserId und WorkspaceId als Identifier benutzt werden.
@@ -24,7 +24,6 @@ Gründe:
 
 Wie kann dies umgesetzt werden?
 
- 
 
 Ich habe keine Wahl als alle iframes immer zu laden und ihre sichtbarkeit zu ändern. Dies wird mir wahrscheinlich ziemlich Probleme mit dem drag and drop geben, aber es geht nicht anders.
 
@@ -58,6 +57,8 @@ IndexedDb?
 
 Ich arbeite jetzt so, dass die Widgets in ihrem eigenen Local Storage gespeichert werden. Sie werden dann für die Ausgabe je nach Workspace gefiltert
 
+
+
 \subsection{Identische Widgets auf unterschiedlichen Workspaces}
 Probleme, weil POST nicht idempotent ist (selbes Widget mit selben Local Storage)
 gelöst: jedes Widgets hat eigene Instanz und eigenen lokal storage. Kann natrürlich sein, dass es mit gleichen Daten arbeitet (todo Liste) Hierfür keine Lösung
@@ -65,3 +66,5 @@ gelöst: jedes Widgets hat eigene Instanz und eigenen lokal storage. Kann natrü
 \subsection{Cors}
 
 Beschreiben wie Cors umgesetzt, NelmioCors Bundle
+
+\subsection{Kommunikation der IFrames}

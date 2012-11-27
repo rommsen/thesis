@@ -21,20 +21,28 @@
 \contentsline {chapter}{\numberline {4}\IeC {\"U}bersicht Stand der Forschung}{5}{chapter.28}
 \contentsline {subsubsection}{\numberline {4.0.2.1}Widgetparameter}{5}{subsubsection.29}
 \contentsline {chapter}{\numberline {5}L\IeC {\"o}sungsansatz}{6}{chapter.30}
-\contentsline {chapter}{\numberline {6}Details zur L\IeC {\"o}sung}{7}{chapter.31}
-\contentsline {subsection}{\numberline {6.0.3}Ablauf holen der Daten}{7}{subsection.32}
-\contentsline {subsection}{\numberline {6.0.4}Preloads der Widgets}{7}{subsection.33}
-\contentsline {subsection}{\numberline {6.0.5}Widgets auf Hauptebene}{8}{subsection.34}
-\contentsline {subsection}{\numberline {6.0.6}Identische Widgets auf unterschiedlichen Workspaces}{9}{subsection.35}
-\contentsline {subsection}{\numberline {6.0.7}Cors}{9}{subsection.36}
-\contentsline {chapter}{\numberline {7}Zusammenfassung/Ausblick}{10}{chapter.37}
-\contentsline {subsection}{\numberline {7.0.8}Offene Fragen f\IeC {\"u}r weitere Forschungsarbeiten}{10}{subsection.38}
+\contentsline {section}{\numberline {5.1}Entwicklungsumgebung/Tools}{6}{section.31}
+\contentsline {subsection}{\numberline {5.1.1}Frameworks}{6}{subsection.34}
+\contentsline {subsubsection}{\numberline {5.1.1.1}Symfony2}{6}{subsubsection.35}
+\contentsline {subsubsection}{\numberline {5.1.1.2}Doctrine2}{7}{subsubsection.38}
+\contentsline {subsubsection}{\numberline {5.1.1.3}AngularJS}{7}{subsubsection.39}
+\contentsline {subsubsection}{\numberline {5.1.1.4}Jquery}{7}{subsubsection.40}
+\contentsline {subsubsection}{\numberline {5.1.1.5}Twitter Bootstrap}{7}{subsubsection.42}
+\contentsline {chapter}{\numberline {6}Details zur L\IeC {\"o}sung}{8}{chapter.45}
+\contentsline {subsection}{\numberline {6.0.2}Ablauf holen der Daten}{8}{subsection.46}
+\contentsline {subsection}{\numberline {6.0.3}Preloads der Widgets}{8}{subsection.47}
+\contentsline {subsection}{\numberline {6.0.4}Widgets auf Hauptebene}{9}{subsection.48}
+\contentsline {subsection}{\numberline {6.0.5}Identische Widgets auf unterschiedlichen Workspaces}{10}{subsection.49}
+\contentsline {subsection}{\numberline {6.0.6}Cors}{10}{subsection.50}
+\contentsline {subsection}{\numberline {6.0.7}Kommunikation der IFrames}{10}{subsection.51}
+\contentsline {chapter}{\numberline {7}Zusammenfassung/Ausblick}{11}{chapter.52}
+\contentsline {subsection}{\numberline {7.0.8}Offene Fragen f\IeC {\"u}r weitere Forschungsarbeiten}{11}{subsection.53}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Installation/Deployment}{11}{appendix.39}
-\contentsline {section}{\numberline {A.1}Installation}{11}{section.40}
-\contentsline {subsection}{\numberline {A.1.1}Wookie}{11}{subsection.41}
-\contentsline {subsection}{\numberline {A.1.2}Plesynd}{11}{subsection.42}
-\contentsline {section}{\numberline {A.2}Deployment}{11}{section.43}
-\contentsline {subsection}{\numberline {A.2.1}Plesynd}{11}{subsection.44}
+\contentsline {chapter}{\numberline {A}Installation/Deployment}{12}{appendix.54}
+\contentsline {section}{\numberline {A.1}Installation}{12}{section.55}
+\contentsline {subsection}{\numberline {A.1.1}Wookie}{12}{subsection.56}
+\contentsline {subsection}{\numberline {A.1.2}Plesynd}{12}{subsection.57}
+\contentsline {section}{\numberline {A.2}Deployment}{12}{section.58}
+\contentsline {subsection}{\numberline {A.2.1}Plesynd}{12}{subsection.59}
 \vspace {2em}
-\contentsline {chapter}{Literaturverzeichnis}{12}{dummy.45}
+\contentsline {chapter}{Literaturverzeichnis}{13}{dummy.60}

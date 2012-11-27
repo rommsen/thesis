@@ -3,3 +3,29 @@
 \lhead{Kapitel 5. \emph{Lösungsansatz}}  
 Beschreibung, wie die eigene Lösung die Anforderungen erfüllt
 Konzeptioneller (holistischer) Überblick über die eigene Lösung
+
+Symfony2, Angular Beschreibung, Apache Wookie Beschreibung, Twitter Bootstrap
+
+\section{Entwicklungsumgebung/Tools}
+Für die Entwicklung von Plesynd wurden unterschiedliche Tools und Frameworks genutzt. Entwickelt wurde das System auf Serverseite mit \href{http://php.net}{PHP}\footnote{\url{http://php.net}}. Der Clientseitige Code wurde mit \href{http://de.wikipedia.org/wiki/JavaScript}{JavaScript}\footnote{\url{http://de.wikipedia.org/wiki/JavaScript}} implementiert. 
+
+Die Frameworks im Folgenden kurz vorgestellt.
+
+\subsection{Frameworks}
+
+\subsubsection{Symfony2}
+\footnote{\url{http://symfony.com}} ist ein in PHP implementiertes komponenten-basiertes full-stack Framework zur Entwicklung von MVC(Model-View-Controller) Anwendungen. Zu den bereitgestellten Komponenten gehört beispielsweise ein \href{http://symfony.com/doc/current/book/service_container.html}{Service Container }}\footnote{\url{http://symfony.com/doc/current/book/service_container.html}}. Dieser erlaubt es die von den genutzten Klassen benötigten Abhängigkeiten zu definieren. Der Container sorgt dann für ein Instantiieren der Abhängigkeiten und ein Injizieren dieser zur Laufzeit (TODO: Dependendency-Injection erklären?). Desweiteren bietet Symfony2 unter anderem eine eigene Template-Engine, oder die Möglichkeit zum Erstellen von Controllern und Views. Das Model wird in Symfony2 standardmäßig über Doctrine2 abgebildet.
+Wichtig: Bundles, was sind Bundles, System komplett aus Bundles aufgebaut. einfaches einbinden von Third Party Bundles. Plesynd besteht aus 3 Bundles: Plesynd, WookieConnector, User (welches wiederum vom FOSUserbundle ableitet. Benutzt noch weitere Bundles: FOSRest (mit Verweis zu Rest Erklärung), NelmioCorsBundle
+
+
+\subsubsection{Doctrine2}
+Orm, DataMapper Pattern, kein Active Record, Arbeit mit einfachen Objekten, Entity Manager Unit of Work
+
+
+\subsubsection{AngularJS}
+
+\subsubsection{Jquery}
+\href{http://jquery.com/}{Jquery}\footnote{\url{http://jquery.com/}} ist eine JavaScript-Bibliothek zur einfachen Manipulation des DOM. Desweiteren stellt sie erweiterte JavaScript-Funktionalitäten zur Verfügung und vereinfacht die Arbeit mit den browserbasierten Event-System(TODO: ref http://de.wikipedia.org/wiki/JQuery) AngularJS verwendet Jquery, wenn vorhanden, insbesondere zur Manipulation des DOM. In Plesynd basiert unter anderem noch das Postmessage(TODO: ref postmessage) auf Jquery.  
+
+\subsubsection{Twitter Bootstrap}
+\href{http://twitter.github.com/bootstrap/}{Twitter Bootstrap}\footnote{\url{http://twitter.github.com/bootstrap/}} ist ein von Twitter entwickeltes Framework zur schnellen und einfachen Entwicklung von Frontends. Es stellt CSS-Vorlagen und JavaScript-Komponenten zur Verfügung, welche es dem Entwickler ermöglichen sollen in kurzer Zeit ein User-Interface zu entwerfen und umzusetzen. Bootstrap beinhaltet CSS-Vorlagen für Grids, Tabellen, Buttons etc. . In Plesynd wird von den von Bootstrap zur Verfügung gestellten Javascript-Komponenten momentan nur die \href{http://twitter.github.com/bootstrap/javascript.htmlmodals}{Modal-Komponente}\footnote{\url{http://twitter.github.com/bootstrap/javascript.htmlmodals}} verwendet. 

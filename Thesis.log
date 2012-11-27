@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.3.12)  26 NOV 2012 12:09
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.3.12)  27 NOV 2012 12:35
 entering extended mode
  %&-line parsing enabled.
 **Thesis.tex
@@ -914,9 +914,21 @@ Kapitel 5.
 ------------------------------------------------------------------------------
  5 L\IeC {\"o}sungsansatz
 ------------------------------------------------------------------------------
-) (./Chapters/Chapter6.tex [6
+[6
 
 ]
+Overfull \hbox (43.27928pt too wide) in paragraph at lines 28--29
+\OT1/cmr/m/n/10.95 Ar-beit mit den brow-ser-ba-sier-ten Event-System(TODO: ref 
+http://de.wikipedia.org/wiki/JQuery)
+ []
+
+
+Overfull \hbox (0.6666pt too wide) in paragraph at lines 28--29
+\OT1/cmr/m/n/10.95 An-gu-lar-JS ver-wen-det Jque-ry, wenn vor-han-den, ins-be-s
+on-de-re zur Ma-ni-pu-la-ti-on des DOM.
+ []
+
+) (./Chapters/Chapter6.tex [7]
 Kapitel 6.
 ------------------------------------------------------------------------------
  6 Details zur L\IeC {\"o}sung
@@ -925,9 +937,9 @@ Kapitel 6.
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 7.
 
-[7
+[8
 
-] [8]) (./Chapters/Chapter7.tex [9]
+] [9]) (./Chapters/Chapter7.tex [10]
 Kapitel 7.
 ------------------------------------------------------------------------------
  7 Zusammenfassung/Ausblick
@@ -936,14 +948,14 @@ Kapitel 7.
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 8.
 
-) (./Appendices/AppendixA.tex [10
+) (./Appendices/AppendixA.tex [11
 
 ]
 Anhang A.
 ------------------------------------------------------------------------------
  A Installation/Deployment
 ------------------------------------------------------------------------------
-) [11
+) [12
 
 ]
 ------------------------------------------------------------------------------
@@ -953,33 +965,35 @@ Anhang A.
 
 Package natbib Warning: Empty `thebibliography' environment on input line 8.
 
-) [12
+) [13
 
 
 ] (./Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 10497 strings out of 495021
- 142707 string characters out of 1181035
- 221415 words of memory out of 3000000
- 13394 multiletter control sequences out of 15000+50000
- 13007 words of font info for 48 fonts, out of 3000000 for 9000
+ 10533 strings out of 495021
+ 143161 string characters out of 1181035
+ 222415 words of memory out of 3000000
+ 13409 multiletter control sequences out of 15000+50000
+ 14719 words of font info for 55 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 48i,12n,45p,412b,416s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,12n,45p,953b,416s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx
 10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/tex
 mf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/f
 onts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/p
 ublic/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
-ts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsl12.
-pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/s
-hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-t
-exlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/font
-s/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/pub
-lic/amsfonts/symbols/msam7.pfb>
-Output written on Thesis.pdf (25 pages, 215938 bytes).
+ts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pf
+b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-te
+xlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/
+type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/publi
+c/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/
+cm/cmtt9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msam
+7.pfb>
+Output written on Thesis.pdf (26 pages, 253532 bytes).
 PDF statistics:
- 369 PDF objects out of 1000 (max. 8388607)
- 72 named destinations out of 1000 (max. 500000)
- 273 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 453 PDF objects out of 1000 (max. 8388607)
+ 88 named destinations out of 1000 (max. 500000)
+ 337 words of extra memory for PDF output out of 10000 (max. 10000000)
 

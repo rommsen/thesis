@@ -6,13 +6,13 @@ Erfahrungen / Evaluation
 
 \subsection{Ablauf holen der Daten}
 WookieConnectorBundle
-Der Loginname => $connection->getUser()->setLoginName("demo_2"); ist dafür verantwortlich, dass Wookie eine neue Widgetinstanz erstellt oder eine bestehende zurück liefert.
+Der Loginname  connection getUser() setLoginName(demo2); ist dafür verantwortlich, dass Wookie eine neue Widgetinstanz erstellt oder eine bestehende zurück liefert.
 
 Man muss sich jetzt fragen, ob es möglich sein soll, dass jeder Workspace die selben Instanzen von Widgets hat oder nicht.
 Wenn ja, kann einfach die User Id aus Plesynd als identifier genommen werden, wenn nicht, sollte zum Beispiel eine Kombination aus UserId und WorkspaceId als Identifier benutzt werden.
 
 ==> eigener unique Identifier beim Widget
-jedes Widgets bekommt seinen eigenen localStorage über $window.name prefix
+jedes Widgets bekommt seinen eigenen localStorage über window.name prefix
 
 
 \subsection{Preloads der Widgets}
@@ -59,7 +59,8 @@ IndexedDb?
 Ich arbeite jetzt so, dass die Widgets in ihrem eigenen Local Storage gespeichert werden. Sie werden dann für die Ausgabe je nach Workspace gefiltert
 
 \subsection{Identische Widgets auf unterschiedlichen Workspaces}
-Probleme, weil POST nicht idempotent ist
+Probleme, weil POST nicht idempotent ist (selbes Widget mit selben Local Storage)
+gelöst: jedes Widgets hat eigene Instanz und eigenen lokal storage. Kann natrürlich sein, dass es mit gleichen Daten arbeitet (todo Liste) Hierfür keine Lösung
 
 \subsection{Cors}
 
