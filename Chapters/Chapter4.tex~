@@ -12,3 +12,24 @@ Rest,
 Cors,
 Cross Origin Policy
 http://enable-cors.org/
+
+neuerungen HTML5
+Appcache HTML5
+
+Opensocial vs W3C
+warum w3c widgets, opensocial wird nicht weiterentwickelt etc, Apache Shindig Problematishc
+W3C Widgets haben keine gesonderte Definition für HTML5 Appcache
+
+
+
+
+\subsubsection{Widgetparameter}
+Die Parameter für Widgets werden in der Wookie DB hinterlegt.
+Die Widget Implementation wird über http://localhost:8080/wookie/shared/js/wookie-wrapper.js ausgeliefert.
+Hier ist setItem/getItem ist so implementiert, dass es einen Request an den Server sendet und die Einstellungen speichert.
+
+Die Standardeinstellungen aus der config.xml werden nur beim ersten deploy ausgelesen, anschließend nicht! mehr
+
+Jedes Widget bekommt eine eigene id! Diese kann dann für die Identifizierung genutzt werden.
+
+Die Werte werden NICHT im local storage hinterlegt.

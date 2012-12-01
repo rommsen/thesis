@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.3.12)  27 NOV 2012 12:35
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.3.12)  1 DEC 2012 13:39
 entering extended mode
  %&-line parsing enabled.
 **Thesis.tex
@@ -898,48 +898,48 @@ Kapitel 4.
  4 \IeC {\"U}bersicht Stand der Forschung
 ------------------------------------------------------------------------------
 
-Overfull \hbox (31.30104pt too wide) in paragraph at lines 8--15
-[]\OT1/cmr/m/n/10.95 Offline Ap-ps, Wid-gets, un-ter-schied-li-che For-ma-te, R
-est, Cors, Cross Ori-gin Po-li-cy http://enable-
+Overfull \hbox (9.79643pt too wide) in paragraph at lines 8--15
+[]\OT1/cmr/m/n/10.95 Offline Ap-ps, Wid-gets, un-ter-schied-li-che For-ma-te, ,
+ Cors, Cross Ori-gin Po-li-cy http://enable-
  []
 
 
-Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 26.
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 23.
+
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 29.
 
 ) (./Chapters/Chapter5.tex [5
 
-]
+] [6]
 Kapitel 5.
 ------------------------------------------------------------------------------
  5 L\IeC {\"o}sungsansatz
 ------------------------------------------------------------------------------
-[6
+) (./Chapters/Chapter6.tex [7
 
 ]
-Overfull \hbox (43.27928pt too wide) in paragraph at lines 28--29
+Kapitel 6.
+------------------------------------------------------------------------------
+ 6 Details zur L\IeC {\"o}sung
+------------------------------------------------------------------------------
+[8
+
+]
+Overfull \hbox (43.27928pt too wide) in paragraph at lines 26--27
 \OT1/cmr/m/n/10.95 Ar-beit mit den brow-ser-ba-sier-ten Event-System(TODO: ref 
 http://de.wikipedia.org/wiki/JQuery)
  []
 
 
-Overfull \hbox (0.6666pt too wide) in paragraph at lines 28--29
+Overfull \hbox (0.6666pt too wide) in paragraph at lines 26--27
 \OT1/cmr/m/n/10.95 An-gu-lar-JS ver-wen-det Jque-ry, wenn vor-han-den, ins-be-s
 on-de-re zur Ma-ni-pu-la-ti-on des DOM.
  []
 
-) (./Chapters/Chapter6.tex [7]
-Kapitel 6.
-------------------------------------------------------------------------------
- 6 Details zur L\IeC {\"o}sung
-------------------------------------------------------------------------------
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 7.
-
-[8
-
-] [9]) (./Chapters/Chapter7.tex [10]
+[9] [10] [11]) (./Chapters/Chapter7.tex [12]
 Kapitel 7.
 ------------------------------------------------------------------------------
  7 Zusammenfassung/Ausblick
@@ -948,14 +948,14 @@ Kapitel 7.
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 8.
 
-) (./Appendices/AppendixA.tex [11
+) (./Appendices/AppendixA.tex [13
 
 ]
 Anhang A.
 ------------------------------------------------------------------------------
  A Installation/Deployment
 ------------------------------------------------------------------------------
-) [12
+) [14
 
 ]
 ------------------------------------------------------------------------------
@@ -965,18 +965,18 @@ Anhang A.
 
 Package natbib Warning: Empty `thebibliography' environment on input line 8.
 
-) [13
+) [15
 
 
 ] (./Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 10533 strings out of 495021
- 143161 string characters out of 1181035
- 222415 words of memory out of 3000000
- 13409 multiletter control sequences out of 15000+50000
+ 10553 strings out of 495021
+ 143440 string characters out of 1181035
+ 223415 words of memory out of 3000000
+ 13421 multiletter control sequences out of 15000+50000
  14719 words of font info for 55 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 48i,12n,45p,953b,416s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,12n,45p,1305b,416s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx
 10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/tex
@@ -991,9 +991,9 @@ type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/publi
 c/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/
 cm/cmtt9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msam
 7.pfb>
-Output written on Thesis.pdf (26 pages, 253532 bytes).
+Output written on Thesis.pdf (28 pages, 263616 bytes).
 PDF statistics:
- 453 PDF objects out of 1000 (max. 8388607)
- 88 named destinations out of 1000 (max. 500000)
- 337 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 497 PDF objects out of 1000 (max. 8388607)
+ 96 named destinations out of 1000 (max. 500000)
+ 385 words of extra memory for PDF output out of 10000 (max. 10000000)
 
