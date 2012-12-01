@@ -73,7 +73,13 @@ Probleme:
     Der Local Storage muss aber geupdatet werden, damit das System auch offline die richtigen Daten hat
     Bei angular Ressourcen kann es nur eine URL geben, dies macht den Rest Zugriff problematisch.
 
-Es gibt mehrere Möglichkeiten 
+Es gibt mehrere Möglichkeiten dieses Problem zu lösen.
+
+\begin{itemize}
+ \item Umstellung auf eine andere Lösung zur lokalen Speicherung der Daten (z.B. IndexedDb)
+ \item Erweiterung der Speicherung
+\end{itemize}
+
     
 
 Ich arbeite jetzt so, dass die Widgets in ihrem eigenen Local Storage gespeichert werden. Sie werden dann für die Ausgabe je nach Workspace gefiltert
