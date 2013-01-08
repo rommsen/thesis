@@ -8,17 +8,59 @@ Zusammenfassung der Defizite des Stands der Forschung
 Offline Apps,
 Widgets,
 unterschiedliche Formate,
-Rest,
-Cors,
-Cross Origin Policy
-http://enable-cors.org/
+,
 
+
+\subsection{CORS}\label{section:cors}
+Moderne Browser benutzen als Teil ihres Sicherheitskonzeptes die Same-Origin-Policy. Diese bewirkt, dass es Sprachen, die auf Clientseite ausgeführt werden (wie JavaScript) nicht erlaubt ist, Request an einen anderen Zielpunkt als ihrem Ursprung zu starten\cite{same_origin_policy_mozilla}. Diese Policy wird also lediglich bei Zugriff auf URLs mit der selben Domain und dem selben Port, wie die URL von der die Seite geladen wurde, erfüllt. Das bedeutet, dass ein Skript auf \texttt{http://sop.example.com/directory1} Requests an \texttt{http://sop.example.com/directory2} starten kann, nicht jedoch an \texttt{http://example.com/directory2} (unterschiedliche Domain) oder an \texttt{http://sop.example.com:8080/directory2} (unterschiedlicher Port). Ausgenommen sind hierbei das in eine Seite eingebettete Laden von Resourcen. Hierzu gehören externe Inhalte, die über iFrames geladen werden aber auch externe JavaScript-Dateien(über <script>...</script> Tags) und Medienresourcen wie Bilder und Videos. Des Weiteren ist es auch möglich Formulare an andere Zielpunkte als den Ursprung abzuschicken. Diese Einschränkung also primär Auswirkungen auf das Absenden von XMLHttpRequest, also auf normale Ajax-Requests. 
+
+Dies Einschränkung ist sehr sinnvoll um beispielsweise das Ausspähen privater Daten zu verhindern. Sie erschwert jedoch die Entwicklung moderner Ajax-Anwendungen und insbesondere die Entwicklung von Mashup-Applikationen wie PLEs, welche von prinzipiell schon so aufgebaut, dass sie ihre Inhalte und Resourcen aus unterschiedlichen Quellen beziehen. In einer PLE wie in dieser Arbeit beschrieben, ist es beispielsweise so, dass das Widget (siehe \ref{section:widgets}) selber von einem Widget-Container wie Wookie (siehe \ref{section:apache_wookie}) ausgeliefert werden, also die Domain des Widget Containers als Origin besitzen. Arbeiten diese Widgets nun aber nicht nur lokal beim Client, sondern benötigen für ihre Funktionalität auch einen externen Server, so müssen sie in der Lage sein XMLHttpRequests an diesen zu senden. Aus diesem Grund wurde der Mechanismus des Cross-Origin Resource Sharing\cite{cors_w3c} eingeführt. Dieser erlaubt es unter bestimmten Bedingungen und Einschränkungen die Same-Origin-Policy zum umgehen.
+
+Ein einfacher Cors-Request vom Client zum Server sieht wie folgt aus (Workflow analog zu \cite{cors_html5rocks}):
+
+Der Client sendet eine Cross-Origin-Anfrage mit einem Origin Header an den Server:
+\begin{lstlisting}
+GET /cors HTTP/1.1
+Origin: http://api.bob.com
+Host: api.alice.com
+Accept-Language: en-US
+Connection: keep-alive
+User-Agent: Mozilla/5.0...
+\end{lstlisting}
+ 
+Anschließend antwortet der Server mit:
+\begin{lstlisting}
+Access-Control-Allow-Origin: http://api.bob.com
+Access-Control-Allow-Credentials: true
+Access-Control-Expose-Headers: FooBar
+Content-Type: text/html; charset=utf-8
+\end{lstlisting}
+Alle für den CORS-Request relevanten Header beginnen mit Access-Control. \texttt{Access-Control-Allow-Origin} bedeutet, dass der Server eine Cross-Origin-Anfrage von dem angegebenen Origin erlaubt, \texttt{Access-Control-Allow-Credentials: true} besagt, dass auch Cookies dieses Requests beachtet werden. Möchte der Client Zugriff auf Nicht-Standard-Header aus der Antwort des Servers, müssen diese in \texttt{Access-Control-Expose-Headers} angegeben werden.
+
+Sollte der Client einen Request mit einer anderen Methode als \texttt{GET} oder \texttt{POST} (siehe \ref{REST} senden, reicht dieser einfache Workflow nicht aus. In diesem Fall muss vor der eigentlichen Anfrage ein so genannter "`Preflight-Request"' ablaufen, welcher verifiziert, dass der Server diese Methode als CORS-Request erlaubt.
+
+Zuerst wird vom Client eine Anfrage mit der \texttt{OPTIONS}-Methode durchgeführt, in welcher Angegeben, wird mit welcher Methode der eigentlich Request ablaufen soll:
+\begin{lstlisting}
+OPTIONS /cors HTTP/1.1
+Origin: http://api.bob.com
+Access-Control-Request-Method: PUT
+Access-Control-Request-Headers: X-Custom-Header
+Host: api.alice.com
+Accept-Language: en-US
+Connection: keep-alive
+User-Agent: Mozilla/5.0...
+\end{lstlisting}
+
+\subsection{HTML5}\label{section:html5}
 neuerungen HTML5
 Appcache HTML5
 
 Opensocial vs W3C
 warum w3c widgets, opensocial wird nicht weiterentwickelt etc, Apache Shindig Problematishc
 W3C Widgets haben keine gesonderte Definition für HTML5 Appcache
+
+\subsection{REST}\label{section:rest}
+Rest
 
 
 

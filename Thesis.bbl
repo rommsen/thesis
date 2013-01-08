@@ -1,8 +1,32 @@
-\begin{thebibliography}{0}
+\begin{thebibliography}{4}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Grant and Carlisle(1996)]{GRANT}
+Michael~C. Grant and David Carlisle.
+\newblock {The PSFrag system, version~3}.
+\newblock CTAN: \url{tex-archive/macros/latex/contrib/\%
+  supported/psfrag/pfgguide.tex}, November 1996.
+
+\bibitem[Ruderman(2012)]{same_origin_policy_mozilla}
+Jesse Ruderman.
+\newblock {Same-Origin-Policy}.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/JavaScript/Same\_origin\_polic%
+y\_for\_JavaScript} Abrufdatum: 08.01.2013, 2012.
+
+\bibitem[van Kesteren(2012)]{cors_w3c}
+Anne van Kesteren.
+\newblock {Cross-Origin Resource Sharing}.
+\newblock CTAN: \url{http://www.w3.org/TR/cors/} Datum: 08.01.2013, April 2012.
+
+\bibitem[Hossain(2012)]{cors_html5rocks}
+Monsur Hossain.
+\newblock {Using CORS}.
+\newblock \url{http://www.html5rocks.com/en/tutorials/cors/} Abrufdatum:
+  08.01.2013, September 2012.
 
 \end{thebibliography}

@@ -2,10 +2,14 @@
 \label{Kapitel 7}
 \lhead{Kapitel 7. \emph{Zusammenfassung/Ausblick}}  
 Kurzfassung des Problems und wie es gelöst wurde
+Usb-Stick, mobile Version der Browser
+
 
 \subsection{Offene Fragen für weitere Forschungsarbeiten}
 Änderung von HttpAuth zu Token Basierter Authentifizierung
 Widget Authentifizierung
 Stabile Wookieversion benutzen
+Websockets
+Serverpush
 
 

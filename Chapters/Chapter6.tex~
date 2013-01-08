@@ -5,12 +5,12 @@ Implementierungsdetails (nur die interessanten)
 Erfahrungen / Evaluation
 
 \section{Entwicklungsumgebung/Tools}
-Für die Entwicklung von Plesynd wurden unterschiedliche Tools und Frameworks genutzt. Entwickelt wurde das System auf Serverseite mit \href{http://php.net}{PHP}\footnote{\url{http://php.net}}. Der Clientseitige Code wurde mit \href{http://de.wikipedia.org/wiki/JavaScript}{JavaScript}\footnote{\url{http://de.wikipedia.org/wiki/JavaScript}} implementiert. 
+Für die Entwicklung von Plesynd wurden unterschiedliche Tools und Frameworks genutzt. Entwickelt wurde das System auf Serverseite mit \href{http://php.net}{PHP}\footnote{\url{http://php.net}}. Der clientseitige Code wurde mit \href{http://de.wikipedia.org/wiki/JavaScript}{JavaScript}\footnote{\url{http://de.wikipedia.org/wiki/JavaScript}} implementiert. 
 
 Die Frameworks im Folgenden kurz vorgestellt.
 
 \subsection{Symfony2}
-\href{http://symfony.com}{Symfony2}\footnote{\url{http://symfony.com}} ist ein in PHP implementiertes komponenten-basiertes full-stack Framework zur Entwicklung von MVC(Model-View-Controller) Anwendungen. Zu den bereitgestellten Komponenten gehört beispielsweise ein \href{http://symfony.com/doc/current/book/service_container.html}{Service Container }\footnote{\url{http://symfony.com/doc/current/book/service_container.html}}. Dieser erlaubt es die von den genutzten Klassen benötigten Abhängigkeiten zu definieren. Der Container sorgt dann für ein Instantiieren der Abhängigkeiten und ein Injizieren dieser zur Laufzeit (TODO: Dependendency-Injection erklären?). Desweiteren bietet Symfony2 unter anderem eine eigene Template-Engine (TODO: Twig Link), sowie ein Event-Listener System, welches ermöglicht auf bestimmte Events (TODO: Request Beispiele) zu reagieren. Das Model wird in Symfony2 standardmäßig über Doctrine2 (siehe ~\ref{section:doctrine2}) abgebildet.
+\href{http://symfony.com}{Symfony2}\footnote{\url{http://symfony.com}} ist ein in PHP implementiertes komponenten-basiertes full-stack Framework zur Entwicklung von MVC(Model-View-Controller) Anwendungen. Zu den bereitgestellten Komponenten gehört beispielsweise ein \href{http://symfony.com/doc/current/book/service_container.html}{Service Container }\footnote{\url{http://symfony.com/doc/current/book/service_container.html}}. Dieser erlaubt es die von den genutzten Klassen benötigten Abhängigkeiten zu definieren. Der Container sorgt dann für ein Instantiieren der Abhängigkeiten und ein Injizieren dieser zur Laufzeit (TODO: Dependendency-Injection erklären?). Des weiteren bietet Symfony2 unter anderem eine eigene Template-Engine (TODO: Twig Link), sowie ein Event-Listener System, welches ermöglicht auf bestimmte Events (TODO: Request Beispiele) zu reagieren. Das Model wird in Symfony2 standardmäßig über Doctrine2 (siehe ~\ref{section:doctrine2}) abgebildet.
 Die Komponenten werden in Symfony2 über sogenannte Bundles implementiert (TODO: Bundle Link). Bundles sind von dem System unabhängige Plugins, mit einer festen Struktur, welche einfach in eine Applikation eingebunden werden können. Das besondere an Symfony2 ist, dass das gesamte System aus Bundles aufgebaut ist. Hierzu gehören also auch das Kern-Framework, alle Komponenten, zusätzlicher Third-Party-Code, sowie die eigene Applikation selbst. Die für die Applikation entwickelten Bundles werden in \ref{section:own_bundles}, die Fremd-Bundles in \ref{section:third_party_bundles} beschrieben
 
 \subsection{eigene Bundles}\label{section:own_bundles}
@@ -42,61 +42,61 @@ Wenn ja, kann einfach die User Id aus Plesynd als identifier genommen werden, we
 ==> eigener unique Identifier beim Widget
 jedes Widgets bekommt seinen eigenen localStorage über window.name prefix
 
-\subsection{Api der Offline Services}
+\subsection{Umsetzung der Offline-Fähigkeiten}
 
+\subsubsection{Local Storage}\label{section:local_storage_api}
+Drop In Rest
+Benutzen von Services, Controller bekommen das nicht mit
 
-\subsection{Preloads der Widgets}
-Es ist notwendig, dass alle widgets, aller workspaces bei dem ersten aufruf geladen werden.
-Gründe:
+\subsubsection{Einschränkungen im Offline-Betrieb}
+Trotz der Offline Fähigkeiten des System stehen im Offline-Betrieb nicht alle Funktionalitäten zur Verfügung. Hauptaugenmerk wurde auf die Weiterbenutzbarkeit der Widgets im Offline-Modus gelegt. Im Folgenden sind einige Funktionen aufgelistet, welche während des Offline-Betriebes deaktiviert werden.
+\begin{itemize}
+ \item Hinzufügen, Bearbeiten und Löschen von Widgets
+ \item Hinzufügen, Bearbeiten und Löschen von Workspaces
+ \item Drag and Drop von Widgets
+ \item Anlegen und Bearbeiten von Todo-Listen im Todo-Widget
+ 
+\end{itemize}
+Die Funktionalitäten werden meist einfach ausgeblendet, sobald das System feststellt, dass es sich im Offline-Modus befindet.
+(TODO: Codebeispiel)
 
-    es müssen alle appcache dateien runtergeladen werden, ohne, dass man sich durch alle workspaces klickt,
-    das Dashboard benötigt die Infos aller Widgets zur Ausgabe
+\subsubsection{Preloads der Widgets}
+Plesynd muss den User in die Lage versetzen nach einmaligem Laden des Systems offline weiterzuarbeiten. Dies ist nur möglich, wenn alle Daten beim erstmaligen Aufruf geladen werden. Insbesondere gilt dies für die IFrames der Widgets. Es müssen die Appcache-Dateien der einzelnen Widgets geladen werden und das Dashboard benötigt die Infos der Widgets zur Ausgabe der zusammenfassenden Informationen direkt bei Systemstart. Der Nutzer soll sich nicht erst durch alle vorhandenen Workspaces bewegen müssen, um die Daten aller Widgets zu laden. Aus diesem Grund müssen die IFrames aller Widgets aller Workspaces bei dem ersten Aufruf im DOM vorhanden sein. Des weiteren dürfen die IFrames bei Wechsel zwischen den Workspaces nicht wieder aus dem DOM entfernt. Der Grund hierfür ist, dass bei Wechsel des Online-Status alle IFrames aktualisiert werden müssen und nicht nur diejenigen des aktuellen Workspaces.
 
-Wie kann dies umgesetzt werden?
-
-
-Ich habe keine Wahl als alle iframes immer zu laden und ihre sichtbarkeit zu ändern. Dies wird mir wahrscheinlich ziemlich Probleme mit dem drag and drop geben, aber es geht nicht anders.
-
-Insbesondere beim online/offline Wechsel müssen *alle* iframes aktualisiert werden. Durch den Workspace Wechsel ist es allerdings so, dass angular bei der container arbeitsweise, die iframes immer komplett aus dem dom entfernt. dies bringt dann natürlich gar nichts, da man sich dann immer durch alle Workspaces bewegen müsste
-
+Aus diesen Gründen wurden wurde entschieden alle IFrames bei Systemstart direkt zu laden und im DOM vorzuhalten. Es findet lediglich eine Filterung auf Basis des anzuzeigenden Workspace statt, welche der IFrames ausgegeben werden und welche ausgeblendet werden
+(TODO: Codebeispiel)
 
 \subsection{Widgets auf Hauptebene}
-
-Worskpace => Widget
-
-Eigentlich ist es so gedacht, dass nur die Hauptentities im LocalStorage gespeichert werden.
-Die Widgets würden dann in ihren Workspaces liegen. Das Storage/Resource System kann nur mit Hauptdatensätzen arbeiten, es ist nicht möglich aus einem Workspace ein Widget zu löschen. Der Workspace muss geholt werden, der Eintrag gelöscht werden und der Workspace muss wieder geschrieben werden
-Probleme:
-
-    Wie kann man local mit Subentities arbeiten, wenn man keinen direkten Zugriff auf sie hat, man muss immer über die Workspaces gehen
-    Als RestService wäre es kein Problem direkt Widgets zu löschen etc, aber dies geht nicht ohne weiteres im Local Storage
-    Der Local Storage muss aber geupdatet werden, damit das System auch offline die richtigen Daten hat
-    Bei angular Ressourcen kann es nur eine URL geben, dies macht den Rest Zugriff problematisch.
-
-Es gibt mehrere Möglichkeiten dieses Problem zu lösen.
-
+Die ursprüngliche Archtiektur von Plesynd sah vor, dass der Local Storage nur direkten Zugriff auf die Hauptdatensätze liefert. Dies dies hätte zur Folge, dass nur Workspaces direkt referenziert werden könnten. Der Zugriff auf die Widgets würde dann über ihre Workspaces erfolgen. Das Storage/Resource System kann jedoch nur mit Hauptdatensätzen arbeiten. Dieses Vorgehen hat jedoch einige Probleme und Fragen nach sich gezogen: 
 \begin{itemize}
- \item Umstellung auf eine andere Lösung zur lokalen Speicherung der Daten (z.B. IndexedDb)
- \item Erweiterung der Speicherung
-\end{itemize}
+ \item Wie kann man lokal mit Subdatensätzen arbeiten, wenn man keinen direkten Zugriff auf sie hat? Es ist nicht ohne weiteres möglich aus dem Local Storage eines Workspaces ein Widget zu löschen oder zu bearbeiten. Der Workspace müsste geholt, das Widget in dem Workspace gelöscht/bearbeitet und der Workspace wieder geschrieben werden. 
+ \item Als Rest Service wäre es kein Problem direkt Widgets zu löschen oder zu bearbeiten, aber dies geht nicht ohne weiteres im Local Storage. Der Local Storage muss aber geupdatet werden, damit das System auch offline mit den korrekten Daten arbeitet.
+\end{itemize} 
 
-    
-
-Ich arbeite jetzt so, dass die Widgets in ihrem eigenen Local Storage gespeichert werden. Sie werden dann für die Ausgabe je nach Workspace gefiltert
-
-
+Es gibt mehrere Möglichkeiten dieses Problem zu lösen:
+\begin{enumerate}
+ \item\label{enumerate:widgets_hauptebene_indexed_db} Umstellung auf eine andere Lösung zur lokalen Speicherung der Daten (z.B. IndexedDb)
+ \item\label{enumerate:widgets_hauptebene_erweiterung_local_storage} Erweiterung der Implementierung zur Speicherung der Daten im Local Storage, so dass auch Subeinträge gefunden und bearbeitet werden können.
+ \item\label{enumerate:widgets_auf_hauptebene} Speicherung der Subdatensätze auf der Hauptebene. Alle direkt über die REST-Schnittstelle ansprechbaren Resourcen werden auf der Hauptebene im Local Storage hinterlegt
+\end{enumerate}
+Punkt \ref{enumerate:widgets_hauptebene_1} sollte vermieden werden, da er eine grundsätzliche Änderung der Systemarchitektur nach sich gezogen hätte (TODO: ref auf Entscheidung für Local Storage). Punkt \ref{enumerate:widgets_hauptebene_erweiterung_local_storage} kam in die engere Betrachtung wurde jedoch verworfen, da er die Komplexität der Speicherung in den Local Storage beträchtlich erhöht hätte. Wie in \ref{section:unabhaengigkeit_offline_online} beschrieben, sollte es für die Implementierung der Logik unerheblich sein, ob das System zum Zeitpunkt einer Nutzeraktion online oder offline ist. Um dies mit Punkt \ref{enumerate:widgets_hauptebene_erweiterung_local_storage} zu erreichen, hätte die in \ref{section:local_storage_api} vorgestellte Vorgehensweise grundlegend geändert werden müssen. Aus diesen Gründen wurde Punkt \ref{enumerate:widgets_auf_hauptebene} umgesetzt. Jede REST-Resource wird direkt auf der Hauptebene abgelegt. Somit ergibt sich eine einfach 1:1 Abbildung der Resourcen auf den Local Storage. 
 
 \subsection{Probleme bei multiple Instanzen des selben Widgets}
-Es ist möglich, dass das selbe Widget mehrfach in einer Plesynd-Instanz verwendet wird. Beispielsweise könnte das TodoList-Widget auf mehreren Workspaces verwendet werden, um je nach Kontext unterschiedliche Todo-Listen zu verwalten. Es können hierbei jedoch Synchronisationsprobleme auftreten, wenn beide Widget-Instanzen offline auf der selben Datenbasis operieren. Der Grund dafür liegt darin, dass die POST-Methode nicht idempotent ist (siehe \ref{section:rest}). Da die unterschiedlichen Widget-Instanzen nicht in Kommunikation miteinander stehen bedeutet dies im Falle einer Synchronisierung, dass beide Instanzen lokal hinzugefügte Datensätze per POST an den Server schicken. Somit entstehen nicht gewollte Dopplungen der Datensätze. DELETE und PUT Aufrufe stellen für diesem Fall keine Probleme dar, da diese Methoden idempotent sind und ein doppelter DELETE Request an eine Resource keine negativen Auswirken hat. Dieses Problem wurde gelöst, in dem jede Widget-Instanz seinen eigenen Local-Storage zur Speicherung seiner Daten erhält. Der Name des Local Storage ergibt sich aus dem internen Namen des Widgets (beispielsweise todo) konkateniert mit dem Namen des IFrames in dem das Widge aufgerufen wird.
+Es ist möglich, dass das selbe Widget mehrfach in einer Plesynd-Instanz verwendet wird. Beispielsweise könnte das TodoList-Widget auf mehreren Workspaces verwendet werden, um je nach Kontext unterschiedliche Todo-Listen zu verwalten. Es können hierbei jedoch Synchronisationsprobleme auftreten, wenn beide Widget-Instanzen offline auf der selben Datenbasis operieren. Der Grund dafür liegt darin, dass die POST-Methode nicht idempotent ist (siehe \ref{section:rest}). Da die unterschiedlichen Widget-Instanzen nicht in Kommunikation miteinander stehen bedeutet dies im Falle einer Synchronisierung, dass beide Instanzen lokal hinzugefügte Datensätze per POST an den Server schicken. Somit entstehen nicht gewollte Dopplungen der Datensätze. DELETE und PUT Aufrufe stellen für diesem Fall keine Probleme dar, da diese Methoden idempotent sind und ein doppelter DELETE Request an eine Resource keine negativen Auswirken hat. Dieses Problem wurde gelöst, in dem jede Widget-Instanz seinen eigenen Local-Storage zur Speicherung seiner Daten erhält. Der Name des Local Storage ergibt sich aus dem internen Namen des Widgets (beispielsweise todo) konkateniert mit dem Namen des IFrames in dem das Widge aufgerufen wird. Der Name des IFrames ergibt sich aus der ID, welche Wookie für jedes Widgets erstellt. Diese ID ist einzigartig und verändert sich auch bei wiederholtem Aufrufen nicht. Somit ist sichergestellt, dass jedes Widget einen festen Local Storage erhält.
 
-Es ist natürlich möglich, dass unterschiedliche Widget-Instanzen zwar unterschiedlichen Local Storage benutzen, jedoch auf der selben Datenbasis arbeiten (beispielsweise die selben Todo-Listen verwenden). Da momentan noch keine Inter-Widget Kommunikation stattfindet kann es hierbei zu Problemen kommen, wenn im Offline Betrieb beispielsweise ein Datensatz in einer Instanz gelöscht wird, während er in einer anderen bearbeitet wurde. Dieses Problem wurde im Rahmen dieser Arbeit nicht bearbeitet und sollte eventuell in Folgearbeiten gelöst werden.
+Es ist natürlich möglich, dass unterschiedliche Widget-Instanzen zwar unterschiedlichen Local Storage benutzen, jedoch auf der selben Datenbasis arbeiten (beispielsweise die selben Todo-Listen verwenden). Da momentan noch keine Inter-Widget Kommunikation stattfindet kann es hierbei zu Problemen kommen, wenn im Offline Betrieb beispielsweise ein Datensatz in einer Instanz gelöscht wird, während er in einer anderen bearbeitet wurde. Dieses Problem wurde im Rahmen dieser Arbeit nicht bearbeitet und sollte eventuell in Folgearbeiten bearbeitet werden.
+
+\subsection{Drag'n Drop}
+Zur Umsetzung des Drag and Drop Funktionalität zum Sortieren der Widgets auf einem Workspace wurde das \href{http://jqueryui.com/sortable/}{Sortable Widget}\footnote{\url{http://jqueryui.com/sortable/}} der \href{http://jqueryui.com}{JqueryUi-Bibliothek}\footnote{\url{http://jqueryui.com}} verwendet. Diese wurde in einer eigenen AngularJS-Direktive gekapselt, so dass das JqueryUi-Widget in der bestehenden Architektur verwendet werden konnte. Die Direktive verwendet den Widget-Service(TODO: Ref), um die neue Position der Widgets dem Server mitzuteilen und den OnlineStatus-Service (TODO:ref), um die Drag and Drop Funktionalität im Offline-Modus zu deaktivieren
+
+(TODO: Codebeispiel)
 
 \subsection{Cors}
 
 Beschreiben wie Cors umgesetzt, Das NelmioCorsBundle\ref{section:third_party_bundles} wird auf Serverseite eingesetzt um die Arbeit mit Cors zu erleichtern. Es ermöglicht die erlaubten Header über Config Einstellungen (TODO: beispiel) zu definieren und 
 
-\subsection{Kommunikation der IFrames}
-
+\subsection{Kommunikation zwischen den IFrames}
+(TODO: Bib: https://developer.mozilla.org/en-US/docs/DOM/window.postMessage)
 Postmessage: 
 
 
