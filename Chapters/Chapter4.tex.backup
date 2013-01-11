@@ -1,22 +1,64 @@
-\chapter{Übersicht Stand der Forschung} 
+\chapter{Übersicht Stand der Forschung/Technik} 
 \label{Kapitel 4}
 \lhead{Kapitel 4. \emph{Übersicht Stand der Forschung}} 
 Darstellung existierender Anstze (ggf. Klassifikation dieser Ansätze)
 Analyse der Anstze in Bezug auf die Anforderungen
 Zusammenfassung der Defizite des Stands der Forschung
 
-Offline Apps,
-Widgets,
-unterschiedliche Formate,
-,
+E-Learning E-Learning 1.0 - 2.0 
+von kurs zentriert zu user zentriert
+
+E-learning is a technological infrastructure with applications and software that manage courses
+and users. The software that facilitates e-learning may be called a Learning Management System (LMS) and supports course creation, content delivery, user registration, monitoring, and certification.
+
+Gonella and Panto (2008), in their paper on didactic architectures, have traced the following four
+stages in the evolution of e-learning:
+1. Web-based Training 2. E-learning 1.0 3. Online Education 4. E-learning 2.0
+
+
+\section{PLE}
+
+\subsection{Definition einer PLE}
+Was ist eine PLE? Worin unterscheidet sie sich von anderen Lernumgebungen? Welche Ansätze gibt es? 
+
+\subsection{Klassifizierungsmethoden}
+Es existieren zwei wichtige Ansätze um Funktionalitäten von PLEs auf unterschiedliche Klassen abzubilden. Zum einen gibt es den Versuch von Palmér Dimensionen zu definieren und die Funktionalitäten von PLEs diesen Dimensionen zuzuordnen TODO cite und zum anderen gibt es Wilson. Diese beiden Ansätze werden im Folgenden vorgestellt .
+
+\subsubsection{Dimensionen nach Palmér} 
+Palmér definiert sechs Dimensionen mit denen er so viele relevanten Funktionalitäten von PLEs wie möglich erfassen möchte. Trotz dessen sollen diese Dimensionen relativ unabhängig voneinander sein, so dass es möglich ist das unterschiedliche Plattformen einige Dimensionen mehr und andere weniger berücksichtigen und implementieren. (TODO Grafik der Dimensionen). Eine PLE kann dann Anhand des Grades ihrer Implementierung der einzelnen Dimensionen kategorisiert und bewertet werden.
+\begin{enumerate}
+ \item \emph{Screen-Dimension}: Die Screen-Dimension befasst sich mit Aspekten, welche die Darstellungsebene von PLEs definieren. Hierzu zählt Palmér insbesondere das User-Interface und die Usability des PLE-Containers (wie sind die Widgets angeordnet, wie können neue Widgets gesucht und hinzugefügt werden, wie einfach kann sich der Nutzer im System bewegen etc), welcher als Einstiegspunkt in die Systembedienung dient und das User-Interface der einzelnen Widgets. Es gehören aber auch Funktionalitäten wie die Möglichkeit Inhalte und Ressourcen mit anderen Nutzern zu teilen und die Integration der selben Widgets in unterschiedlichen PLE-Containern zu der Screen-Dimension.
+ \item \emph{Data-Dimension}: Mit der Data-Dimension beschreibt Palmér Funktionalitäten, die für die Portabilität der verwendeten Daten innerhalb einer PLE notwendig sind. Idealerweise sollen Widgets in der Lage sein untereinander und mit dem PLE-Container zu kommunizieren. Sie sollen Daten austauschen können und sich so weit wie möglich über ihre Zustände informieren. Des Weiteren soll es möglich sein die Daten der Widgets zu exportieren und sie an anderer Stelle oder in einem anderen PLE-Container wieder zu importieren und weiterzuverwenden.
+ \item \emph{Social-Dimension}: Ein wesentlicher Bestandteil des Web 2.0 ist die Vernetzung von Freunden und Menschen mit ähnlichen Interessen untereinander. Dem trägt Palmér mit der Social-Dimension Rechnung. Diese Dimension gibt an, wie sehr eine PLE Funktionalitäten sozialer Netzwerke wie Freundeslisten integriert und Möglichkeitkeiten bietet den Zugriff auf geteilte Ressourcen auf bestimmte Typen von Freunden einzuschränken. Palmér zählt aber auch die Möglichkeit zur Erstellung von eigenen offenen oder geschlossenen Lerngruppen zu Funktionalitäten, die in diese Dimension fallen.
+ \item \emph{Temporal-Dimension}:
+
+ \item \emph{Activity-Dimension}: Die Activity-Dimension beschreibt die Möglichkeit Abläufe und Workflows innerhalb einer PLE aktiv zu gestalten. Hierzu gehören unterer anderem einfache Dinge wie Anleitungen als Hilfestellung für den Nutzer zur Bewegung innerhalb der PLE. Besonderen Wert legt Palmér aber auf die Abbildung von Lernsequenzen innerhalb der PLE. So können bestimmte Widgets auf bestimmte Ereignisse reagieren oder sich selbst aktivieren oder deaktivieren. Des Weiteren können unterschiedlichste Konzepte aus dem Bereich des E-Learnings (IMS Learning Desing (TODO cite) oder Learning Object Metadata (LOM)) in den Widgets oder dem PLE-Container selber implementiert werden.
+ \item \emph{Runtime-Dimension}: Die Runtime-Dimension befasst sich mit Funktionalitäten, die die Interoperabilität zwischen PLE-Systemen und Komponenten. Nach Palmér werden Nutzer in der Zukunft nicht nur eine PLE benutzen, sondern je nach Bedürfnis oder Anwendungsfall zwischen ihnen hin und herwerchseln. Hierfür sollte es möglich sein Importe und Exporte für Inhalte und Einstellungen sowohl der einzelnen Widgets als auch des PLE-Containers vorzunehmen. Damit eine Interoperabilität
+ zwischen PLEs möglich wird, ist es notwendig, dass Standards geschaffen werden, welche von den unterschiedlichen PLEs anerkannt und implementiert werden. Zusätzlich gehört für Palmér auch die Möglichkeit der Einbettung und Kommunikation von PLEs in und mit größeren Systemen zu dieser Dimension.
+\end{enumerate}
+
+
+\subsubsection{Wilson Patterns}
+
+
+
+
+\section{Widgets}
+Widgets
+Opensocial vs W3C
+warum w3c widgets, opensocial wird nicht weiterentwickelt etc, Apache Shindig Problematishc
+W3C Widgets haben keine gesonderte Definition für HTML5 Appcache,
+unterschiedliche Formate
+
+Wookie während der Entwicklung vom Incubator zum vollwertigen Apache Projekt
 
 
 \subsection{CORS}\label{section:cors}
-Moderne Browser benutzen als Teil ihres Sicherheitskonzeptes die Same-Origin-Policy. Diese bewirkt, dass es Sprachen, die auf Clientseite ausgeführt werden (wie JavaScript) nicht erlaubt ist, Request an einen anderen Zielpunkt als ihrem Ursprung zu starten\cite{same_origin_policy_mozilla}. Diese Policy wird also lediglich bei Zugriff auf URLs mit der selben Domain und dem selben Port, wie die URL von der die Seite geladen wurde, erfüllt. Das bedeutet, dass ein Skript auf \texttt{http://sop.example.com/directory1} Requests an \texttt{http://sop.example.com/directory2} starten kann, nicht jedoch an \texttt{http://example.com/directory2} (unterschiedliche Domain) oder an \texttt{http://sop.example.com:8080/directory2} (unterschiedlicher Port). Ausgenommen sind hierbei das in eine Seite eingebettete Laden von Resourcen. Hierzu gehören externe Inhalte, die über iFrames geladen werden aber auch externe JavaScript-Dateien(über <script>...</script> Tags) und Medienresourcen wie Bilder und Videos. Des Weiteren ist es auch möglich Formulare an andere Zielpunkte als den Ursprung abzuschicken. Diese Einschränkung also primär Auswirkungen auf das Absenden von XMLHttpRequest, also auf normale Ajax-Requests. 
+Moderne Browser benutzen als Teil ihres Sicherheitskonzeptes die Same-Origin-Policy. Diese bewirkt, dass Sprachen, die auf Clientseite ausgeführt werden (wie JavaScript), nicht die Möglichkeit haben, Request an einen anderen Zielpunkt als ihrem Ursprung zu starten\cite{same_origin_policy_mozilla}. Diese Policy wird also lediglich bei Zugriff auf URLs mit der selben Domain und dem selben Port, wie die URL von der die Seite geladen wurde, erfüllt. Das bedeutet, dass ein Skript auf \texttt{http://sop.example.com/directory1} Requests an \texttt{http://sop.example.com/directory2} starten kann, nicht jedoch an \texttt{http://example.com/directory2} (unterschiedliche Domain) oder an \texttt{http://sop.example.com:8080/directory2} (unterschiedlicher Port). Ausgenommen ist hierbei das in eine Seite eingebettete Laden von Resourcen. Hierzu gehören externe Inhalte, die über iFrames geladen werden aber auch externe JavaScript-Dateien(über <script>...</script> Tags) und Medienresourcen wie Bilder und Videos. Des Weiteren ist es auch möglich Formulare an andere Zielpunkte als den Ursprung abzuschicken. Diese Einschränkung hat also primär Auswirkungen auf das Absenden von XMLHttpRequest, also auf normale Ajax-Requests. 
 
-Dies Einschränkung ist sehr sinnvoll um beispielsweise das Ausspähen privater Daten zu verhindern. Sie erschwert jedoch die Entwicklung moderner Ajax-Anwendungen und insbesondere die Entwicklung von Mashup-Applikationen wie PLEs, welche von prinzipiell schon so aufgebaut, dass sie ihre Inhalte und Resourcen aus unterschiedlichen Quellen beziehen. In einer PLE wie in dieser Arbeit beschrieben, ist es beispielsweise so, dass das Widget (siehe \ref{section:widgets}) selber von einem Widget-Container wie Wookie (siehe \ref{section:apache_wookie}) ausgeliefert werden, also die Domain des Widget Containers als Origin besitzen. Arbeiten diese Widgets nun aber nicht nur lokal beim Client, sondern benötigen für ihre Funktionalität auch einen externen Server, so müssen sie in der Lage sein XMLHttpRequests an diesen zu senden. Aus diesem Grund wurde der Mechanismus des Cross-Origin Resource Sharing\cite{cors_w3c} eingeführt. Dieser erlaubt es unter bestimmten Bedingungen und Einschränkungen die Same-Origin-Policy zum umgehen.
+Die Same-Origin-Policy ist sehr sinnvoll um beispielsweise das Ausspähen privater Daten zu verhindern. Sie erschwert jedoch die Entwicklung moderner Ajax-Anwendungen und insbesondere die Entwicklung von Mashup-Applikationen wie PLEs, welche prinzipiell schon so aufgebaut sind, dass sie ihre Inhalte und Resourcen aus unterschiedlichen Quellen beziehen. In einer PLE wie in dieser Arbeit beschrieben, ist es beispielsweise so, dass die Widgets (siehe \ref{section:widgets}) selber von einem Widget-Container wie Wookie (siehe \ref{section:apache_wookie}) ausgeliefert werden und dadurch auch die Domain des Widget Containers als Origin besitzen. Arbeiten diese Widgets nun aber nicht nur lokal beim Client, sondern benötigen für ihre Funktionalität auch externe Server, so müssen sie in der Lage sein XMLHttpRequests an diese zu senden. Aus diesem Grund wurde der Mechanismus des Cross-Origin Resource Sharing (CORS)\cite{cors_w3c} eingeführt. Dieser erlaubt es unter bestimmten Bedingungen und Einschränkungen die Same-Origin-Policy zum umgehen.
 
-Ein einfacher Cors-Request vom Client zum Server sieht wie folgt aus (Workflow analog zu \cite{cors_html5rocks}):
+Ein einfacher CORS-Request vom Client zum Server sieht wie folgt aus (Workflow analog zu \cite{cors_html5rocks}):
 
 Der Client sendet eine Cross-Origin-Anfrage mit einem Origin Header an den Server:
 \begin{lstlisting}
@@ -35,11 +77,11 @@ Access-Control-Allow-Credentials: true
 Access-Control-Expose-Headers: FooBar
 Content-Type: text/html; charset=utf-8
 \end{lstlisting}
-Alle für den CORS-Request relevanten Header beginnen mit Access-Control. \texttt{Access-Control-Allow-Origin} bedeutet, dass der Server eine Cross-Origin-Anfrage von dem angegebenen Origin erlaubt, \texttt{Access-Control-Allow-Credentials: true} besagt, dass auch Cookies dieses Requests beachtet werden. Möchte der Client Zugriff auf Nicht-Standard-Header aus der Antwort des Servers, müssen diese in \texttt{Access-Control-Expose-Headers} angegeben werden.
+Alle für den CORS-Request relevanten Header beginnen mit Access-Control. \texttt{Access-Control-Allow-Origin} bedeutet, dass der Server eine Cross-Origin-Anfrage von dem angegebenen Origin erlaubt, \texttt{Access-Control-Allow-Credentials: true} besagt, dass in diesem Request auch Cookies erlaubt sind. Möchte der Client Zugriff auf Nicht-Standard-Header aus der Antwort des Servers, müssen diese in \texttt{Access-Control-Expose-Headers} angegeben werden.
 
 Sollte der Client einen Request mit einer anderen Methode als \texttt{GET} oder \texttt{POST} (siehe \ref{REST} senden, reicht dieser einfache Workflow nicht aus. In diesem Fall muss vor der eigentlichen Anfrage ein so genannter "`Preflight-Request"' ablaufen, welcher verifiziert, dass der Server diese Methode als CORS-Request erlaubt.
 
-Zuerst wird vom Client eine Anfrage mit der \texttt{OPTIONS}-Methode durchgeführt, in welcher Angegeben, wird mit welcher Methode der eigentlich Request ablaufen soll:
+Zuerst wird vom Client eine Anfrage mit der \texttt{OPTIONS}-Methode durchgeführt, welche den folgenden Request authentifizieren soll:
 \begin{lstlisting}
 OPTIONS /cors HTTP/1.1
 Origin: http://api.bob.com
@@ -50,19 +92,29 @@ Accept-Language: en-US
 Connection: keep-alive
 User-Agent: Mozilla/5.0...
 \end{lstlisting}
+\texttt{Access-Control-Request-Method} gibt hierbei an, welche Methode genutzt werden soll, \texttt{Access-Control-Request-Headers} informiert den Server über zusätzlich zu erwartende Header. 
+
+Der Server antwortet beispielsweise mit:
+\begin{lstlisting}
+Access-Control-Allow-Origin: http://api.bob.com
+Access-Control-Allow-Methods: GET, POST, PUT
+Access-Control-Allow-Headers: X-Custom-Header
+Content-Type: text/html; charset=utf-8
+\end{lstlisting}
+Der Preflight-Request ist nur erfolgreich, wenn die Methode aus \texttt{Access-Control-Request-Method} in \texttt{Access-Control-Allow-Methods} und alle Header aus \texttt{Access-Control-Request-Headers} in \texttt{Access-Control-Allow-Headers} vorhanden sind.
 
 \subsection{HTML5}\label{section:html5}
-neuerungen HTML5
-Appcache HTML5
+neuerungen HTML5, nicht nur eine Technologie, Zusammenfassung mehrerer Technologien, CSS 3 unterschiedliche JavaScript Apis (local storage, appcache) drag and Drop
 
-Opensocial vs W3C
-warum w3c widgets, opensocial wird nicht weiterentwickelt etc, Apache Shindig Problematishc
-W3C Widgets haben keine gesonderte Definition für HTML5 Appcache
+\subsubsection{Appcache}\label{section:appcache}
+Eine wichtige Neuerung in Html
+
+\subsubsection{Local Storage}\label{section:local_storage}
+Local Storage
+
 
 \subsection{REST}\label{section:rest}
 Rest
-
-
 
 
 \subsubsection{Widgetparameter}

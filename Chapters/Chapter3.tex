@@ -1,42 +1,45 @@
 \chapter{Anforderungsanalyse} 
 \label{Kapitel 3}
 \lhead{Kapitel 3. \emph{Anforderungsanalyse}}  
-Detaillierte Untersuchung des Problembereichs
-Theoretische oder praktische Herleitung der Anforderungen
-Zusammenfassung der Anforderungen (bspw. als Tabelle)
+
+Das Ziel der vorliegenden Arbeit ist die Planung und Implementierung einer leichtgewichtigen Personal-Learning-Environment. Die Anforderungen an das System lassen sich aus dem in dem nächsten Abschnitt vorgestellten Use-Case ableiten, welcher die Arbeit mit dem System verdeutlichen soll.
 
 \section{Use Case}
-Der folgende Use-Case soll am Ende der Masterarbeit idealerweise abgedeckt werden:
+Der folgende Use-Case soll durch das zu entwickelnde System idealerweise abgedeckt werden:
 
 \subsection{Ziel}
-Betreuung eines Studienkurses über das Internet
+Das Ziel ist die Möglichkeit der Betreuung eines Studienkurses über das Internet. Es soll hierbei irrelevant sein, ob Studenten und Kursbetreuer sich in dem gleichen geografischen Gebiet aufhalten oder zur gleichen Zeit Zugriff auf das System habe.
 
 \subsection{Voraussetzungen}
-Kursbetreuer/Mentor sitzt in Deutschland, die Studenten in Kamerun. Es steht dort nicht immer ein
-Internetzugang zur Verfügung. Des weiteren wird oft nach Zeit und nicht nach Volumen
-abgerechnet, so dass der Nutzer auch bei dem Vorhandensein eines Internetzugangs nicht zwingend
-online sein muss. Durch die Arbeit an unterschiedlichen Rechnern mit potentiell unterschiedlichen
-Betriebssystemen, ist die Installation einer komplexen Software nicht ohne Weiteres möglich.
-Workflow:
-Betreuer und Studenten stehen über unterschiedliche Kanäle in Kommunikation miteinander. Es
-müssen Termine geplant, Notizen und Nachrichten hin und hergeschickt werden. Dabei sind die
-Teilnehmer zu unterschiedlichen Zeiten online. Die Teilnehmer sollen das System offline Nutzen
-können, um einfache Arbeiten wie das Schreiben von Twitter-Nachrichten, Notizen und Instant-
-Messaging Nachrichten oder eine Terminabsprache über einen Kalender erledigen können. Bei dem
-Wechsel zwischen Online und Offline müssen die Daten synchronisiert werden. Idealerweise haben
-die Nutzer alle Daten auf einem USB-Stick bei sich und können so von unterschiedlichsten
-Rechnern, wie beispielsweise in der Universität, im Internetcafe oder zu von Hause aus, arbeiten.
-Konzeption:
-Die Arbeit wird sich in die folgenden zwei Bereiche aufteilen:
-\begin{enumerate}
+Der Kursbetreuer oder Mentor des Kurses hat seinen Sitz in Deutschland. Die Studenten befinden sich größtenteils in Kamerun. Dort steht nicht zu jeder Zeit ein Internetzugang zur Verfügung. Des weiteren rechnen die Internetprovider oft nach Zeit und nicht nach Volumen ab, so dass der Nutzer auch bei dem Vorhandensein eines Internetzugangs nicht zwingend online sein muss. Für viele Studenten ist es die Regel, dass sie ihre Kursarbeit an unterschiedlichen Computern verrichten. Bei einem Teil der Rechner steht ihne ein Internetzugang zur Verfügung (beispielsweise in der Universität oder in einem Internetcafe) und für den restlichen Teil ist dies nicht der Fall (beispielsweise zu Hause). Durch die Arbeit an unterschiedlichen Rechnern mit potentiell unterschiedlichen Betriebssystemen, ist die Installation einer komplexen Software nicht ohne Weiteres möglich.
 
-\item Konzeption, Design und Implementierung eines leichtgewichtigen auf Html5 und Javascript
-basierenden Dashboards.
+\subsection{Workflow}
+Betreuer und Studenten stehen über unterschiedliche Kanäle in Kommunikation miteinander. Es müssen Termine geplant oder auch Notizen und Nachrichten hin und hergeschickt werden. Diese Kanäle sollen auf einem zentralen Zugang so zusammengefasst sein, dass es den Teilnehmern des Kurse alle relevanten Informationen an einer aufrufen und bearbeiten zu können. Dabei sind die Teilnehmer zu unterschiedlichen Zeiten online. Die Teilnehmer Die Teilnehmer sollen das System offline Nutzen können, um einfache Arbeiten wie das Schreiben von Twitter-Nachrichten, Notizen und Instant- Messaging Nachrichten oder eine Terminabsprache über einen Kalender erledigen können. Bei dem Wechsel zwischen Online und Offline müssen die Daten synchronisiert werden. Idealerweise haben die Nutzer alle Daten auf einem USB-Stick bei sich und können so von unterschiedlichsten Rechnern, wie beispielsweise in der Universität, im Internetcafe oder zu von Hause aus, arbeiten.
 
-\item Konzeption und prototypische Implementierung eines oder mehrerer Workflows, die es
-erlauben mit den Widgets zu kommunizieren und zumindest Teile der Services zu nutzen,
-auch wenn das System (also der Browser) offline ist. Wird die Internetverbindung
-wiederhergestellt sollen vorgenommene Änderungen und Arbeiten mit dem Onlineservice
-synchronisiert werden.
+\section{Anforderungen}
+Aus dem beschriebenen Use-Case lassen sich mehrere Anforderungen an das zu entwickelnde System ableiten. Es soll in der Lage sein als Aggregator für die unterschiedlichsten Services und Kanäle zu dienen. Es muss möglich sein auf die wichtigsten Informationen an einem zentralen Platz zuzugreifen und diese auch zu bearbeiten (1). Dadurch, dass die Teilnehmer an unterschiedlichen Rechnern arbeiten, welche zum Teil nicht in ihrem persönlichen Besitz sind, ist es für sie nicht oder nur sehr schwer möglich eine neue Software zu installieren. Aus diesem Grund soll das System mit nativen Browsertechnologien ohne weitere Installation nutzbar sein (2). Das System muss in der Lage die wichtigsten Funktionalitäten auch dann zu Verfügung zu stellen, wenn es keinen Kontakt zu dem Internet hat (3). Des Weiteren soll es in der Lage sein bei einer Wiederaufnahme der Verbindung die durchgeführten Aktionen mit dem jeweiligen Service zu synchronisieren (4). Dies gilt insbesondere für die Arbeit mit unterschiedlichen Rechnern. Der Nutzer soll sein System an einem Computer mit dem Internet synchronisieren können und dann an einem anderen Rechner offline weiterarbeiten können. Es ist also notwendig, dass es dem Nutzer ermöglicht wird die Daten mitzunehmen (beispielsweise per USB-Stick) und an anderer Stelle weiterzuverwenden (5). 
 
-\end{enumerate}
+Neben diesen funktionalen Anforderungen gibt es noch weitere Anforderungen, welche das System erfüllen soll. In dieser Arbeit kann nur eine prototypische Implementierungder Anforderungen erfolgen. Das System soll also als Basis für weitere Entwicklungen und Forschungsarbeiten dienen und einfach erweitert und verändert werden können (6). Es soll auch möglich sein auf Basis einer vorgegebenen Implementierung oder API weitere Services oder Kanäle in das System zu laden und es so beständig in seiner Funktionalität zu erweitern (7). Schließlich wird die Software in unterschi Bereichen, insbesondere in einem universitären Umfeld eingesetzt. Dies verlangt eine Nutzbarkeit ohne Lizengebühren für die genutzten Technologien. Daraus folgt, dass für die Umsetzun keine proprietären, sondern nur freie Technologien verwendet werden dürfen (8). 
+
+\begin{table}[h]
+\caption{Anforderungen}
+\begin{tabular}{c || l}
+1 & Informationsaggregator \\
+\hline
+2 & ohne Installationsaufwand lauffähig  in aktuellen Browsern \\
+\hline
+3 & Möglichkeit des Weiterarbeitens, wenn offline \\
+\hline
+4 & Synchronisierung der vorgenommen Änderungen, wenn wieder online \\
+\hline
+5 & Daten können zwischen unterschiedlichen Rechnern offline ausgetauscht werden \\
+\hline
+6 & kann als Basis für weitere Entwicklungen dienen\\
+\hline
+7 & neue Services und Kanäle sollen sich einfach in das System integrieren lassen  \\
+\hline
+8 & ausschließliche Verwendung freier Technologien \\
+\hline
+\end{tabular}
+\label{table:anforderungen}
+\end{table}

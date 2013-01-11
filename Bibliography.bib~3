@@ -64,15 +64,15 @@
 
 @misc{same_origin_policy_mozilla,
 	author = "Ruderman, Jesse",
-	howpublished = "CTAN: \url{https://developer.mozilla.org/en-US/docs/JavaScript/Same\_origin\_policy\_for\_JavaScript}",
-	month = jan,
+	howpublished = "CTAN: \url{https://developer.mozilla.org/en-US/docs/JavaScript/Same\_origin\_policy\_for\_JavaScript} Datum: 08.01.2013",
+	month = dez,
 	title = "{Same-Origin-Policy}",
-	year = "2013"
+	year = "2012"
 }
 
 @misc{cors_w3c,
 	author = "van Kesteren, Anne",
-	howpublished = "CTAN: \url{http://www.w3.org/TR/cors/}",
+	howpublished = "CTAN: \url{http://www.w3.org/TR/cors/} Datum: 08.01.2013",
 	month = apr,
 	title = "{Cross-Origin Resource Sharing}",
 	year = "2012"
