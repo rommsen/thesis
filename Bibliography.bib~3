@@ -64,7 +64,7 @@
 
 @misc{same_origin_policy_mozilla,
 	author = "Ruderman, Jesse",
-	howpublished = "CTAN: \url{https://developer.mozilla.org/en-US/docs/JavaScript/Same\_origin\_policy\_for\_JavaScript} Datum: 08.01.2013",
+	howpublished = "\url{https://developer.mozilla.org/en-US/docs/JavaScript/Same\_origin\_policy\_for\_JavaScript} Abrufdatum: 08.01.2013",
 	month = dez,
 	title = "{Same-Origin-Policy}",
 	year = "2012"

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.3.12)  11 JAN 2013 17:56
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.3.12)  16 JAN 2013 18:42
 entering extended mode
  %&-line parsing enabled.
 **Thesis.tex
@@ -813,11 +813,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--72
 (./Thesis.toc [5
 
 
-])
+] [6])
 \tf@toc=\write4
 \openout4 = `Thesis.toc'.
 
- [6]
+ [7]
 ------------------------------------------------------------------------------
  List of Figures
 ------------------------------------------------------------------------------
@@ -825,7 +825,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--72
 \tf@lof=\write5
 \openout5 = `Thesis.lof'.
 
- [7
+ [8
 
 
 ]
@@ -836,20 +836,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--72
 \tf@lot=\write6
 \openout6 = `Thesis.lot'.
 
- [8
+ [9
 
 
 ]
 ------------------------------------------------------------------------------
  Abbreviations
-------------------------------------------------------------------------------
-[9
-
-
-
-]
-------------------------------------------------------------------------------
- Physical Constants
 ------------------------------------------------------------------------------
 [10
 
@@ -857,7 +849,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--72
 
 ]
 ------------------------------------------------------------------------------
- Symbols
+ Physical Constants
 ------------------------------------------------------------------------------
 [11
 
@@ -865,9 +857,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--72
 
 ]
 ------------------------------------------------------------------------------
- Dedicatory
+ Symbols
 ------------------------------------------------------------------------------
 [12
+
+
+
+]
+------------------------------------------------------------------------------
+ Dedicatory
+------------------------------------------------------------------------------
+[13
 
 ] (./Chapters/Chapter1b.tex
 Kapitel 1.
@@ -897,60 +897,65 @@ Kapitel 4.
 ------------------------------------------------------------------------------
  4 \IeC {\"U}bersicht Stand der Forschung/Technik
 ------------------------------------------------------------------------------
+
+Overfull \hbox (5.26561pt too wide) in paragraph at lines 4--7
+\OT1/cmr/m/n/10.95 Darstellung exis-tie-ren-der Ans[]atze (ggf. Klas-si-fi-ka-t
+i-on die-ser Ans[]atze) Ana-ly-se der Ans[]atze
+ []
+
 [6
 
-] [7]
-Overfull \hbox (78.95486pt too wide) in paragraph at lines 57--58
+] [7] [8] [9] [10]
+Overfull \hbox (78.95486pt too wide) in paragraph at lines 76--77
 \OT1/cmtt/m/n/10.95 http://sop.example.com/directory2 \OT1/cmr/m/n/10.95 star-t
 en kann, nicht je-doch an \OT1/cmtt/m/n/10.95 http://example.com/directory2
  []
 
-[8]
 
-LaTeX Warning: Reference `section:widgets' on page 9 undefined on input line 59
-.
+LaTeX Warning: Reference `section:widgets' on page 11 undefined on input line 7
+8.
 
-[9]
-Overfull \hbox (98.18666pt too wide) in paragraph at lines 80--81
+[11]
+Overfull \hbox (98.18666pt too wide) in paragraph at lines 99--100
 \OT1/cmr/m/n/10.95 Alle f[]ur den CORS-Request re-le-van-ten Hea-der be-gin-nen
  mit Access-Control. \OT1/cmtt/m/n/10.95 Access-Control-Allow-Origin
  []
 
 
-Overfull \hbox (1.8818pt too wide) in paragraph at lines 80--81
+Overfull \hbox (1.8818pt too wide) in paragraph at lines 99--100
 \OT1/cmr/m/n/10.95 laubt, \OT1/cmtt/m/n/10.95 Access-Control-Allow-Credentials:
  true \OT1/cmr/m/n/10.95 be-sagt, dass in die-sem Re-quest auch
  []
 
 
-LaTeX Warning: Reference `REST' on page 10 undefined on input line 82.
+LaTeX Warning: Reference `REST' on page 12 undefined on input line 101.
 
-
-Overfull \hbox (48.41872pt too wide) in paragraph at lines 104--105
+[12]
+Overfull \hbox (48.41872pt too wide) in paragraph at lines 123--124
 \OT1/cmr/m/n/10.95 Der Preflight-Request ist nur er-folg-reich, wenn die Me-tho
 -de aus \OT1/cmtt/m/n/10.95 Access-Control-Request-Method
  []
 
 
-Overfull \hbox (24.02136pt too wide) in paragraph at lines 104--105
+Overfull \hbox (24.02136pt too wide) in paragraph at lines 123--124
 \OT1/cmr/m/n/10.95 in \OT1/cmtt/m/n/10.95 Access-Control-Allow-Methods \OT1/cmr
 /m/n/10.95 und al-le Hea-der aus \OT1/cmtt/m/n/10.95 Access-Control-Request-Hea
 ders
  []
 
-[10]) (./Chapters/Chapter5.tex [11]
+[13]) (./Chapters/Chapter5.tex [14]
 Kapitel 5.
 ------------------------------------------------------------------------------
  5 L\IeC {\"o}sungsansatz
 ------------------------------------------------------------------------------
-) (./Chapters/Chapter6.tex [12
+) (./Chapters/Chapter6.tex [15
 
 ]
 Kapitel 6.
 ------------------------------------------------------------------------------
  6 Details zur L\IeC {\"o}sung
 ------------------------------------------------------------------------------
-[13
+[16
 
 ]
 Overfull \hbox (43.27928pt too wide) in paragraph at lines 26--27
@@ -964,25 +969,25 @@ Overfull \hbox (0.6666pt too wide) in paragraph at lines 26--27
 on-de-re zur Ma-ni-pu-la-ti-on des DOM.
  []
 
-[14] [15]
+[17] [18]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 54.
  (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 54.
- [16]
+ [19]
 
-LaTeX Warning: Reference `enumerate:widgets_hauptebene_1' on page 17 undefined 
+LaTeX Warning: Reference `enumerate:widgets_hauptebene_1' on page 20 undefined 
 on input line 82.
 
-[17] [18]
+[20] [21]
 Overfull \hbox (16.69864pt too wide) in paragraph at lines 99--101
 \OT1/cmr/m/n/10.95 (TODO: Bib: https://developer.mozilla.org/en-US/docs/DOM/win
 dow.postMessage) Post-
  []
 
-) (./Chapters/Chapter7.tex [19]
+) (./Chapters/Chapter7.tex [22]
 Kapitel 7.
 ------------------------------------------------------------------------------
  7 Zusammenfassung/Ausblick
@@ -991,14 +996,14 @@ Kapitel 7.
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 9.
 
-) (./Appendices/AppendixA.tex [20
+) (./Appendices/AppendixA.tex [23
 
 ]
 Anhang A.
 ------------------------------------------------------------------------------
  A Installation/Deployment
 ------------------------------------------------------------------------------
-) [21
+) [24
 
 ]
 ------------------------------------------------------------------------------
@@ -1016,7 +1021,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--14
 _ JavaScript$[][] \OT1/cmr/m/n/10.95 Ab-ruf-da-tum:
  []
 
-) [22
+) [25
 
 
 ] (./Thesis.aux)
@@ -1025,13 +1030,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 10940 strings out of 495021
- 147401 string characters out of 1181035
- 244415 words of memory out of 3000000
- 13739 multiletter control sequences out of 15000+50000
+ 10955 strings out of 495021
+ 147554 string characters out of 1181035
+ 237415 words of memory out of 3000000
+ 13740 multiletter control sequences out of 15000+50000
  15356 words of font info for 58 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 48i,13n,45p,1556b,1755s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,13n,45p,1556b,1034s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
 re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-te
 xlive/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-texlive/font
@@ -1048,9 +1053,9 @@ mti10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti12.pfb><
 texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texmf-texliv
 e/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texmf-texlive/fonts/type
 1/public/amsfonts/symbols/msam7.pfb>
-Output written on Thesis.pdf (35 pages, 350826 bytes).
+Output written on Thesis.pdf (39 pages, 365496 bytes).
 PDF statistics:
- 697 PDF objects out of 1000 (max. 8388607)
- 159 named destinations out of 1000 (max. 500000)
- 521 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 735 PDF objects out of 1000 (max. 8388607)
+ 173 named destinations out of 1000 (max. 500000)
+ 529 words of extra memory for PDF output out of 10000 (max. 10000000)
 

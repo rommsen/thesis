@@ -86,3 +86,16 @@
 	year = "2012"
 }
 
+@article{Palmer2009,
+	annote = "Grundlegend f{\"u}r die Klassifizierung von PLEs welche Dimensions gibt es, wo bewege ich mich",
+	author = "Palm{\'e}r, Matthias and Sire, St{\'e}phane and Bogdanov, Evgeny and Gillet, Denis and Wild, Fridolin",
+	file = ":home/roman/Dokumente/Hagen/Masterarbeit/mupple-ple-dimensions.pdf:pdf",
+	journal = "Proceedings of the First International Workshop on Mashup Personal Learning Environments MUPPLE08",
+	keywords = "comparison; mashup; ple; web; widget",
+	number = "1",
+	pages = "1--2",
+	title = "{Mapping Web Personal Learning Environments}",
+	volume = "16",
+	year = "2009"
+}
+
