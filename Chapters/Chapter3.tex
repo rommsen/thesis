@@ -2,33 +2,83 @@
 \label{section:anforderungsanalyse}
 \lhead{Kapitel 3. \emph{Anforderungsanalyse}}  
 
-Das Ziel der vorliegenden Arbeit ist die Planung und Implementierung einer leichtgewichtigen Personal-Learning-Environment. Die Anforderungen an das System lassen sich aus dem in dem nächsten Abschnitt vorgestellten Use-Case ableiten, welcher die Arbeit mit dem System verdeutlichen soll.
+Das Ziel der vorliegenden Arbeit ist die Planung und Implementierung eines Prototypen für eine leichtgewichtige Personal-Learning-Environment. Die Anforderungen an das finale System lassen sich aus dem in dem nächsten Abschnitt vorgestellten Use-Case ableiten, welcher die Arbeit mit dem System verdeutlichen soll.
 
 \section{Use Case}
-Der folgende Use-Case soll durch das zu entwickelnde System idealerweise abgedeckt werden:
+Der folgende Use-Case soll durch das finale System idealerweise abgedeckt werden:
 
-\subsection{Ziel}
-Das Ziel ist die Möglichkeit der Betreuung eines Studienkurses über das Internet. Es soll hierbei irrelevant sein, ob Studenten und Kursbetreuer sich in dem gleichen geografischen Gebiet aufhalten oder zur gleichen Zeit Zugriff auf das System habe.
+\subsection{Akteure}
 
-\subsection{Voraussetzungen}
-Der Kursbetreuer oder Mentor des Kurses hat seinen Sitz in Deutschland. Die Studenten befinden sich größtenteils in Kamerun. Dort steht nicht zu jeder Zeit ein Internetzugang zur Verfügung. Des weiteren rechnen die Internetprovider oft nach Zeit und nicht nach Volumen ab, so dass der Nutzer auch bei dem Vorhandensein eines Internetzugangs nicht zwingend online sein muss. Für viele Studenten ist es die Regel, dass sie ihre Kursarbeit an unterschiedlichen Computern verrichten. Bei einem Teil der Rechner steht ihne ein Internetzugang zur Verfügung (beispielsweise in der Universität oder in einem Internetcafe) und für den restlichen Teil ist dies nicht der Fall (beispielsweise zu Hause). Durch die Arbeit an unterschiedlichen Rechnern mit potentiell unterschiedlichen Betriebssystemen, ist die Installation einer komplexen Software nicht ohne Weiteres möglich.
+\begin{itemize}
+ \item Dozent mit Sitz in Hagen
+ \item Student 1 mit Sitz in Kamerun (Fernuni Hagen)
+ \item Student 2 mit Sitz in Kamerun (Fernuni Hagen)
+ \item Student 3 mit Sitz in Berlin (Fernuni Hagen)
+ \item Student 4 mit Sitz in Osnabrück (Universität Osnabrück) 
+\end{itemize}
 
-\subsection{Workflow}
-Betreuer und Studenten stehen über unterschiedliche Kanäle in Kommunikation miteinander. Es müssen Termine geplant oder auch Notizen und Nachrichten hin und hergeschickt werden. Diese Kanäle sollen auf einem zentralen Zugang so zusammengefasst sein, dass es den Teilnehmern des Kurse alle relevanten Informationen an einer aufrufen und bearbeiten zu können. Dabei sind die Teilnehmer zu unterschiedlichen Zeiten online. Die Teilnehmer Die Teilnehmer sollen das System offline Nutzen können, um einfache Arbeiten wie das Schreiben von Twitter-Nachrichten, Notizen und Instant- Messaging Nachrichten oder eine Terminabsprache über einen Kalender erledigen können. Bei dem Wechsel zwischen Online und Offline müssen die Daten synchronisiert werden. Idealerweise haben die Nutzer alle Daten auf einem USB-Stick bei sich und können so von unterschiedlichsten Rechnern, wie beispielsweise in der Universität, im Internetcafe oder zu von Hause aus, arbeiten.
+\subsection{Ausgangssituation}\label{section:ausgangssituation}
+Der Dozent betreut an der Fernuni Hagen unter anderem den Kurs "`E-Learning: A new approach"'. Hierfür haben auch die Studenten 1 und 3 eingeschrieben. Für diesen Kurs hat der Dozent mehrere Kanäle zur Kommunikation angelegt. Die Studenten sollen die Kanäle wählen, die ihren Arbeitsgewohnten am meisten entsprechen. Am Ende des Semesters soll es eine Auswertung geben, welche Kanäle am häufigsten genutzt und welche von den Studenten eher ignoriert wurden. Parallel dazu werden die Systeme der Fernuni zur Online Bearbeitung der Einsendeaufgaben genutzt. Die vom Dozenten angelegten Kommunikationskanäle sind:
+
+\begin{itemize}
+ \item ein Twitter Channel
+ \item eine Facebookgruppe
+ \item einen eigenen Google-Calender
+ \item einen Chat
+ \item zur Terminabsprache und Abstimmung der nächsten Schritte soll Doodle verwendet werden
+ \item ein System zur Hinterlegung von Todo-Listen
+ \item einen eigenen Blog, welcher einen RSS Feed bereitstellt 
+ \item Etherpad Lite soll zur gemeinsamen Erstellung von Texten genutzt werden
+\end{itemize}
+
+Die Studenten sind angehalten sich regelmäßig über Aktualisierungen der Kanäle auf dem Laufenden zu halten.
+
+Zusätzlich haben sich Student 1, 2 und 4 zu einer virtuellen Lerngruppe zum Thema Datenbanken zusammengeschlossen. Hierfür können nicht die Systeme der Fernuni Hagen genutzt werden, da nur Student 2 momentan in dem spezifischen Kurs eingeschrieben ist. Student 1 hat sich nicht für den Kurs angemeldet und Student 4 hat überhaupt keine Möglichkeit dazu, da er nicht an der Fernuni immatrikuliert ist. Sie haben sich dazu entschlossen primär einen Chat zur Kommunikation zu benutzen.
+
+\subsubsection{Einschränkungen/Umstände}
+Student 1 und Student 2 leben in Kamerun. Beide haben dort das Problem, dass der Internetzugriff aus mehreren Gründen nicht immer gegeben ist. Student 1 hat zu Hause keinen Internetzugang. Er hat nur die Möglichkeit in der Universität oder in einem Internetcafe online zu gehen. Student 2 hat einen Internetzugang, allerdings ist dieser relativ langsam und wird nach Zeit abgerechnet, so dass es vorteilhaft für ihn ist, wenn er nur für kurze Zeit online ist. Aus diesem Grund benötigen die beiden idealerweise ein System, welches ihnen die Möglichkeit bietet die neuesten Informationen auch offline zu lesen und zumindest rudimentär auch offline kleine Aufgaben zu erledigen. Diese sollten sich bei Wiederverbindung mit dem Internet mit den entsprechenden Services synchronisieren. Des Weiteren sollten sie in der Lage sein die Daten auch ohne Internetverbindung zwischen verschiedenen Rechnern auszutauschen. Insbesondere Student 1 sollte in der Lage seine Aktionen bei sich zu Hause vorzunehmen und die durchgeführten Änderungen dann an einem Rechner mit Internetanschluss zu synchronisieren. Die Anforderungen von Student 3 sind ähnlich gelagert. Er ist sehr viel unterwegs und erledigt daher viele kurze Aufgaben mit dem Smartphone. Auch hier ist eine Internetverbindung nicht immer gewährleistet ist oder sie wird temporär deaktiviert um die Akkulaufzeit zu verlängern. Durch die Arbeit an unterschiedlichen Rechnern mit potentiell unterschiedlichen Betriebssystemen, ist die Installation einer komplexen Software nicht ohne Weiteres möglich.
+
+Idealerweise nutzen alle Studenten das selbe Basis-System und können sich hier die benötigten Services und Applikationen so zusammenstellen wie es ihren Ansprüchen entspricht.
+
+\subsection{Arbeitsabläufe}
+Im Folgenden werden die unterschiedlichen Arbeitsabläufe mit dem System exemplarisch an Student 1 und an Student 3 dargelegt.
+
+\subsubsection{Grundsätzlicher Arbeitsablauf für Studenten}
+Um mit der PLE arbeiten zu können müssen die Studenten als erstes online eine Account in dem PLE-System erstellen. Anschließend melden sie sich mit ihren gewählten Login-Daten an. Bei erster Anmeldung hat das System bereits zwei Workspaces erstellt und mit Standard-Widgets gefüllt. Die PLE führt den User mit Hilfe von Tooltips durch die ersten Schritte im System (Tooltips, Workspace umbenennen, Einstellungen, offline gehen, Synchronisierung etc).
+
+\subsubsection{Arbeitsablauf Student 1}
+\begin{itemize}
+ \item \emph{Tag 1:} Student 1 befindet sich in der Universität und verbindet seinen USB-Stick mit einem PC. Auf diesem Stick befindet sich die ausführbare mobiler Version eines aktuellen Browsers. Er öffnet die Applikation online in diesem Browse (alle folgenden Aktionen werden mit dem selben Browser durchgeführt). Student 1 löscht den nicht benötigten Workspace und benennt den anderen in “PLE” um. Anschließend sucht er die Widgets für den PLE Workspace aus der Widget-Datenbank heraus. Das System zeigt ihm dabei an, für welche Widgets eine Offline-Fähigkeit zur Verfügung steht. Darauf löscht er nicht benötigte Widgets und organisiert die Anordnung der Widgets nach seinen Vorstellungen per Drag and Drop. Damit er mit den einzelnen Widgets auch arbeit kann meldet sich Student 1 schließlich bei den jeweiligen Services mit seinen Account-Daten an. Bevor er den Browser schließt, klickt das erste mal auf “Offline gehen”. Das System sorgt dafür, dass sich alle Widgets noch einmal mit dem Internet synchronisieren.
+ \item \emph{Tag 2:} Student 1 loggt sich an der Uni in das PLE-System ein. Das System zeigt ihm auf der Startseite (dem Dashboard) an wie viele neue Items es auf seinem PLE Workspace gibt. Ein direkter Link führt ihn zum Workspace. Er sieht, dass momentan mehrere Leute im Chat sind und unterhält sich über das Widget mit ihnen. Der Dozent hat ein paar globale Todos angelegt und die ersten Nachrichten kommen über den Twitter Channel herein. Nach einiger Zeit klickt Student 1 auf “jetzt offline gehen” wodurch alle Widgets seines Workspaces auf den neuesten Stand gebracht werden. Er sieht, dass Student 3 einen längeren Text im Chat geschrieben hat, beschließt diesen jedoch später zu lesen. Gleiches gilt für den Einführungsartikel des Dozenten im Kursblog. Hierfür erstellt er sich Items in seiner Todo-Liste. Abschließend schließt Student 1 den Browser und entfernt den USB-Stick.
+ \item \emph{Tag 3:} Student 1 öffnet die Applikation in seinem mobilen Browser zu Hause. Das System erkennt, dass es sich im Offline-Modus befindet und versucht keine Synchronisierung mit dem Internet herzustellen. Student 1 liest den Text, den Student 3 im Chat hinterlegt hat und beantwortet die darin gestellten Fragen ebenfalls im Chatfenster. Anschließend teilt er dies über Twitter mit und erledigt sein Todo-Item.
+ \item \emph{Tag 4:} Student 1 loggt sich im Internet-Cafe mit seinem mobilen Browser in das System ein. Das System erkennt, dass es online ist, lädt die neuesten Items der Services herunter und synchronisiert die nur lokal vorgenommenen Aktionen (Twitter, Chat, Todo). Per Mail hat Student 1 den Vorschlag von Student 2 bekommen gemeinsam mit Student 4 eine Lerngruppe zum Thema Datenbanken zu gründen. Hierzu wollen sie unter anderem ein Chat-System benutzen. Student 1 schlägt per Mail das ihm bekannte Chat-Widget für die PLE-Applikation vor. Er erstellt einen neuen Workspace, nennt ihn “Lerngruppe DB” und fügt das Chat-Widget mit den passenden Einstellungen hinzu.
+ \item \emph{Tag 5:} Student 1 sieht in seinem Dashboard, dass es für den Workspace “Lerngruppe DB” 12 neue Items gibt. Er geht direkt zu dem Workspace und stellt fest, dass die beiden anderen Studenten sich ebenfalls in dem Chat angemeldet haben. Da momentan alle online verfügbar sind, beginnen sie ihre erste Gruppenunterhaltung und planen die weitere Vorgehensweise.
+\end{itemize}
+
+\subsubsection{Arbeitsablauf Student 3}
+Student 3 nutzt das System hauptsächlich mit seinem Tablet, welches in der Lage ist sich über Wlan, sowie UMTS mit dem Internet zu verbinden.
+
+\begin{itemize}
+ \item \emph{Tag 1:} Student 3 meldet sich ähnlich wie Student 1 in der PLE an und erstellt für seine Uni-Kurse jeweils einen Workspace. Außerdem legt er sich einen Workspace an, in dem sich nicht kursspezifische Widgets finden. Hierzu gehören sein Google-Kalender, sein RSS-Reader, eine Todo Liste, sowie ein News-Widget
+ \item \emph{Tag 2:} Student 3 verbindet sich zu Hause mit seinem Wlan und loggt sich in der PLE ein. Nach Prüfung des Dashboards erstellt er sich in der allgemeinen Todo Liste für den Tag. Er sieht, dass es in seinem RSS-Reader 9 neue Artikel gibt. Diese möchte er auf seinem Weg zur Uni in der U-Bahn lesen. Da dort der Empfang eher schlecht ist, synchronisiert er die PLE noch einmal und bemerkt, dass das System standardmäßig nur die letzten 5 Einträge eines Widgets zwischenspeichert. Aus diesem Grund geht er in die Einstellungen des RSS-Widgets und stellt dort ein, dass nicht nur 5, sondern 10 Items lokal gecached werden sollen. Anschließend betätigt er nochmal den “offline gehen” Button und sieht, dass nun alle neuen Artikel zwischengespeichert sind. Auf dem Weg zu Uni ruft Student 3 das System auf seinem Tablet auf. Da kein Internetzugang besteht greift das System nur auf die lokalen Daten zurück. Das News-Widget in seinem globalen Workspace ist nicht offline-fähig. Aus diesem Grund wird es auch nur ausgegraut und nicht-funktional angezeigt. Der Student ist jedoch in der Lage seine lokal gecachten RSS-Artikel zu lesen. Bei Lektüre eines Artikels über Javascript fällt ihm ein, dass er sein Uni-Projekt noch mit der neuesten JQuery Version updaten wollte. Hierzu erstellt er sich ein weiteres Todo auf seiner Liste.
+ In der Uni verbindet er sein Tablet mit dem Uni-Wlan. Der RSS-Reader markiert die 6 Artikel die, Student 3 in der U-Bahn gelesen hat als gelesen und synchronisiert das neueste Todo-Item mit dem Service im Internet.  
+\end{itemize}
 
 \section{Anforderungen}
-Aus dem beschriebenen Use-Case lassen sich mehrere Anforderungen an das zu entwickelnde System ableiten. Es soll in der Lage sein als Aggregator für die unterschiedlichsten Services und Kanäle zu dienen. Es muss möglich sein auf die wichtigsten Informationen an einem zentralen Platz zuzugreifen und diese auch zu bearbeiten (1). Dadurch, dass die Teilnehmer an unterschiedlichen Rechnern arbeiten, welche zum Teil nicht in ihrem persönlichen Besitz sind, ist es für sie nicht oder nur sehr schwer möglich eine neue Software zu installieren. Aus diesem Grund soll das System mit nativen Browsertechnologien ohne weitere Installation nutzbar sein (2). Das System muss in der Lage die wichtigsten Funktionalitäten auch dann zu Verfügung zu stellen, wenn es keinen Kontakt zu dem Internet hat (3). Des Weiteren soll es in der Lage sein bei einer Wiederaufnahme der Verbindung die durchgeführten Aktionen mit dem jeweiligen Service zu synchronisieren (4). Dies gilt insbesondere für die Arbeit mit unterschiedlichen Rechnern. Der Nutzer soll sein System an einem Computer mit dem Internet synchronisieren können und dann an einem anderen Rechner offline weiterarbeiten können. Es ist also notwendig, dass es dem Nutzer ermöglicht wird die Daten mitzunehmen (beispielsweise per USB-Stick) und an anderer Stelle weiterzuverwenden (5). 
+Zusammenfassend kann also gesagt werden, dass Betreuer und Studenten stehen über unterschiedliche Kanäle in Kommunikation miteinander stehen. Es müssen Termine geplant oder auch Notizen und Nachrichten hin und hergeschickt werden. Diese Kanäle sollen auf einem zentralen Zugang so zusammengefasst sein, dass es den Teilnehmern des Kurse alle relevanten Informationen an einer aufrufen und bearbeiten zu können. Dabei sind die Teilnehmer zu unterschiedlichen Zeiten online. Die Teilnehmer sollen das System offline Nutzen können, um einfache Arbeiten wie das Schreiben von Twitter-Nachrichten, Notizen und Instant-Messaging Nachrichten oder eine Terminabsprache über einen Kalender erledigen können. Bei dem Wechsel zwischen Online und Offline müssen die Daten synchronisiert werden. Idealerweise haben die Nutzer alle Daten auf einem USB-Stick bei sich und können so von unterschiedlichsten Rechnern, wie beispielsweise in der Universität, im Internetcafe oder zu von Hause aus, arbeiten.
 
-Neben diesen funktionalen Anforderungen gibt es noch weitere Anforderungen, welche das System erfüllen soll. In dieser Arbeit kann nur eine prototypische Implementierungder Anforderungen erfolgen. Das System soll also als Basis für weitere Entwicklungen und Forschungsarbeiten dienen und einfach erweitert und verändert werden können (6). Es soll auch möglich sein auf Basis einer vorgegebenen Implementierung oder API weitere Services oder Kanäle in das System zu laden und es so beständig in seiner Funktionalität zu erweitern (7). Schließlich wird die Software in unterschi Bereichen, insbesondere in einem universitären Umfeld eingesetzt. Dies verlangt eine Nutzbarkeit ohne Lizengebühren für die genutzten Technologien. Daraus folgt, dass für die Umsetzun keine proprietären, sondern nur freie Technologien verwendet werden dürfen (8). 
+Daraus lassen sich mehrere Anforderungen an das zu entwickelnde System ableiten. Es soll in der Lage sein als Aggregator für die unterschiedlichsten Services und Kanäle zu dienen. Es muss möglich sein auf die wichtigsten Informationen an einem zentralen Platz zuzugreifen und diese auch zu bearbeiten (1). Dadurch, dass die Teilnehmer an unterschiedlichen Rechnern arbeiten, welche zum Teil nicht in ihrem persönlichen Besitz sind, ist es für sie nicht oder nur sehr schwer möglich eine neue Software zu installieren. Aus diesem Grund soll das System mit nativen Browsertechnologien ohne weitere Installation nutzbar sein (2). Das System muss in der Lage die wichtigsten Funktionalitäten auch dann zu Verfügung zu stellen, wenn es keinen Kontakt zu dem Internet hat (3). Des Weiteren soll es in der Lage sein bei einer Wiederaufnahme der Verbindung die durchgeführten Aktionen mit dem jeweiligen Service zu synchronisieren (4). Dies gilt insbesondere für die Arbeit mit unterschiedlichen Rechnern. Der Nutzer soll sein System an einem Computer mit dem Internet synchronisieren können und dann an einem anderen Rechner offline weiterarbeiten können. Es ist also notwendig, dass es dem Nutzer ermöglicht wird die Daten mitzunehmen (beispielsweise per USB-Stick) und an anderer Stelle weiterzuverwenden (5). 
+
+Neben diesen funktionalen Anforderungen gibt es noch weitere Anforderungen, welche das System erfüllen soll. In dieser Arbeit kann nur eine prototypische Implementierung der Anforderungen erfolgen. Das System soll also als Basis für weitere Entwicklungen und Forschungsarbeiten dienen und einfach erweitert und verändert werden können (6). Es soll auch möglich sein auf Basis einer vorgegebenen Implementierung oder API weitere Services oder Kanäle in das System zu laden und es so beständig in seiner Funktionalität zu erweitern (7). Schließlich wird die Software in unterschi Bereichen, insbesondere in einem universitären Umfeld eingesetzt. Dies verlangt eine Nutzbarkeit ohne Lizengebühren für die genutzten Technologien. Daraus folgt, dass für die Umsetzun keine proprietären, sondern nur freie Technologien verwendet werden dürfen (8). 
 
 \begin{table}[h]
 \caption{Anforderungen}
 \begin{tabular}{c || l}
 1 & Informationsaggregator \\
 \hline
-2 & ohne Installationsaufwand lauffähig  in aktuellen Browsern \\
+2 & ohne Installationsaufwand lauffähig in aktuellen Browsern \\
 \hline
-3 & Möglichkeit des Weiterarbeitens, wenn offline \\
+3 & Möglichkeit des (zumindest rudimentären) Weiterarbeitens, wenn offline \\
 \hline
 4 & Synchronisierung der vorgenommen Änderungen, wenn wieder online \\
 \hline
@@ -43,3 +93,5 @@ Neben diesen funktionalen Anforderungen gibt es noch weitere Anforderungen, welc
 \end{tabular}
 \label{table:anforderungen}
 \end{table}
+
+Die in Abschnitt \ref{section:ausgangssituation} beschriebenen Kanäle und Services müssen für eine vollständige PLE implementiert werden. Da dies aber den Rahmen dieser Arbeit sprengen würde und das Ziel ist einen Prototypen für die Grundlage einer solchen PLE zu schaffen, werden diese nicht in die Anforderungen aufgenommen.
