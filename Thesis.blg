@@ -3,46 +3,48 @@ The top-level auxiliary file: Thesis.aux
 The style file: unsrtnat.bst
 Database file #1: Bibliography.bib
 Warning--string name "dez" is undefined
---line 68 of file Bibliography.bib
-You've used 3 entries,
+--line 17 of file Bibliography.bib
+Warning--empty year in VanHarmelen
+Warning--empty year in VanHarmelen
+You've used 10 entries,
             2481 wiz_defined-function locations,
-            564 strings with 4839 characters,
-and the built_in function-call counts, 800 in all, are:
-= -- 66
-> -- 21
-< -- 3
-+ -- 12
-- -- 6
-* -- 33
-:= -- 128
-add.period$ -- 9
-call.type$ -- 3
-change.case$ -- 6
-chr.to.int$ -- 3
-cite$ -- 3
-duplicate$ -- 42
-empty$ -- 91
-format.name$ -- 9
-if$ -- 172
+            622 strings with 6662 characters,
+and the built_in function-call counts, 3397 in all, are:
+= -- 321
+> -- 104
+< -- 10
++ -- 50
+- -- 30
+* -- 222
+:= -- 533
+add.period$ -- 40
+call.type$ -- 10
+change.case$ -- 20
+chr.to.int$ -- 10
+cite$ -- 12
+duplicate$ -- 179
+empty$ -- 337
+format.name$ -- 42
+if$ -- 731
 int.to.chr$ -- 1
-int.to.str$ -- 4
-missing$ -- 0
-newline$ -- 23
-num.names$ -- 9
-pop$ -- 36
+int.to.str$ -- 11
+missing$ -- 6
+newline$ -- 68
+num.names$ -- 30
+pop$ -- 85
 preamble$ -- 1
-purify$ -- 3
+purify$ -- 10
 quote$ -- 0
-skip$ -- 32
+skip$ -- 117
 stack$ -- 0
-substring$ -- 6
-swap$ -- 8
-text.length$ -- 0
+substring$ -- 126
+swap$ -- 33
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 21
-warning$ -- 0
-while$ -- 6
+type$ -- 70
+warning$ -- 2
+while$ -- 33
 width$ -- 0
-write$ -- 43
-(There was 1 warning)
+write$ -- 152
+(There were 3 warnings)

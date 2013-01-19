@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.3.12)  16 JAN 2013 18:42
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.3.12)  19 JAN 2013 12:06
 entering extended mode
  %&-line parsing enabled.
 **Thesis.tex
@@ -883,79 +883,84 @@ Kapitel 2.
 ------------------------------------------------------------------------------
  2 Hintergrund/Begriffskl\IeC {\"a}rung
 ------------------------------------------------------------------------------
-) (./Chapters/Chapter3.tex [2
+[2
 
-]
+]) [3] (./Chapters/Chapter3.tex [4]
 Kapitel 3.
 ------------------------------------------------------------------------------
  3 Anforderungsanalyse
 ------------------------------------------------------------------------------
-[3
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 13.
+(/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 13.
+ [5
 
-] [4]) (./Chapters/Chapter4.tex [5]
+] [6] [7] [8] [9]
+[10]) (./Chapters/Chapter4.tex [11]
 Kapitel 4.
 ------------------------------------------------------------------------------
  4 \IeC {\"U}bersicht Stand der Forschung/Technik
 ------------------------------------------------------------------------------
 
-Overfull \hbox (5.26561pt too wide) in paragraph at lines 4--7
-\OT1/cmr/m/n/10.95 Darstellung exis-tie-ren-der Ans[]atze (ggf. Klas-si-fi-ka-t
-i-on die-ser Ans[]atze) Ana-ly-se der Ans[]atze
- []
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 8.
 
-[6
+[12
 
-] [7] [8] [9] [10]
-Overfull \hbox (78.95486pt too wide) in paragraph at lines 76--77
+] [13] [14] [15] [16]
+Overfull \hbox (78.95486pt too wide) in paragraph at lines 56--57
 \OT1/cmtt/m/n/10.95 http://sop.example.com/directory2 \OT1/cmr/m/n/10.95 star-t
 en kann, nicht je-doch an \OT1/cmtt/m/n/10.95 http://example.com/directory2
  []
 
 
-LaTeX Warning: Reference `section:widgets' on page 11 undefined on input line 7
+LaTeX Warning: Reference `section:widgets' on page 17 undefined on input line 5
 8.
 
-[11]
-Overfull \hbox (98.18666pt too wide) in paragraph at lines 99--100
+[17]
+Overfull \hbox (98.18666pt too wide) in paragraph at lines 79--80
 \OT1/cmr/m/n/10.95 Alle f[]ur den CORS-Request re-le-van-ten Hea-der be-gin-nen
  mit Access-Control. \OT1/cmtt/m/n/10.95 Access-Control-Allow-Origin
  []
 
 
-Overfull \hbox (1.8818pt too wide) in paragraph at lines 99--100
+Overfull \hbox (1.8818pt too wide) in paragraph at lines 79--80
 \OT1/cmr/m/n/10.95 laubt, \OT1/cmtt/m/n/10.95 Access-Control-Allow-Credentials:
  true \OT1/cmr/m/n/10.95 be-sagt, dass in die-sem Re-quest auch
  []
 
 
-LaTeX Warning: Reference `REST' on page 12 undefined on input line 101.
+LaTeX Warning: Reference `REST' on page 18 undefined on input line 81.
 
-[12]
-Overfull \hbox (48.41872pt too wide) in paragraph at lines 123--124
+[18]
+Overfull \hbox (48.41872pt too wide) in paragraph at lines 103--104
 \OT1/cmr/m/n/10.95 Der Preflight-Request ist nur er-folg-reich, wenn die Me-tho
 -de aus \OT1/cmtt/m/n/10.95 Access-Control-Request-Method
  []
 
 
-Overfull \hbox (24.02136pt too wide) in paragraph at lines 123--124
+Overfull \hbox (24.02136pt too wide) in paragraph at lines 103--104
 \OT1/cmr/m/n/10.95 in \OT1/cmtt/m/n/10.95 Access-Control-Allow-Methods \OT1/cmr
 /m/n/10.95 und al-le Hea-der aus \OT1/cmtt/m/n/10.95 Access-Control-Request-Hea
 ders
  []
 
-[13]) (./Chapters/Chapter5.tex [14]
+[19]) (./Chapters/Chapter5.tex [20]
 Kapitel 5.
 ------------------------------------------------------------------------------
  5 L\IeC {\"o}sungsansatz
 ------------------------------------------------------------------------------
-) (./Chapters/Chapter6.tex [15
+) (./Chapters/Chapter6.tex [21
 
 ]
 Kapitel 6.
 ------------------------------------------------------------------------------
  6 Details zur L\IeC {\"o}sung
 ------------------------------------------------------------------------------
-[16
+[22
 
 ]
 Overfull \hbox (43.27928pt too wide) in paragraph at lines 26--27
@@ -969,25 +974,18 @@ Overfull \hbox (0.6666pt too wide) in paragraph at lines 26--27
 on-de-re zur Ma-ni-pu-la-ti-on des DOM.
  []
 
-[17] [18]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 54.
- (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 54.
- [19]
+[23] [24] [25]
 
-LaTeX Warning: Reference `enumerate:widgets_hauptebene_1' on page 20 undefined 
+LaTeX Warning: Reference `enumerate:widgets_hauptebene_1' on page 26 undefined 
 on input line 82.
 
-[20] [21]
+[26] [27]
 Overfull \hbox (16.69864pt too wide) in paragraph at lines 99--101
 \OT1/cmr/m/n/10.95 (TODO: Bib: https://developer.mozilla.org/en-US/docs/DOM/win
 dow.postMessage) Post-
  []
 
-) (./Chapters/Chapter7.tex [22]
+) (./Chapters/Chapter7.tex [28]
 Kapitel 7.
 ------------------------------------------------------------------------------
  7 Zusammenfassung/Ausblick
@@ -996,47 +994,83 @@ Kapitel 7.
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 9.
 
-) (./Appendices/AppendixA.tex [23
+) (./Appendices/AppendixA.tex [29
 
 ]
 Anhang A.
 ------------------------------------------------------------------------------
  A Installation/Deployment
 ------------------------------------------------------------------------------
-) [24
+) [30
 
 ]
 ------------------------------------------------------------------------------
  Literaturverzeichnis
 ------------------------------------------------------------------------------
 (./Thesis.bbl
-Underfull \hbox (badness 3557) in paragraph at lines 9--14
+Underfull \hbox (badness 2057) in paragraph at lines 9--16
+\OT1/cmr/m/n/10.95 work The PLE and Per-so-nal Lear-ning Net-works.  \OT1/cmr/m
+/it/10.95 EDU-CAU-SE Quar-ter-
+ []
+
+
+Underfull \hbox (badness 1242) in paragraph at lines 9--16
+\OT1/cmr/m/it/10.95 ly\OT1/cmr/m/n/10.95 , 33(1):1--8, 2010.  URL [][]$\OT1/cmt
+t/m/n/10.95 http : / / www . educause . edu / EDUCAUSE + Quarterly /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--41
+[]\OT1/cmr/m/n/10.95 Graham Att-well.  Per-so-nal Lear-ning En-vi-ron-ments - t
+he fu-ture of
+ []
+
+
+Underfull \hbox (badness 2662) in paragraph at lines 34--41
+\OT1/cmr/m/n/10.95 eLear-ning?  \OT1/cmr/m/it/10.95 eLear-ning Pa-pers\OT1/cmr/
+m/n/10.95 , 2(1):1--8, 2007.  ISSN 18871542.  URL
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--41
+[][]$\OT1/cmtt/m/n/10.95 http : / / 66 . 102 . 1 . 104 / scholar ? hl = en&lr =
+ &q = cache : lEYPuXfu8kAJ : dialnet .
+ []
+
+
+Underfull \hbox (badness 2096) in paragraph at lines 61--69
+\OT1/cmr/m/n/10.95 10494820701772660$.  URL [][]$\OT1/cmtt/m/n/10.95 http : / /
+ www . tandfonline . com / doi / abs / 10 . 1080 /
+ []
+
+[31
+
+
+]
+Underfull \hbox (badness 2334) in paragraph at lines 71--76
 []\OT1/cmr/m/n/10.95 Jesse Ru-der-man.  Same-Origin-Policy.  [][]$\OT1/cmtt/m/n
 /10.95 https : / / developer . mozilla . org /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9--14
+Underfull \hbox (badness 10000) in paragraph at lines 71--76
 \OT1/cmtt/m/n/10.95 en-[]US / docs / JavaScript / Same _ origin _ policy _ for 
 _ JavaScript$[][] \OT1/cmr/m/n/10.95 Ab-ruf-da-tum:
  []
 
-) [25
-
-
-] (./Thesis.aux)
+) [32] (./Thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 10955 strings out of 495021
- 147554 string characters out of 1181035
+ 11009 strings out of 495021
+ 148509 string characters out of 1181035
  237415 words of memory out of 3000000
- 13740 multiletter control sequences out of 15000+50000
+ 13772 multiletter control sequences out of 15000+50000
  15356 words of font info for 58 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 48i,13n,45p,1556b,1034s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 48i,13n,45p,1635b,1034s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
 re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-te
 xlive/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-texlive/font
@@ -1053,9 +1087,9 @@ mti10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti12.pfb><
 texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texmf-texliv
 e/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texmf-texlive/fonts/type
 1/public/amsfonts/symbols/msam7.pfb>
-Output written on Thesis.pdf (39 pages, 365496 bytes).
+Output written on Thesis.pdf (46 pages, 407900 bytes).
 PDF statistics:
- 735 PDF objects out of 1000 (max. 8388607)
- 173 named destinations out of 1000 (max. 500000)
- 529 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 841 PDF objects out of 1000 (max. 8388607)
+ 195 named destinations out of 1000 (max. 500000)
+ 593 words of extra memory for PDF output out of 10000 (max. 10000000)
 

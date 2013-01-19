@@ -64,7 +64,7 @@
 
 @misc{same_origin_policy_mozilla,
 	author = "Ruderman, Jesse",
-	howpublished = "CTAN: \url{https://developer.mozilla.org/en-US/docs/JavaScript/Same\_origin\_policy\_for\_JavaScript} Datum: 08.01.2013",
+	howpublished = "\url{https://developer.mozilla.org/en-US/docs/JavaScript/Same\_origin\_policy\_for\_JavaScript} Abrufdatum: 08.01.2013",
 	month = dez,
 	title = "{Same-Origin-Policy}",
 	year = "2012"
@@ -75,6 +75,14 @@
 	howpublished = "CTAN: \url{http://www.w3.org/TR/cors/} Datum: 08.01.2013",
 	month = apr,
 	title = "{Cross-Origin Resource Sharing}",
+	year = "2012"
+}
+
+@misc{cors_html5rocks,
+	author = "Hossain, Monsur",
+	howpublished = "\url{http://www.html5rocks.com/en/tutorials/cors/} Abrufdatum: 08.01.2013",
+	month = sep,
+	title = "{Using CORS}",
 	year = "2012"
 }
 

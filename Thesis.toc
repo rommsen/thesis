@@ -13,60 +13,68 @@
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.18}
 \contentsline {section}{\numberline {1.1}Einleitung}{1}{section.19}
 \contentsline {chapter}{\numberline {2}Hintergrund/Begriffskl\IeC {\"a}rung}{2}{chapter.20}
-\contentsline {chapter}{\numberline {3}Anforderungsanalyse}{3}{chapter.21}
-\contentsline {section}{\numberline {3.1}Use Case}{3}{section.22}
-\contentsline {subsection}{\numberline {3.1.1}Ziel}{3}{subsection.23}
-\contentsline {subsection}{\numberline {3.1.2}Voraussetzungen}{3}{subsection.24}
-\contentsline {subsection}{\numberline {3.1.3}Workflow}{4}{subsection.25}
-\contentsline {section}{\numberline {3.2}Anforderungen}{4}{section.26}
-\contentsline {chapter}{\numberline {4}\IeC {\"U}bersicht Stand der Forschung/Technik}{6}{chapter.28}
-\contentsline {section}{\numberline {4.1}PLE}{6}{section.29}
-\contentsline {subsection}{\numberline {4.1.1}Definition einer PLE}{6}{subsection.30}
-\contentsline {subsection}{\numberline {4.1.2}Klassifizierungsmethoden}{7}{subsection.31}
-\contentsline {subsubsection}{\numberline {4.1.2.1}Dimensionen nach Palm\IeC {\'e}r}{7}{subsubsection.32}
-\contentsline {subsubsection}{\numberline {4.1.2.2}Wilson Patterns}{9}{subsubsection.39}
-\contentsline {section}{\numberline {4.2}Technologie}{11}{section.49}
-\contentsline {section}{\numberline {4.3}Widgets}{11}{section.50}
-\contentsline {subsection}{\numberline {4.3.1}CORS}{11}{subsection.51}
-\contentsline {subsection}{\numberline {4.3.2}HTML5}{13}{subsection.78}
-\contentsline {subsubsection}{\numberline {4.3.2.1}Appcache}{13}{subsubsection.79}
-\contentsline {subsubsection}{\numberline {4.3.2.2}Local Storage}{13}{subsubsection.80}
-\contentsline {subsection}{\numberline {4.3.3}REST}{13}{subsection.81}
-\contentsline {subsubsection}{\numberline {4.3.3.1}Widgetparameter}{14}{subsubsection.82}
-\contentsline {chapter}{\numberline {5}L\IeC {\"o}sungsansatz}{15}{chapter.83}
-\contentsline {section}{\numberline {5.1}\IeC {\"U}berblick}{15}{section.84}
-\contentsline {section}{\numberline {5.2}Design}{15}{section.85}
-\contentsline {section}{\numberline {5.3}Technisch}{15}{section.86}
-\contentsline {subsection}{\numberline {5.3.1}Unabh\IeC {\"a}ngigkeit Offline/Online}{15}{subsection.87}
-\contentsline {chapter}{\numberline {6}Details zur L\IeC {\"o}sung}{16}{chapter.88}
-\contentsline {section}{\numberline {6.1}Entwicklungsumgebung/Tools}{16}{section.89}
-\contentsline {subsection}{\numberline {6.1.1}Symfony2}{16}{subsection.92}
-\contentsline {subsection}{\numberline {6.1.2}eigene Bundles}{17}{subsection.95}
-\contentsline {subsection}{\numberline {6.1.3}Fremd-Bundles}{17}{subsection.96}
-\contentsline {subsection}{\numberline {6.1.4}Doctrine2}{17}{subsection.97}
-\contentsline {subsection}{\numberline {6.1.5}AngularJS}{17}{subsection.98}
-\contentsline {subsection}{\numberline {6.1.6}Jquery}{17}{subsection.99}
-\contentsline {subsection}{\numberline {6.1.7}Twitter Bootstrap}{18}{subsection.101}
-\contentsline {subsection}{\numberline {6.1.8}Apache Wookie}{18}{subsection.104}
-\contentsline {section}{\numberline {6.2}Implementierungsdetails}{18}{section.105}
-\contentsline {subsection}{\numberline {6.2.1}Ablauf holen der Daten}{18}{subsection.106}
-\contentsline {subsection}{\numberline {6.2.2}Umsetzung der Offline-F\IeC {\"a}higkeiten}{18}{subsection.107}
-\contentsline {subsubsection}{\numberline {6.2.2.1}Local Storage}{18}{subsubsection.108}
-\contentsline {subsubsection}{\numberline {6.2.2.2}Einschr\IeC {\"a}nkungen im Offline-Betrieb}{19}{subsubsection.109}
-\contentsline {subsubsection}{\numberline {6.2.2.3}Preloads der Widgets}{19}{subsubsection.110}
-\contentsline {subsection}{\numberline {6.2.3}Widgets auf Hauptebene}{19}{subsection.111}
-\contentsline {subsection}{\numberline {6.2.4}Probleme bei multiple Instanzen des selben Widgets}{21}{subsection.115}
-\contentsline {subsection}{\numberline {6.2.5}Drag'n Drop}{21}{subsection.116}
-\contentsline {subsection}{\numberline {6.2.6}CORS}{22}{subsection.119}
-\contentsline {subsection}{\numberline {6.2.7}Kommunikation zwischen den IFrames}{22}{subsection.120}
-\contentsline {chapter}{\numberline {7}Zusammenfassung/Ausblick}{23}{chapter.121}
-\contentsline {subsection}{\numberline {7.0.8}Offene Fragen f\IeC {\"u}r weitere Forschungsarbeiten}{23}{subsection.122}
+\contentsline {section}{\numberline {2.1}Personal Learning Environments}{2}{section.21}
+\contentsline {subsection}{\numberline {2.1.1}Computergest\IeC {\"u}tztes Lernen}{2}{subsection.22}
+\contentsline {subsection}{\numberline {2.1.2}Probleme mit Lern-Management-Systemen}{2}{subsection.23}
+\contentsline {subsubsection}{\numberline {2.1.2.1}Lebenslanges Lernen}{3}{subsubsection.24}
+\contentsline {subsubsection}{\numberline {2.1.2.2}Technologische Entwicklung}{3}{subsubsection.25}
+\contentsline {subsection}{\numberline {2.1.3}Personal Learning Environments - Einf\IeC {\"u}hrung}{4}{subsection.26}
+\contentsline {chapter}{\numberline {3}Anforderungsanalyse}{5}{chapter.27}
+\contentsline {section}{\numberline {3.1}Use Case}{5}{section.28}
+\contentsline {subsection}{\numberline {3.1.1}Akteure}{5}{subsection.29}
+\contentsline {subsection}{\numberline {3.1.2}Ausgangssituation}{5}{subsection.30}
+\contentsline {subsubsection}{\numberline {3.1.2.1}Einschr\IeC {\"a}nkungen/Umst\IeC {\"a}nde}{6}{subsubsection.31}
+\contentsline {subsection}{\numberline {3.1.3}Arbeitsabl\IeC {\"a}ufe}{7}{subsection.32}
+\contentsline {subsubsection}{\numberline {3.1.3.1}Grunds\IeC {\"a}tzlicher Arbeitsablauf f\IeC {\"u}r Studenten}{7}{subsubsection.33}
+\contentsline {subsubsection}{\numberline {3.1.3.2}Arbeitsablauf Student 1}{7}{subsubsection.34}
+\contentsline {subsubsection}{\numberline {3.1.3.3}Arbeitsablauf Student 3}{9}{subsubsection.35}
+\contentsline {section}{\numberline {3.2}Anforderungen}{10}{section.36}
+\contentsline {chapter}{\numberline {4}\IeC {\"U}bersicht Stand der Forschung/Technik}{12}{chapter.38}
+\contentsline {section}{\numberline {4.1}Klassifizierungsmethoden f\IeC {\"u}r Personal Learning Environments}{12}{section.39}
+\contentsline {subsubsection}{\numberline {4.1.0.4}Dimensionen nach Palm\IeC {\'e}r}{12}{subsubsection.40}
+\contentsline {subsubsection}{\numberline {4.1.0.5}Muster f\IeC {\"u}r das Design von Personal Learning Environments}{14}{subsubsection.47}
+\contentsline {section}{\numberline {4.2}Technologie}{17}{section.57}
+\contentsline {section}{\numberline {4.3}Widgets}{17}{section.58}
+\contentsline {subsection}{\numberline {4.3.1}CORS}{17}{subsection.59}
+\contentsline {subsection}{\numberline {4.3.2}HTML5}{19}{subsection.86}
+\contentsline {subsubsection}{\numberline {4.3.2.1}Appcache}{19}{subsubsection.87}
+\contentsline {subsubsection}{\numberline {4.3.2.2}Local Storage}{19}{subsubsection.88}
+\contentsline {subsection}{\numberline {4.3.3}REST}{19}{subsection.89}
+\contentsline {subsubsection}{\numberline {4.3.3.1}Widgetparameter}{20}{subsubsection.90}
+\contentsline {chapter}{\numberline {5}L\IeC {\"o}sungsansatz}{21}{chapter.91}
+\contentsline {section}{\numberline {5.1}\IeC {\"U}berblick}{21}{section.92}
+\contentsline {section}{\numberline {5.2}Design}{21}{section.93}
+\contentsline {section}{\numberline {5.3}Technisch}{21}{section.94}
+\contentsline {subsection}{\numberline {5.3.1}Unabh\IeC {\"a}ngigkeit Offline/Online}{21}{subsection.95}
+\contentsline {chapter}{\numberline {6}Details zur L\IeC {\"o}sung}{22}{chapter.96}
+\contentsline {section}{\numberline {6.1}Entwicklungsumgebung/Tools}{22}{section.97}
+\contentsline {subsection}{\numberline {6.1.1}Symfony2}{22}{subsection.100}
+\contentsline {subsection}{\numberline {6.1.2}eigene Bundles}{23}{subsection.103}
+\contentsline {subsection}{\numberline {6.1.3}Fremd-Bundles}{23}{subsection.104}
+\contentsline {subsection}{\numberline {6.1.4}Doctrine2}{23}{subsection.105}
+\contentsline {subsection}{\numberline {6.1.5}AngularJS}{23}{subsection.106}
+\contentsline {subsection}{\numberline {6.1.6}Jquery}{23}{subsection.107}
+\contentsline {subsection}{\numberline {6.1.7}Twitter Bootstrap}{24}{subsection.109}
+\contentsline {subsection}{\numberline {6.1.8}Apache Wookie}{24}{subsection.112}
+\contentsline {section}{\numberline {6.2}Implementierungsdetails}{24}{section.113}
+\contentsline {subsection}{\numberline {6.2.1}Ablauf holen der Daten}{24}{subsection.114}
+\contentsline {subsection}{\numberline {6.2.2}Umsetzung der Offline-F\IeC {\"a}higkeiten}{24}{subsection.115}
+\contentsline {subsubsection}{\numberline {6.2.2.1}Local Storage}{24}{subsubsection.116}
+\contentsline {subsubsection}{\numberline {6.2.2.2}Einschr\IeC {\"a}nkungen im Offline-Betrieb}{25}{subsubsection.117}
+\contentsline {subsubsection}{\numberline {6.2.2.3}Preloads der Widgets}{25}{subsubsection.118}
+\contentsline {subsection}{\numberline {6.2.3}Widgets auf Hauptebene}{25}{subsection.119}
+\contentsline {subsection}{\numberline {6.2.4}Probleme bei multiple Instanzen des selben Widgets}{27}{subsection.123}
+\contentsline {subsection}{\numberline {6.2.5}Drag'n Drop}{27}{subsection.124}
+\contentsline {subsection}{\numberline {6.2.6}CORS}{28}{subsection.127}
+\contentsline {subsection}{\numberline {6.2.7}Kommunikation zwischen den IFrames}{28}{subsection.128}
+\contentsline {chapter}{\numberline {7}Zusammenfassung/Ausblick}{29}{chapter.129}
+\contentsline {subsection}{\numberline {7.0.8}Offene Fragen f\IeC {\"u}r weitere Forschungsarbeiten}{29}{subsection.130}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Installation/Deployment}{24}{appendix.123}
-\contentsline {section}{\numberline {A.1}Installation}{24}{section.124}
-\contentsline {subsection}{\numberline {A.1.1}Wookie}{24}{subsection.125}
-\contentsline {subsection}{\numberline {A.1.2}Plesynd}{24}{subsection.126}
-\contentsline {section}{\numberline {A.2}Deployment}{24}{section.127}
-\contentsline {subsection}{\numberline {A.2.1}Plesynd}{24}{subsection.128}
+\contentsline {chapter}{\numberline {A}Installation/Deployment}{30}{appendix.131}
+\contentsline {section}{\numberline {A.1}Installation}{30}{section.132}
+\contentsline {subsection}{\numberline {A.1.1}Wookie}{30}{subsection.133}
+\contentsline {subsection}{\numberline {A.1.2}Plesynd}{30}{subsection.134}
+\contentsline {section}{\numberline {A.2}Deployment}{30}{section.135}
+\contentsline {subsection}{\numberline {A.2.1}Plesynd}{30}{subsection.136}
 \vspace {2em}
-\contentsline {chapter}{Literaturverzeichnis}{25}{dummy.129}
+\contentsline {chapter}{Literaturverzeichnis}{31}{dummy.137}

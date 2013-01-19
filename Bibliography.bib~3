@@ -78,3 +78,41 @@
 	year = "2012"
 }
 
+@misc{cors_html5rocks,
+	author = "Hossain, Monsur",
+	howpublished = "\url{http://www.html5rocks.com/en/tutorials/cors/} Abrufdatum: 08.01.2013",
+	month = sep,
+	title = "{Using CORS}",
+	year = "2012"
+}
+
+@article{Palmer2009,
+	annote = "Grundlegend f{\"u}r die Klassifizierung von PLEs welche Dimensions gibt es, wo bewege ich mich",
+	author = "Palm{\'e}r, Matthias and Sire, St{\'e}phane and Bogdanov, Evgeny and Gillet, Denis and Wild, Fridolin",
+	file = ":home/roman/Dokumente/Hagen/Masterarbeit/mupple-ple-dimensions.pdf:pdf",
+	journal = "Proceedings of the First International Workshop on Mashup Personal Learning Environments MUPPLE08",
+	keywords = "comparison; mashup; ple; web; widget",
+	number = "1",
+	pages = "1--2",
+	title = "{Mapping Web Personal Learning Environments}",
+	volume = "16",
+	year = "2009"
+}
+
+@article{Wilson2008,
+	annote = "Eventuell wichtig f{\"u}r Klassifizierungen von PLEs. Bin mir aber nichts so richtig sicher, ob das f{\"u}r mich sinnvoll ist. Das 3 Modell h{\"o}rt sich f{\"u}r mich sinnvoller an.",
+	author = "Wilson, Scott",
+	doi = "10.1080/10494820701772660",
+	file = ":home/roman/Dokumente/Hagen/Masterarbeit/27901557.pdf:pdf",
+	issn = "1049-4820",
+	journal = "Interactive Learning Environments",
+	keywords = "learning networks; pattern languages; personal learning environments",
+	month = apr,
+	number = "1",
+	pages = "17--34",
+	title = "{Patterns of Personal Learning Environments}",
+	url = "http://www.tandfonline.com/doi/abs/10.1080/10494820701772660",
+	volume = "16",
+	year = "2008"
+}
+
