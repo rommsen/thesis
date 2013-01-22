@@ -1,28 +1,40 @@
 \chapter{Lösungsansatz} 
 \label{Kapitel 5}
 \lhead{Kapitel 5. \emph{Lösungsansatz}}  
-Beschreibung, wie die eigene Lösung die Anforderungen erfüllt
-Konzeptioneller (holistischer) Überblick über die eigene Lösung
 
+\section{Überblick - Plesynd}
+Das Ziel dieser Arbeit war die Entwicklung eines leichtgewichtigen Prototypen einer Personal Learning Environment, welcher die Anforderungen aus \ref{section:anforderungen_summary} erfüllt. Für die Umsetzung dieses Ansatzes habe ich mich dazu entschieden das Hauptaugenmerk auf die Screen- und die Data-Dimension nach Palmér zu richten (siehe \ref{section:dimensions_palmer}. Die Screen-Dimension, also das User-Interface wird in Abschnitt \ref{section:user_interface} beschrieben. Bei der Umsetzung der Data-Dimension handelt es sich primär um die Implementierung der Online-Offline-Fähigkeit des Systems (siehe Abschnitt \ref{section:technische_umsetzung}).
 
+Der Name des Systems lautet Plesynd (Personal-Learning-Environment Synchronize Data) und wird wie das englische "`pleasant"' (angenehm) ausgesprochen. Plesynd ist ein webbasiertes Dashboard, welches die Möglichkeit bietet mit unterschiedlichen Widgets in Kommunikation zu treten. Wichtig ist hierbei eine Abgrenzung zu zentralisierten Lern-Management-Systemen wie Moodle oder Sakai. Die sind sehr kurszentriert und können auch nur schwer mit den Wilson-Patterns für nutzerzentrierte Personal-Learning-Environment Systeme klassifiziert werden (siehe \ref{section:wilson_patterns}). Aus diesem Grund orientiert sich Plesynd viel stärker an bestehenden Widget-Aggregatoren wie iGoogle, Netvibes und Graaasp. Um dem Nutzer die Möglichkeit zu geben in unterschiedlichen Kontexten mit dem System zu arbeiten und so von dem kurszentrierten Ansatz von LM-Systemen zu dem nutzerzentrierten Ansatz von PLEs zu kommen, wird das System dem Nutzer die Möglichkeit geben, seine Widgets in unterschiedliche Workspaces aufzuteilen. Die Anzahl der Workspaces ist frei und jeder Workspace kann individuell benannt werden.
 
-\section{Überblick}
+Der entscheidende Unterschied von Plesynd zu den erwähnten Systemen ist die Offline-Fähigkeit der PLE. Es wurde ein Ansatz entwickelt, der es ermöglicht Widgets so zu implementieren, dass ihre Informationen offline verfügbar gemacht werden. Des weiteren kann auch auch offline mit Plesynd und den Widgets weitergearbeitet werden. Sobald wieder eine Online-Verbindung hergestellt ist, werden die veränderten Daten mit dem Backend synchronisiert.
 
-Konzentration auf die die Screen und Temporal Dimension
+Das Ziel beim Design von Plesynd war es dem Nutzer die Bedienung so einfach wie möglich zu machen. Die wichtigsten Informationen sollten ihm direkt direkt zur Verfügung gestellt werden (sind alle Daten aktuell, welche Widgets werden benutzt, ist das System offline oder online etc). Widgets können gesucht, nach Offline-Kompatibilität gefiltert und dem System hinzugefügt werden. Es existiert ein Dahsboard, welches dem Nutzer anzeigt welche Dashboards auf welvhen Workspaces zur verfügung stehen und wie ihr Online-/Offline-Status ist. 
+
+\section{User Interface}\label{section:user_interface}
+Für die Umsetzung der Screen-Dimension, also des User-Interfaces kommen in Plesynd drei wichtige Konzepte zum Einsatz: Dashboard, Widgets und Workspaces. 
+
+Über Widgets werden die unterschiedlichen Werkzeuge und Services, die ein Nutzer innerhalb des Systems nutzen möchte eingebunden (siehe: Kapitel \ref{section:widgets}). Die Umsetzung der einzelnen Widgets liegt in der Hand des jeweiligen Designers. Da Plesynd Wookie als Widget Container benutzt, ist es möglich alle W3C-Widgets in das System einzubinden. Für diese Arbeit wurde ein Todo-Listen-Service entwickelt für den als prototypische Entwicklung ein Widgets mit Online-/Offline-Fähigkeiten implementiert wurde. Besitzt ein Widget Online-/Offline-Fähigkeiten so erhält es eine von Plesynd zur Verfügung gestellte Statusleiste, in der der aktuelle Online-/Offline-Status, sowie die Anzahl der verfügbaren Items und der noch nicht synchronisierten Item angezeigt wird. Der Nutzer hat die Möglichkeit Widgets nach Themen oder Einsatzgebieten zu gruppieren. Dies geschieht über sogenannte Workspaces. Workspaces sind vom Nutzer frei und in unbegrenzter Zahl hinzufügbare Bereiche im System. Sie sind über einer Reiter-Navigation zu erreichen und können jederzeit umbenannt oder auch wieder gelöscht werden. Jedes Widget kann einem Workspace hinzugefügt werden. Die Position der Widgets innherhalb eines Workspaces kann über einen Drag and Drop Mechanismus angepasst werden. Die Startseite stellt als Dashboard die wichtigsten Informationen dar. Jeder Workspace wird in einer eigenen Tabelle inklusive seiner Widgets und der Anzahl der zur Verfügung stehenden Widgets präsentiert. Über direkte Links innerhalb des Dashboards ist es dem Nutzer möglich direkt zu dem gewünschten Workspace zu navigieren.
+
+Diese Konzepte stellen auch die Umsetzung bestimmter Muster dar, welcher in dem Kapitel \ref{section:wilson_patterns} vorgestellt wurden.  Der "`Discourse Monitor"' (siehe Seite \pageref{wilson_patterns:discourse_monitor}) wird grundsätzlich durch die Startseite, also durch das Dashboard umgesetzt. Diese präsentiert dem Nutzer die wichtigsten Informationen bezüglich seiner Workspaces und gibt ihm durch Links dorthin die Möglichkeit direkt zu den gewünschten Personal-Learning-Tools zu gelangen. Der "`Navigation Layer"' (siehe Seite \pageref{wilson_patterns:navigation_layer}) ist in Plesynd inhärent mit eingebaut. Durch die Einbindung externer Widgets, wird dem User nur der Funktionsumfang zur Verfügung gestellt, welche von den Widget-Entwicklern angedacht wurde. Für den vollen Funktionsumfang muss der Nutzer zum eigentlichen Service des Nutzers gehen. Die Widgets werden über die vom System zur Verfügung gestellten Workspaces aggregiert und in übersichtlicher Form präsentiert. Der Nutzer ist in der Lage Widgets zu seinen frei definierbaren Workspaces hinzuzufügen, zu entfernen oder über Drag and Drop nach seinen Wünschen anzuordnen. Dadurch wird ist auch das "`Choose Change and Discard"'-Pattern (siehe Seite \pageref{wilson_patterns:choose_change_discard}) grundsätzlich im System verankert.
+
+\section{Technische Umsetzung}\label{section:technische_umsetzung}
+Data Dimension
 
 erweiterung des Multimode patterns auf offline/online
 
-\section{Design}
-wie ist das Design aufgebaut, welche Patterns könnte man nehmen
-Screen Dimension
+Multi-Platform/Multi-Mode
 
+Da das System grundsätzlich auf browserbasierten Techniken aufgebaut und über das Internet erreichbar ist, ist der Multi Platform Mode, also der Zugriff über unterschiedlichste Endgeräte automatisch gegeben. Eventuell könnte es noch Probleme mit der Offlinefähigkeit bei mobilen Endgeräten wie Smartphones oder Tablets geben.
+Choose, Change, Discard
 
-\section{Technisch}
-Temporal Dimension
+ Basis hierfür wird die Fähigkeit der Browser sein per Javascript den aktuellen Status der Online-Verbindung zu prüfen. Diese Information wird dem Benutzer an prominenter Stelle über einen farbigen Status-Button mitgeteilt (grüner = Online-Verbindung vorhanden, rot = Online-Verbindung nicht vorhanden). Zusätzlich ist es vorstellbar, dass jedes Widget selbst ebenfalls eine solche Statusausgabe enthält. Dies ist notwendig, um dem User mitzuteilen, ob es eventuelle Probleme bei der Verbindung mit dem Backend des Widgets gibt.
 
 \subsection{Unabhängigkeit Offline/Online}\label{section:unabhaengigkeit_offline_online}
 Local Storage, Appcache, Minification, warum kein Indexed DB
 
 Drop in Rest oder Local
+
+\section{Arbeitsablauf}
 
 
