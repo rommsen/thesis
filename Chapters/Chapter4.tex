@@ -42,12 +42,14 @@ Kritik an den Patterns?
 Im Folgenden werden Technologien und Konzepte vorgestellt, die den Stand der Technik im Bereich der PLE-Entwicklung darlegen oder notwendig sind, um die in Kapitel \ref{section:anforderungsanalyse} entwickelnden Anforderungen an eine Web basierte und offline fähige PLE zu erfüllen.
 
 
-\section{Widgets}
+\subsection{Widgets}\label{section:widgets}
 Widgets
 Opensocial vs W3C
 warum w3c widgets, opensocial wird nicht weiterentwickelt etc, Apache Shindig Problematishc
 W3C Widgets haben keine gesonderte Definition für HTML5 Appcache,
 unterschiedliche Formate
+
+\subsubsection{Wookie}\label{section:wookie}
 
 Wookie während der Entwicklung vom Incubator zum vollwertigen Apache Projekt
 
@@ -105,11 +107,52 @@ Der Preflight-Request ist nur erfolgreich, wenn die Methode aus \texttt{Access-C
 \subsection{HTML5}\label{section:html5}
 neuerungen HTML5, nicht nur eine Technologie, Zusammenfassung mehrerer Technologien, CSS 3 unterschiedliche JavaScript Apis (local storage, appcache) drag and Drop
 
+
+
+\subsection{Offline-Web-Anwendungen}
+Der Begriff "`Offline-Web-Anwendung"' mag sich zunächst nach einem Widerspruch in sich annhören. Normalerweise kennt der Nutzer den folgenden Arbeitsablauf, wenn er sich im Internet bewegt: Öffnen des Internetbrowser => eingeben der gewünschten Url => der Browser verbindet sich als Client mit dem hinter der URL stehenden Server und lädt die zur Verfügung gestellten Inhalte (Html, Javascript, Css, Medienresourcen etc) herunter => der Browser rendert das Html/Css und führt die Anweisungen in den Javascript-Quellcode aus, so dass dem Nutzer eine funktionsfähige Seite zur Verfügung steht. Ist das System nun aber offline, kann der Browser keine Verbindung mit dem Server herstellen und erhält somit keine Daten, die er darstellen kann.
+
+Definieren, was bedeutet Offline Anwendung, Unterschiede always offline, online-offline
+
+\cite{html5_rocks_offline_what_does_it_mean}
+
+There are also online-offline applications which intentionally keep certain information locally. Sometimes, that might be done to tie data to the browser, rather than the user's account, e.g. the current song being played by a media player application. Local storage is also an interesting alternative to server-based storage for simple applications without user registration; by offloading data storage to clients, you avoid the hassle of maintaining a database on your server. Of course, you should only do this for non-critical data, e.g. a list of recent searches. Another reason is about security and privacy, the concept of Host-Proof Hosting. An early example is HalfNote, by Aaron Boodman (now a Chrome engineer).
+
+
+
+what is an offline web application? At first glance, it sounds like a contradiction in terms. Web pages are things you download and render. Downloading implies a network connection. How can you download when you’re offline? Of course, you can’t. But you can download when you’re online. And that’s how HTML5 offline applications work. 
+
+Workflow aus den Anforderungen benötigt online-offline Anwendungen
+
+Für die Erstellung von Offline-Applikationen, also Webanwendungen denen es möglich ist ohne eine Verbindung mit dem Internet zu funktionieren, gibt es zwei wichtige Technologien.
+
+
+Detecting if you're online
+
+There's an HTML5 API to let you query if a browser is online: navigator.onLine(). It works on recent IE, Firefox, Opera, and Chrome. You can also listen for these online/offline events using document.body.addEventListener("online", function () {...} and document.body.addEventListener("offline", function () {...}.
+
+You should generally assume the network is present and make calls as normal. It's only in the event of a server timeout or related error that you should invoke navigator.online. Doing so will serve two purposes: (a) you can decide if the error is caused by a network outage versus a server-specific outage, and if it's a network outage, inform the user so they can get back online; (b) you can start watching for the "online" event, and take action when the user's back online.
+ 
 \subsubsection{Appcache}\label{section:appcache}
 Eine wichtige Neuerung in Html
+\cite{w3c_offline_appcache}
+\cite{html5_up_and_running}
+\cite{html5_rocks_appcache_leitfaden}
 
-\subsubsection{Local Storage}\label{section:local_storage}
-Local Storage
+
+\subsubsection{Offline-Storage}\label{section:local_storage}
+
+Welche Arten gibt es? Zusammenfassung der Geschichte, cookies etc
+
+
+Local Storage/ Web Storage
+
+\cite{html5_up_and_running}
+
+WebSql Database
+
+
+Indexed DB
 
 
 \subsection{REST}\label{section:rest}
