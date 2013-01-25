@@ -41,8 +41,9 @@ Kritik an den Patterns?
 \section{Technologie}
 Im Folgenden werden Technologien und Konzepte vorgestellt, die den Stand der Technik im Bereich der PLE-Entwicklung darlegen oder notwendig sind, um die in Kapitel \ref{section:anforderungsanalyse} entwickelnden Anforderungen an eine Web basierte und offline fähige PLE zu erfüllen.
 
+\subsection{Erstellung von Mashup-Anwendungen}
 
-\subsection{Widgets}\label{section:widgets}
+\subsubsection{Widgets}\label{section:widgets}
 Widgets
 Opensocial vs W3C
 warum w3c widgets, opensocial wird nicht weiterentwickelt etc, Apache Shindig Problematishc
@@ -53,9 +54,8 @@ unterschiedliche Formate
 
 Wookie während der Entwicklung vom Incubator zum vollwertigen Apache Projekt
 
-
-\subsection{CORS}\label{section:cors}
-Moderne Browser benutzen als Teil ihres Sicherheitskonzeptes die Same-Origin-Policy. Diese bewirkt, dass Sprachen, die auf Clientseite ausgeführt werden (wie JavaScript), nicht die Möglichkeit haben, Request an einen anderen Zielpunkt als ihrem Ursprung zu starten\cite{same_origin_policy_mozilla}. Diese Policy wird also lediglich bei Zugriff auf URLs mit der selben Domain und dem selben Port, wie die URL von der die Seite geladen wurde, erfüllt. Das bedeutet, dass ein Skript auf \texttt{http://sop.example.com/directory1} Requests an \texttt{http://sop.example.com/directory2} starten kann, nicht jedoch an \texttt{http://example.com/directory2} (unterschiedliche Domain) oder an \texttt{http://sop.example.com:8080/directory2} (unterschiedlicher Port). Ausgenommen ist hierbei das in eine Seite eingebettete Laden von Resourcen. Hierzu gehören externe Inhalte, die über iFrames geladen werden aber auch externe JavaScript-Dateien(über <script>...</script> Tags) und Medienresourcen wie Bilder und Videos. Des Weiteren ist es auch möglich Formulare an andere Zielpunkte als den Ursprung abzuschicken. Diese Einschränkung hat also primär Auswirkungen auf das Absenden von XMLHttpRequest, also auf normale Ajax-Requests. 
+\subsubsection{CORS}\label{section:cors}
+Moderne Browser benutzen als Teil ihres Sicherheitskonzeptes die Same-Origin-Policy. Diese bewirkt, dass Sprachen, die auf Clientseite ausgeführt werden (wie Javascript), nicht die Möglichkeit haben, Request an einen anderen Zielpunkt als ihrem Ursprung zu starten\cite{same_origin_policy_mozilla}. Diese Policy wird also lediglich bei Zugriff auf URLs mit der selben Domain und dem selben Port, wie die URL von der die Seite geladen wurde, erfüllt. Das bedeutet, dass ein Skript auf \texttt{http://sop.example.com/directory1} Requests an \texttt{http://sop.example.com/directory2} starten kann, nicht jedoch an \texttt{http://example.com/directory2} (unterschiedliche Domain) oder an \texttt{http://sop.example.com:8080/directory2} (unterschiedlicher Port). Ausgenommen ist hierbei das in eine Seite eingebettete Laden von Resourcen. Hierzu gehören externe Inhalte, die über iFrames geladen werden aber auch externe Javascript-Dateien(über <script>...</script> Tags) und Medienresourcen wie Bilder und Videos. Des Weiteren ist es auch möglich Formulare an andere Zielpunkte als den Ursprung abzuschicken. Diese Einschränkung hat also primär Auswirkungen auf das Absenden von XMLHttpRequest, also auf normale Ajax-Requests. 
 
 Die Same-Origin-Policy ist sehr sinnvoll um beispielsweise das Ausspähen privater Daten zu verhindern. Sie erschwert jedoch die Entwicklung moderner Ajax-Anwendungen und insbesondere die Entwicklung von Mashup-Applikationen wie PLEs, welche prinzipiell schon so aufgebaut sind, dass sie ihre Inhalte und Resourcen aus unterschiedlichen Quellen beziehen. In einer PLE wie in dieser Arbeit beschrieben, ist es beispielsweise so, dass die Widgets (siehe \ref{section:widgets}) selber von einem Widget-Container wie Wookie (siehe \ref{section:apache_wookie}) ausgeliefert werden und dadurch auch die Domain des Widget Containers als Origin besitzen. Arbeiten diese Widgets nun aber nicht nur lokal beim Client, sondern benötigen für ihre Funktionalität auch externe Server, so müssen sie in der Lage sein XMLHttpRequests an diese zu senden. Aus diesem Grund wurde der Mechanismus des Cross-Origin Resource Sharing (CORS)\cite{cors_w3c} eingeführt. Dieser erlaubt es unter bestimmten Bedingungen und Einschränkungen die Same-Origin-Policy zum umgehen.
 
@@ -104,70 +104,91 @@ Content-Type: text/html; charset=utf-8
 \end{lstlisting}
 Der Preflight-Request ist nur erfolgreich, wenn die Methode aus \texttt{Access-Control-Request-Method} in \texttt{Access-Control-Allow-Methods} und alle Header aus \texttt{Access-Control-Request-Headers} in \texttt{Access-Control-Allow-Headers} vorhanden sind.
 
+\subsubsection{Kommunikation zwischen den IFrames}
+(TODO: Bib: https://developer.mozilla.org/en-US/docs/DOM/window.postMessage)
+Postmessage: 
+
+\subsubsection{REST}\label{section:rest}
+Rest
+
 \subsection{HTML5}\label{section:html5}
-neuerungen HTML5, nicht nur eine Technologie, Zusammenfassung mehrerer Technologien, CSS 3 unterschiedliche JavaScript Apis (local storage, appcache) drag and Drop
-
-
+neuerungen HTML5, nicht nur eine Technologie, Zusammenfassung mehrerer Technologien, CSS 3 unterschiedliche Javascript Apis (local storage, appcache) drag and Drop
 
 \subsection{Offline-Web-Anwendungen}
-Der Begriff "`Offline-Web-Anwendung"' mag sich zunächst nach einem Widerspruch in sich annhören. Normalerweise kennt der Nutzer den folgenden Arbeitsablauf, wenn er sich im Internet bewegt: Öffnen des Internetbrowser => eingeben der gewünschten Url => der Browser verbindet sich als Client mit dem hinter der URL stehenden Server und lädt die zur Verfügung gestellten Inhalte (Html, Javascript, Css, Medienresourcen etc) herunter => der Browser rendert das Html/Css und führt die Anweisungen in den Javascript-Quellcode aus, so dass dem Nutzer eine funktionsfähige Seite zur Verfügung steht. Ist das System nun aber offline, kann der Browser keine Verbindung mit dem Server herstellen und erhält somit keine Daten, die er darstellen kann.
+Der Begriff "`Offline-Web-Anwendung"' mag sich zunächst nach einem Widerspruch in sich annhören. Normalerweise kennt der Nutzer den folgenden Arbeitsablauf, wenn er sich im Internet bewegt: Öffnen des Internetbrowser => eingeben der gewünschten Url => der Browser verbindet sich als Client mit dem hinter der URL stehenden Server und lädt die zur Verfügung gestellten Inhalte (Html, Javascript, Css, Medienresourcen etc) herunter => der Browser rendert das Html/Css und führt die Anweisungen in den Javascript-Quellcode aus, so dass dem Nutzer eine funktionsfähige Seite zur Verfügung steht. Ist das System nun aber offline, kann der Browser keine Verbindung mit dem Server herstellen und erhält somit keine Daten, die er darstellen kann. Es gibt Systeme auf Html/Javascript Basis, die niemals den Kontakt mit dem Internet benötigen \cite{html5_rocks_offline_what_does_it_mean}. Diese Anwendungen werden komplett aus dem Dateisystem geladen und benutzen den Browser nur für die Darstellung (z.B. \href{http://tiddlywiki.com/}{TiddlyWiki}\footnote{\url{http://tiddlywiki.com/}}, ein Wiki-System, welches komplett lokal auf dem Rechner des Anwenders läuft). Diese Systeme sind aber für diese Arbeit irrelevant, da die Anforderungsanalyse aus Kapitel \ref{section:anforderungsanalyse} zeigt, dass für das zu entwickelnde System Anwendungen notwendig sind, die je nach Notwendigkeit sowohl online als auch offline arbeiten können. All diesen Systemen gemein ist, dass sie zumindest eine initiale Internetverbindung benötigen, bei der Zugriff auf die genutzten Ressourcen besteht. 
 
-Definieren, was bedeutet Offline Anwendung, Unterschiede always offline, online-offline
+In HTML5 gibt es im Wesentlichen zwei Mechanismen, die für die Offline-Fähigkeiten von Webanwendungen verantwortlich sind: Application-Caching und Offline-Storage \cite{html5_rocks_offline_what_does_it_mean}. Der Unterschied zwischen ihnen liegt in der Art der Daten, die sie lokal vorhalten. Application-Caching ist für das Caching, also die Speicherung der zentralen Applikationslogik und des User-Interfaces im Browser zuständig. Dies bedeutet das alle benötigen Ressourcen (Html, Javascript, Css etc.) heruntergeladen und im Browsercache vorgehalten werden. Dieser Cache bleibt auch bestehen, wenn der Browser geschlossen wird. Gleiches gilt für den Offline-Storage. Offline-Storage ist ein Mechanismus, welche in der Lage ist die Daten, die der Nutzer eingibt oder bearbeitet ebenfalls im Browser zu speichern und wieder zur Verfügung zu stellen. Gemeinsam mit einem Mechanismus, der es Browsern erlaubt zu erkennen, ob sie online oder offline sind, versetzen Application-Caching und Offline-Storage den Entwickler also in die Lage ein System zu entwickeln, welches in der Lage ist ohne Konnektivität mit dem Internet erneut aufgerufen zu werden. Der Anwender kann mit dem System anschließend arbeiten, als wenn eine Internetverbindung zur Verfügung steht.
 
-\cite{html5_rocks_offline_what_does_it_mean}
+Im Folgenden werden die Möglichkeiten die HTML5 für die Umsetzung des Application-Cachings und des Offline-Storages bietet genauer beschrieben.
 
-There are also online-offline applications which intentionally keep certain information locally. Sometimes, that might be done to tie data to the browser, rather than the user's account, e.g. the current song being played by a media player application. Local storage is also an interesting alternative to server-based storage for simple applications without user registration; by offloading data storage to clients, you avoid the hassle of maintaining a database on your server. Of course, you should only do this for non-critical data, e.g. a list of recent searches. Another reason is about security and privacy, the concept of Host-Proof Hosting. An early example is HalfNote, by Aaron Boodman (now a Chrome engineer).
+\subsubsection{Application-Caching}\label{section:appcache}
+Die Basis des Application-Cachings ist eine Manifest Datei \cite{html5_rocks_appcache_leitfaden}. In dieser Datei wird hinterlegt, welche Ressourcen vom Webbrowser zwischengespeichert werden sollen. Die Datei ist eine einfache Textdatei, dessen Dateiendung frei gewählt werden kann. Es wird aber empfohlen die Manifestdatei auf .appcache enden zu lassen \cite{w3c_offline_appcache}. Wichtig ist, dass die Datei vom Webserver mit dem MIME type \texttt{text/cache-manifest} ausgeliefert wird. Dies kann z.B. für den  Apache Webserver mit dem folgenden Eintrag in einer .htaccess Datei geschehen: 
+\begin{lstlisting}
+AddType text/cache-manifest .appcache
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/cache-manifest "access plus 0 seconds"
+</IfModule>
+\end{lstlisting}
+Der Bereich in dem \texttt{IfModule}-Tag ist dafür zuständig, dass die Manifest-Datei selber nicht gecached wird. Dies ist momentan noch für den Firefox-Browser notwendig.
+
+Jede HTML-Seite die den Application-Cache nutzen soll, muss diese Datei über das \texttt{manifest}-Attribut in ihrem html-Tag einbinden \cite{html5_up_and_running}. Es ist dabei egal, ob die Datei über einen relativen oder einen absoluten Pfad eingebunden wird. Sie muss nur von der HTML-Seite aus erreichbar sein:
+\begin{lstlisting}
+<!DOCTYPE html>
+<html manifest="cache.appcache">
+<body>
+...
+</body>
+</html>
+\end{lstlisting}
+
+Das folgende Listing zeigt den Beispielhaften Aufbau einer Manifestdatei und stammt bis auf den Fallback Bereich aus der entwickelten PLE:
+\begin{lstlisting}
+CACHE MANIFEST
+#Rev 9
+
+CACHE:
+#Partials
+/partials/dashboard
+/partials/workspace
+#CSS
+/css/compiled/plesynd/main.css
+#JS
+/js/compiled/plesynd/main.js
+#ICONS
+http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/img/glyphicons-halflings.png
+
+NETWORK:
+*
+
+FALLBACK:
+/ /offline.html
+\end{lstlisting}
+
+Die Datei beginnt mit einem \texttt{CACHE MANIFEST}-Header, der angibt, dass es sich um eine Manifestdatei handelt. Es folgt eine Kommentarzeile mit einer Revisionsnummer. Diese Zeile ist eigentlich nicht notwendig. Der Grund für sie ist der, dass ein Browser den Inhalt des Caches nur aktualisiert, wenn sich die Manifestdatei selber, nicht aber wenn sich die Dateien, die im Manifest referenziert werden aktualisiert wurden. Ändert man nun beispielsweise eine Javascript-Datei, so würde der Browser diese Änderung nicht registrieren. Man muss zusätzlich die Manifestdatei (und sei es nur in einem Zeichen, wie hier die Revisionsnummer) ändern. Der Browser bemerkt dies und aktualisiert sowohl die Datei, als auch die von ihr referenzierten Inhalte.
+
+Now look at the fallback section. The fallback section in this cache manifest only has a single line. The first part of the line (before the space) is not a URL. It’s really a URL pattern. The single character (/) will match any page on your site, not just the home page. When you try to visit a page while you’re offline, your browser will look for it in the appcache. If your browser finds the page in the appcache (because you visited it while online, and the page was implicitly added to the appcache at that time), then your browser will display the cached copy of the page. If your browser doesn’t find the page in the appcache, instead of displaying an error message, it will display the page /offline.html, as specified in the second half of that line in the fallback section. 
 
 
-
-what is an offline web application? At first glance, it sounds like a contradiction in terms. Web pages are things you download and render. Downloading implies a network connection. How can you download when you’re offline? Of course, you can’t. But you can download when you’re online. And that’s how HTML5 offline applications work. 
-
-Workflow aus den Anforderungen benötigt online-offline Anwendungen
-
-Für die Erstellung von Offline-Applikationen, also Webanwendungen denen es möglich ist ohne eine Verbindung mit dem Internet zu funktionieren, gibt es zwei wichtige Technologien.
-
-
-Detecting if you're online
-
-There's an HTML5 API to let you query if a browser is online: navigator.onLine(). It works on recent IE, Firefox, Opera, and Chrome. You can also listen for these online/offline events using document.body.addEventListener("online", function () {...} and document.body.addEventListener("offline", function () {...}.
-
-You should generally assume the network is present and make calls as normal. It's only in the event of a server timeout or related error that you should invoke navigator.online. Doing so will serve two purposes: (a) you can decide if the error is caused by a network outage versus a server-specific outage, and if it's a network outage, inform the user so they can get back online; (b) you can start watching for the "online" event, and take action when the user's back online.
- 
-\subsubsection{Appcache}\label{section:appcache}
-Eine wichtige Neuerung in Html
 \cite{w3c_offline_appcache}
 \cite{html5_up_and_running}
 \cite{html5_rocks_appcache_leitfaden}
 
-
 \subsubsection{Offline-Storage}\label{section:local_storage}
-
 Welche Arten gibt es? Zusammenfassung der Geschichte, cookies etc
-
-
 Local Storage/ Web Storage
-
 \cite{html5_up_and_running}
-
 WebSql Database
-
-
 Indexed DB
 
+\subsubsection{Online-/Offline-Erkennung}
+Detecting if you're online
 
-\subsection{REST}\label{section:rest}
-Rest
-
-
-\subsubsection{Widgetparameter}
-Die Parameter für Widgets werden in der Wookie DB hinterlegt.
-Die Widget Implementation wird über http://localhost:8080/wookie/shared/js/wookie-wrapper.js ausgeliefert.
-Hier ist setItem/getItem ist so implementiert, dass es einen Request an den Server sendet und die Einstellungen speichert.
-
-Die Standardeinstellungen aus der config.xml werden nur beim ersten deploy ausgelesen, anschließend nicht! mehr
-
-Jedes Widget bekommt eine eigene id! Diese kann dann für die Identifizierung genutzt werden.
-
-Die Werte werden NICHT im local storage hinterlegt./
+There's an HTML5 API to let you query if a browser is online: navigator.onLine(). It works on recent IE, Firefox, Opera, and Chrome. You can also listen for these
+\begin{lstlisting}
+online/offline events using document.body.addEventListener("online", function () {...} 
+document.body.addEventListener("offline", function () {...}.
+\end{lstlisting}
+You should generally assume the network is present and make calls as normal. It's only in the event of a server timeout or related error that you should invoke navigator.online. Doing so will serve two purposes: (a) you can decide if the error is caused by a network outage versus a server-specific outage, and if it's a network outage, inform the user so they can get back online; (b) you can start watching for the "online" event, and take action when the user's back online.
 
 \section{Ähnliche Systeme}
