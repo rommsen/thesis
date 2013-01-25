@@ -5,7 +5,7 @@ Implementierungsdetails (nur die interessanten)
 Erfahrungen / Evaluation
 
 \section{Entwicklungsumgebung und eingesetzte Werkzeuge}\label{section:entwicklungsumgebungen_tools}
-Für die Entwicklung von Plesynd wurden unterschiedliche Tools und Frameworks genutzt. Entwickelt wurde das System auf Serverseite mit \href{http://php.net}{PHP}\footnote{\url{http://php.net}}. Der clientseitige Code wurde mit \href{http://de.wikipedia.org/wiki/JavaScript}{JavaScript}\footnote{\url{http://de.wikipedia.org/wiki/JavaScript}} implementiert. 
+Für die Entwicklung von Plesynd wurden unterschiedliche Tools und Frameworks genutzt. Entwickelt wurde das System auf Serverseite mit \href{http://php.net}{PHP}\footnote{\url{http://php.net}}. Der clientseitige Code wurde mit \href{http://de.wikipedia.org/wiki/Javascript}{Javascript}\footnote{\url{http://de.wikipedia.org/wiki/Javascript}} implementiert. 
 
 Die Frameworks im Folgenden kurz vorgestellt.
 
@@ -23,12 +23,23 @@ Orm, DataMapper Pattern, kein Active Record, Arbeit mit einfachen Objekten, Enti
 \subsection{AngularJS}
 
 \subsection{Jquery}
-\href{http://jquery.com/}{Jquery}\footnote{\url{http://jquery.com/}} ist eine JavaScript-Bibliothek zur einfachen Manipulation des DOM. Desweiteren stellt sie erweiterte JavaScript-Funktionalitäten zur Verfügung und vereinfacht die Arbeit mit den browserbasierten Event-System(TODO: ref http://de.wikipedia.org/wiki/JQuery) AngularJS verwendet Jquery, wenn vorhanden, insbesondere zur Manipulation des DOM. In Plesynd basiert unter anderem noch das Postmessage(TODO: ref postmessage) auf Jquery.  
+\href{http://jquery.com/}{Jquery}\footnote{\url{http://jquery.com/}} ist eine Javascript-Bibliothek zur einfachen Manipulation des DOM. Desweiteren stellt sie erweiterte Javascript-Funktionalitäten zur Verfügung und vereinfacht die Arbeit mit den browserbasierten Event-System(TODO: ref http://de.wikipedia.org/wiki/JQuery) AngularJS verwendet Jquery, wenn vorhanden, insbesondere zur Manipulation des DOM. In Plesynd basiert unter anderem noch das Postmessage(TODO: ref postmessage) auf Jquery.  
 
 \subsection{Twitter Bootstrap}
-\href{http://twitter.github.com/bootstrap/}{Twitter Bootstrap}\footnote{\url{http://twitter.github.com/bootstrap/}} ist ein von Twitter entwickeltes Framework zur schnellen und einfachen Entwicklung von Frontends. Es stellt CSS-Vorlagen und JavaScript-Komponenten zur Verfügung, welche es dem Entwickler ermöglichen sollen in kurzer Zeit ein User-Interface zu entwerfen und umzusetzen. Bootstrap beinhaltet CSS-Vorlagen für Grids, Tabellen, Buttons etc. . In Plesynd wird von den von Bootstrap zur Verfügung gestellten Javascript-Komponenten momentan nur die \href{http://twitter.github.com/bootstrap/javascript.htmlmodals}{Modal-Komponente}\footnote{\url{http://twitter.github.com/bootstrap/javascript.htmlmodals}} verwendet. 
+\href{http://twitter.github.com/bootstrap/}{Twitter Bootstrap}\footnote{\url{http://twitter.github.com/bootstrap/}} ist ein von Twitter entwickeltes Framework zur schnellen und einfachen Entwicklung von Frontends. Es stellt CSS-Vorlagen und Javascript-Komponenten zur Verfügung, welche es dem Entwickler ermöglichen sollen in kurzer Zeit ein User-Interface zu entwerfen und umzusetzen. Bootstrap beinhaltet CSS-Vorlagen für Grids, Tabellen, Buttons etc. . In Plesynd wird von den von Bootstrap zur Verfügung gestellten Javascript-Komponenten momentan nur die \href{http://twitter.github.com/bootstrap/javascript.htmlmodals}{Modal-Komponente}\footnote{\url{http://twitter.github.com/bootstrap/javascript.htmlmodals}} verwendet. 
 
 \subsection{Apache Wookie}\label{section:apache_wookie}
+
+\subsubsection{Widgetparameter}
+Die Parameter für Widgets werden in der Wookie DB hinterlegt.
+Die Widget Implementation wird über http://localhost:8080/wookie/shared/js/wookie-wrapper.js ausgeliefert.
+Hier ist setItem/getItem ist so implementiert, dass es einen Request an den Server sendet und die Einstellungen speichert.
+
+Die Standardeinstellungen aus der config.xml werden nur beim ersten deploy ausgelesen, anschließend nicht! mehr
+
+Jedes Widget bekommt eine eigene id! Diese kann dann für die Identifizierung genutzt werden.
+
+Die Werte werden NICHT im local storage hinterlegt./
 
 \section{Implementierungsdetails}\label{section:implementierungsdetails}
 
