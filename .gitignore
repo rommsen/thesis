@@ -1,4 +1,5 @@
 *~
+*~*
 *.backup
 Thesis.aux
 Thesis.bbl
@@ -7,3 +8,4 @@ Thesis.log
 Thesis.out
 Thesis.pdf
 Thesis.toc
+masterarbeit.kilepr
