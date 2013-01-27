@@ -132,7 +132,7 @@ AddType text/cache-manifest .appcache
 \end{lstlisting}
 Der Bereich in dem \texttt{IfModule}-Tag ist dafür zuständig, dass die Manifest-Datei selber nicht gecached wird. Dies ist momentan noch für den Firefox-Browser notwendig.
 
-Jede HTML-Seite die den Application-Cache nutzen soll, muss diese Datei über das \texttt{manifest}-Attribut in ihrem html-Tag einbinden \cite{html5_up_and_running}. Es ist dabei egal, ob die Datei über einen relativen oder einen absoluten Pfad eingebunden wird. Sie muss nur von der HTML-Seite aus erreichbar sein:
+Jede HTML-Seite die den Application-Cache nutzen soll, muss diese Datei über das \texttt{manifest}-Attribut in ihrem html-Tag einbinden \cite{html5_up_and_running_chapter_8}. Es ist dabei egal, ob die Datei über einen relativen oder einen absoluten Pfad eingebunden wird. Sie muss nur von der HTML-Seite aus erreichbar sein:
 \begin{lstlisting}
 <!DOCTYPE html>
 <html manifest="cache.appcache">
@@ -165,14 +165,44 @@ FALLBACK:
 / /offline.html
 \end{lstlisting}
 
-(Folgende Erklärungen aus \cite{w3c_offline_appcache}, \cite{html5_up_and_running} und \cite{html5_rocks_appcache_leitfaden}). Die Datei beginnt mit einem \texttt{CACHE MANIFEST}-Header, der angibt, dass es sich um eine Manifestdatei handelt. Es folgt eine Kommentarzeile mit einer Revisionsnummer. Diese Zeile ist eigentlich nicht notwendig. Der Grund für ihr Vorhandensein ist der, dass ein Browser den Inhalt des Caches nur aktualisiert, wenn sich die Manifestdatei selber ändert, nicht aber wenn sich die Dateien, die im Manifest referenziert werden aktualisiert wurden. Ändert man nun beispielsweise eine Javascript-Datei, so würde der Browser diese Änderung nicht registrieren. Man muss zusätzlich die Manifestdatei (und sei es nur in einem Zeichen, wie hier die Revisionsnummer) ändern. Der Browser bemerkt dies und aktualisiert sowohl die Datei, als auch die von ihr referenzierten Inhalte. Die Zeilen nach dem \texttt{CACHE}-Eintrag geben die Ressourcen, an die explizit vom Browser gecached werden sollen. Wie man sieht können hier alle möglichen Ressourcentypen, also auch Binärdateien wie Bilder angegebene werden. Die Zeilen die mit einem Hash anfangen, sind nur Kommentare zur besseren Lesbarkeit. Der \texttt{NETWORK}-Eintrag defniniert eine Whitelist, welche angibt welche Ressourcen in jedem Fall über das Netz geholt wird, (auch wenn der Browser offline ist). Hier könnte beispielsweise der Zugriff auf vom Server dynamisch interpretierte PHP oder CGI Dateien definiert werden. Der in diesem Fall verwendete Platzhalter gibt an, dass alle Dateien, die nicht in der \texttt{CACHE}-Sektion definiert wurden über das Netz geholt werden. Der \texttt{FALLBACK}-Bereich beschreibt eine alternative Datei, welche angezeigt wird, wenn die angeforderte Ressource nicht im Cache liegt und kein Internetzugang besteht. Im vorliegenden Fall trifft \texttt{/} auf jede Seite ab dem Wurzelverzeichnis zu, wenn die angeforderte Seite also nicht im Cache liegt, wird die Fallback-Datei angezeigt. Abschließend ist zu bemerken, das jede HTMl-Datei, die auf eine Manifestdatei verweist implizit ebenfall gecached wird. Der Cache kann also bei einer Webseite durch die sich der Anwender bewegt sukzessive wachsen.   
+(Folgende Erklärungen aus \cite{w3c_offline_appcache}, \cite{html5_up_and_running_chapter_8} und \cite{html5_rocks_appcache_leitfaden}). Die Datei beginnt mit einem \texttt{CACHE MANIFEST}-Header, der angibt, dass es sich um eine Manifestdatei handelt. Es folgt eine Kommentarzeile mit einer Revisionsnummer. Diese Zeile ist eigentlich nicht notwendig. Der Grund für ihr Vorhandensein ist der, dass ein Browser den Inhalt des Caches nur aktualisiert, wenn sich die Manifestdatei selber ändert, nicht aber wenn sich die Dateien, die im Manifest referenziert werden aktualisiert wurden. Ändert man nun beispielsweise eine Javascript-Datei, so würde der Browser diese Änderung nicht registrieren. Man muss zusätzlich die Manifestdatei (und sei es nur in einem Zeichen, wie hier die Revisionsnummer) ändern. Der Browser bemerkt dies und aktualisiert sowohl die Datei, als auch die von ihr referenzierten Inhalte. Die Zeilen nach dem \texttt{CACHE}-Eintrag geben die Ressourcen, an die explizit vom Browser gecached werden sollen. Wie man sieht können hier alle möglichen Ressourcentypen, also auch Binärdateien wie Bilder angegebene werden. Die Zeilen die mit einem Hash anfangen, sind nur Kommentare zur besseren Lesbarkeit. Der \texttt{NETWORK}-Eintrag defniniert eine Whitelist, welche angibt welche Ressourcen in jedem Fall über das Netz geholt wird, (auch wenn der Browser offline ist). Hier könnte beispielsweise der Zugriff auf vom Server dynamisch interpretierte PHP oder CGI Dateien definiert werden. Der in diesem Fall verwendete Platzhalter gibt an, dass alle Dateien, die nicht in der \texttt{CACHE}-Sektion definiert wurden über das Netz geholt werden. Der \texttt{FALLBACK}-Bereich beschreibt eine alternative Datei, welche angezeigt wird, wenn die angeforderte Ressource nicht im Cache liegt und kein Internetzugang besteht. Im vorliegenden Fall trifft \texttt{/} auf jede Seite ab dem Wurzelverzeichnis zu, wenn die angeforderte Seite also nicht im Cache liegt, wird die Fallback-Datei angezeigt. Abschließend ist zu bemerken, das jede HTMl-Datei, die auf eine Manifestdatei verweist implizit ebenfall gecached wird. Der Cache kann also bei einer Webseite durch die sich der Anwender bewegt sukzessive wachsen.   
 
 \subsubsection{Offline-Storage}\label{section:local_storage}
-Welche Arten gibt es? Zusammenfassung der Geschichte, cookies etc
-Local Storage/ Web Storage
-\cite{html5_up_and_running}
-WebSql Database
-Indexed DB
+In der Vergangenheit wurden vor allem Cookies benutzt, um die Daten eines Anwenders innerhalb des Browsers vorzuhalten \cite{html5_rocks_offline_what_does_it_mean}. Cookies haben jedoch einige schwerwiegende Nachteile, die es verhindern, dass sie für ein wirkliches Speichern von Daten und Einstellungen des Nutzers Verwendung finden konnten. Zum einen werden sie bei jedem Request an den Server gesendet, wodurch die Netzwerkverbindung verlangsamt wurde und potentiell unverschlüsselte Daten über das Netz geschickt wurden (außer bei Benutzung von SSL). Zum anderen sind sie auf eine Größe von 4 Kilobyte beschränkt, wodurch es nicht möglich ist eine nennenswerte Datenmenge zu hinterlegen \cite{html5_up_and_running_chapter_7}. Im Zuge der Entwicklung von HTML5 und immer größeren Applikationen, welche primär auf der Clientseite laufen, wurden mehrere Technologien und Apis entwickelt, die für das Speichern der Daten im Browser verwendet werden können. Im Folgenden werden die wichtigesten drei hiervon, Web-Storage, Web-Sql and IndexedDb, vorgestellt.
+
+\emph{Web-Storage:}
+Web-Storage basiert auf benannten Schlüssel-/Wert Paaren, welche mit Hilfe von Javascript im Browser hinterlegt werden können \cite{html5_up_and_running_chapter_7}. Die Api hierfür wurde vom W3C mit dem folgenden Interface festgelegt \cite{web_storage_w3c}:
+\begin{lstlisting}
+interface Storage {
+  readonly attribute unsigned long length;
+  DOMString? key(unsigned long index);
+  getter DOMString getItem(DOMString key);
+  setter creator void setItem(DOMString key, DOMString value);
+  deleter void removeItem(DOMString key);
+  void clear();
+};
+\end{lstlisting}
+Die Daten können also über \texttt{setItem(key, value)} gesetzt, über \texttt{getItem(key)} wieder ausgelesen und über \texttt{removeItem(key)} aus dem Web-Storage entfernt werden. Wichtig ist jedoch, dass der LocalStorage nur mit Zeichenketten arbeiten kann \cite{web_storage_w3c}. Möchte man numerische Daten wieder auslesen müssen die mit \texttt{parseInt()} oder \texttt{parseFloat()} umgewandelt werden werden. Javascript-Objekte müssen in das Json Format umgewandelt werden, damit sie im Web-Storage hinterlegt werden können. Dies geht am besten über die \texttt{JSON.stringify} und \texttt{JSON.parse}-Methoden. Es existieren zwei unterschiedliche Implementierungen des Web-Storage Interfaces: Session-Storage und Local-Storage. Während der Session-Storage nach Schließen des Browsers geleert wird, bleiben die Werte die im Local-Storage hinterlegt werden auch nach dem Schließen des Browsers bestehen
+Beispiele für Zugriffe, Same-Origin-Policy, Größenbeschränkungen, Vorteile: überall verfügbar, einfach in der Benutzung, Nachteile (keine Abfragen möglich, kein Index also langsam)
+
+\cite{html5_up_and_running_chapter_7}
+
+\cite{html5_up_and_running_chapter_7}
+
+
+\emph{Web-Sql:}
+
+\emph{IndexedDb:}
+
+\begin{figure}%[htbp]
+  \centering
+  \includegraphics[width=15cm,height=4cm]{./Figures/storage_browser_compatibility.png}
+    \rule{35em}{0.5pt}
+  \caption[Storage Browser Kompatibilität]{Browser-Kompatibilität der unterschiedlichen Storage-Technologien}
+  \label{fig:storage_browser_compatibility}
+\end{figure}
+
+Abbildung \ref{fig:storage_browser_compatibility} zeigt, welche der vorgestellten Techologien in welchen Browsern unterstützt werden. Wie man sieht, wird bisher nur der Local-/Web-Storage flächendeckend und insbesondere auch in mobilen Browsern unterstützt.
 
 \subsubsection{Online-/Offline-Erkennung}
 Detecting if you're online
