@@ -203,10 +203,10 @@ localStorage.getItem('key');
 
 Pro Origin erhält der Browser Zugriff auf zwischen 2,5 Megabyte und 10 Megabyte Speicherplatz.
 
-Zusammenfassend ist zu sagen, dass die Vorteile des Web-Storage sind, dass er in allen aktuellen Browsern verfügbar ist und, dass der Zugriff über eine sehr einfache Api über Schlüssel-/Wertpaare möglich ist. Der Nachteil des Web-Storage begründet sich aber ebenfalls in dieser einfachen Speicherung. Alle Werte müssen in Zeichenketten umgewandelt werden, es ist nicht möglich native Javascript-Objekte zu hinterlegen und abzufragen. Des weiteren ist keine irgendwie geartete Indizierung des Datenbestandes möglich. Aus diesem Grund eignet sich der Web-Storage nicht für Anwendungen, die auf ein schnelles Durchlaufen eines großen Datenbestandes und ein einfaches Auffinden einzelner Datensätze angewiesen sind.
+Zusammenfassend ist zu sagen, dass die Vorteile des Web-Storage sind, dass er in allen aktuellen Browsern verfügbar ist und, dass der Zugriff über eine sehr einfache Api über Schlüssel-/Wertpaare möglich ist. Der Nachteil des Web-Storage begründet sich aber ebenfalls in dieser einfachen Speicherung. Alle Werte müssen in Zeichenketten umgewandelt werden, es ist nicht möglich native Javascript-Objekte zu hinterlegen und abzufragen. Des weiteren ist keine irgendwie geartete Indizierung des Datenbestandes möglich und die Zugriffe auf den Speicher laufen nicht in Transaktionen, so dass im schlimmsten Fall Race-Conditions auftreten können (TODO \cite{}). Aus diesem Grund eignet sich der Web-Storage nicht für Anwendungen, die auf ein schnelles Durchlaufen eines großen Datenbestandes und ein einfaches Auffinden einzelner Datensätze angewiesen sind.
 
 \emph{Web-Sql:}
-Web-Sql ist oder besser war der Versuch ein relationales Datenbanksystem im Browser zu implementieren. Es ermöglicht alle Abfragen, die aus anderen relationalen Systemen bekannt sind, also Transaktionen, Joins, Counts etc. Ein Beispiel für die Syntax ist folgend aufgeführt \cite{}:
+Web-Sql ist oder besser war der Versuch ein relationales Datenbanksystem im Browser zu implementieren. Es ermöglicht alle Abfragen, die aus anderen relationalen Systemen bekannt sind, also Transaktionen, Joins, Counts etc. Ein Beispiel für die Syntax ist folgend aufgeführt \cite{web_sql_w3c}:
 
 \begin{lstlisting}
 function showDocCount(db, span) {
@@ -222,10 +222,38 @@ function showDocCount(db, span) {
 \end{lstlisting}
 Es wird also die Methode \texttt{executeSql} auf ein Transaktionsobjekt ausgeführt. Diese Methode ermöglicht das Setzen eines Callbacks für den Erfolgs- und eines für den Fehlerfall. 
 
-Alle vorhanden Implementierungen für Web-Sql basieren auf SQLite-System\footnote{\url{http://www.sqlite.org/}}, welches seine eigene Teilmenge des SQL-92-Standards \footnote{\url{http://www.contrib.andrew.cmu.edu/~shadow/sql/sql1992.txt}} implementiert. Nach Ansicht des W3Cs und einiger Browserhersteller (wie beispielsweise Mozilla) sind jedoch der Ansicht, dass ein Web-Standard nicht auf einer fertigen Technologie, sondern auf einer allgemeinen Spezifikation beruhen sollte. \cite{web_sql_w3c}, \cite{road_to_indexed_db_mozilla}. Da es aber in dieser Hinsicht keinen Fortschritt in der Entwicklung gab, hat das W3C folgenden Eintrag auf die Spezifikationseite von Web Sql hinterlegt :
+Alle vorhanden Implementierungen für Web-Sql basieren auf SQLite-System\footnote{\url{http://www.sqlite.org/}}, welches seine eigene Teilmenge des SQL-92-Standards \footnote{\url{http://www.contrib.andrew.cmu.edu/~shadow/sql/sql1992.txt}} implementiert. Nach Ansicht des W3Cs und einiger Browserhersteller (insbesondere Mozilla) sollte ein Web-Standard nicht auf einer fertigen Technologie, sondern auf einer allgemeinen Spezifikation beruhen. \cite{web_sql_w3c}, \cite{road_to_indexed_db_mozilla}. Da es aber in dieser Hinsicht keinen Fortschritt in der Entwicklung gab, hat das W3C folgenden Eintrag auf die Spezifikationseite von Web Sql hinterlegt :
 "`This document was on the W3C Recommendation track but specification work has stopped. The specification reached an impasse: all interested implementors have used the same SQL backend (Sqlite), but we need multiple independent implementations to proceed along a standardisation path."'\cite{web_sql_w3c}
 
 \emph{IndexedDb:}
+IndexedDb ist ein Versuch einen Standard für ein nicht relationales Datenbanksystem zum Offline-Speichern von Daten zu entwickeln. Genau so wie Web-Storage speichert IndexedDb Schlüssel-/Wertpaare \cite{indexeddb_api_w3c}. Die Unterschiede zum Web-Storage ist jedoch die, dass als Werte native Javascript Objekte in beliebiger Komplexität hinterlegt werden können  und dass es möglich ist den Speicher nach bestimmten Attributen innerhalb der Objekte zu indizieren. Des weiteren arbeiten alle Aktionen auf der Datenbank innerhalb von Transaktionen \cite{indexeddb_basic_concepts_mozilla}. Das Erstellen und Wiedereröffnen einer Datenbank wird hier nicht weiter beschrieben. Im Folgenden wird nur kurz gezeigt, wie ein Datenspeicher erstellt wird, ein Index auf dem Speicher gesetzt und Daten mit Hilfe dieses Indexes ausgelesen werden (analog zu \cite{html5_rocks_client_side_storage}:
+
+\begin{lstlisting}
+// anlegen
+var dataStore = db.createObjectStore("data", { keyPath: "identifier" });
+dataStore.createIndex("nameIndex", "name", { unique: false });
+
+var data = { 'identifier' : 3, 'name' : 'Roman'}
+var store = db.transaction(["database_name"], 'readwrite').objectStore("data");
+var request = store.put(data);
+request.onsuccess(function() {...})
+\end{lstlisting}  
+Es wird ein Objektspeicher mit dem Namen "`dataStore"' erstellt. Der Speicher hat einen Primärschlüssel "identifier"'. Nach diesem Property werden die Objekte in Speicher geordnet. Anschließend wird ein Index mit dem Namen "nameIndex"' auf das Property \texttt{name} angelegt. Zum Schreiben der Daten wird eine Transaktion gestartet und das Objekt wird in den Speicher gelegt. Jede Aktion läuft in einem "`Request"', so dass es möglich ist \texttt{onsuccess} und \texttt{onerror} Callbacks zu definieren. Möchte man die Daten wieder auslesen, ist es möglich einen Cursor zu erstellen und alle Daten sequentiell zu durchlaufen. Die Indizes erlauben einem aber auch den direkten Zugriff auf bestimmte Daten, wenn nötig auch über einen Cursor.  Beispielweise ist es folgendermaßen möglich alle Daten mit dem Namen "`Roman"' zu finden, wenn auf diesem Property ein Index liegt (siehe \cite{indexeddb_basic_concepts_mozilla}:
+\begin{lstlisting}
+// auslesen
+var index = dataStore.index("nameIndex");
+
+// alle die, die Roman heißen
+var singleKeyRange = IDBKeyRange.only("Roman");
+ 
+index.openCursor(singleKeyRange).onsuccess = function(event) {
+  var cursor = event.target.result;
+  if (cursor) {
+    // arbeite mit den Ergebnissen
+    cursor.continue();
+  }
+};
+\end{lstlisting} 
 
 \begin{figure}[h]
   \centering
@@ -235,7 +263,7 @@ Alle vorhanden Implementierungen für Web-Sql basieren auf SQLite-System\footnot
   \label{fig:storage_browser_compatibility}
 \end{figure}
 
-Abbildung \ref{fig:storage_browser_compatibility} zeigt, welche der vorgestellten Techologien in welchen Browsern unterstützt werden. Wie man sieht, wird bisher nur der Local-/Web-Storage flächendeckend und insbesondere auch in mobilen Browsern unterstützt.
+Abbildung \ref{fig:storage_browser_compatibility} zeigt, welche der vorgestellten Techologien in welchen Browsern unterstützt werden. Wie man sieht, wird bisher nur der Local-/Web-Storage flächendeckend und insbesondere auch in mobilen Browsern unterstützt. Insbesondere Mozilla hat sich sehr stark gegen Web SQL und für die Verwendung von IndexedDb ausgesprochen und unterstützt auch nur noch letzteres. Gegen diese Entscheidung gibt es aufgrund der im Gegensatz zu Web SQL bedeutend komplexeren Api und der komplizierten Systementwicklung auf Basis von IndexedDb eine Menge Widerspruch (\cite{road_to_indexed_db_mozilla}), aber momentan sieht es so aus, als ob IndexedDb zu einer W3C-Recommendation wird, während Web SQL nur von einzelnen Browserherstellern unterstützt wird.
 
 \subsubsection{Online-/Offline-Erkennung}
 Detecting if you're online
