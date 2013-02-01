@@ -2,6 +2,8 @@
 \label{Kapitel 4}
 \lhead{Kapitel 4. \emph{Übersicht Stand der Forschung}} 
 
+Im Folgenden werden Technologien und Konzepte vorgestellt, die den Stand der Technik und Forschung im Bereich der PLE-Entwicklung darlegen oder notwendig sind, um die in Kapitel \ref{section:anforderungsanalyse} entwickelnden Anforderungen an eine webbasierte und offlinefähige PLE zu erfüllen.
+
 \section{Klassifizierungsmethoden für Personal Learning Environments}\label{section:klassifizierungsmethoden}
 Es existieren zwei wichtige Ansätze um Funktionalitäten von PLEs auf unterschiedliche Klassen abzubilden. Zum einen gibt es den Versuch von Palmér Dimensionen zu definieren und die Funktionalitäten von PLEs diesen Dimensionen zuzuordnen. Palmér schafft damit ein System, um unterschiedliche PLE-Systeme kategorisieren zu können. Zum anderen definiert Wilson Muster, die helfen sollen eine PLE zu entwickeln und bestehende Systeme auf wichtige Funktionalitäten zu überprüfen. Diese beiden Ansätze werden im Folgenden vorgestellt .
 
@@ -38,24 +40,70 @@ Diese Arbeit beschäftigt sich mit dem Aufbau einer PLE, welche direkt vom Nutze
 
 Kritik an den Patterns?
 
-\section{Technologie}
-Im Folgenden werden Technologien und Konzepte vorgestellt, die den Stand der Technik im Bereich der PLE-Entwicklung darlegen oder notwendig sind, um die in Kapitel \ref{section:anforderungsanalyse} entwickelnden Anforderungen an eine Web basierte und offline fähige PLE zu erfüllen.
+\section{Erstellung von Mashup-Anwendungen}
+Personal Learning Environments sind Mashup-Anwendungen, also Applikationen, bei denen unterschiedliche Anwendungen zu einer Anwendung zusammengefasst und von dieser Anwendung aus bedient werden können (siehe \ref{section:ple_intro}. Nach \cite{Soylu2011} gibt es zwei unterschiedliche Arten von Mashup-Anwendungen: "`box type mashups"' und "`dashboard type mashups"'. "`box type mashups"' sind Anwendungen, bei denen unterschiedliche Services grafisch und konzeptuell so in einer Applikation intergriert werden, dass der Anwender in seinem Umgang mit der Applikation nur diese wahrnimmt und nicht bemerkt, dass er eigentlich mit unterschiedlichen Anwendungen arbeitet. "`dashboard type mashups"' hingegen fassen die unterschiedlichen Anwendungen nur in einem einheitlichen Rahmen zusammen. Dies geschieht meist über so genannte Widgets. Die Inhalte und das User-Interface dieser Widgets stammen von den eigentlichen Servicen und können sich somit sehr start voneinander unterscheiden. Diese Arbeit beschäftigt sich mit dem Aufbau eines "`dashboard type mashups"'. Aus diesem Grund werden im Folgenden Konzepte vorgestellt, welche für den Aufbau einer solchen notwendig sind. 
 
-\subsection{Erstellung von Mashup-Anwendungen}
+\subsection{Widgets}\label{section:widgets}
+Nach "`Packaged Web Apps (Widgets) - Packaging and XML Configuration"'\cite{widgets_w3c} sind Widgets
+\begin{quotation}[...] full-fledged client-side applications that are authored using Web standards such as HTML and packaged for distribution. They are typically downloaded and installed on a client machine or device where they run as stand-alone applications, but they can also be embedded into Web pages and run in a Web browser. Examples range from simple clocks, stock tickers, news casters, games and weather forecasters, to complex applications that pull data from multiple sources to be "`mashed-up"' and presented to a user in some interesting and useful way.\end{quotation}
+Widgets im sind also kleine eigenständige ausführbare Applikationen, die auf HTML-Seiten oder dem Desktop eingebettet und ausgeführt werden können \cite{Taraghi2010}. Es ist möglich Widgets mit unterschiedlichen Technologien zu erstellen (beispielsweise als Java-Applets oder als Flash-Anwendung), aktuell, werden sie jedoch meist ebenfalls als HTML/Javascript-Anwendung implementiert. In eine Webanwendung geladen werden Widgets im Normalfall über iframes, also über ein HTML-Element welches erlaubt autonome Seiten in das aktuelle Dokument zu laden \cite{iframe_w3c}. Grundsätzlich kann jede eigenständige Web-Anwendung als Widget fungieren, es gibt jedoch Bestrebungen die Formate in denen Web-Widgets implementiert werden können zu standardisieren. Der Vorteil hiervon ist der, dass mit einer Standardisierung eine höhere Portabilität der Widgets zwischen unterschiedlichen Systemen einhergeht und wiederkehrende Probleme wie Authentifizierung oder Widgetauslieferung allgemein gelöst werden können. Aktuell gibt es zwei unterschiedliche Spezifikationen zur Standardisierung von Widgets und verwandter Technologien: "`OpenSocial Gadgets"' und "`W3C Widgets"'.
 
-\subsubsection{Widgets}\label{section:widgets}
-Widgets
-Opensocial vs W3C
-warum w3c widgets, opensocial wird nicht weiterentwickelt etc, Apache Shindig Problematishc
-W3C Widgets haben keine gesonderte Definition für HTML5 Appcache,
-unterschiedliche Formate
+\subsubsection{W3C Widgets}\label{section:w3c_widgets}
+Die W3C-Recommendation für Widgets \cite{widgets_w3c} spezifizierten Widgets sind komplette HTML/Javascript-Anwendungen, dessen gesamte Ordnerstruktur zu einer gepackten Zip-Datei zusammengefasst wird. Die Spezifikationen verlangen, dass in dieser Datei neben der Anwendung selber noch eine XML-basierte Konfigurationsdatei vorhanden ist, welche innerhalb eines widget-Wurzelelementes die Eigenschaften des Widgets definiert. Zu den Eigenschaten zählt die Widgetgröße (in Pixeln), der XML-Namespace, Icons, die in Widgetvorschauen benutzt werden sollen, externe Features, welche das Widget benötigt aber auch Informationen über den Autor oder die Lizenz unter der das Widget steht. Im Folgenden ist eine Beispielhafte Konfigurationsdatei dargestellt (aus \cite{widgets_w3c}).
+\begin{lstlisting}
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns       = "http://www.w3.org/ns/widgets"
+        id          = "http://example.org/exampleWidget"
+        version     = "2.0 Beta"
+        height      = "200"
+        width       = "200"
+        viewmodes   = "fullscreen">
+ 
+  <name short="Example 2.0">
+    The example Widget!
+  </name>
 
-\subsubsection{Wookie}\label{section:wookie}
+  <feature name="http://example.com/camera">
+    <param name="autofocus" value="true"/>
 
-Wookie während der Entwicklung vom Incubator zum vollwertigen Apache Projekt
+  </feature>
 
-\subsubsection{CORS}\label{section:cors}
-Moderne Browser benutzen als Teil ihres Sicherheitskonzeptes die Same-Origin-Policy. Diese bewirkt, dass Sprachen, die auf Clientseite ausgeführt werden (wie Javascript), nicht die Möglichkeit haben, Request an einen anderen Zielpunkt als ihrem Ursprung zu starten\cite{same_origin_policy_mozilla}. Diese Policy wird also lediglich bei Zugriff auf URLs mit der selben Domain und dem selben Port, wie die URL von der die Seite geladen wurde, erfüllt. Das bedeutet, dass ein Skript auf \texttt{http://sop.example.com/directory1} Requests an \texttt{http://sop.example.com/directory2} starten kann, nicht jedoch an \texttt{http://example.com/directory2} (unterschiedliche Domain) oder an \texttt{http://sop.example.com:8080/directory2} (unterschiedlicher Port). Ausgenommen ist hierbei das in eine Seite eingebettete Laden von Resourcen. Hierzu gehören externe Inhalte, die über iFrames geladen werden aber auch externe Javascript-Dateien(über <script>...</script> Tags) und Medienresourcen wie Bilder und Videos. Des Weiteren ist es auch möglich Formulare an andere Zielpunkte als den Ursprung abzuschicken. Diese Einschränkung hat also primär Auswirkungen auf das Absenden von XMLHttpRequest, also auf normale Ajax-Requests. 
+  <preference name     = "apikey"
+              value    = "ea31ad3a23fd2f"
+              readonly = "true" />
+
+  <description>
+    A sample widget to demonstrate some of the possibilities.
+  </description>
+
+  <author href  = "http://foo-bar.example.org/"
+          email = "foo-bar@example.org">Foo Bar Corp</author>
+
+  <icon src="icons/example.png"/>
+  <icon src="icons/boo.png"/>
+  <content src="myWidget.html"/>
+
+  <license>
+Example license (based on MIT License)
+Copyright (c) 2008 The Foo Bar Corp.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+INSULT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  </license>
+</widget>
+\end{lstlisting}
+
+Neben der erwähnten Recommendation gibt es noch andere Spezifikationen rund um die Widget-Thematik, welche unterschiedliche Teilbereiche wie zum Beispiel die digitale Signierung von Widgets standardisieren\footnote{\url{http://www.w3.org/2008/webapps/wiki/WidgetSpecs}}. Als Referenzimplementierung für die W3C-Widgets steht das Apache-Projekt "`Wookie"'\footnote{\url{http://wookie.apache.org/}} zur Verfügung. Wookie ist ein in Java-implementierter Widget-Container, welcher die wichtigsten Funktionalitäten für die Arbeit mit W3C-Widgets zur Verfügung stellt.
+
+\subsubsection{OpenSocial Gadgets}
+
+
+\subsection{CORS}\label{section:cors}
+Moderne Browser benutzen als Teil ihres Sicherheitskonzeptes die Same-Origin-Policy. Diese bewirkt, dass Sprachen, die auf Clientseite ausgeführt werden (wie Javascript), nicht die Möglichkeit haben, Request an einen anderen Zielpunkt als ihrem Ursprung zu starten\cite{same_origin_policy_mozilla}. Diese Policy wird also lediglich bei Zugriff auf URLs mit der selben Domain und dem selben Port, wie die URL von der die Seite geladen wurde, erfüllt. Das bedeutet, dass ein Skript auf \texttt{http://sop.example.com/directory1} Requests an \texttt{http://sop.example.com/directory2} starten kann, nicht jedoch an \\ \texttt{http://example.com/directory2} (unterschiedliche Domain) oder an \\ \texttt{http://sop.example.com:8080/directory2} (unterschiedlicher Port). Ausgenommen ist hierbei das in eine Seite eingebettete Laden von Resourcen. Hierzu gehören externe Inhalte, die über iFrames geladen werden aber auch externe Javascript-Dateien(über <script>...</script> Tags) und Medienresourcen wie Bilder und Videos. Des Weiteren ist es auch möglich Formulare an andere Zielpunkte als den Ursprung abzuschicken. Diese Einschränkung hat also primär Auswirkungen auf das Absenden von XMLHttpRequest, also auf normale Ajax-Requests. 
 
 Die Same-Origin-Policy ist sehr sinnvoll um beispielsweise das Ausspähen privater Daten zu verhindern. Sie erschwert jedoch die Entwicklung moderner Ajax-Anwendungen und insbesondere die Entwicklung von Mashup-Applikationen wie PLEs, welche prinzipiell schon so aufgebaut sind, dass sie ihre Inhalte und Resourcen aus unterschiedlichen Quellen beziehen. In einer PLE wie in dieser Arbeit beschrieben, ist es beispielsweise so, dass die Widgets (siehe \ref{section:widgets}) selber von einem Widget-Container wie Wookie (siehe \ref{section:apache_wookie}) ausgeliefert werden und dadurch auch die Domain des Widget Containers als Origin besitzen. Arbeiten diese Widgets nun aber nicht nur lokal beim Client, sondern benötigen für ihre Funktionalität auch externe Server, so müssen sie in der Lage sein XMLHttpRequests an diese zu senden. Aus diesem Grund wurde der Mechanismus des Cross-Origin Resource Sharing (CORS)\cite{cors_w3c} eingeführt. Dieser erlaubt es unter bestimmten Bedingungen und Einschränkungen die Same-Origin-Policy zum umgehen.
 
@@ -104,18 +152,18 @@ Content-Type: text/html; charset=utf-8
 \end{lstlisting}
 Der Preflight-Request ist nur erfolgreich, wenn die Methode aus \texttt{Access-Control-Request-Method} in \texttt{Access-Control-Allow-Methods} und alle Header aus \texttt{Access-Control-Request-Headers} in \texttt{Access-Control-Allow-Headers} vorhanden sind.
 
-\subsubsection{Kommunikation zwischen den IFrames}
+\subsection{Kommunikation zwischen den IFrames}
 (TODO: Bib: https://developer.mozilla.org/en-US/docs/DOM/window.postMessage)
 Postmessage: 
 
-\subsubsection{REST}\label{section:rest}
+\subsection{REST}\label{section:rest}
 Rest
 
-\subsection{HTML5}\label{section:html5}
+\section{HTML5}\label{section:html5}
 neuerungen HTML5, nicht nur eine Technologie, Zusammenfassung mehrerer Technologien, CSS 3 unterschiedliche Javascript Apis (local storage, appcache) drag and Drop
 
 \subsection{Offline-Web-Anwendungen}
-Der Begriff "`Offline-Web-Anwendung"' mag sich zunächst nach einem Widerspruch in sich annhören. Normalerweise kennt der Nutzer den folgenden Arbeitsablauf, wenn er sich im Internet bewegt: Öffnen des Internetbrowser $\Rightarrow$ eingeben der gewünschten Url $\Rightarrow$ der Browser verbindet sich als Client mit dem hinter der URL stehenden Server und lädt die zur Verfügung gestellten Inhalte (Html, Javascript, Css, Medienresourcen etc) herunter $\Rightarrow$ der Browser rendert das Html/Css und führt die Anweisungen in den Javascript-Quellcode aus, so dass dem Nutzer eine funktionsfähige Seite zur Verfügung steht. Ist das System nun aber offline, kann der Browser keine Verbindung mit dem Server herstellen und erhält somit keine Daten, die er darstellen kann. Es gibt Systeme auf Html/Javascript Basis, die niemals den Kontakt mit dem Internet benötigen \cite{html5_rocks_offline_what_does_it_mean}. Diese Anwendungen werden komplett aus dem Dateisystem geladen und benutzen den Browser nur für die Darstellung (z.B. \href{http://tiddlywiki.com/}{TiddlyWiki}\footnote{\url{http://tiddlywiki.com/}}, ein Wiki-System, welches komplett lokal auf dem Rechner des Anwenders läuft). Diese Systeme sind aber für diese Arbeit irrelevant, da die Anforderungsanalyse aus Kapitel \ref{section:anforderungsanalyse} zeigt, dass für das zu entwickelnde System Anwendungen notwendig sind, die je nach Notwendigkeit sowohl online als auch offline arbeiten können. All diesen Systemen gemein ist, dass sie zumindest eine initiale Internetverbindung benötigen, bei der Zugriff auf die genutzten Ressourcen besteht. 
+Der Begriff "`Offline-Web-Anwendung"' mag sich zunächst nach einem Widerspruch in sich annhören. Normalerweise kennt der Nutzer den folgenden Arbeitsablauf, wenn er sich im Internet bewegt: Öffnen des Internetbrowser $\Rightarrow$ eingeben der gewünschten Url $\Rightarrow$ der Browser verbindet sich als Client mit dem hinter der URL stehenden Server und lädt die zur Verfügung gestellten Inhalte (Html, Javascript, Css, Medienresourcen etc) herunter $\Rightarrow$ der Browser rendert das Html/Css und führt die Anweisungen in den Javascript-Quellcode aus, so dass dem Nutzer eine funktionsfähige Seite zur Verfügung steht. Ist das System nun aber offline, kann der Browser keine Verbindung mit dem Server herstellen und erhält somit keine Daten, die er darstellen kann. Es gibt Systeme auf Html/Javascript Basis, die niemals den Kontakt mit dem Internet benötigen \cite{html5_rocks_offline_what_does_it_mean}. Diese Anwendungen werden komplett aus dem Dateisystem geladen und benutzen den Browser nur für die Darstellung (z.B. \url{http://tiddlywiki.com/}{TiddlyWiki}\footnote{\url{http://tiddlywiki.com/}}, ein Wiki-System, welches komplett lokal auf dem Rechner des Anwenders läuft). Diese Systeme sind aber für diese Arbeit irrelevant, da die Anforderungsanalyse aus Kapitel \ref{section:anforderungsanalyse} zeigt, dass für das zu entwickelnde System Anwendungen notwendig sind, die je nach Notwendigkeit sowohl online als auch offline arbeiten können. All diesen Systemen gemein ist, dass sie zumindest eine initiale Internetverbindung benötigen, bei der Zugriff auf die genutzten Ressourcen besteht. 
 
 In HTML5 gibt es im Wesentlichen zwei Mechanismen, die für die Offline-Fähigkeiten von Webanwendungen verantwortlich sind: Application-Caching und Offline-Storage \cite{html5_rocks_offline_what_does_it_mean}. Der Unterschied zwischen ihnen liegt in der Art der Daten, die sie lokal vorhalten. Application-Caching ist für das Caching, also die Speicherung der zentralen Applikationslogik und des User-Interfaces im Browser zuständig. Dies bedeutet das alle benötigen Ressourcen (Html, Javascript, Css etc.) heruntergeladen und im Browsercache vorgehalten werden. Dieser Cache bleibt auch bestehen, wenn der Browser geschlossen wird. Gleiches gilt für den Offline-Storage. Offline-Storage ist ein Mechanismus, welche in der Lage ist die Daten, die der Nutzer eingibt oder bearbeitet ebenfalls im Browser zu speichern und wieder zur Verfügung zu stellen. Gemeinsam mit einem Mechanismus, der es Browsern erlaubt zu erkennen, ob sie online oder offline sind, versetzen Application-Caching und Offline-Storage den Entwickler also in die Lage ein System zu entwickeln, welches in der Lage ist ohne Konnektivität mit dem Internet erneut aufgerufen zu werden. Der Anwender kann mit dem System anschließend arbeiten, als wenn eine Internetverbindung zur Verfügung steht.
 
@@ -266,13 +314,12 @@ index.openCursor(singleKeyRange).onsuccess = function(event) {
 Abbildung \ref{fig:storage_browser_compatibility} zeigt, welche der vorgestellten Techologien in welchen Browsern unterstützt werden. Wie man sieht, wird bisher nur der Local-/Web-Storage flächendeckend und insbesondere auch in mobilen Browsern unterstützt. Insbesondere Mozilla hat sich sehr stark gegen Web SQL und für die Verwendung von IndexedDb ausgesprochen und unterstützt auch nur noch letzteres. Gegen diese Entscheidung gibt es aufgrund der im Gegensatz zu Web SQL bedeutend komplexeren Api und der komplizierten Systementwicklung auf Basis von IndexedDb eine Menge Widerspruch (\cite{road_to_indexed_db_mozilla}), aber momentan sieht es so aus, als ob IndexedDb zu einer W3C-Recommendation wird, während Web SQL nur von einzelnen Browserherstellern unterstützt wird.
 
 \subsubsection{Online-/Offline-Erkennung}
-Detecting if you're online
+In aktuellen Browsern existiert eine API, die es dem System erlaubt zu erkennen, ob eine Verbindung mit dem Internet besteht oder nicht. Zum einen gibt es die Eigenschaft \texttt{onLine} des globalen \texttt{navigator}-Objektes. \texttt{navigator.onLine} gibt true, wenn eine Netzwerkverbindung besteht und ansonsten \texttt{false}. Zum anderen wird bei Änderung des Online-/Offline-Zustandes ein Event aus gelöst, für welches im Code Listener definiert werden können:  
 
-There's an HTML5 API to let you query if a browser is online: navigator.onLine(). It works on recent IE, Firefox, Opera, and Chrome. You can also listen for these
 \begin{lstlisting}
-online/offline events using document.body.addEventListener("online", function () {...} 
+document.body.addEventListener("online", function () {...} 
 document.body.addEventListener("offline", function () {...}.
 \end{lstlisting}
-You should generally assume the network is present and make calls as normal. It's only in the event of a server timeout or related error that you should invoke navigator.online. Doing so will serve two purposes: (a) you can decide if the error is caused by a network outage versus a server-specific outage, and if it's a network outage, inform the user so they can get back online; (b) you can start watching for the "online" event, and take action when the user's back online.
+Diese in den Listenern definierten Callbacks werden bei einem Wechsel von online zu offline oder umgekehrt ausgeführt. Es ist jedoch zu beachten, dass unterschiedliche Browserhersteller "`offline"' unterschiedlich definieren. Aktuell wechselt zum Beispiel Chrome bei Verlust der Internetverbindung in den Offline-Modus, im Firefox muss dieser Modus explizit vom User angeschaltet werden \cite{mozilla_bug_offline}
 
 \section{Ähnliche Systeme}
