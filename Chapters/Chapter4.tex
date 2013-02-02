@@ -59,48 +59,48 @@ Die W3C-Recommendation für Widgets \cite{widgets_w3c} spezifizierten Widgets si
         width       = "200"
         viewmodes   = "fullscreen">
  
-  <name short="Example 2.0">
-    The example Widget!
-  </name>
+  <name short="Example 2.0">The example Widget!</name>
 
   <feature name="http://example.com/camera">
     <param name="autofocus" value="true"/>
-
   </feature>
 
-  <preference name     = "apikey"
-              value    = "ea31ad3a23fd2f"
-              readonly = "true" />
+  <preference name = "apikey" value = "ea31ad3a23fd2f", readonly = "true" />
 
   <description>
     A sample widget to demonstrate some of the possibilities.
   </description>
 
-  <author href  = "http://foo-bar.example.org/"
-          email = "foo-bar@example.org">Foo Bar Corp</author>
+  <author href  = "http://foo-bar.example.org/"email = "foo-bar@example.org">
+    Foo Bar Corp
+  </author>
 
   <icon src="icons/example.png"/>
-  <icon src="icons/boo.png"/>
   <content src="myWidget.html"/>
-
-  <license>
-Example license (based on MIT License)
-Copyright (c) 2008 The Foo Bar Corp.
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-INSULT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-  </license>
+  
+  <license> Example license (based on MIT License) [...] </license>
 </widget>
 \end{lstlisting}
 
-Neben der erwähnten Recommendation gibt es noch andere Spezifikationen rund um die Widget-Thematik, welche unterschiedliche Teilbereiche wie zum Beispiel die digitale Signierung von Widgets standardisieren\footnote{\url{http://www.w3.org/2008/webapps/wiki/WidgetSpecs}}. Als Referenzimplementierung für die W3C-Widgets steht das Apache-Projekt "`Wookie"'\footnote{\url{http://wookie.apache.org/}} zur Verfügung. Wookie ist ein in Java-implementierter Widget-Container, welcher die wichtigsten Funktionalitäten für die Arbeit mit W3C-Widgets zur Verfügung stellt.
+Neben der erwähnten Recommendation gibt es noch andere Spezifikationen rund um die Widget-Thematik, welche unterschiedliche Teilbereiche wie zum Beispiel die digitale Signierung von Widgets standardisieren\footnote{\url{http://www.w3.org/2008/webapps/wiki/WidgetSpecs}}. Als Referenzimplementierung für die W3C-Widgets steht das Apache-Projekt "`Wookie"'\footnote{\url{http://wookie.apache.org/}} zur Verfügung. Wookie ist ein in Java-implementierter Widget-Container, welcher die wichtigsten Funktionalitäten für die Arbeit mit W3C-Widgets zur Verfügung stellt. Widgets, die nach dem W3C-Standard erstellt wurden, können in den Wookie Container geladen werden. Dieser übernimmt dann die Auslieferung inklusive dem benötigten Javascript-Code an die anfordernden Anwendungen. Wookie benutzt intern eine Datenbank, in der Widget-Einstellungen für jeden User oder für jede ausgelieferte Instanz eines Widgets gespeichert werden können. Mit der in den W3C-Standards spezifizierten Api können diese Einstellungen über Javascript geändert oder ausgelesen werden. Die Administration von Wookie erfolgt entweder über die Kommandozeile oder über eine REST-Api\footnote{\url{http://wookie.apache.org/docs/admin.html}} (siehe \ref{section:rest}). Für die Einbindung in andere unterschiedliche Applikationen bietet Wookie eine Connector-Api an, für welche Beispielimplementationen für Java und für PHP existieren\footnote{\url{http://wookie.apache.org/docs/embedding.html}}.
 
 \subsubsection{OpenSocial Gadgets}
-
+Nach der OpenSocial-Specification\cite{opensocial_specification} ist OpenSocial
+\begin{quotation}
+  a set of APIs for building social applications that run on the web. OpenSocial's goal is to make more apps available to more users, by providing a common API that can be used in many different contexts. Developers can create applications, using standard JavaScript and HTML, that run on social websites that have implemented the OpenSocial APIs. These websites, known as OpenSocial containers, allow developers to access their social information; in return they receive a large suite of applications for their users.
+\end{quotation}
+OpenSocial hat sich also zum Ziel gesetzt eine allgemeine Api für die Erstellung von Social Software zu entwickeln. Hierzu definiert es allgemein Konzepte wie "`Freundeslisten"', "`Aktivitäten"' und "`Profile"' standardisiert aber auch Authentifizierungs- und Authorisierungsmechanismen. Ein wichtiger Bestandteil der OpenSocial-Api sind die OpenSocial Gadgets. Diese basieren auf den von Google entwickelten "`Google Gadgets"' \footnote{\url{https://developers.google.com/gadgets/docs/gs}} und stellen ähnlich wie die W3C-Widgets eine Api bereit um eigenständige Webapplikationen in Mashup Anwendungen zu integrieren. Ähnlich wie für die W3C-Widgets benötigen OpenSocial Gadgets eine XML-Konfigurationsdatei. Der große Unterschied zu den W3C-Widgets liegt jedoch darin, dass sämtlicher HTML- und Javascript-Quellcode des Widgets ebenfalls in dieser XML-Datei hinterlegt wird. Der komplette Inhalt befindet sich in dem <Content> Knoten innerhalb der XML Datei (aus \cite{google_gadgets_api}): \begin{lstlisting}
+ <?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="hello world example" /> 
+  <Content type="html">
+     <![CDATA[ 
+       Hello, world!
+     ]]>
+  </Content> 
+</Module>
+\end{lstlisting}
+Eine Referenzimplementierung für die OpenSocial Gadgets ist der Apache "`Shindig"' Server\footnote{\url{http://wookie.apache.org/}}. Dieser fungiert ähnlich wie Apache Wookie als Gadget-Container und kann gerenderte Widgets an Applikationen ausliefern. Es existieren Shindig-Implementierungen in Java und in PHP.
 
 \subsection{CORS}\label{section:cors}
 Moderne Browser benutzen als Teil ihres Sicherheitskonzeptes die Same-Origin-Policy. Diese bewirkt, dass Sprachen, die auf Clientseite ausgeführt werden (wie Javascript), nicht die Möglichkeit haben, Request an einen anderen Zielpunkt als ihrem Ursprung zu starten\cite{same_origin_policy_mozilla}. Diese Policy wird also lediglich bei Zugriff auf URLs mit der selben Domain und dem selben Port, wie die URL von der die Seite geladen wurde, erfüllt. Das bedeutet, dass ein Skript auf \texttt{http://sop.example.com/directory1} Requests an \texttt{http://sop.example.com/directory2} starten kann, nicht jedoch an \\ \texttt{http://example.com/directory2} (unterschiedliche Domain) oder an \\ \texttt{http://sop.example.com:8080/directory2} (unterschiedlicher Port). Ausgenommen ist hierbei das in eine Seite eingebettete Laden von Resourcen. Hierzu gehören externe Inhalte, die über iFrames geladen werden aber auch externe Javascript-Dateien(über <script>...</script> Tags) und Medienresourcen wie Bilder und Videos. Des Weiteren ist es auch möglich Formulare an andere Zielpunkte als den Ursprung abzuschicken. Diese Einschränkung hat also primär Auswirkungen auf das Absenden von XMLHttpRequest, also auf normale Ajax-Requests. 
@@ -128,7 +128,7 @@ Content-Type: text/html; charset=utf-8
 \end{lstlisting}
 Alle für den CORS-Request relevanten Header beginnen mit Access-Control. \texttt{Access-Control-Allow-Origin} bedeutet, dass der Server eine Cross-Origin-Anfrage von dem angegebenen Origin erlaubt, \texttt{Access-Control-Allow-Credentials: true} besagt, dass in diesem Request auch Cookies erlaubt sind. Möchte der Client Zugriff auf Nicht-Standard-Header aus der Antwort des Servers, müssen diese in \texttt{Access-Control-Expose-Headers} angegeben werden.
 
-Sollte der Client einen Request mit einer anderen Methode als \texttt{GET} oder \texttt{POST} (siehe \ref{REST} senden, reicht dieser einfache Workflow nicht aus. In diesem Fall muss vor der eigentlichen Anfrage ein so genannter "`Preflight-Request"' ablaufen, welcher verifiziert, dass der Server diese Methode als CORS-Request erlaubt.
+Sollte der Client einen Request mit einer anderen Methode als \texttt{GET} oder \texttt{POST} (siehe \ref{section:rest} senden, reicht dieser einfache Workflow nicht aus. In diesem Fall muss vor der eigentlichen Anfrage ein so genannter "`Preflight-Request"' ablaufen, welcher verifiziert, dass der Server diese Methode als CORS-Request erlaubt.
 
 Zuerst wird vom Client eine Anfrage mit der \texttt{OPTIONS}-Methode durchgeführt, welche den folgenden Request authentifizieren soll:
 \begin{lstlisting}
@@ -153,8 +153,21 @@ Content-Type: text/html; charset=utf-8
 Der Preflight-Request ist nur erfolgreich, wenn die Methode aus \texttt{Access-Control-Request-Method} in \texttt{Access-Control-Allow-Methods} und alle Header aus \texttt{Access-Control-Request-Headers} in \texttt{Access-Control-Allow-Headers} vorhanden sind.
 
 \subsection{Kommunikation zwischen den IFrames}
-(TODO: Bib: https://developer.mozilla.org/en-US/docs/DOM/window.postMessage)
-Postmessage: 
+Mashup-Anwendungen im Internet werden wie in Kapitel \ref{section:widgets} beschrieben hauptsächlich über iframes umgesetzt. Benutzt man nun für die Widget-Auslieferung einen Widget-Container wie Wookie oder Shindig, so läuft dieser zumeist auf einer anderen Domain wenigstens aber auf einem anderen Port, als die Anwendung, die die Widgets aggregiert ausgibt. Die im vorigen Abschnitt vorgestellte Same-Origin-Policy aktueller Browser erlaubt es aber nur, dass die Hauptanwendung nur Daten aus iframes mit der gleichen Origin ausliest. Dies erschwert den Informationsaustausch zwischen der Hauptapplikation und den Widgets beträchtlich. Aus diesem Grund wurde das "`Postmessage"'-System entwickelt, welches diese Einschränkung auf eine sichere Art und Weise umgeht \cite{postmessage_mozilla}. Ein Fenster kann mit einem Methodenaufruf an ein andere Fenster eine Nachricht schicken (aus \cite{postmessage_mozilla});
+\begin{lstlisting}
+otherWindow.postMessage(message, targetOrigin);
+\end{lstlisting}
+\texttt{otherWindow} ist hierbei eine Referenz auf ein anderes Fenster oder einen anderen Frame, welches über Standard-DOM-Methoden zu erreichen ist. \texttt{Message} ist die Nachricht selber (kann auch ein Javascript-Objekt sein) und \texttt{targetOrigin}, ist die Origin, die \texttt{otherWindow} haben muss, damit die Nachricht verschickt wird. Damit \texttt{otherWindow} die Nachricht empfängt, muss auf dieser Seite ein Event Listener implementiert werden:
+\begin{lstlisting}
+window.addEventListener("message", receiveMessage);
+function receiveMessage(event) {
+  if (event.origin !== "http://example.org:8080")
+    return;
+ 
+  // ...
+}
+\end{lstlisting}
+Empfängt das Fenster also eine Nachricht ist es möglich auch den Origin des Senders zu prüfen, damit man nur Nachrichten aus vertrauenswürdigen Quellen bearbeitet.
 
 \subsection{REST}\label{section:rest}
 Rest
