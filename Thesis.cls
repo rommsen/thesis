@@ -203,7 +203,7 @@
       {\LARGE \authornames \par}
       \vfill
       {\large A thesis submitted in partial fulfillment for the \par}
-      {\large degree of Doctor of Philosophy \par}
+      {\large degree of Master of Computerscience \par}
       \bigskip
       \bigskip
       {\large in the \par}
@@ -246,7 +246,7 @@
     {\normalsize \facname \par}
     {\normalsize \deptname \par}
     \bigskip
-    {\normalsize Doctor of Philosophy\par}
+    {\normalsize Master of Computerscience\par}
     \bigskip
     {\normalsize\bf \@title \par}
     \medskip
