@@ -134,8 +134,38 @@ function receiveMessage(event) {
 Empfängt das Fenster also eine Nachricht ist es möglich auch den Origin des Senders zu prüfen, damit man nur Nachrichten aus vertrauenswürdigen Quellen bearbeitet.
 
 \subsection{REST}\label{section:rest}
-Rest
+Für die Entwicklung von Mashup-Anwendungen ist es von Vorteil, wenn die Bestandteile der Anwendung für ihre Anfragen einen ähnliches Prinzip verwenden würden. Bei der Verwendung eines gemeinsamen Interfaces würde sich die Interoperabilität zwischen den Teilanwendungen erhöhen und es erleichterte Entwickler das Hinzufügen neuer Anwendungen zu der Anwendung beträchtlich. In den letzten Jahren ist hierfür das REST-Prinzip immer weiter in den Fokus  gerückt.
+REST (Representational State Transfer Protocol), ist ein Architekturstil, welcher versucht 
+\begin{quotation}
+ für statische Inhalte und dynamisch berechnete Informationen, die ein globales, gigantisches Informationssystem bilden, ein einheitliches Konzept zu definieren.
+\end{quotation}
+Systeme, die nach diesem Konzept entwickelt wurden befolgen die im folgenden oberflächlich beschriebenen Prinzipien was im Idealfall zu positiven Eigenschaften wie der losen Kopplung von Systemen, dem Vorhandenseion allgemeiner Interface und einer dadurch erhöhten Interoperabilität und Wiederverwendbarkeit.  
 
+Theoretisch ist es möglich ein beliebiges REST-konformes Protokoll zu entwickeln und anzuwenden, normalerweise wird jedoch das das Internet dominierende HTTP-Protokoll für die Umsetzung benutzt. Der Grund hierfür ist, dass dieses Protokoll bei korrekter Anwendung die wichtigsten Anforderungen des REST-Prinzips erfüllt und schon im Hinblick auf diesen Architekturstil entworfen wurden (einer der Hauptbeteiligten am Entwurf der HTTP-Spezifikation, Roy Fielding, hat mit seiner Dissertation :"`TODO name"' das REST-Prinzip entwickelt.
+
+Nach Tilkov ergeben sich für REST fünf Grundprinzipien:
+\begin{enumerate}
+ \item Ressourcen mit eindeutiger Indentifikation
+ \item Verknüpfungen Hypermedia
+ \item Standardmethoden
+ \item Unterschiedliche Repräsentationen
+ \item Statuslose Kommunikation
+\end{enumerate}
+
+Im Internet besteht bereits ein eindeutiges System für die öffentliche Vergabe von Ressourcen-Identifizierern: die URI. TODO Aufbau URI. Somit stellen URIs einen allgemein verfügbaren Namensraum zur Verfügung, in dem Ressourcen identifiziert werden können.
+
+Das HTTP-Protokoll stellt unterschiedliche Standardmethoden bereit, mit denen ein Client eine Ressource Abfrage kann. Der Vorteil bei der Nutzung dieser Standardmethoden liegt darin begründet, dass mit ihnen theoretisch ein Interface existiert, mit dem alle Ressourcen abgefragt werden können und die ein Server für alle Ressourcen versteht. Sollte dies einmal nicht der Fall sein, kann der Server mit einer Fehlermeldung im Sinne von "`Methode wird für diese Ressource nicht unterstützt"' antworten. Für Methoden gibt es zwei wichtige Merkmale. Sie können sicher und/oder idempotent sein. Sicher bedeutet in diesem Fall, dass ein Request auf eine Ressource mit dieser Methode keine Seiteneffekte hat, d.h. die Ressource nicht verändert wird. Idempotent meint, dass eine Methode auf sich selbst angewandt wieder das selbe Ergebnis liefert (mathematisch: f(x) = f(f(x))). Idempotenz ist in diesem Umfeld ein wichtiges Konzept, da es immer möglich ist, dass der Client durch unerwartete Probleme (Verbindungsabruch etc.) keine Antwort vom Server erhält auf seine Anfrage erhält. Bei idempotenten Methoden kann er seine Anfrage einfach noch einmal stellen, ohne befürchten zu müssen, dass auf dem Server, ein Zustand eintritt, den er nicht erwartet hat. Die HTTP stellt acht Methoden bereit, wobei hier nur die wichtigsten fünf betrachtet und mit ihrer korrekten Semantik beschrieben werden:
+\begin{enumerate}
+ \item GET. GET ist die wichtigste und am häufigsten anzutreffende Methode im Web. Mit ihr fordert der Client eine Repräsentation einer Ressource an (in einem zu spezifierendem Format). Nach der Spezifikation ist GET sowohl sicher, als auch idempotent. Der Client kann sicher sein durch seine Anfrage keine Änderunge der Repräsentation der Ressource anzustoßen und kann so auch die Methode mehrfach hintereinander aufrufen. Aufgrund dieser beiden Zusicherungen gibt es unterschiedliche Möglichkeiten das Ergebnis zu cachen, so das in vielen Fällen noch nicht einmal der Server belastet werden mus.
+ \item PUT. PUT kann übersetzt werden mit: "'Update die Ressource und erstelle sie wenn nicht vorhanden"`. Sie ist nicht sicher, aber idempotent. 
+ \item POST. Die eigentlich Bedeutung der POST-Methode ist das Anlegen einer Ressource. Der Unterschied zu PUT ist hierbei, dass der Request nicht an eine Entity-Ressource (mit eindeutiger ID), sondern an eine Listenressource geschickt wird. Diese Methode macht keinerlei Zusicherungen, so dass ein Caching nicht möglich ist. Sie ist weder sicher noch idempotent, macht also keinerlei Zusicherungen, so dass beispielsweise ein Caching nicht notwendig ist.
+ \item DELETE. Mit der DELETE-Methode kann einem Server die Anweisung gegeben werden eine Ressource zu löschen. Sie ist nicht sicher, aber idempotent.
+ \item OPTIONS. Eine OPTIONS Anfrage für eine Ressource liefert Metadaten für eine Ressource. Hierzu gehören z.B. Allow-Header, welche angeben, welche Methoden oder weiteren Header akzeptiert werden. Dies ist beispielsweise wichtig für die Implementierung von Cross Origin Request Sharing (CORS, siehe \ref{section:cors})
+\end{enumerate}
+
+GET und POST sind die am häufigsten genutzten Methoden. Der Grund hierfür ist, dass diese beiden Methoden der normale Weg eines Brwoser sind mit einem Server zu kommunizieren. Jeder direkte Aufruf einer URI über einen Browser sendet eine GET-Anfrage an einen Server. Die im Web häufig anzutreffenden Formulare werden meist über eine POST-Anfrage abgeschickt. So werden diese beiden Methoden ausserhalb von Anwendungen, die dem REST-Prinzip folgen, auch für alle anderen Anfragen benutzt, so dass man sich bei diesen Anwendungen nicht sicher sein kann, ob ein GET-Request an eine URI nicht ein Ändern oder Löschen der Ressource zur Folge hat (man betrachte beispielsweise die URI; \texttt{http://example.com/customers/5?action=delete}. 
+
+ 
 \section{HTML5}\label{section:html5}
 neuerungen HTML5, nicht nur eine Technologie, Zusammenfassung mehrerer Technologien, CSS 3 unterschiedliche Javascript Apis (local storage, appcache) drag and Drop
 
