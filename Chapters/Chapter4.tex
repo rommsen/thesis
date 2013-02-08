@@ -134,27 +134,60 @@ function receiveMessage(event) {
 Empfängt das Fenster also eine Nachricht ist es möglich auch den Origin des Senders zu prüfen, damit man nur Nachrichten aus vertrauenswürdigen Quellen bearbeitet.
 
 \subsection{REST}\label{section:rest}
-Für die Entwicklung von Mashup-Anwendungen ist es von Vorteil, wenn die Bestandteile der Anwendung für ihre Anfragen einen ähnliches Prinzip verwenden würden. Bei der Verwendung eines gemeinsamen Interfaces würde sich die Interoperabilität zwischen den Teilanwendungen erhöhen und es erleichterte Entwickler das Hinzufügen neuer Anwendungen zu der Anwendung beträchtlich. In den letzten Jahren ist hierfür das REST-Prinzip immer weiter in den Fokus  gerückt.
+Für die Entwicklung von Mashup-Anwendungen ist es von Vorteil, wenn die Bestandteile der Anwendung für ihre Anfragen einen ähnliches Prinzip verwenden. Bei der Verwendung eines gemeinsamen Interfaces würde sich die Interoperabilität zwischen den Teilanwendungen erhöhen und es erleichterte Entwickler das Hinzufügen neuer Anwendungen zu der Anwendung beträchtlich. In den letzten Jahren ist hierfür das REST-Prinzip immer weiter in den Fokus  gerückt.
 REST (Representational State Transfer Protocol), ist ein Architekturstil, welcher versucht 
 \begin{quotation}
- für statische Inhalte und dynamisch berechnete Informationen, die ein globales, gigantisches Informationssystem bilden, ein einheitliches Konzept zu definieren.
+für statische Inhalte und dynamisch berechnete Informationen, die ein globales, gigantisches Informationssystem bilden, ein einheitliches Konzept zu definieren.
 \end{quotation}
-Systeme, die nach diesem Konzept entwickelt wurden befolgen die im folgenden oberflächlich beschriebenen Prinzipien was im Idealfall zu positiven Eigenschaften wie der losen Kopplung von Systemen, dem Vorhandenseion allgemeiner Interface und einer dadurch erhöhten Interoperabilität und Wiederverwendbarkeit.  
+Systeme, die nach diesem Konzept entwickelt wurden befolgen die im folgenden oberflächlich beschriebenen Prinzipien was im Idealfall zu positiven Eigenschaften wie der losen Kopplung von Systemen, dem Vorhandenseion allgemeiner Interface und einer dadurch erhöhten Interoperabilität und Wiederverwendbarkeit führt.
 
-Theoretisch ist es möglich ein beliebiges REST-konformes Protokoll zu entwickeln und anzuwenden, normalerweise wird jedoch das das Internet dominierende HTTP-Protokoll für die Umsetzung benutzt. Der Grund hierfür ist, dass dieses Protokoll bei korrekter Anwendung die wichtigsten Anforderungen des REST-Prinzips erfüllt und schon im Hinblick auf diesen Architekturstil entworfen wurden (einer der Hauptbeteiligten am Entwurf der HTTP-Spezifikation, Roy Fielding, hat mit seiner Dissertation :"`TODO name"' das REST-Prinzip entwickelt.
+Theoretisch ist es möglich ein beliebiges REST-konformes Protokoll zu entwickeln und anzuwenden, normalerweise wird jedoch das das Internet dominierende HTTP-Protokoll für die Umsetzung benutzt. Der Grund hierfür ist, dass dieses Protokoll bei korrekter Anwendung die wichtigsten Anforderungen des REST-Prinzips erfüllt und schon im Hinblick auf diesen Architekturstil entworfen wurden (einer der Hauptbeteiligten am Entwurf der HTTP-Spezifikation, Roy Fielding, hat mit seiner Dissertation :"`TODO name"' das REST-Prinzip entwickelt. 
 
 Nach Tilkov ergeben sich für REST fünf Grundprinzipien:
 \begin{enumerate}
- \item Ressourcen mit eindeutiger Indentifikation
- \item Verknüpfungen Hypermedia
- \item Standardmethoden
- \item Unterschiedliche Repräsentationen
- \item Statuslose Kommunikation
+ \item\label{enumerate_rest_principles:1} Ressourcen mit eindeutiger Indentifikation
+ \item\label{enumerate_rest_principles:2} Verknüpfungen Hypermedia
+ \item\label{enumerate_rest_principles:3} Standardmethoden
+ \item\label{enumerate_rest_principles:4} Unterschiedliche Repräsentationen
+ \item\label{enumerate_rest_principles:5} Statuslose Kommunikation
 \end{enumerate}
 
-Im Internet besteht bereits ein eindeutiges System für die öffentliche Vergabe von Ressourcen-Identifizierern: die URI. TODO Aufbau URI. Somit stellen URIs einen allgemein verfügbaren Namensraum zur Verfügung, in dem Ressourcen identifiziert werden können.
+In einem REST-Entwurf wird nach Entitäten gesucht, welche auf Ressourcen abgebildet werden. Dies ähnelt einem objektorientierten Entwurf, es gibt hierbei jedoch zwei wichtige Unterschiede. Es werden den Ressourcen keine neuen Methoden oder Verben hinzugefügt, sondern es werden nur die Standardmethoden genutzt. Um trotzdem keine Einschränkung in der Mächtigkeit dieses Prinzips in Kauf nehmen zu müssen, werden mehr Ressourcen hinzugefügt, als es eigentlich Entitäten gibt. So gibt es beispielsweise neben den Primärressourcen, welche einzelnen Entitäten abbilden, Listenressourcen welche für die Auflistung einer Menge von Ressourcen eines bestimmten Types genutzt werden. Im Internet besteht bereits ein eindeutiges System für die öffentliche Vergabe von Ressourcen-Identifizierern: die URI. TODO Aufbau URI. Somit stellen URIs einen allgemein verfügbaren Namensraum zur Verfügung, in dem Ressourcen identifiziert werden können. Punkt \ref{enumerate_rest_principles:4} fordert, dass Ressourcen in unterschiedlichen Repräsentationen ausgeliefert werden können. So ist es beispielsweise möglich, dass es eine maschinenlesbare Repräsentation im XML Format und eine für Menschen im Browser darstellbare Repräsentation im HTML Format gibt. Der Client kann über einen Accept-Header ein bestimmtes Format anfordern. 
+Möchte man zum Beispiel einen Kunden über eine Ressource abbilden könnte der Identifizerer \texttt{http.example.com/customers/4} sein. Eine Anfrage der Darstellung kann dann als einfacher HTTP-Request abgeschickt werden:
+\begin{lstlisting}
+GET /customers/4 HTTP/1.1
+Host: example.com
+Accept: application/xml 
+\end{lstlisting}
 
-Das HTTP-Protokoll stellt unterschiedliche Standardmethoden bereit, mit denen ein Client eine Ressource Abfrage kann. Der Vorteil bei der Nutzung dieser Standardmethoden liegt darin begründet, dass mit ihnen theoretisch ein Interface existiert, mit dem alle Ressourcen abgefragt werden können und die ein Server für alle Ressourcen versteht. Sollte dies einmal nicht der Fall sein, kann der Server mit einer Fehlermeldung im Sinne von "`Methode wird für diese Ressource nicht unterstützt"' antworten. Für Methoden gibt es zwei wichtige Merkmale. Sie können sicher und/oder idempotent sein. Sicher bedeutet in diesem Fall, dass ein Request auf eine Ressource mit dieser Methode keine Seiteneffekte hat, d.h. die Ressource nicht verändert wird. Idempotent meint, dass eine Methode auf sich selbst angewandt wieder das selbe Ergebnis liefert (mathematisch: f(x) = f(f(x))). Idempotenz ist in diesem Umfeld ein wichtiges Konzept, da es immer möglich ist, dass der Client durch unerwartete Probleme (Verbindungsabruch etc.) keine Antwort vom Server erhält auf seine Anfrage erhält. Bei idempotenten Methoden kann er seine Anfrage einfach noch einmal stellen, ohne befürchten zu müssen, dass auf dem Server, ein Zustand eintritt, den er nicht erwartet hat. Die HTTP stellt acht Methoden bereit, wobei hier nur die wichtigsten fünf betrachtet und mit ihrer korrekten Semantik beschrieben werden:
+Der Server gibt in mit einem Statuscode (hier 200 OK) zurück, ob die Anfrage erfolgreich war und fügt dann die gewünschte Repräsentation der Ressource an:.
+
+\begin{lstlisting}
+HTTP/1.1 200 OK
+Content-Type: text/xml; charset=utf-8
+Content-Length: ...
+
+[XML spezifische Kopfzeilen]
+<customer href="./customers/4">
+  <name>Roman Sachse</name>
+  <status>10.09.1980</status>
+  ...
+  <orders>
+    <order>
+      <delivered>true</delivered>
+      <link>http://example.com/orders/54>
+    </order>
+    <order>
+      <delivered>false</delivered>
+      <link>http://example.com/orders/599>
+    </order>
+  </orders>
+<customer>
+\end{lstlisting}
+
+In der Antwort des Server finden sich Links auf weitere mit dem Kunden verknüpfte Ressourcen. Dies ist eine Umsetzung des Hypermedia-Prinzip, welches für ein vollkommenes REST-System fordert, dass sich Client ab einem Startpunkt aus nur durch das Verfolgen Links durch das gesamte System bewegen könnte. Eine Listenressource würde man über \texttt{http.example.com/customers} abfragen, die Antwort könnte dann in XML Verweise auf die einzelnen Customer erhalten. Zusätzlich könnten bei gewünschter Paginierung der Ergebnisse (beispielsweise über Query-Parameter wie \texttt{http.example.com/customers?page=2} noch Links auf die vorherige und nächste Seite zurückgegeben werden.
+
+Wie man in der obigen Anfrage sieht, wird eine Anfrage mit dem Verb GET an den Server geschickt. Das HTTP-Protokoll stellt unterschiedliche Standardmethoden bereit, mit denen ein Client eine Ressource Abfrage kann. Der Vorteil bei der Nutzung dieser Standardmethoden liegt darin begründet, dass mit ihnen theoretisch ein Interface existiert, mit dem alle Ressourcen abgefragt werden können und die ein Server für alle Ressourcen versteht. Sollte dies einmal nicht der Fall sein, kann der Server mit einer Fehlermeldung im Sinne von "`Methode wird für diese Ressource nicht unterstützt"' antworten. Für Methoden gibt es zwei wichtige Merkmale. Sie können sicher und/oder idempotent sein. Sicher bedeutet in diesem Fall, dass ein Request auf eine Ressource mit dieser Methode keine Seiteneffekte hat, d.h. die Ressource nicht verändert wird. Idempotent meint, dass eine Methode auf sich selbst angewandt wieder das selbe Ergebnis liefert (mathematisch: f(x) = f(f(x))). Idempotenz ist in diesem Umfeld ein wichtiges Konzept, da es immer möglich ist, dass der Client durch unerwartete Probleme (Verbindungsabruch etc.) keine Antwort vom Server erhält auf seine Anfrage erhält. Bei idempotenten Methoden kann er seine Anfrage einfach noch einmal stellen, ohne befürchten zu müssen, dass auf dem Server, ein Zustand eintritt, den er nicht erwartet hat. Die HTTP stellt acht Methoden bereit, wobei hier nur die wichtigsten fünf betrachtet und mit ihrer korrekten Semantik beschrieben werden:
 \begin{enumerate}
  \item GET. GET ist die wichtigste und am häufigsten anzutreffende Methode im Web. Mit ihr fordert der Client eine Repräsentation einer Ressource an (in einem zu spezifierendem Format). Nach der Spezifikation ist GET sowohl sicher, als auch idempotent. Der Client kann sicher sein durch seine Anfrage keine Änderunge der Repräsentation der Ressource anzustoßen und kann so auch die Methode mehrfach hintereinander aufrufen. Aufgrund dieser beiden Zusicherungen gibt es unterschiedliche Möglichkeiten das Ergebnis zu cachen, so das in vielen Fällen noch nicht einmal der Server belastet werden mus.
  \item PUT. PUT kann übersetzt werden mit: "'Update die Ressource und erstelle sie wenn nicht vorhanden"`. Sie ist nicht sicher, aber idempotent. 
@@ -163,8 +196,11 @@ Das HTTP-Protokoll stellt unterschiedliche Standardmethoden bereit, mit denen ei
  \item OPTIONS. Eine OPTIONS Anfrage für eine Ressource liefert Metadaten für eine Ressource. Hierzu gehören z.B. Allow-Header, welche angeben, welche Methoden oder weiteren Header akzeptiert werden. Dies ist beispielsweise wichtig für die Implementierung von Cross Origin Request Sharing (CORS, siehe \ref{section:cors})
 \end{enumerate}
 
-GET und POST sind die am häufigsten genutzten Methoden. Der Grund hierfür ist, dass diese beiden Methoden der normale Weg eines Brwoser sind mit einem Server zu kommunizieren. Jeder direkte Aufruf einer URI über einen Browser sendet eine GET-Anfrage an einen Server. Die im Web häufig anzutreffenden Formulare werden meist über eine POST-Anfrage abgeschickt. So werden diese beiden Methoden ausserhalb von Anwendungen, die dem REST-Prinzip folgen, auch für alle anderen Anfragen benutzt, so dass man sich bei diesen Anwendungen nicht sicher sein kann, ob ein GET-Request an eine URI nicht ein Ändern oder Löschen der Ressource zur Folge hat (man betrachte beispielsweise die URI; \texttt{http://example.com/customers/5?action=delete}. 
+Um zu den Customer-Ressourcen aus dem obigen Beispiel also einen Kunden hinzuzufügen, müsste man einen POST-Request an die Listenressource \texttt{http.example.com/customers} senden. Ein einzelner Kunde kann mit einem GET-Request an die Primärressource \texttt{http.example.com/customers/4} ausgelesen werden. PUT oder DELETE würden die Ressource dementsprechend aktualisieren oder löschen
 
+GET und POST sind die am häufigsten genutzten Methoden. Der Grund hierfür ist, dass diese beiden Methoden der normale Weg eines Brwoser sind mit einem Server zu kommunizieren. Jeder direkte Aufruf einer URI über einen Browser sendet eine GET-Anfrage an einen Server. Die im Web häufig anzutreffenden Formulare werden meist über eine POST-Anfrage abgeschickt. So werden diese beiden Methoden ausserhalb von Anwendungen, die dem REST-Prinzip folgen, auch für alle anderen Anfragen benutzt, so dass man sich bei diesen Anwendungen nicht sicher sein kann, ob ein GET-Request an eine URI nicht ein Ändern oder Löschen der Ressource zur Folge hat (man betrachte beispielsweise die URI; \texttt{http://example.com/customers/5?action=delete}.
+
+Der letzte Punkt in den obigen Forderungen bedeutet, dass der Server keinerlei Session Informationen über den User speichert. Dies hat zur Folge, dass beispielsweise der Warenkorb in einem Shop ebenfalls als Ressource angelegt werden muss. Der Vorteil von dieser Vorgehensweise ist der, dass somit z.B. auch Lesezeichen auf einen Warenkorb angelegt werden können.
  
 \section{HTML5}\label{section:html5}
 neuerungen HTML5, nicht nur eine Technologie, Zusammenfassung mehrerer Technologien, CSS 3 unterschiedliche Javascript Apis (local storage, appcache) drag and Drop
