@@ -15,7 +15,7 @@ Die Komponenten werden in Symfony2 über sogenannte Bundles implementiert (TODO:
 Für die serverseitige Speicherung der unterschiedlichen Daten (Workspace, Widgets, Todos etc.) wird Doctrine2 genutzt. Doctrine2 ist ein Werkzeug zur objektrelationalen Abbildung von einfachen Objekten in relationale Datenbanken (object-relational-mapping: ORM). Doctrine2 nutzt im Gegensatz zu vielen anderen ORM-Systemen, nicht das Active-Record-Pattern (TODO Fussnote erklären), sondern das DataMapper-Pattern (TODO Fussnote erklären). Der entscheidende Unterschied hierbei ist der, das die Objekte selber keine Methoden besitzen, mit denen sie in der Datenbank hinterlegt oder gefunden werden können. Diese Arbeit übernimmt ein Entity-Manager, welcher in der Lage ist zu erkennen, ob bestimmte Objekte schon in den Speicher geladen wurden und sie sonst aus der Datenbank laden kann. Somit können die Objekte sich allein mit der Geschäftslogik des Systemes Beschäftigung und es wird eine bessere Trennung der Belange (TODO Fussnote erklären) erreicht.
 
 \subsection{AngularJS}
-Plesynd ist eine Applikation, welche zum Großteil auf dem Client zu Einsatz kommt. Für die Implementierung des Systems fiel die Wahl auf das von Google entwickelte Javascript-Framework AngularJS. Im Gege
+Plesynd ist eine größtenteils clientbasierte Applikation. Für die Implementierung des Systems fiel die Wahl auf das von Google entwickelte Javascript-Framework AngularJS. Im Gegensatz zu anderen JS Frameworks, Parsed Html, logik in Controllern (frei von DOM Manipulation), 2 Wege Data-Binding, One-Page Applications und Services, eigener Direktiven, beispiel ng-show, ng-repeat
 
 \subsection{Jquery}
 \href{http://jquery.com/}{Jquery}\footnote{\url{http://jquery.com/}} ist eine Javascript-Bibliothek zur einfachen Manipulation des DOM. Desweiteren stellt sie erweiterte Javascript-Funktionalitäten zur Verfügung und vereinfacht die Arbeit mit den browserbasierten Event-System AngularJS verwendet Jquery, wenn vorhanden, insbesondere zur Manipulation des DOM. In Plesynd basiert unter anderem noch das Postmessage (siehe \ref{section:kommunikation_zwischen_iframes}) auf Jquery.  
@@ -37,6 +37,7 @@ Für die Umsetzung von Plesynd wurden auf der Serverseite fünf Symfony2-Bundles
 \end{itemize}
 
 \subsection{Struktur des Client-Systems}
+Vorstellung der wichtigsten eigenen Angular Services und Direktiven (genauer im Anhang)
 
 \subsubsection{Widgetparameter}
 Die Parameter für Widgets werden in der Wookie DB hinterlegt.
@@ -58,11 +59,7 @@ jedes Widgets bekommt seinen eigenen localStorage über window.name prefix
 
 
 \subsection{Umsetzung der Offline-Fähigkeiten}
-
-\subsubsection{Local-Storage}\label{section:local_storage_api}
-Drop In Rest
-Benutzen von Services, Controller bekommen das nicht mit
-Erkennen von Offline-Status über ebent
+Wie in Kapitel \ref{chapter:Kapitel6} beschrieben ist Plesynd in der Lage zu erkennen, wenn das System offline genutzt wird. Ist dies der Fall werden keine Requests mehr an den Server gesendet, sondern die Daten werden im Local-Storage (siehe \ref{section:offline_storage}) gespeichert. Für diese Funktionalität sind hauptsächlich zwei entwickelte AngularJS-Services zuständig: \texttt{resourceService} und \texttt{localStorage}. Da diese Services global genutzt und von allen Widgets und Applikationen eingebunden werden müssen, die die Offline-Fähigkeiten von Plesynd nutzen wollen, sind diese im \texttt{CorujaAngularModuleBundle} hinterlegt. Der \texttt{CorujaLocalStorageService} ist für das speichern zusätndig, benutzt deferreds um mit Angularressource kompatibel zu sein, resourceService kapselt den CorujaLocalStorageService und ein Angular Ressource Objekt. Dieses ist für Rest-Anfragen zusätndig. resourceService erkennt mit Hilfe des OnlineStatusService, ob System online und benutzt entweder das eine oder das andere. Für alle Entitäten, die dies können sollen, muss ein eigener Service geschrieben werden (Beispiel Todo Service), muss Methoden get,post, query, put, delete implemetieren und dem RessourceService die passenden Objekte geben. Innerhalb der Controller wird nur mit diesem Service gearbeitet. Online/Offline dadurch transparent. System hört auf Listener und synchronisiert mit Server, wenn wieder online. Dafür wird ebenfalls der ResourceService genommen.
 
 
 
