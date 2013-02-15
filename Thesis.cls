@@ -115,11 +115,11 @@
 \usepackage{lstpatch}
 \usepackage[utf8]{inputenc}
 \usepackage{ngerman}
-\lstset{captionpos=b,
-        frame=tb,
-        basicstyle=\scriptsize\ttfamily,
-        showstringspaces=false,
-        keepspaces=true}
+\lstset{numberstyle=\footnotesize,
+basicstyle=\ttfamily\footnotesize,
+numbers=left,
+stepnumber=1,
+breaklines=true}
 \lstdefinestyle{matlab} {
         language=Matlab,
         keywordstyle=\color{blue},
