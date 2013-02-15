@@ -7,15 +7,76 @@ Für die Entwicklung von Plesynd wurden unterschiedliche Tools und Frameworks ge
 
 Die für die entwicklung von Plesynd eingesetzten Frameworks werden im Folgenden kurz vorgestellt.
 
+\subsection{AngularJS}
+Plesynd ist eine größtenteils clientbasierte Applikation. Für die Implementierung des Systems fiel die Wahl auf das von Google entwickelte Javascript-Framework \href{http://angularjs.org/}{AngularJS}\footnote{\url{http://angularjs.org/}}. Im Gegensatz zu anderen JS Frameworks verfolgt AngularJS für die Umsetzung des User Interfaces einen Ansatz, welcher am einfachsten als eine Erweiterung der Möglichkeiten von HTML zu beschreiben ist. Hierfür bietet AngularJS eigene sogenannte Direktiven, welche Kontrollstrukturen wie Schleifen (inklusive Filtermechanismen) und konditionale Anweisungen, welche die Ausgabe betreffen direkt im HTML erlauben. AngularJS ist in der Lage dieses erweiterte HTML zu parsen, auszuwerten und dem Anwender die Ergebnisse zu präsentieren. Der Entwickler kann auch eigene Direktiven für die DOM-Manipulation entwickeln. Neben den Direktiven bietet AngularJS die Möglichkeit sogenannte Controller zu erstellen. In diesen Controllern wird die eigentliche Programmlogik ausgeführt. Ein Controller wird (ebenfalls über eine Direktive) einem beliebigen DOM-Knoten zugewiesen. Auf die Variablen, die innerhalb des Controllers definiert kann dann im Inhalt des DOM-Elements zugegriffen werden. Durch die Funktionalität des sogenannten "`Two-Way-Data-Bindings"' sorgt AngularJS dafür, dass eine Änderung der Variable innerhalb des Controllers direkt im User Interface sichtbar wird. Ändert der Anwender auf der anderen Seite den Wert einer so gebundenen Variable (z.B. über ein Formularfeld), so spiegelt sich diese Änderung direkt im Wert der Variable im Controller. Somit erreicht Angular eine saubere Trennung zwischen der Business-Logik der Anwendung, dem User Interface und der manchmal recht komplexen Manipulation von DOM-Elementen. Funktionalitäten, welche in mehreren Controllern oder auch in Direktiven benötigt werden, werden in sogenannten Services implementiert. Mögliche Anwendungsfälle hierfür sind das Kapseln von Http-Requests oder die Arbeit mit einem Offline-Storage. Zusammenfassend bietet AngularJS:
+\begin{itemize}
+ \item \emph{Direktiven} zur Manipulation des DOM.
+ \item \emph{Controller} zur Ausführung der Programmlogik und Reaktion auf Nutzereingaben
+ \item \emph{Services} zur Kapselung von Funktionalitäten, die an multiplen Stellen benötigt werden
+\end{itemize}
+Es ist natürlich ohne weiteres möglich, dass Abhängigkeiten zwischen den einzelnen Bestandteilen existieren. Ein Controller benötigt z.B. zumeist unterschiedliche Services für den korrekten Ablauf der Programmlogik. Diese Abhängigkeiten werden deklarativ angegeben. AngularJS sorgt dann per Dependency-Injection-Mechanismus dafür, dass die Objekte ihrer Abhängigkeiten erhalten. AngularJS bietet noch einige andere Funktionalitäten, welche jedoch aus Platzgründen hier nicht weiter beschrieben werden.
+
+Im Folgenden verdeutlicht ein kurzes Beispiel die Arbeit mit AngularJS. Das Beispiel ist an dem für die Arbeit entwickelten Todo-Widget angelehnt ist. Es zeigt einen Controller und einen Ausschnitt HTML-Quellcode.
+
+\begin{lstlisting}
+Application.Controllers.controller('TodoCtrl', ['$scope', 'todoService', function ($scope, todoService) {
+  $scope.todos = [
+    {id: 1, content: 'Todo 1', completed : false},
+    {id: 2, content: 'Todo 2', completed : false},
+    {id: 3, content: 'Todo 3', completed : true},
+  ];
+  
+  $scope.newTodo = '';
+
+  $scope.addTodo = function () {
+    if ($scope.newTodo.length === 0) { return; }
+
+    var todo = {title : $scope.newTodo, completed : false,};
+
+    todoService.post(todo, function () {
+      $scope.todos.push(todo);
+      $scope.newTodo = '';
+    });
+  };
+  
+  $scope.todoCompleted = function (todo) {
+    todo.completed = !todo.completed
+    todoService.put(todo);
+  };
+});
+\end{lstlisting}
+Der Controller hat den Namen \texttt{TodoCtrl}. Seine Definition verlangt die Injektion zweier Services. Zum einen des AngularJS internen \texttt{\$scope} Service, zum anderen des eigenen \texttt{todoService}. Alle Variablen, die im Controller definiert werden und im HTML zur Verfügung stehen sollen, werden dem \texttt{\$scope} Objekt als Eigenschaften zugewiesen. Hierzu gehören einige Todo-Objekte (welche auch vom Server geholt werden könnten) ein String für ein neues Todo und zwei Funktionen zum Hinzufügen und Bearbeiten von Funktionen. Das folgende HTML wird über die Direktive \texttt{ng-controller} mit dem Controller verknüpft.
+
+\begin{lstlisting}
+<div ng-controller="TodoCtrl">
+ <table>
+  <tr>
+   <td colspan="2">
+    <form ng-submit="addTodo()">
+     <input type="text" placeholder="What needs to be done?" ng-model="newTodo" autofocus>
+    </form>
+   </td>
+  </tr>
+  <tr ng-repeat="todo in todos>
+   <td>
+    <i ng-hide="todo.completed" class="icon-ok" ng-click="todoCompleted(todo)"></i>
+    <i ng-show="todo.completed" class="icon-remove" ng-click="todoCompleted(todo)"></i>
+   </td>
+   <td>
+    <strong>Title: {{todo.title}} (Id: {{todo.id}})</strong>
+   </td>
+  </tr>
+ </table>
+</div>
+\end{lstlisting}
+Im HTML wird die Direktive ng-repeat dazu genutzt, die im Controller hinterlegten Todo Objekte zu durchlaufen und auszugeben mit der Klammersyntax (z.b. {{todo.title}} wird der Wert einer Variable ausgegeben. Die Direktiven \texttt{ng-show} und \texttt{ng-hide} blenden ein DOM-Element ein oder aus, wenn angegebene Bedingung zu \texttt{true} auswertet. Mit einem Klick auf ein Icon, welches mit der \texttt{ng-click} Direktive ausgezeichnet wurde, wird die \texttt{todoCompleted} Methode im Controller aufgerufen, welches das aktuelle Todo-Objekt aktualisiert. Das im oberen Teil des Quellcodes abgebildete Formular dient zum Hinzufügen eines neuen Todo-Objektes. Das Input-Feld wird mit der \texttt{ng-model} Direktive mit der Variable \texttt{\$scope.newTodo} verknüpft. Trägt der Anwender etwas in das Formularfeld ein ändert sich diese Variable automatisch. Im Controller wird sie mit einem leeren String initialisiert, so dass im Formularfeld kein vorausgefüllter Wert steht. Beim Abschicken des Formulars wird die in der \texttt{ng-submit} Direktive angegebene Methode \texttt{\$scope.addTodo} aufgerufen, welche auf Basis des eingebenen Wertes für \texttt{\$scope.newTodo} und mit Hilfe des \texttt{todoService} ein neues Todo-Objekt erstellt und zur Kollektion hinzufügt. Auf Grund des oben erwähnten "`Two-Way-Data-Bindings"' wird das neue Todo automatisch in die über \texttt{ng-repeat} erstellte Liste der Todos aufgenommen. Der Entwickler muss sich nicht um etwaige DOM-Manipulationen kümmern, so dass die Anwendungslogik hiervon völlig frei bleibt.
+
 \subsection{Symfony2}
-\href{http://symfony.com}{Symfony2}\footnote{\url{http://symfony.com}} ist ein in PHP implementiertes komponentenbasiertes full-stack Framework zur Entwicklung von MVC(Model-View-Controller) Anwendungen. Zu den bereitgestellten Komponenten gehört beispielsweise ein \href{http://symfony.com/doc/current/book/service_container.html}{Service Container }\footnote{\url{http://symfony.com/doc/current/book/service_container.html}}. Dieser erlaubt es die von den genutzten Klassen benötigten Abhängigkeiten zu definieren. Der Container sorgt dann für eine Instantiierung der Abhängigkeiten und ein Injizieren dieser zur Laufzeit (TODO: Dependendency-Injection erklären?). Des weiteren bietet Symfony2 unter anderem eine eigene Template-Engine (TODO: Twig Link), sowie ein Event-Listener System, welches ermöglicht auf bestimmte Events (TODO: Request Beispiele) zu reagieren. Das Model wird in Symfony2 standardmäßig über Doctrine2 (siehe ~\ref{section:doctrine2}) abgebildet.
-Die Komponenten werden in Symfony2 über sogenannte Bundles implementiert (TODO: Bundle Link). Bundles sind von dem System unabhängige Plugins, mit einer festen Struktur, welche einfach in eine Applikation eingebunden werden können. Das besondere an Symfony2 ist, dass das gesamte System aus Bundles aufgebaut ist. Hierzu gehören also auch das Kern-Framework, alle Komponenten, zusätzlicher Third-Party-Code, sowie die eigene Applikation selbst.
+\href{http://symfony.com}{Symfony2}\footnote{\url{http://symfony.com}} ist ein in PHP implementiertes komponentenbasiertes Framework zur Entwicklung von MVC(Model-View-Controller) Anwendungen. Zu den bereitgestellten Komponenten gehört beispielsweise ein \href{http://symfony.com/doc/current/book/service_container.html}{Service Container}\footnote{\url{http://symfony.com/doc/current/book/service_container.html}}. Dieser erlaubt es die von den genutzten Klassen benötigten Abhängigkeiten zu definieren. Der Container sorgt dann für eine Instantiierung der Abhängigkeiten und ein Injizieren. Des weiteren bietet Symfony2 unter anderem die eigene Template-Engine \href{http://twig.sensiolabs.org/}{Twig}\footnote{\url{http://twig.sensiolabs.org/}}, sowie ein Event-Listener System, welches ermöglicht auf bestimmte Events zu reagieren. Ein Beispiel hierfür wäre das \texttt{onKernelResponse} Event, welches in der Lage ist die Antwort, die das System an den Client schickt noch zu verändern um beispielsweise zusätzliche Header zu setzen (dies wird beispielsweise vom \texttt{NelmioCorsBundle} verwendet, um die in Kaptitel \ref{section:cors} beschriebene CORS-Systematik zu implementieren. Das Model wird in Symfony2 standardmäßig über Doctrine2 (siehe \ref{section:doctrine2}) abgebildet.
+Die Komponenten werden in Symfony2 über sogenannte \href{http://symfony.com/doc/current/cookbook/bundles/best_practices.htmlBundles}{Bundles}\footnote{\url{http://symfony.com/doc/current/cookbook/bundles/best_practices.htmlBundles}} implementiert. Bundles sind von dem System unabhängige Plugins, mit einer festen Verzechnisstruktur, welche einfach in eine Applikation eingebunden werden können. Das besondere an Symfony2 ist, dass das gesamte System aus Bundles aufgebaut ist. Hierzu gehören also auch das Kern-Framework, alle Komponenten, zusätzlicher Third-Party-Code, sowie die eigene Applikation selbst.
 
 \subsection{Doctrine2}\label{section:doctrine2}
 Für die serverseitige Speicherung der unterschiedlichen Daten (Workspace, Widgets, Todos etc.) wird Doctrine2 genutzt. Doctrine2 ist ein Werkzeug zur objektrelationalen Abbildung von einfachen Objekten in relationale Datenbanken (object-relational-mapping: ORM). Doctrine2 nutzt im Gegensatz zu vielen anderen ORM-Systemen, nicht das Active-Record-Pattern (TODO Fussnote erklären), sondern das DataMapper-Pattern (TODO Fussnote erklären). Der entscheidende Unterschied hierbei ist der, das die Objekte selber keine Methoden besitzen, mit denen sie in der Datenbank hinterlegt oder gefunden werden können. Diese Arbeit übernimmt ein Entity-Manager, welcher in der Lage ist zu erkennen, ob bestimmte Objekte schon in den Speicher geladen wurden und sie sonst aus der Datenbank laden kann. Somit können die Objekte sich allein mit der Geschäftslogik des Systemes Beschäftigung und es wird eine bessere Trennung der Belange (TODO Fussnote erklären) erreicht.
-
-\subsection{AngularJS}
-Plesynd ist eine größtenteils clientbasierte Applikation. Für die Implementierung des Systems fiel die Wahl auf das von Google entwickelte Javascript-Framework AngularJS. Im Gegensatz zu anderen JS Frameworks, Parsed Html, logik in Controllern (frei von DOM Manipulation), 2 Wege Data-Binding, One-Page Applications und Services, eigener Direktiven, beispiel ng-show, ng-repeat
 
 \subsection{Jquery}
 \href{http://jquery.com/}{Jquery}\footnote{\url{http://jquery.com/}} ist eine Javascript-Bibliothek zur einfachen Manipulation des DOM. Desweiteren stellt sie erweiterte Javascript-Funktionalitäten zur Verfügung und vereinfacht die Arbeit mit den browserbasierten Event-System AngularJS verwendet Jquery, wenn vorhanden, insbesondere zur Manipulation des DOM. In Plesynd basiert unter anderem noch das Postmessage (siehe \ref{section:kommunikation_zwischen_iframes}) auf Jquery.  
@@ -61,8 +122,6 @@ jedes Widgets bekommt seinen eigenen localStorage über window.name prefix
 \subsection{Umsetzung der Offline-Fähigkeiten}
 Wie in Kapitel \ref{chapter:Kapitel6} beschrieben ist Plesynd in der Lage zu erkennen, wenn das System offline genutzt wird. Ist dies der Fall werden keine Requests mehr an den Server gesendet, sondern die Daten werden im Local-Storage (siehe \ref{section:offline_storage}) gespeichert. Für diese Funktionalität sind hauptsächlich zwei entwickelte AngularJS-Services zuständig: \texttt{resourceService} und \texttt{localStorage}. Da diese Services global genutzt und von allen Widgets und Applikationen eingebunden werden müssen, die die Offline-Fähigkeiten von Plesynd nutzen wollen, sind diese im \texttt{CorujaAngularModuleBundle} hinterlegt. Der \texttt{CorujaLocalStorageService} ist für das speichern zusätndig, benutzt deferreds um mit Angularressource kompatibel zu sein, resourceService kapselt den CorujaLocalStorageService und ein Angular Ressource Objekt. Dieses ist für Rest-Anfragen zusätndig. resourceService erkennt mit Hilfe des OnlineStatusService, ob System online und benutzt entweder das eine oder das andere. Für alle Entitäten, die dies können sollen, muss ein eigener Service geschrieben werden (Beispiel Todo Service), muss Methoden get,post, query, put, delete implemetieren und dem RessourceService die passenden Objekte geben. Innerhalb der Controller wird nur mit diesem Service gearbeitet. Online/Offline dadurch transparent. System hört auf Listener und synchronisiert mit Server, wenn wieder online. Dafür wird ebenfalls der ResourceService genommen.
 
-
-
 \subsubsection{Einschränkungen im Offline-Betrieb}
 Trotz der Offline Fähigkeiten des System stehen im Offline-Betrieb nicht alle Funktionalitäten zur Verfügung. Hauptaugenmerk wurde auf die Weiterbenutzbarkeit der Widgets im Offline-Modus gelegt. Im Folgenden sind einige Funktionen aufgelistet, welche während des Offline-Betriebes deaktiviert werden.
 \begin{itemize}
@@ -103,7 +162,7 @@ Es ist natürlich möglich, dass unterschiedliche Widget-Instanzen zwar untersch
 \subsection{Drag'n Drop}
 Zur Umsetzung des Drag and Drop Funktionalität zum Sortieren der Widgets auf einem Workspace wurde das \href{http://jqueryui.com/sortable/}{Sortable Widget}\footnote{\url{http://jqueryui.com/sortable/}} der \href{http://jqueryui.com}{JqueryUi-Bibliothek}\footnote{\url{http://jqueryui.com}} verwendet. Diese wurde in einer eigenen AngularJS-Direktive gekapselt, so dass das JqueryUi-Widget in der bestehenden Architektur verwendet werden konnte. Die Direktive verwendet den Widget-Service, um die neue Position der Widgets dem Server mitzuteilen und den OnlineStatus-Service, um die Drag and Drop Funktionalität im Offline-Modus zu deaktivieren.
 
-\subsection{CORS}
+\subsection{CORS}\label{section:cors_implementierung}
 In einer Mashup-Anwendungen wie Plesynd ist es unumgänglich, dass XMLHttp Requests benötigt werden, welche nicht . Insbesondere die Wookie-Instanz und dadurch die Origin aller Widgets hat eine Origin als das eigentlich Plesynd System. Aus diesem Grund benötigt Plesynd eine CORS (siehe Kapitel \ref{section:cors}) Implementierung. Zur Vereinfachung der Umsetzung wird das \href{https://github.com/nelmio/NelmioCorsBundle}{NelmioCorsBundle}\footnote{\url{https://github.com/nelmio/NelmioCorsBundle}} verwendet. Dieses erlaubt in der Systemkonfiguration die gewünschten Einstellungen vorzunehmen. Im Folgenden wird beispielhaft die Konfiguration für das Todo-Widget gezeigt: 
 \begin{lstlisting}
 nelmio_cors:
