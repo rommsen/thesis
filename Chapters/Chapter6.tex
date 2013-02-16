@@ -136,7 +136,47 @@ $rootScope.$on('onlineChanged', function (evt, isOnline) {
 
 \subsubsection{Local Storage Api}\label{section:local_storage_api}
 Wie oben beschrieben ist Plesynd in der Lage zu erkennen, wenn das System offline genutzt wird. Ist dies der Fall werden keine Requests mehr an den Server gesendet, sondern die Daten werden im Local-Storage (siehe \ref{section:offline_storage}) gespeichert. Für diese Funktionalität sind hauptsächlich zwei entwickelte AngularJS-Services zuständig: \texttt{CorujaResourceService} und \texttt{CorujaLocalStorageService}. Da diese Services global genutzt und von allen Widgets und Applikationen eingebunden werden müssen, die die Offline-Fähigkeiten von Plesynd nutzen wollen, sind diese im \texttt{CorujaAngularModuleBundle} hinterlegt. Der \texttt{CorujaLocalStorageService} ist für das
-Speichern der Daten im im Local-Storage zuständig. Der \texttt{CorujaResourceService} kapselt den \texttt{CorujaLocalStorageService} und ein AngularJS \texttt{Ressource}-Service Objekt. D Dieses ist für Rest-Anfragen zusätndig. resourceService erkennt mit Hilfe des OnlineStatusService, ob System online und benutzt entweder das eine oder das andere. Für alle Entitäten, die dies können sollen, muss ein eigener Service geschrieben werden (Beispiel Todo Service), muss Methoden get,post, query, put, delete implemetieren und dem RessourceService die passenden Objekte geben. Innerhalb der Controller wird nur mit diesem Service gearbeitet. Online/Offline dadurch transparent. System hört auf Listener und synchronisiert mit Server, wenn wieder online. Dafür wird ebenfalls der ResourceService genommen.
+Speichern der Daten im im Local-Storage zuständig. Der \texttt{CorujaResourceService} kapselt den \texttt{CorujaLocalStorageService} und ein AngularJS \texttt{Ressource}-Service Objekt, welches eines Abstraktionsebene für REST-Anfragen an einen Server darstellt. \texttt{CorujaResourceService} erkennt mit Hilfe des \texttt{CorujaOnlineStatusService}, ob das System zum Zeitpunkt einer Anfrage online oder offline ist und benutzt dann je nach Situation einen oder beide gekapselten Services zum Ausführen der Anfrage. Ist das System offline wird nur der \texttt{CorujaLocalStorageService} verwendet. Ist das System online wird ein Request an den Server gesendet, Damit das System bei einem Ausfall der Internetverbindung weiter arbeiten kann wird ebenfalls der Local-Storage geupdatet. Tritt aus irgend einem Grund ein Fehler bei der Kommunikation mit dem Server auf wird die Anfrage trotzdem im Local-Storage hinterlegt. \texttt{CorujaResourceService} wird ebenfalls verwendet, um die Synchronisation zwischen dem Local-Storage und dem Server vorzunehmen, sobald das System wieder online ist. 
+
+Im folgenden Beispiel sieht man einen Ausschnitt von Bearbeitung einer PUT Anfrage, also dem Update einer Ressource, bei dem das eben beschriebene Prinzip zum Einsatz kommt:
+\begin{lstlisting}
+resource.put = function (item, success, error) {
+    resourceDeferred = $q.defer();
+    var promise = resourceDeferred.promise;
+
+    // wenn nicht online, schreibe in Local-Storage
+    if (!onlineStatus.isOnline()) {
+        resource.localFallback(item, 'put', success, error);
+        return promise;
+    }
+
+    // sende Anfrage an Server
+    remoteResource.put(item,
+        function (data, header) {
+	    // update Local-Storage im Erfolgsfall
+            resource.updateLocalStorage(item, 'put');
+            resourceDeferred.resolve();
+            (success || noop)(item, header);
+        }, function (response) {
+	    // speichere auch im Local-Storage bei Fehler
+            resource.localFallback(item, 'put', success, error, response);
+        });
+    return promise;
+}; 
+\end{lstlisting}
+
+Damit die Offline-Funktionalität für einen vom Server zur Verfügung gestellten Ressourcentyp (z.B. Todo, Todo-Liste, Widget, Workspace) genutzt werden kann muss für jeden Typ ein eigener Service implementiert werden. Dieser Service kapselt den oben beschriebenen \texttt{CorujaResourceService} und stellt eine API für die Arbeit mit diesen Ressourcen in den Controllern, Services und Direktiven bereit. \texttt{CorujaLocalStorageService} stellt für die Arbeit mit Ressourcen ein Interface bereit, welches an die im REST Kapitel (\ref{section:rest}) beschriebenen HTTP-Methoden angelehnt ist:
+\begin{lstlisting}
+Application.Services.factory('resourceService', ["$q", "$timeout", "$resource", "localStorage", "onlineStatus",
+            resource.query = function (params, success, error) {
+            resource.get = function (params, success, error) {
+            resource.post = function (item, success, error) { 
+            resource.put = function (item, success, error) {
+            resource['delete'] = function (item, success, error) {
+             resource.synchronize = function (success, error) {
+\end{lstlisting}
+
+Die Services für die einzelnen Ressourcentypen können, müssen aber nicht diese Methoden zur Nutzung in einem Controller freigeben. Sie können auch eigene Methoden hinzufügen, müssen diese dann jedoch intern auf Basis des angegebenen Interfaces implementieren.  Innerhalb der Controller wird nur mit diesem Service gearbeitet. Online/Offline dadurch transparent.
 
 \subsubsection{Einschränkungen im Offline-Betrieb}\label{section:einschraenkungen_im_offline_betrieb}
 Trotz der Offline Fähigkeiten des System stehen im Offline-Betrieb nicht alle Funktionalitäten zur Verfügung. Hauptaugenmerk wurde auf die Weiterbenutzbarkeit der Widgets im Offline-Modus gelegt. Im Folgenden sind einige Funktionen aufgelistet, welche während des Offline-Betriebes deaktiviert werden.
