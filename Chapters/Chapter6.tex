@@ -14,7 +14,7 @@ Plesynd ist eine größtenteils clientbasierte Applikation. Für die Implementie
  \item \emph{Controller} zur Ausführung der Programmlogik und Reaktion auf Nutzereingaben
  \item \emph{Services} zur Kapselung von Funktionalitäten, die an multiplen Stellen benötigt werden
 \end{itemize}
-Es ist natürlich ohne weiteres möglich, dass Abhängigkeiten zwischen den einzelnen Bestandteilen existieren. Ein Controller benötigt z.B. zumeist unterschiedliche Services für den korrekten Ablauf der Programmlogik. Diese Abhängigkeiten werden deklarativ angegeben. AngularJS sorgt dann per Dependency-Injection-Mechanismus dafür, dass die Objekte ihrer Abhängigkeiten erhalten. AngularJS bietet noch einige andere Funktionalitäten, welche jedoch aus Platzgründen hier nicht weiter beschrieben werden.
+Es ist natürlich ohne weiteres möglich, dass Abhängigkeiten zwischen den einzelnen Bestandteilen existieren. Ein Controller benötigt z.B. zumeist unterschiedliche Services für den korrekten Ablauf der Programmlogik. Diese Abhängigkeiten werden deklarativ angegeben. AngularJS sorgt dann per Dependency-Injection-Mechanismus dafür, dass die Objekte ihrer Abhängigkeiten erhalten. AngularJS bietet noch einige andere Funktionalitäten, wie z.B. ein Event-System und das Beobachten beliebiger Objekt-Eigenschaften, welche jedoch aus Platzgründen hier nicht weiter beschrieben werden.
 
 Im Folgenden verdeutlicht ein kurzes Beispiel die Arbeit mit AngularJS. Das Beispiel ist an dem für die Arbeit entwickelten Todo-Widget angelehnt ist. Es zeigt einen Controller und einen Ausschnitt HTML-Quellcode.
 
@@ -72,11 +72,11 @@ Der Controller hat den Namen \texttt{TodoCtrl}. Seine Definition verlangt die In
 Im HTML wird die Direktive ng-repeat dazu genutzt, die im Controller hinterlegten Todo Objekte zu durchlaufen und auszugeben mit der Klammersyntax (z.b. {{todo.title}} wird der Wert einer Variable ausgegeben. Die Direktiven \texttt{ng-show} und \texttt{ng-hide} blenden ein DOM-Element ein oder aus, wenn angegebene Bedingung zu \texttt{true} auswertet. Mit einem Klick auf ein Icon, welches mit der \texttt{ng-click} Direktive ausgezeichnet wurde, wird die \texttt{todoCompleted} Methode im Controller aufgerufen, welches das aktuelle Todo-Objekt aktualisiert. Das im oberen Teil des Quellcodes abgebildete Formular dient zum Hinzufügen eines neuen Todo-Objektes. Das Input-Feld wird mit der \texttt{ng-model} Direktive mit der Variable \texttt{\$scope.newTodo} verknüpft. Trägt der Anwender etwas in das Formularfeld ein ändert sich diese Variable automatisch. Im Controller wird sie mit einem leeren String initialisiert, so dass im Formularfeld kein vorausgefüllter Wert steht. Beim Abschicken des Formulars wird die in der \texttt{ng-submit} Direktive angegebene Methode \texttt{\$scope.addTodo} aufgerufen, welche auf Basis des eingebenen Wertes für \texttt{\$scope.newTodo} und mit Hilfe des \texttt{todoService} ein neues Todo-Objekt erstellt und zur Kollektion hinzufügt. Auf Grund des oben erwähnten "`Two-Way-Data-Bindings"' wird das neue Todo automatisch in die über \texttt{ng-repeat} erstellte Liste der Todos aufgenommen. Der Entwickler muss sich nicht um etwaige DOM-Manipulationen kümmern, so dass die Anwendungslogik hiervon völlig frei bleibt.
 
 \subsection{Symfony2}
-\href{http://symfony.com}{Symfony2}\footnote{\url{http://symfony.com}} ist ein in PHP implementiertes komponentenbasiertes Framework zur Entwicklung von MVC(Model-View-Controller) Anwendungen. Zu den bereitgestellten Komponenten gehört beispielsweise ein \href{http://symfony.com/doc/current/book/service_container.html}{Service Container}\footnote{\url{http://symfony.com/doc/current/book/service_container.html}}. Dieser erlaubt es die von den genutzten Klassen benötigten Abhängigkeiten zu definieren. Der Container sorgt dann für eine Instantiierung der Abhängigkeiten und ein Injizieren. Des weiteren bietet Symfony2 unter anderem die eigene Template-Engine \href{http://twig.sensiolabs.org/}{Twig}\footnote{\url{http://twig.sensiolabs.org/}}, sowie ein Event-Listener System, welches ermöglicht auf bestimmte Events zu reagieren. Ein Beispiel hierfür wäre das \texttt{onKernelResponse} Event, welches in der Lage ist die Antwort, die das System an den Client schickt noch zu verändern um beispielsweise zusätzliche Header zu setzen (dies wird beispielsweise vom \texttt{NelmioCorsBundle} verwendet, um die in Kaptitel \ref{section:cors} beschriebene CORS-Systematik zu implementieren. Das Model wird in Symfony2 standardmäßig über Doctrine2 (siehe \ref{section:doctrine2}) abgebildet.
+\href{http://symfony.com}{Symfony2}\footnote{\url{http://symfony.com}} ist ein in PHP implementiertes komponentenbasiertes Framework zur Entwicklung von MVC(Model-View-Controller) Anwendungen. Zu den bereitgestellten Komponenten gehört beispielsweise ein \href{http://symfony.com/doc/current/book/service_container.html}{Service Container}\footnote{\url{http://symfony.com/doc/current/book/service_container.html}}. Dieser erlaubt es die von den genutzten Klassen benötigten Abhängigkeiten zu definieren. Der Container sorgt dann für eine Instantiierung der Abhängigkeiten und ein Injizieren\footnote{TODO Dependency Injection}. Des weiteren bietet Symfony2 unter anderem die eigene Template-Engine \href{http://twig.sensiolabs.org/}{Twig}\footnote{\url{http://twig.sensiolabs.org/}}, sowie ein Event-Listener System, welches ermöglicht auf bestimmte Events zu reagieren. Ein Beispiel hierfür wäre das \texttt{onKernelResponse} Event, welches in der Lage ist die Antwort, die das System an den Client schickt noch zu verändern um beispielsweise zusätzliche Header zu setzen (dies wird beispielsweise vom \texttt{NelmioCorsBundle} verwendet, um die in Kaptitel \ref{section:cors} beschriebene CORS-Systematik zu implementieren. Das Model wird in Symfony2 standardmäßig über Doctrine2 (siehe \ref{section:doctrine2}) abgebildet.
 Die Komponenten werden in Symfony2 über sogenannte \href{http://symfony.com/doc/current/cookbook/bundles/best_practices.htmlBundles}{Bundles}\footnote{\url{http://symfony.com/doc/current/cookbook/bundles/best_practices.htmlBundles}} implementiert. Bundles sind von dem System unabhängige Plugins, mit einer festen Verzechnisstruktur, welche einfach in eine Applikation eingebunden werden können. Das besondere an Symfony2 ist, dass das gesamte System aus Bundles aufgebaut ist. Hierzu gehören also auch das Kern-Framework, alle Komponenten, zusätzlicher Third-Party-Code, sowie die eigene Applikation selbst.
 
 \subsection{Doctrine2}\label{section:doctrine2}
-Für die serverseitige Speicherung der unterschiedlichen Daten (Workspace, Widgets, Todos etc.) wird Doctrine2 genutzt. Doctrine2 ist ein Werkzeug zur objektrelationalen Abbildung von einfachen Objekten in relationale Datenbanken (object-relational-mapping: ORM). Doctrine2 nutzt im Gegensatz zu vielen anderen ORM-Systemen, nicht das Active-Record-Pattern (TODO Fussnote erklären), sondern das DataMapper-Pattern (TODO Fussnote erklären). Der entscheidende Unterschied hierbei ist der, das die Objekte selber keine Methoden besitzen, mit denen sie in der Datenbank hinterlegt oder gefunden werden können. Diese Arbeit übernimmt ein Entity-Manager, welcher in der Lage ist zu erkennen, ob bestimmte Objekte schon in den Speicher geladen wurden und sie sonst aus der Datenbank laden kann. Somit können die Objekte sich allein mit der Geschäftslogik des Systemes Beschäftigung und es wird eine bessere Trennung der Belange (TODO Fussnote erklären) erreicht.
+Für die serverseitige Speicherung der unterschiedlichen Daten (Workspace, Widgets, Todos etc.) wird Doctrine2 genutzt. Doctrine2 ist ein Werkzeug zur objektrelationalen Abbildung von einfachen Objekten in relationale Datenbanken (object-relational-mapping: ORM). Doctrine2 nutzt im Gegensatz zu vielen anderen ORM-Systemen, nicht das Active-Record-Pattern\footnote{TODO Active Record}, sondern das DataMapper-Pattern\footnote{TODO DataMapper}. Der entscheidende Unterschied hierbei ist der, das die Objekte selber keine Methoden besitzen, mit denen sie in der Datenbank hinterlegt oder gefunden werden können. Diese Arbeit übernimmt ein Entity-Manager, welcher in der Lage ist zu erkennen, ob bestimmte Objekte schon in den Speicher geladen wurden und sie sonst aus der Datenbank laden kann. Somit können die Objekte sich allein mit der Geschäftslogik des Systemes Beschäftigung und es wird eine bessere Trennung der Belange\footnote{TODO Seperation of Concerns} erreicht.
 
 \subsection{Jquery}
 \href{http://jquery.com/}{Jquery}\footnote{\url{http://jquery.com/}} ist eine Javascript-Bibliothek zur einfachen Manipulation des DOM. Desweiteren stellt sie erweiterte Javascript-Funktionalitäten zur Verfügung und vereinfacht die Arbeit mit den browserbasierten Event-System AngularJS verwendet Jquery, wenn vorhanden, insbesondere zur Manipulation des DOM. In Plesynd basiert unter anderem noch das Postmessage (siehe \ref{section:kommunikation_zwischen_iframes}) auf Jquery.  
@@ -97,17 +97,6 @@ Für die Umsetzung von Plesynd wurden auf der Serverseite fünf Symfony2-Bundles
 \item Für eine prototypische Implementierung eines offlinefähigen Widgets wurde das \emph{CorujaTodoBundle} entwickelt. Dieses arbeitet mit dem Todo-Widget zusammen und nimmt dessen REST-Anfragen und bearbeitet diese. Für das User-Management nutzt es ebenfalls das CorujaUserBundle.
 \end{itemize}
 
-\subsection{Struktur des Client-Systems}
-Vorstellung der wichtigsten eigenen Angular Services und Direktiven (genauer im Anhang)
-
-\subsubsection{Widgetparameter}
-Die Parameter für Widgets werden in der Wookie DB hinterlegt.
-Die Widget Implementation wird über http://localhost:8080/wookie/shared/js/wookie-wrapper.js ausgeliefert.
-Hier ist setItem/getItem ist so implementiert, dass es einen Request an den Server sendet und die Einstellungen speichert.
-Die Standardeinstellungen aus der config.xml werden nur beim ersten deploy ausgelesen, anschließend nicht! mehr
-Jedes Widget bekommt eine eigene id! Diese kann dann für die Identifizierung genutzt werden.
-Die Werte werden NICHT im local storage hinterlegt./
-
 \subsection{Ablauf holen der Daten}
 WookieConnectorBundlef
 Der Loginname  connection getUser() setLoginName(demo2); ist dafür verantwortlich, dass Wookie eine neue Widgetinstanz erstellt oder eine bestehende zurück liefert.
@@ -120,9 +109,36 @@ jedes Widgets bekommt seinen eigenen localStorage über window.name prefix
 
 
 \subsection{Umsetzung der Offline-Fähigkeiten}
-Wie in Kapitel \ref{chapter:Kapitel6} beschrieben ist Plesynd in der Lage zu erkennen, wenn das System offline genutzt wird. Ist dies der Fall werden keine Requests mehr an den Server gesendet, sondern die Daten werden im Local-Storage (siehe \ref{section:offline_storage}) gespeichert. Für diese Funktionalität sind hauptsächlich zwei entwickelte AngularJS-Services zuständig: \texttt{resourceService} und \texttt{localStorage}. Da diese Services global genutzt und von allen Widgets und Applikationen eingebunden werden müssen, die die Offline-Fähigkeiten von Plesynd nutzen wollen, sind diese im \texttt{CorujaAngularModuleBundle} hinterlegt. Der \texttt{CorujaLocalStorageService} ist für das speichern zusätndig, benutzt deferreds um mit Angularressource kompatibel zu sein, resourceService kapselt den CorujaLocalStorageService und ein Angular Ressource Objekt. Dieses ist für Rest-Anfragen zusätndig. resourceService erkennt mit Hilfe des OnlineStatusService, ob System online und benutzt entweder das eine oder das andere. Für alle Entitäten, die dies können sollen, muss ein eigener Service geschrieben werden (Beispiel Todo Service), muss Methoden get,post, query, put, delete implemetieren und dem RessourceService die passenden Objekte geben. Innerhalb der Controller wird nur mit diesem Service gearbeitet. Online/Offline dadurch transparent. System hört auf Listener und synchronisiert mit Server, wenn wieder online. Dafür wird ebenfalls der ResourceService genommen.
 
-\subsubsection{Einschränkungen im Offline-Betrieb}
+\subsubsection{Information über Änderung des Online-Status}
+Die Applikation wird über ein globales Event an zentraler Stelle darüber informiert, wenn sich der Online-Status des Browser ändert:
+\begin{lstlisting}
+// bei Erstaufruf der Applikation
+.run(['$rootScope', '$window', function ($rootScope, $window) {
+    // Status wird auf online geändert, offline funktioniert analog
+    $window.addEventListener("online", function () {
+        $rootScope.$apply(function () {
+            // sende internes Event an alle Listener
+            $rootScope.$broadcast('onlineChanged', true);
+        });
+    }, true);
+\end{lstlisting}
+
+Als Reaktion darauf wird ein internes Event ausgelöst, welches von den jeweiligen Listenern verarbeitet werden kann. Beispielsweise können die Controller mit der Änderung einer Variable reagieren, welche dann für die Ausblendungen von DOM-Elementen im Offline-Modus genutzt werden können (siehe \ref{section:einschraenkungen_im_offline_betrieb}):
+\begin{lstlisting}
+// im Plesynd Controller
+$rootScope.$on('onlineChanged', function (evt, isOnline) {
+  [...]
+  $scope.isOnline = isOnline;
+  [...]
+});
+\end{lstlisting}
+
+\subsubsection{Local Storage Api}\label{section:local_storage_api}
+Wie oben beschrieben ist Plesynd in der Lage zu erkennen, wenn das System offline genutzt wird. Ist dies der Fall werden keine Requests mehr an den Server gesendet, sondern die Daten werden im Local-Storage (siehe \ref{section:offline_storage}) gespeichert. Für diese Funktionalität sind hauptsächlich zwei entwickelte AngularJS-Services zuständig: \texttt{CorujaResourceService} und \texttt{CorujaLocalStorageService}. Da diese Services global genutzt und von allen Widgets und Applikationen eingebunden werden müssen, die die Offline-Fähigkeiten von Plesynd nutzen wollen, sind diese im \texttt{CorujaAngularModuleBundle} hinterlegt. Der \texttt{CorujaLocalStorageService} ist für das
+Speichern der Daten im im Local-Storage zuständig. Der \texttt{CorujaResourceService} kapselt den \texttt{CorujaLocalStorageService} und ein AngularJS \texttt{Ressource}-Service Objekt. D Dieses ist für Rest-Anfragen zusätndig. resourceService erkennt mit Hilfe des OnlineStatusService, ob System online und benutzt entweder das eine oder das andere. Für alle Entitäten, die dies können sollen, muss ein eigener Service geschrieben werden (Beispiel Todo Service), muss Methoden get,post, query, put, delete implemetieren und dem RessourceService die passenden Objekte geben. Innerhalb der Controller wird nur mit diesem Service gearbeitet. Online/Offline dadurch transparent. System hört auf Listener und synchronisiert mit Server, wenn wieder online. Dafür wird ebenfalls der ResourceService genommen.
+
+\subsubsection{Einschränkungen im Offline-Betrieb}\label{section:einschraenkungen_im_offline_betrieb}
 Trotz der Offline Fähigkeiten des System stehen im Offline-Betrieb nicht alle Funktionalitäten zur Verfügung. Hauptaugenmerk wurde auf die Weiterbenutzbarkeit der Widgets im Offline-Modus gelegt. Im Folgenden sind einige Funktionen aufgelistet, welche während des Offline-Betriebes deaktiviert werden.
 \begin{itemize}
  \item Hinzufügen, Bearbeiten und Löschen von Widgets
@@ -130,14 +146,30 @@ Trotz der Offline Fähigkeiten des System stehen im Offline-Betrieb nicht alle F
  \item Drag and Drop von Widgets
  \item Anlegen und Bearbeiten von Todo-Listen im Todo-Widget
 \end{itemize}
-Die Funktionalitäten werden meist einfach ausgeblendet, sobald das System feststellt, dass es sich im Offline-Modus befindet.
-(TODO: Codebeispiel)
+ Die Funktionalitäten werden meist einfach über eine \texttt{ng-show} Direktive ausgeblendet, sobald das System feststellt, dass es sich im Offline-Modus befindet. Im folgenden Listing wird beispielsweise die Funktionalität zum Löschen von Widgets aus Workspaces aus dem User Interface entfernt:
+\begin{lstlisting}
+<ul class="nav pull-right">
+ <li>
+  <a ng-show="isOnline" ng-click="deleteWidget(widget)">
+   <span class="label label-important">x</span>
+  </a>
+ </li>
+</ul>
+\end{lstlisting}
 
 \subsubsection{Preloads der Widgets}
 Plesynd muss den User in die Lage versetzen nach einmaligem Laden des Systems offline weiterzuarbeiten. Dies ist nur möglich, wenn alle Daten beim erstmaligen Aufruf geladen werden. Insbesondere gilt dies für die iframes der Widgets. Es müssen die Appcache-Dateien der einzelnen Widgets geladen werden und das Dashboard benötigt die Infos der Widgets zur Ausgabe der zusammenfassenden Informationen direkt bei Systemstart. Der Nutzer soll sich nicht erst durch alle vorhandenen Workspaces bewegen müssen, um die Daten aller Widgets zu laden. Aus diesem Grund müssen die iframes aller Widgets aller Workspaces bei dem ersten Aufruf im DOM vorhanden sein. Des weiteren dürfen die iframes bei Wechsel zwischen den Workspaces nicht wieder aus dem DOM entfernt werden. Der Grund hierfür ist, dass bei Wechsel des Online-Status alle iframes aktualisiert werden müssen und nicht nur diejenigen des aktuellen Workspaces.
 
-Aus diesen Gründen wurden wurde entschieden alle iframes bei Systemstart direkt zu laden und im DOM vorzuhalten. Es findet lediglich eine Filterung auf Basis des anzuzeigenden Workspace statt, welche der iframes ausgegeben werden und welche ausgeblendet werden
-(TODO: Codebeispiel)
+Aus diesen Gründen wurden wurde entschieden alle iframes bei Systemstart direkt zu laden und im DOM vorzuhalten. Es findet lediglich eine Filterung auf Basis des anzuzeigenden Workspace statt, welche der iframes ausgegeben werden und welche ausgeblendet werden.
+\begin{lstlisting}
+// im Controller
+$scope.isWidgetVisible = function (widget) {
+  return widget.workspace.id === $scope.activeWorkspace.id;
+};
+
+// im HTML
+<div ng-repeat="widget in widgets" ng-show="isWidgetVisible(widget)" ...>
+\end{lstlisting}
 
 \subsection{Widgets auf Hauptebene}
 Die ursprüngliche Archtiektur von Plesynd sah vor, dass der Local-Storage nur direkten Zugriff auf die Hauptdatensätze liefert. Dies dies hätte zur Folge, dass nur Workspaces direkt referenziert werden könnten. Der Zugriff auf die Widgets würde dann über ihre Workspaces erfolgen. Das entwickelte Storage/Resource System kann auf Grund der Einfachheit des Local-Storage jedoch nur mit Hauptdatensätzen arbeiten. Dieses Vorgehen hat jedoch einige Probleme und Fragen nach sich gezogen: 
@@ -166,13 +198,12 @@ Zur Umsetzung des Drag and Drop Funktionalität zum Sortieren der Widgets auf ei
 In einer Mashup-Anwendungen wie Plesynd ist es unumgänglich, dass XMLHttp Requests benötigt werden, welche nicht . Insbesondere die Wookie-Instanz und dadurch die Origin aller Widgets hat eine Origin als das eigentlich Plesynd System. Aus diesem Grund benötigt Plesynd eine CORS (siehe Kapitel \ref{section:cors}) Implementierung. Zur Vereinfachung der Umsetzung wird das \href{https://github.com/nelmio/NelmioCorsBundle}{NelmioCorsBundle}\footnote{\url{https://github.com/nelmio/NelmioCorsBundle}} verwendet. Dieses erlaubt in der Systemkonfiguration die gewünschten Einstellungen vorzunehmen. Im Folgenden wird beispielhaft die Konfiguration für das Todo-Widget gezeigt: 
 \begin{lstlisting}
 nelmio_cors:
-    paths:
-        '^/(todo/api|login|logout)':
-            allow_origin: ['*']
-            allow_headers: ['X-REQUESTED-WITH', 'Content-Type', 'Authorization']
-            allow_methods: ['POST', 'PUT', 'GET', 'DELETE', 'OPTIONS'],
-            # Location Header is used for POST Request Answers (URI of created Item
-            expose_headers: ['Location']
+  paths:
+    '^/(todo/api|login|logout)':
+      allow_origin: ['*']
+      allow_headers: ['X-REQUESTED-WITH', 'Content-Type', 'Authorization']
+      allow_methods: ['POST', 'PUT', 'GET', 'DELETE', 'OPTIONS'],
+      expose_headers: ['Location']
 \end{lstlisting}
 Alle Requests, die an eine URI gehen, welche mit /todo/api oder /login oder /logout beginnen wird hierbei erlaubt von einer anderen Quelle zu kommen. Es werden die Header und Methoden definiert, welche in einem solchen Request erlaubt sind. Der Location Header wird bei Antwort dem Client wieder zur Verfügung gestellt. Dieser wird benutzt, um nach dem Erstellen einer neuen Ressource per POST die URI der Ressource an den Client zu übermitteln. 
 
