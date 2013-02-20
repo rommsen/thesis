@@ -1,21 +1,48 @@
 \chapter{Zusammenfassung/Ausblick} 
 \label{chapter:Kapitel7}
 \lhead{Kapitel 7. \emph{Zusammenfassung/Ausblick}}  
-Kurzfassung des Problems und wie es gelöst wurde
-Usb-Stick, mobile Version der Browser
-Tabelle der Anforderungen , was geschafft
+Das Ziel dieser Arbeit war die prototypische Implementierung einer leichtgewichtigen Personal Learning Environment mit Offline-Funktionalitäten auf Basis aktueller Webtechnologien. Zum Erreichen dieses Zieles wurde in Kapitel \ref{chapter:Kapitel2} ein möglicher Use-Case entwickelt aus dem anschließend die Anforderungen an die zu entwickelnde Applikation abgeleitet wurden. Wie in Tabelle \ref{table:anforderungen_accomplished} dargestellt, werden alle aufgestellten Anforderungen von Plesynd erfüllt. 
 
+\begin{table}[h]
+\caption{Anforderungen}
+\begin{tabular}{c || l || l }
+1 & Informationsaggregator & \checkmark \\
+\hline
+2 & ohne Installationsaufwand lauffähig in aktuellen Browsern & \checkmark \\
+\hline
+3 & Möglichkeit des (zumindest rudimentären) Weiterarbeitens, wenn offline & \checkmark \\
+\hline
+4 & Synchronisierung der vorgenommen Änderungen, wenn wieder online & \checkmark \\
+\hline
+5 & Daten können zwischen unterschiedlichen Rechnern offline ausgetauscht werden & \checkmark \\
+\hline
+6 & kann als Basis für weitere Entwicklungen dienen & \checkmark \\
+\hline
+7 & neue Services und Kanäle sollen sich einfach in das System integrieren lassen  & \checkmark \\
+\hline
+8 & ausschließliche Verwendung freier Technologien  & \checkmark \\
+\hline
+\end{tabular}
+\label{table:anforderungen_accomplished}
+\end{table}
 
-\subsection{Offene Fragen für weitere Forschungsarbeiten}
+Das System ist ein Informationsaggregator, welcher die Inhalte unterschiedlichster Services in aggregierter und übersichtlicher Art und Weise in Form von Widgets darstellen kann (Anforderung 1). Als besonderes Merkmal bietet Plesynd dem Anwender nach einmaligem Laden der Applikationsdaten die Möglichkeit auch dann weiterzuarbeiten, wenn keine Konnektivität mit dem Internet besteht. Wenn die Verbindung wieder hergestellt wurde, werden die Daten mit den zugrunde liegenden Services synchronisiert (Anforderungen 3 und 4). Zur Umsetzung dieser Funktionalitäten wurden ausschließliche freie Webtechnologien (Anforderung 8) verwendet. Bei der Implementierung wurde ausserdem darauf geachtet, dass es sowohl klare Ansatzpunkte gibt, an denen das Plesynd erweitert werden kann (Anforderung 6). Durch die Nutzung des W3C-Widget-Standards und dem zur Verfügungstellen eines für den Entwickler transparenten Mechanismus zur Online-/Offline-Speicherung und Synchronisation von Daten, ist es möglich einfach neue Widgets für andere Services Plesynd-konform zu implementieren (Anforderung 7). Plesynd kann ohne Installationsaufwand in aktuellen Browsern genutzt werden (Anforderung 2). Nur wenn das System von einem mobilen Speichermedium wie einem USB-Stick aus verwendet werden soll, ist die Installation eines weiteren Programmes notwendig. Dann kann Plesynd samt der hinterlegten Daten allerdings auch offline zwischen unterschiedlichen Rechnern ausgetauscht werden (Anforderung 5).  
+
+\section{Offene Fragen für weitere Forschungsarbeiten}
+Da die Umsetzung von Plesynd eine prototypische Implementierung darstellt gibt es an den unterschiedlichsten Stellen Ansatzpunkte für Weiterentwicklungen. Im Folgenden werden einige davon kurz vorgestellt:
+
+\begin{itemize}
+ \item Entwicklung neuer Widgets, die ebenfalls die offline Funktionalitäten nutzen. Möglich wären beispielsweise ein Twitter oder Facebook Client, ein Widget zur Nutzung eines öffentlich verfügbaren Etherpad Lite Servers, ein Chatwidget oder ein RSS-Reader. Da die W3C-Widgets nichts anderes als gepackte HTML-Applikationen sind, sind hier kaum Grenzen gesetzt.
+ \item Zum aktuellen Zeitpunkt wird kaum davon gebraucht gemacht, dass die W3C-Widgets und Wookie es erlauben pro Widgets Einstellungen zu hinterlegen. Möglich Use-Cases hierfür wären zum Beispiel die Menge der anzuzeigenden Daten in einer Todo-Liste oder einem RSS-Reader.
+ \item Implementation von Technologien, die es dem Server erlauben von sich aus Informationen an Plesynd oder die Widgets zu senden (Stickwort: Websockets), um den Nutzer noch besser über neue Daten etc. zu informieren.
+ \item Verstärkter Einsatz von Media-Queries zur verbesserten Nutzbarkeit auf mobilen Endgeräten.
+ \item Implementation von Mechnismen, die es den Widgets erlauben auch untereinander in Kontakt zu treten und Daten auszutauschen.
+ \item Für eine vollwertige PLE sollten auch die übrigen Dimensionen nach Palmér implementiert werden. Es wäre beispielsweise möglich verstärkt Augenmerk auf die "`Social-Dimension"', also auf den Einbau von Social-Network Fähigkeiten wie Freundeslisten, Gruppen und das Teilen von Inhalten zu legen.
+ \item Erweiterung von Wilsons "`Discourse Monitor"': Es wäre möglich für die einzelnen Widgets nicht nur eine Zusammenfassung der Anzahl der zur Verfügung stehenden Datensätze anzuzeigen, sondern auch so etwas wie ein Erfolgsmonitoring auf dem Dashboard anzubieten. Damit ist eine Darstellung der Art: "`Zu erledigen: 5 Aufgaben, heute schon erledigt: 3 Aufgaben, überfallig: 0 Aufgaben"' gemeint. Dies geht wahrscheinlich nur bei Widgets die klar in die “Manage Time and Effort”-Klassifizierung von Wilson fallen und erfordert zusätzlich noch eine semantische Analyse der eingehenden Daten.
+\end{itemize}
+
 Änderung von HttpAuth zu Token Basierter Authentifizierung
-Widget Authentifizierung
-Stabile Wookieversion benutzen
-Websockets
-Serverpush
-bessere Möglichkeit zu Zusammenarbeit
-Änderung der Click Events auf Touch Events
 
-Als Ausblick wäre es möglich die einzelnen Items nicht nur anzuzeigen sondern auch so etwas wie ein Erfolgsmonitoring auf dem Dashboard anzubieten. Damit ist eine Darstellung der Art: “Zu erledigen: 5 Aufgaben, heute schon erledigt: 3 Aufgaben, überfallig: 0 Aufgaben” gemeint. Dies geht wahrscheinlich nur bei Widgets die klar in die “Manage Time and Effort”-Klassifizierung von Wilson fallen und erfordert zusätzlich noch eine semantische Analyse der eingehenden Daten. Langfristig ist dies sicherlich ein sehr interessanter Gedanke, jedoch im Rahmen dieser Arbeit nicht realisierbar.
 
 
 
