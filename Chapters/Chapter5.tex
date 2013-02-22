@@ -29,8 +29,39 @@ Probleme mit der bei modernen Browser üblichen Same-Origin-Policy für Request 
 \section{User Interface}\label{section:user_interface}
 Für die Umsetzung der Screen-Dimension, also des User-Interfaces kommen in Plesynd drei wichtige Konzepte zum Einsatz: Dashboard, Widgets und Workspaces. 
 
-Über Widgets werden die unterschiedlichen Werkzeuge und Services, die ein Nutzer innerhalb des Systems nutzen möchte eingebunden (siehe: Kapitel \ref{section:widgets}). Die Umsetzung der einzelnen Widgets liegt in der Hand des jeweiligen Designers. Da Plesynd Wookie als Widget Container benutzt, ist es möglich alle W3C-Widgets in das System einzubinden. Für diese Arbeit wurde ein Todo-Listen-Service entwickelt für den als prototypische Entwicklung ein Widget mit Online-/Offline-Fähigkeiten implementiert wurde. Besitzt ein Widget Online-/Offline-Fähigkeiten so erhält es eine von Plesynd zur Verfügung gestellte Statusleiste, in der der aktuelle Online-/Offline-Status, sowie die Anzahl der verfügbaren Items und der noch nicht synchronisierten Item angezeigt wird. Der Nutzer hat die Möglichkeit Widgets nach Themen oder Einsatzgebieten zu gruppieren. Dies geschieht über sogenannte Workspaces. Workspaces sind vom Nutzer frei und in unbegrenzter Zahl hinzufügbare Bereiche im System. Sie sind über eine Reiter-Navigation zu erreichen und können jederzeit umbenannt oder auch wieder gelöscht werden. Jedes Widget kann einem Workspace hinzugefügt werden. Die Position der Widgets innerhalb eines Workspaces kann über einen Drag and Drop Mechanismus angepasst werden. Die Startseite stellt als Dashboard die wichtigsten Informationen dar. Jeder Workspace wird in einer eigenen Tabelle inklusive seiner Widgets und der Anzahl der zur Verfügung stehenden Widgets präsentiert. Über direkte Links innerhalb des Dashboards ist es dem Nutzer möglich direkt zu dem gewünschten Workspace zu navigieren.
+Über Widgets werden die unterschiedlichen Werkzeuge und Services, die ein Nutzer innerhalb des Systems nutzen möchte eingebunden (siehe: Kapitel \ref{section:widgets}). Die Umsetzung der einzelnen Widgets liegt in der Hand des jeweiligen Designers. Da Plesynd Wookie als Widget Container benutzt, ist es möglich alle W3C-Widgets in das System einzubinden. Für diese Arbeit wurde ein Todo-Listen-Service entwickelt für den als prototypische Entwicklung ein Widget mit Online-/Offline-Fähigkeiten implementiert wurde. Besitzt ein Widget Online-/Offline-Fähigkeiten so erhält es eine von Plesynd zur Verfügung gestellte Statusleiste, in der der aktuelle Online-/Offline-Status, sowie die Anzahl der verfügbaren Items und der noch nicht synchronisierten Item angezeigt wird (Abbildungen \ref{fig:plesynd_workspace_online} und \ref{fig:plesynd_workspace_offline}).
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./Figures/plesynd_workspace_online.png}
+    \rule{35em}{0.5pt}
+  \caption[Plesynd User-Interface: Workspace Online]{Ein Workspace mit unterschiedlichen Widgets}
+  \label{fig:plesynd_workspace_online}
+\end{figure}
 
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./Figures/plesynd_workspace_offline.png}
+    \rule{35em}{0.5pt}
+  \caption[Plesynd User-Interface: Workspace Offline]{Die wichtigsten Unterschiede im Offline-Modus}
+  \label{fig:plesynd_workspace_offline}
+\end{figure}
+Der Nutzer hat die Möglichkeit Widgets nach Themen oder Einsatzgebieten zu gruppieren. Dies geschieht über sogenannte Workspaces. Workspaces sind vom Nutzer frei und in unbegrenzter Zahl hinzufügbare Bereiche im System. Sie sind über eine Reiter-Navigation zu erreichen und können jederzeit umbenannt oder auch wieder gelöscht werden (Abbildung \ref{fig:plesynd_workspace_edit}). 
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./Figures/plesynd_workspace_edit.png}
+    \rule{35em}{0.5pt}
+  \caption[Plesynd User-Interface: Bearbeiten von Workspaces]{Workspaces können direkt bearbeitet werden.}
+  \label{fig:plesynd_workspace_edit}
+\end{figure}
+
+Jedes Widget kann einem Workspace hinzugefügt werden. Die Position der Widgets innerhalb eines Workspaces kann über einen Drag and Drop Mechanismus angepasst werden. Die Startseite stellt als Dashboard die wichtigsten Informationen dar. Jeder Workspace wird in einer eigenen Tabelle inklusive seiner Widgets und der Anzahl der zur Verfügung stehenden Widgets präsentiert. Über direkte Links innerhalb des Dashboards ist es dem Nutzer möglich direkt zu dem gewünschten Workspace zu navigieren (siehe Abbildung \ref{fig:plesynd_dashboard}.
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./Figures/plesynd_dashboard.png}
+    \rule{35em}{0.5pt}
+  \caption[Plesynd User-Interface: Dashboard]{Das Dashboard fasst die wichtigsten Informationen zusammen.}
+  \label{fig:plesynd_dashboard}
+\end{figure}
 Diese Konzepte stellen auch die Implementierung einiger der von Wilson definierten Mustern dar, welcher in dem Kapitel \ref{section:wilson_patterns} vorgestellt wurden.  Der "`Discourse Monitor"' (siehe Seite \pageref{wilson_patterns:discourse_monitor}) wird grundsätzlich durch die Startseite, also durch das Dashboard umgesetzt. Diese präsentiert dem Nutzer die wichtigsten Informationen bezüglich seiner Workspaces und gibt ihm durch Links dorthin die Möglichkeit direkt zu den gewünschten Personal-Learning-Tools zu gelangen. Der "`Navigation Layer"' (siehe Seite \pageref{wilson_patterns:navigation_layer}) ist in Plesynd inhärent mit eingebaut. Durch die Einbindung externer Widgets, wird dem User nur der Funktionsumfang zur Verfügung gestellt, welche von den Widget-Entwicklern angedacht wurde. Für den vollen Funktionsumfang muss der Nutzer zum eigentlichen Service des Widgets navigieren. Die Widgets werden über die vom System zur Verfügung gestellten Workspaces aggregiert und in übersichtlicher Form präsentiert. Der Nutzer ist in der Lage Widgets zu seinen frei definierbaren Workspaces hinzuzufügen, zu entfernen oder über Drag and Drop nach seinen Wünschen anzuordnen. Dadurch wird ist auch das "`Choose Change and Discard"'-Pattern (siehe Seite \pageref{wilson_patterns:choose_change_discard}) grundsätzlich im System verankert.
 
 \section{Plesynd auf dem USB-Stick}
