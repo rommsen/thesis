@@ -2,12 +2,56 @@
 \label{chapter:Kapitel4}
 \lhead{Kapitel 4. \emph{Übersicht Stand der Forschung}} 
 
-Im Folgenden werden Technologien und Konzepte vorgestellt, die den Stand der Technik und Forschung im Bereich der PLE-Entwicklung darlegen oder notwendig sind, um die in Kapitel \ref{chapter:Kapitel3} entwickelnden Anforderungen an eine webbasierte und offlinefähige PLE zu erfüllen.
+Das vorliegende Kapitel stellt Technologie und Konzepte vor, welche den Stand der Technik und Forschung im Bereich der PLE-Entwicklung darstellen oder notwendig sind, um die in Kapitel \ref{chapter:Kapitel3} entwickelnden Anforderungen an eine webbasierte und offlinefähige Personal Learning Environment zu erfüllen. Das Kapitel wird mit einem Blick auf zwei unterschiedliche Konzepte zum Aufbau und zur Klassifikation von PLEs, welchem bei dem Design und der Evaluierung des Systems von Nutzen sind, eröffnet. Anschließend werden die aktuell verbreitetsten Widget-Frameworks beschrieben. Es folgen zwei Abschnitte zu dem technologischen Fundament, des Systems. Das Kapitel schließt mit einem kurzen Überblick über ähnliche auf dem Markt befindliche Systeme. 
 
-\section{Erstellung von Mashup-Anwendungen}
-Personal Learning Environments sind Mashup-Anwendungen, also Applikationen, bei denen unterschiedliche Anwendungen zu einer Anwendung zusammengefasst und von dieser Anwendung aus bedient werden können (siehe \ref{section:ple_intro}). Nach \cite{Soylu2011} gibt es zwei unterschiedliche Arten von Mashup-Anwendungen: "`box type mashups"' und "`dashboard type mashups"'. "`box type mashups"' sind Anwendungen, bei denen unterschiedliche Services grafisch und konzeptuell so in einer Applikation intergriert werden, dass der Anwender in seinem Umgang mit der Applikation nur diese wahrnimmt und nicht bemerkt, dass er eigentlich mit unterschiedlichen Anwendungen arbeitet. "`dashboard type mashups"' hingegen fassen die unterschiedlichen Anwendungen nur in einem einheitlichen Rahmen zusammen. Dies geschieht meist über so genannte Widgets. Die Inhalte und das User-Interface dieser Widgets stammen von den eigentlichen Servicen und können sich somit sehr start voneinander unterscheiden. Diese Arbeit beschäftigt sich mit dem Aufbau eines "`dashboard type mashups"'. Aus diesem Grund werden im Folgenden Konzepte vorgestellt, welche für den Aufbau einer solchen notwendig sind. 
+\section{Konzepte zum Aufbau und zur Klassifikation von Personal Learning Environments}
+TODO Einleitung, Bezug zur Arbeit
+Warum ist das wichtig, es soll eine PLE gebaut werden, wie soll diese aussehen. Kann benutzt werden um Anforderungen zu validieren(?!?) 
+Im folgenden, Design Patterns helfen bei Entwicklung, Schablonen für den  Entwurf. 
+Bezug zu Anforderungsanalyse.
 
-\subsubsection{W3C Widgets}\label{section:w3c_widgets}
+Es existieren zwei wichtige Ansätze um Funktionalitäten von PLEs auf unterschiedliche Klassen abzubilden. Zum einen gibt es den Versuch von Palmér Dimensionen zu definieren und die Funktionalitäten von PLEs diesen Dimensionen zuzuordnen. Palmér schafft damit ein System, um unterschiedliche PLE-Systeme kategorisieren zu können. Zum anderen definiert Wilson Muster, die helfen sollen eine PLE zu entwickeln und bestehende Systeme auf wichtige Funktionalitäten zu überprüfen. Diese beiden Ansätze werden im Folgenden vorgestellt.
+
+\subsection{Dimensionen nach Palmér}\label{section:dimensions_palmer} 
+Palmér definiert sechs Dimensionen mit denen er so viele relevanten Funktionalitäten von PLEs wie möglich erfassen möchte\cite{Palmer2009}. Trotz dessen sollen diese Dimensionen relativ unabhängig voneinander sein, so dass es möglich ist das unterschiedliche Plattformen einige Dimensionen mehr und andere weniger berücksichtigen und implementieren. Eine PLE kann dann Anhand des Grades ihrer Implementierung der einzelnen Dimensionen kategorisiert und bewertet werden.
+\begin{enumerate}
+ \item \emph{Screen-Dimension}: Die Screen-Dimension befasst sich mit Aspekten, welche die Darstellungsebene von PLEs definieren. Hierzu zählt Palmér insbesondere das User-Interface und die Usability des PLE-Containers (wie sind die Widgets angeordnet, wie können neue Widgets gesucht und hinzugefügt werden, wie einfach kann sich der Nutzer im System bewegen etc.), welcher als Einstiegspunkt in die Systembedienung dient und das User-Interface der einzelnen Widgets. Es gehören aber auch Funktionalitäten wie die Möglichkeit Inhalte und Ressourcen mit anderen Nutzern zu teilen und die Integration der selben Widgets in unterschiedlichen PLE-Containern zu der Screen-Dimension.
+ \item \emph{Data-Dimension}: Mit der Data-Dimension beschreibt Palmér Funktionalitäten, die für die Portabilität der verwendeten Daten innerhalb einer PLE notwendig sind. Idealerweise sollen Widgets in der Lage sein untereinander und mit dem PLE-Container zu kommunizieren. Sie sollen Daten austauschen können und sich so weit wie möglich über ihre Zustände informieren. Des Weiteren soll es möglich sein die Daten der Widgets zu exportieren und sie an anderer Stelle oder in einem anderen PLE-Container wieder zu importieren und weiterzuverwenden. Mit der fortschreitenden Mobilität der Nutzer wird es immer wichtiger, dass der Zugriff auf die PLE auch dann möglich ist, wenn kein Zugriff auf das Internet besteht. Somit ist es nicht nur notwendig Daten zu importieren und zu exportieren, sondern auch zwischen einem Offline und einem Online-Speicher zu synchronisieren, sobald eine entsprechende Zustandsänderung eintritt.
+ \item \emph{Social-Dimension}: Ein wesentlicher Bestandteil des Web 2.0 ist die Vernetzung von Freunden und Menschen mit ähnlichen Interessen untereinander. Dem trägt Palmér mit der Social-Dimension Rechnung. Diese Dimension gibt an, wie sehr eine PLE Funktionalitäten sozialer Netzwerke wie Freundeslisten integriert und Möglichkeitkeiten bietet den Zugriff auf geteilte Ressourcen auf bestimmte Typen von Freunden einzuschränken. Palmér zählt aber auch die Möglichkeit zur Erstellung von eigenen offenen oder geschlossenen Lerngruppen zu Funktionalitäten, die in diese Dimension fallen.
+ \item \emph{Temporal-Dimension}: Die in der Screen- und der Social-Dimension beschriebene Kollaboration zwischen Nutzern der PLE neue Anforderungen mit sich. So ist es beispielsweise notwendig oder zumindest wünschenswert, dass geänderte Inhalte sich in Echtzeit in den Instanzen der Widgets manifestieren, die ebenfalls auf diese Inhalte zugreifen. Hierbei sollten auch Probleme, wie auftretende Konflikte bei gleichzeitigem Bearbeiten der selben Ressource in Betracht gezogen werden.
+ \item \emph{Activity-Dimension}: Die Activity-Dimension beschreibt die Möglichkeit Abläufe und Workflows innerhalb einer PLE aktiv zu gestalten. Hierzu gehören unterer anderem einfache Dinge wie Anleitungen als Hilfestellung für den Nutzer zur Bewegung innerhalb der PLE. Besonderen Wert legt Palmér aber auf die Abbildung von Lernsequenzen innerhalb der PLE. So können bestimmte Widgets auf bestimmte Ereignisse reagieren oder sich selbst aktivieren oder deaktivieren. Des Weiteren können unterschiedlichste Konzepte aus dem Bereich des E-Learnings wie zum Beispiel \href{http://www.imsglobal.org/learningdesign/}{IMS Learning Design}\footnote{\url{http://www.imsglobal.org/learningdesign/}} oder \href{http://ltsc.ieee.org/wg12/files/LOM_1484_12_1_v1_Final_Draft.pdf}{Learning Object Metadata (LOM)}\footnote{\url{http://ltsc.ieee.org/wg12/files/LOM_1484_12_1_v1_Final_Draft.pdf}}) in den Widgets oder dem PLE-Container selber implementiert werden.
+ \item \emph{Runtime-Dimension}: Die Runtime-Dimension befasst sich mit Funktionalitäten, die die Interoperabilität zwischen PLE-Systemen und Komponenten. Nach Palmér werden Nutzer in der Zukunft nicht nur eine PLE benutzen, sondern je nach Bedürfnis oder Anwendungsfall zwischen ihnen hin und herwechseln. Hierfür sollte es möglich sein Importe und Exporte für Inhalte und Einstellungen sowohl der einzelnen Widgets als auch des PLE-Containers vorzunehmen. Damit eine Interoperabilität
+ zwischen PLEs möglich wird, ist es notwendig, dass Standards geschaffen werden, welche von den unterschiedlichen PLEs anerkannt und implementiert werden. Zusätzlich gehört für Palmér auch die Möglichkeit der Einbettung und Kommunikation von PLEs in und mit größeren Systemen zu dieser Dimension.
+\end{enumerate}
+
+TODO Bezug, Zusammenfassung, Kritik
+
+\subsection{Muster für das Design von Personal Learning Environments}\label{section:wilson_patterns}
+Wilson stellt unterschiedliche Muster vor, die bei der Entwicklung einer PLE helfen sollen \cite{Wilson2008}. Hierbei legt er seinen Fokus auf die dezentralisierte  nutzerzentrierte Natur von PLEs. Als Motivation dafür gibt er an, dass PLEs nicht ein einfaches Stück Software seien. Vielmehr stellen sie eine Umgebung dar, in der Menschen mit Werkzeugen Ressourcen und Communities in einer lockeren und nicht vorher strikt fixierten Art und Weise kommunizieren. Dieser lockere Aufbau macht es für den Entwickler jedoch nicht leichter für den Anwender gut nutzbares System zu entwerfen. Wilson leitet seine Muster von denen ab, die von der Universität von Bolton während des "`Personal Learning Environments Reference Model Project"' Projektes entwickelt wurden. Er versucht die Anzahl der Muster jedoch von ursprünglich 77 deutlich zu reduzieren, indem er Muster, die sich auf einfache Funktionen beziehen zu größeren Gruppen zusammenfasst und so eher allgemeine Charakteristika von PLEs beschreibt.
+
+Wilson unterscheidet zwischen zwei verschiedenen Arten von Mustern für PLEs: Muster für persönliche Anwendungen (Personal Tools) und Muster für Lernnetzwerke (Learning Networks). Personal Tools stellen hiebei die Werkzeuge dar, die ein Nutzer direkt für seine Lernaktivitäten nutzt. Er interagiert mit unterschiedlichen sozialen Netzen (zum Beispiel Lernnetzwerken) oder verwendet die Tools anderweitig für seine persönliche Art des Lernens. 
+Wilson definiert Learning Networks als die Infrastruktur, welche notwendig ist um Lernnetzwerke mit Hilfer sozialer Netze oder Communities aufzubauen. Des weiteren zählt er auch die Menge der Online-Services hinzu, welche von einem Lehrinstitut den Lernenden zur Verfügung gestellt werden.
+
+Diese Arbeit beschäftigt sich mit dem Aufbau einer PLE, welche direkt vom Nutzer für seine Lernaktivitäten verwendet wird. Learning Networks spielen hierfür keine oder eine nur sehr untergeordnete Rolle, so dass die Muster für das Erstellen eben dieser hier nicht weiter beleuchtet werden. Im Folgenden werden die Muster für Personal Tools vorgestellt. Diese ähneln meist einer Empfehlung, wie eine bestimmte Funktion umgesetzt werden sollte oder welche Funktionalitäten vorhanden sein sollten, um die Erfahrung des Nutzers im Umgang mit dem System zu verbessern.
+
+\begin{enumerate}
+ \item \emph{Discourse Monitor}\label{wilson_patterns:discourse_monitor}: In einer PLE werden Informationen aus potentiell sehr vielen und unterschiedlichen Quellen verarbeitet. Um dem Nutzer die Möglichkeit zu geben wichtige Informationen schneller herauszufiltern oder zu prioritisieren, sollte ein Discourse Monitor implementiert werden. Dieser fasst die wichtigsten Informationen aus den unterschiedlichen Quellen zusammen und bereitet sie in übersichtlicher Art und Weise auf. Dem Nutzer soll es dann möglich sein, die dargestellten Daten zu Filtern, zu prioritisieren, seine Favoriten zu kennzeichnen oder neu eingetroffene Daten einfach und zeitnah zu erkennen. 
+ \item \emph{Connection Hub}: Der Nutzer einer PLE ist bei verschiedensten Netzwerken angemeldet und hat dort höchstwahrscheinlich unterschiedliche Informationen hinterlegt. Es ist auch möglich, dass eine Kommunikation über Netzwerkgrenzen hinweg stattgefunden hat. Diese Daten sind meist nicht in einem einzigen Netzwerk darstellbar. Ein Connection Hub soll in der Lage sein oder den Nutzer in die Lage versetzen diese Verbindungen darzustellen und aufzubereiten. Es wäre beispielsweise vorstellbar, dass es dem Nutzer ermöglicht wird Informationen und Daten verschiedenster Netzwerke zu kombinieren ohne, dass diese Netzwerke direkt in Kontakt zueinander stehen.
+ \item \emph{Create and Mix Media}: Es ist unabdingbar, dass während des computergestützen Lernens sowohl von dem Lehrnenden, als auch von dem Lehrenden Ressourcen erstellt und diese auch anderen zur Verfügung gestellt werden. Hierzu gehören alle Arten von Ressourcen, also Textdateien, Notizen, Quellcode, Videos, Bilder, Präsentationen etc.. Die PLE sollte es dem Nutzer ermöglichen diese Ressourcen zu erstellen (auch unter Zuhilfenahme externer Services) und diese dann an unterschiedliche Netzwerke zu verteilen. 
+ \item \emph{Integrate Identities}: Durch das Nutzen unterschiedlicher Services hat der Nutzer höchstwahrscheinlich auch Useraccounts bei all diesen Services erstellt. Wilson schlägt für die Vereinfachung des Umgangs mit diesen Accounts die Implementierung von Mechanismen zur Vereinfachung vor. Hierzu gehören die Nutzung von Systemen, die in der Lage sind Zugangsdaten für unterschiedliche Accounts zu verwalten und zu speichern. Es können aber auch Konzepte wie das zentrale Hinterlegen von Profildaten, zum Beispiel bei einem OpenID Server-Anbieter \footnote{\url{http://openid.net/}}, verwendet werden. Die Registrierung und der Login bei unterschiedlichen Services erfolgt dann über den Umweg eines zentralen Services, welcher alle notwendigen Daten zu dem Service übermittelt, bei dem sich der Nutzer einloggen möchte.  
+ \item \emph{Manage Time and Effort}\label{wilson_patterns:manage_time_effort}: Benutzt man ein System wie eine PLE zur Organisation des persönlichen Lernens, so sollte einem dieses System Werkzeuge an die Hand geben, um das Lernen und die Arbeit zu organisieren. Hierzu gehören Zeitplaner, Kalender, Todo-Listen oder auch die Möglichkeit zur Erstellung von Notizen innerhalb des Systems.
+ \item \emph{Navigation Layer}\label{wilson_patterns:navigation_layer}: Bei einer PLE hat sich der Nutzer idealerweise seine Lernumgebung aus unterschiedlichen Quellen und Werkzeugen zusammengestellt. Die Navigationsebene fasst diese in einem System zusammen und ermöglicht dem User einen einfachen Zugriff auf seine Werkzeuge. Wilson schlägt vor die Services als Widgets in der PLE einzubinden. Somit wird die PLE zu einem zentralen Zugriffspunkt oder zu einem Dashboard von dem aus der Nutzer alle seinen Aktionen ausführen kann. 
+ \item \emph{Multi-platform/Multimode}\label{wilson_patterns:multimode}: Die Nutzergewohnheiten bezüglich des Gebrauchs des Internets haben sich in den letzten Jahren deutlich gewandelt \cite{VanHarmelen}. Der Zugriff erfolgt nicht mehr primär über den eigenen (Heim-)Rechner, sondern über die verschiedensten Zugriffspunkte. Hierzu gehören Computer in der Universität, am Arbeitsplatz, im Internetcafé und in letzter Zeit verstärkt auch mobile Geräte wie Smartphones oder Tablets. Aus diesem Grunde ist es notwendig, das der Zugriff auf Lernnetzwerke von all diesen Geräten aus möglich ist und die Systeme auch gut von den unterschiedlichen Geräten aus bedienbar sind. Des weiteren sollte es ein System geben, welches die Daten auf den unterschiedlichen Geräten miteinander synchronisiert, so dass der Nutzer von überall auf die aktuellsten Daten zugreifen kann.
+ \item \emph{Choose, Change, Discard}\label{wilson_patterns:choose_change_discard}: Dieses Muster steht in engem Bezug zu der nutzerzentrierten Herangehensweise in dem Aufbau von PLEs. User sollen in der Lage sein, sich ihre Lernumgebung nach eigenen Vorlieben und Anforderungen einzurichten. Außerdem ist es sehr gut möglich, dass sich die Anforderungen im Laufe der Zeit ändern. Aus diesen Gründen ist es notwendig, dass es dem Nutzer frei steht Inhalte und Services innerhalb der PLE zu verschieben und anzupassen und neue Werkzeuge hinzuzufügen und nicht mehr benötigte Werkzeuge wieder zu entfernen. Die PLE sollte hierbei nicht zu viele vom Nutzer nicht änderbare Bedienungsvorgaben und Konfigurationseinstellungen machen, sondern dem Nutzer so viele Freiheiten wie möglich bei Einrichten der eigenen Lernumgebung zu geben.
+\end{enumerate}
+
+TODO Bezug, Zusammenfassung, Kritik, welche Muster werden genommen.
+
+\section{Widget-Frameworks}
+TODO Einleitung/Bezug zu Arbeit
+wie in wilson bla beschrieben, soll die PLE als Aggregator, Dashboard. Entwickelt werden. Auf Grund dessen werden die zur Verfügung gestellten Services mit Hilfe von Widgets (siehe Kapitel \ref{section:widgets}) realisiert. Im Folgenden werden zwei unterschiedliche Widget-Frameworks vorgestellt und es wird die Wahl eines der beiden zur Implementierung in der Arbeit begründet.
+
+\subsection{W3C Widgets}\label{section:w3c_widgets}
 Die in der W3C-Recommendation spezifizierten Widgets \cite{W3C-11-2012}  sind komplette HTML/Javascript Anwendungen, dessen gesamte Ordnerstruktur zu einer gepackten Zip-Datei zusammengefasst wird. Die Spezifikationen verlangen, dass in dieser Datei neben der Anwendung selber noch eine XML-basierte Konfigurationsdatei vorhanden ist, welche innerhalb eines widget-Wurzelelementes die Eigenschaften des Widgets definiert. Zu den Eigenschaten zählt die Widgetgröße (in Pixeln), der XML-Namespace, Icons, die in Widgetvorschauen benutzt werden sollen, externe Features, welche das Widget benötigt aber auch Informationen über den Autor oder die Lizenz unter der das Widget steht. Im Folgenden ist eine Beispielhafte Konfigurationsdatei dargestellt (aus \cite{W3C-11-2012}).
 \begin{lstlisting}
 <?xml version="1.0" encoding="UTF-8"?>
@@ -19,31 +63,23 @@ Die in der W3C-Recommendation spezifizierten Widgets \cite{W3C-11-2012}  sind ko
         viewmodes   = "fullscreen">
  
   <name short="Example 2.0">The example Widget!</name>
-
   <feature name="http://example.com/camera">
     <param name="autofocus" value="true"/>
   </feature>
-
   <preference name = "apikey" value = "ea31ad3a23fd2f", readonly = "true" />
-
-  <description>
-    A sample widget to demonstrate some of the possibilities.
-  </description>
-
-  <author href  = "http://foo-bar.example.org/"email = "foo-bar@example.org">
-    Foo Bar Corp
-  </author>
-
+  <description>A sample widget to demonstrate some of the possibilities.</description>
+  <author href  = "http://foo-bar.example.org/"email = "foo-bar@example.org"> Foo Bar Corp </author>
   <icon src="icons/example.png"/>
   <content src="myWidget.html"/>
   
   <license> Example license (based on MIT License) [...] </license>
 </widget>
 \end{lstlisting}
+Über das Element $<$content$>$ wird der eigentliche Inhalt des Widgets geladen. Dieser kann also unabhängig von der späteren Verwendung innerhalb eines Widgets implementiert werden.
 
 Neben der erwähnten Recommendation gibt es noch andere Spezifikationen rund um die Widget-Thematik, welche unterschiedliche Teilbereiche wie zum Beispiel die digitale Signierung von Widgets standardisieren\footnote{\url{http://www.w3.org/2008/webapps/wiki/WidgetSpecs}}. Als Referenzimplementierung für die W3C-Widgets fungiert das Apache-Projekt "`Wookie"'\footnote{\url{http://wookie.apache.org/}}. Wookie ist ein in Java-implementierter Widget-Container, welcher die wichtigsten Funktionalitäten für die Arbeit mit W3C-Widgets zur Verfügung stellt. Widgets, die nach dem W3C-Standard erstellt wurden, können in den Wookie Container geladen werden. Dieser übernimmt dann die Auslieferung inklusive dem benötigten Javascript-Code an die anfordernden Anwendungen. Wookie benutzt intern eine Datenbank, in der Widget-Einstellungen für jeden User oder für jede ausgelieferte Instanz eines Widgets gespeichert werden können. Mit der in den W3C-Standards spezifizierten Api können diese Einstellungen über Javascript geändert oder ausgelesen werden. Die Administration von Wookie erfolgt entweder über die Kommandozeile oder über eine REST-Api\footnote{\url{http://wookie.apache.org/docs/admin.html}} (siehe \ref{section:rest}). Für die Einbindung in andere unterschiedliche Applikationen bietet Wookie eine Connector-Api an, für welche Beispielimplementationen für Java und für PHP existieren\footnote{\url{http://wookie.apache.org/docs/embedding.html}}.
 
-\subsubsection{OpenSocial Gadgets}\label{section:opensocial_gadgets}
+\subsection{OpenSocial Gadgets}\label{section:opensocial_gadgets}
 Nach der OpenSocial-Specification\cite{Opensocial2013} ist OpenSocial
 \begin{quotation}
   a set of APIs for building social applications that run on the web. OpenSocial's goal is to make more apps available to more users, by providing a common API that can be used in many different contexts. Developers can create applications, using standard JavaScript and HTML, that run on social websites that have implemented the OpenSocial APIs. These websites, known as OpenSocial containers, allow developers to access their social information; in return they receive a large suite of applications for their users.
@@ -60,6 +96,182 @@ OpenSocial hat sich also zum Ziel gesetzt eine allgemeine Api für die Erstellun
 </Module>
 \end{lstlisting}
 Eine Referenzimplementierung für die OpenSocial Gadgets ist der Apache "`Shindig"' Server\footnote{\url{http://wookie.apache.org/}}. Dieser fungiert ähnlich wie Apache Wookie als Gadget-Container und kann gerenderte Widgets an Applikationen ausliefern. Es existieren Shindig-Implementierungen in Java und in PHP.
+
+\subsection{Wahl des Frameworks}
+Für die Umsetzung in dieser Arbeit viel die Wahl auf das Framework der W3C und den Widget-Container Wookie. Somit ist der zu erstellende Prototyp in der Lage alle Widgets, die dem W3C-Standard entsprechen einzubinden. Die Wahl hätte auch auf die OpenSocial Gadgets und Shindig als Widget-Container fallen können. Den Auschlag für die W3C-Widgets und Wookie gaben unterschiedliche, vor allem praktikable Gründe. Das wichtigeste Argument für die Nutzung von W3C-Widgets ist, dass es möglich ist sie als ganz normale Web-Anwendungen zu entwickeln und zu testen. Es ist lediglich notwendig eine gesonderte XML-Konfigurationsdatei mit einigen Parametern zu hinterlegen. Wookie stellt dann Funktionalitäten zur Verfügung, die es erlauben aus einem einfachen Verzeichnis im Dateisystem ein nach W3C-Spezifikationen gepacktes Widget zu erstellen und dieses auch direkt in Wookie bereitzustellen. Für OpenSocial Gadgets muss der gesamte HTML- und Javascript-Quellcode innerhalb der XML-Datei liegen. Zwar gibt es auch hier Werkzeuge zur Vereinfachung der Gadget-Erstellung, aber der W3C/Wookie-Weg erschien praktikabler. Des weiteren war es zum Zeitpunkt der Entscheidungsfindung um die Dokumentation für die OpenSocial-Seite insbesondere von Shindig eher schlecht bestellt. Viele Verweise auf (z.B. auf Installationanleitungen) führten ins Leere und die PHP-Referenzimplementation war vom Entwicklungsstand ca 1,5 Jahre hinter dem Java System zurück und hatte viele nicht behobene Fehler. Dieser Zustand scheint sich jedoch zum aktuellen Zeitpunkt geändert und verbessert zu haben. Die Dokumentation von den W3C-Widgets und Wookie waren und sind relativ aktuell und existiert eine funktionierende Implementation der Connector-Api in PHP. Diese kann als Grundlage für die zu in dem Prototyp zu implementierende Kommunikation des Basissystems mit dem Widget-Container verwendet werden.
+
+\section{Technologien für Offline-Web-Anwendungen}
+Der Begriff "`Offline-Web-Anwendung"' mag sich zunächst nach einem Widerspruch in sich annhören. Normalerweise kennt der Nutzer den folgenden Arbeitsablauf, wenn er sich im Internet bewegt: Öffnen des Internetbrowser $\Rightarrow$ eingeben der gewünschten Url $\Rightarrow$ der Browser verbindet sich als Client mit dem hinter der URL stehenden Server und lädt die zur Verfügung gestellten Inhalte (Html, Javascript, Css, Medienressourcen etc) herunter $\Rightarrow$ der Browser rendert das Html/Css und führt die Anweisungen in den Javascript-Quellcode aus, so dass dem Nutzer eine funktionsfähige Seite zur Verfügung steht. Ist das System nun aber offline, kann der Browser keine Verbindung mit dem Server herstellen und erhält somit keine Daten, die er darstellen kann. Es gibt Systeme auf Html/Javascript Basis, die niemals den Kontakt mit dem Internet benötigen \cite{Mahemoff22010}. Diese Anwendungen werden komplett aus dem Dateisystem geladen und benutzen den Browser nur für die Darstellung (z.B. \href{http://tiddlywiki.com}{TiddlyWiki}\footnote{\url{http://tiddlywiki.com/}}, ein Wiki-System, welches komplett lokal auf dem Rechner des Anwenders läuft). Diese Systeme sind aber für diese Arbeit irrelevant, da die Anforderungsanalyse aus Kapitel \ref{chapter:Kapitel3} zeigt, dass für das zu entwickelnde System Anwendungen notwendig sind, die je nach Notwendigkeit sowohl online als auch offline arbeiten können. All diesen Systemen gemein ist, dass sie zumindest eine initiale Internetverbindung benötigen, bei der Zugriff auf die genutzten Ressourcen besteht.
+
+In HTML5 gibt es im Wesentlichen zwei Mechanismen, die für die Offline-Fähigkeiten von Webanwendungen verantwortlich sind: Application-Caching und Offline-Storage \cite{Mahemoff22010}. Der Unterschied zwischen ihnen liegt in der Art der Daten, die sie lokal vorhalten. Application-Caching ist für das Caching, also die Speicherung der zentralen Applikationslogik und des User-Interfaces im Browser zuständig. Dies bedeutet das alle benötigen Ressourcen (Html, Javascript, Css etc.) heruntergeladen und im Browsercache vorgehalten werden. Dieser Cache bleibt auch bestehen, wenn der Browser geschlossen wird. Gleiches gilt für den Offline-Storage. Offline-Storage ist ein Mechanismus, welche in der Lage ist die Daten, die der Nutzer eingibt oder bearbeitet ebenfalls im Browser zu speichern und wieder zur Verfügung zu stellen. Gemeinsam mit einem Mechanismus, der es Browsern erlaubt zu erkennen, ob sie online oder offline sind, versetzen Application-Caching und Offline-Storage den Entwickler also in die Lage ein System zu entwickeln, welches in der Lage ist ohne Konnektivität mit dem Internet erneut aufgerufen zu werden. Der Anwender kann mit dem System anschließend arbeiten, als wenn eine Internetverbindung zur Verfügung steht.
+
+Im Folgenden werden die Möglichkeiten die HTML5 für die Umsetzung des Application-Cachings und des Offline-Storages bietet genauer beschrieben.
+
+\subsection{Application-Caching}\label{section:appcache}
+Die Basis des Application-Cachings ist eine Manifest Datei \cite{Bidelman2010}. In dieser Datei wird hinterlegt, welche Ressourcen vom Webbrowser zwischengespeichert werden sollen. Die Datei ist eine einfache Textdatei, dessen Dateiendung frei gewählt werden kann. Es wird aber empfohlen die Manifestdatei auf .appcache enden zu lassen \cite{W3C2012}. Wichtig ist, dass die Datei vom Webserver mit dem MIME type \texttt{text/cache-manifest} ausgeliefert wird. Dies kann z.B. für den  Apache Webserver mit dem folgenden Eintrag in einer .htaccess Datei geschehen:
+\begin{lstlisting}
+AddType text/cache-manifest .appcache
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/cache-manifest "access plus 0 seconds"
+</IfModule>
+\end{lstlisting}
+Der Bereich in dem \texttt{IfModule}-Tag ist dafür zuständig, dass die Manifest-Datei selber nicht gecached wird. Dies ist momentan noch für den Firefox-Browser notwendig.
+
+Jede HTML-Seite die den Application-Cache nutzen soll, muss diese Datei über das \texttt{manifest}-Attribut in ihrem html-Tag einbinden \cite{html5upandrunningchapter8}. Es ist dabei egal, ob die Datei über einen relativen oder einen absoluten Pfad eingebunden wird. Sie muss nur von der HTML-Seite aus erreichbar sein:
+\begin{lstlisting}
+<!DOCTYPE html>
+<html manifest="cache.appcache">
+<body>
+...
+</body>
+</html>
+\end{lstlisting}
+
+Das folgende Listing zeigt den beispielhaften Aufbau einer Manifestdatei und stammt bis auf den Fallback Bereich aus der entwickelten PLE:
+\begin{lstlisting}
+CACHE MANIFEST
+#Rev 9
+
+CACHE:
+#Partials
+/partials/dashboard
+/partials/workspace
+#CSS
+/css/compiled/plesynd/main.css
+#JS
+/js/compiled/plesynd/main.js
+#ICONS
+http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/img/glyphicons-halflings.png
+
+NETWORK:
+*
+
+FALLBACK:
+/ /offline.html
+\end{lstlisting}
+
+(TODO: besser machen: Folgende Erklärungen aus \cite{W3C2012}, \cite{html5upandrunningchapter8} und \cite{Bidelman2010}). Die Datei beginnt mit einem \texttt{CACHE MANIFEST}-Header, der angibt, dass es sich um eine Manifestdatei handelt. Es folgt eine Kommentarzeile mit einer Revisionsnummer. Diese Zeile ist nach der Spezifikation eigentlich nicht notwendig. Der Grund für ihr Vorhandensein ist der, dass ein Browser den Inhalt des Caches nur aktualisiert, wenn sich die Manifestdatei selber ändert, nicht aber wenn sich die Dateien, die im Manifest referenziert werden aktualisiert wurden. Ändert man nun beispielsweise eine Javascript-Datei, so würde der Browser diese Änderung nicht registrieren. Man muss zusätzlich die Manifestdatei (und sei es nur in einem Zeichen, wie hier die Revisionsnummer) ändern. Der Browser bemerkt dies und aktualisiert sowohl die Datei, als auch die von ihr referenzierten Inhalte. Die Zeilen nach dem \texttt{CACHE}-Eintrag geben die Ressourcen, an die explizit vom Browser gecached werden sollen. Wie man sieht können hier alle möglichen Ressourcentypen, also auch Binärdateien wie Bilder angegeben werden. Die Zeilen die mit einem Hash anfangen, sind nur Kommentare zur besseren Lesbarkeit. Der \texttt{NETWORK}-Eintrag defniniert eine Whitelist, welche angibt welche Ressourcen in jedem Fall über das Netz geholt werden, (auch wenn der Browser offline ist). Hier könnte beispielsweise der Zugriff auf vom Server dynamisch interpretierte PHP oder CGI Dateien definiert werden. Der in diesem Fall verwendete Platzhalter gibt an, dass alle Dateien, die nicht in der \texttt{CACHE}-Sektion definiert wurden über das Netz geholt werden. Der \texttt{FALLBACK}-Bereich beschreibt eine alternative Datei, welche angezeigt wird, wenn die angeforderte Ressource nicht im Cache liegt und kein Internetzugang besteht. Im vorliegenden Fall trifft \texttt{/} auf jede Seite ab dem Wurzelverzeichnis zu. Wenn die angeforderte Seite also nicht im Cache liegt, wird die Fallback-Datei angezeigt. Abschließend ist zu bemerken, das jede HTML-Datei, die auf eine Manifestdatei verweist implizit ebenfalls gecached wird. Der Cache kann also bei einer Webseite, durch die sich der Anwender bewegt sukzessive wachsen.
+
+TODO Bezug, Zusammenfassung, Kritik
+
+\subsection{Offline-Storage}\label{section:offline_storage}
+In der Vergangenheit wurden vor allem Cookies benutzt, um die Daten eines Anwenders innerhalb des Browsers vorzuhalten \cite{Mahemoff22010}. Cookies haben jedoch einige schwerwiegende Nachteile, die es verhindern, dass sie für ein wirkliches Speichern von Daten und Einstellungen des Nutzers Verwendung finden konnten. Zum einen werden sie bei jedem Request an den Server gesendet, wodurch die Netzwerkverbindung verlangsamt wurde und potentiell unverschlüsselte Daten über das Netz geschickt wurden (außer bei Benutzung von SSL). Zum anderen sind sie auf eine Größe von 4 Kilobyte beschränkt, wodurch es nicht möglich ist eine nennenswerte Datenmenge zu hinterlegen \cite{html5upandrunningchapter7}. Im Zuge der Entwicklung von HTML5 und immer größeren Applikationen, welche primär auf der Clientseite laufen, wurden mehrere Technologien und Apis entwickelt, die für das Speichern der Daten im Browser verwendet werden können. Im Folgenden werden die wichtigesten drei hiervon, Web-Storage, Web SQL and IndexedDb, vorgestellt. Für alle drei Technologien befolgen die die Browser eine Same-Origin-Policy (für eine genauere Erklärung siehe Kapitel \ref{section:cors}), d. h. nur Skripte der selben Quelle haben Zugriff auf den Speicher \cite{Mahemoff2010}.
+
+\subsubsection{Web-Storage}
+Web-Storage basiert auf benannten Schlüssel-/Wert Paaren, welche mit Hilfe von Javascript im Browser hinterlegt werden können \cite{html5upandrunningchapter7}. Die Api hierfür wurde vom W3C mit dem folgenden Interface festgelegt \cite{W3C2011}:
+\begin{lstlisting}
+interface Storage {
+  readonly attribute unsigned long length;
+  DOMString? key(unsigned long index);
+  getter DOMString getItem(DOMString key);
+  setter creator void setItem(DOMString key, DOMString value);
+  deleter void removeItem(DOMString key);
+  void clear();
+};
+\end{lstlisting}
+Die Daten können also über \texttt{setItem(key, value)} gesetzt, über \texttt{getItem(key)} wieder ausgelesen und über \texttt{removeItem(key)} aus dem Web-Storage entfernt werden. Wichtig ist jedoch, dass der LocalStorage nur mit Zeichenketten arbeiten kann \cite{W3C2011}. Möchte man numerische Daten wieder auslesen, müssen die mit \texttt{parseInt()} oder \texttt{parseFloat()} umgewandelt werden werden. Javascript-Objekte müssen in das Json Format umgewandelt werden, damit sie im Web-Storage hinterlegt werden können. Dies geht am besten über die \texttt{JSON.stringify} und \texttt{JSON.parse}-Methoden. Es existieren zwei unterschiedliche Implementierungen des Web-Storage Interfaces: Session-Storage und Local-Storage. Während der Session-Storage nach Schließen des Browsers geleert wird, bleiben die Werte die im Local-Storage hinterlegt werden auch nach dem Schließen des Browsers bestehen. Die \texttt{localStorage}- und \texttt{sessionStorage}-Objekte zum Zugriff auf den Local-Storage und Session-Storage sind in Javascript global, so dass ein Schreiben und Lesen folgendermaßen aussieht:
+\begin{lstlisting}
+// Session-Storage (wird bei Beenden des Browser geleert)
+// schreiben
+sessionStorage.setItem('key', 'value');
+// lesen 
+sessionStorage.getItem('key'));
+
+// Local-Storage (persistent auch nach Beenden des Browsers)
+// schreiben
+localStorage.setItem('key', 'value');
+// lesen
+localStorage.getItem('key');
+\end{lstlisting}
+
+Pro Origin erhält der Browser Zugriff auf zwischen 2,5 Megabyte und 10 Megabyte Speicherplatz.
+
+Zusammenfassend ist zu sagen, dass die Vorteile des Web-Storage sind, dass er in allen aktuellen Browsern verfügbar ist und, dass der Zugriff über eine sehr einfache Api über Schlüssel-/Wertpaare möglich ist. Der Nachteil des Web-Storage begründet sich aber ebenfalls in dieser einfachen Speicherung. Alle Werte müssen in Zeichenketten umgewandelt werden. Es ist nicht möglich native Javascript-Objekte zu hinterlegen und abzufragen. Des weiteren ist keine Indizierung des Datenbestandes möglich und die Zugriffe auf den Speicher laufen nicht in Transaktionen, so dass im schlimmsten Fall Race-Conditions auftreten können. Aus diesem Grund eignet sich der Web-Storage nicht für Anwendungen, die auf ein schnelles Durchlaufen eines großen Datenbestandes und ein einfaches Auffinden einzelner Datensätze angewiesen sind.
+
+\subsubsection{Web SQL}
+Web SQL ist oder besser war der Versuch ein relationales Datenbanksystem im Browser zu implementieren. Es ermöglicht alle Abfragen, die aus anderen relationalen Systemen bekannt sind, also Transaktionen, Joins, Counts etc. Ein Beispiel für die Syntax ist folgend aufgeführt \cite{W3C2010}:
+
+\begin{lstlisting}
+function showDocCount(db, span) {
+  db.readTransaction(function (t) {
+    t.executeSql('SELECT COUNT(*) AS c FROM docids', [], function (t, r) {
+      span.textContent = r.rows[0].c;
+    }, function (t, e) {
+      // couldn't read database
+      span.textContent = '(unknown: ' + e.message + ')';
+    });
+  });
+}
+\end{lstlisting}
+Es wird also die Methode \texttt{executeSql} auf ein Transaktionsobjekt ausgeführt. Diese Methode ermöglicht das Setzen eines Callbacks für den Erfolgs- und eines für den Fehlerfall. 
+
+Alle vorhanden Implementierungen für Web SQL basieren auf SQLite{\url{http://www.sqlite.org/}}, welches seine eigene Teilmenge des SQL-92-Standards \footnote{\url{http://www.contrib.andrew.cmu.edu/~shadow/sql/sql1992.txt}} implementiert. Nach Ansicht des W3Cs und einiger Browserhersteller (insbesondere Mozilla) sollte ein Web-Standard nicht auf einer fertigen Technologie, sondern auf einer allgemeinen Spezifikation beruhen \cite{W3C2010}, \cite{Ranganathan2010}. Da es aber in dieser Hinsicht keinen Fortschritt in der Entwicklung gab, hat das W3C folgenden Eintrag auf die Spezifikationseite von Web Sql hinterlegt :
+\begin{quotation}
+ This document was on the W3C Recommendation track but specification work has stopped. The specification reached an impasse: all interested implementors have used the same SQL backend (Sqlite), but we need multiple independent implementations to proceed along a standardisation path.
+\end{quotation} \cite{W3C2010}
+
+\subsubsection{IndexedDb}
+IndexedDb ist ein Versuch einen Standard für ein nicht relationales Datenbanksystem zum Offline-Speichern von Daten zu entwickeln. Genau so wie Web-Storage speichert IndexedDb Schlüssel-/Wertpaare \cite{Mehta2012}. Die Unterschiede zum Web-Storage sind jedoch die, dass als Werte native Javascript Objekte in beliebiger Komplexität hinterlegt werden können  und dass es möglich ist den Speicher nach bestimmten Attributen innerhalb der Objekte zu indizieren. Des weiteren arbeiten alle Aktionen auf der Datenbank innerhalb von Transaktionen \cite{MDN2011}. Das Erstellen und Wiedereröffnen einer Datenbank wird hier nicht weiter beschrieben. Im Folgenden wird nur kurz gezeigt, wie ein Datenspeicher erstellt wird, ein Index auf dem Speicher gesetzt und Daten mit Hilfe dieses Indexes ausgelesen werden (analog zu \cite{Mahemoff2010}:
+
+\begin{lstlisting}
+// anlegen
+var dataStore = db.createObjectStore("data", { keyPath: "identifier" });
+dataStore.createIndex("nameIndex", "name", { unique: false });
+
+var data = { 'identifier' : 3, 'name' : 'Roman'}
+var store = db.transaction(["database_name"], 'readwrite').objectStore("data");
+var request = store.put(data);
+request.onsuccess(function() {...})
+\end{lstlisting}  
+Es wird ein Objektspeicher mit dem Namen \texttt{dataStore} erstellt. Der Speicher hat einen Primärschlüssel \texttt{identifier}. Nach diesem Property werden die Objekte im Speicher geordnet. Anschließend wird ein Index mit dem Namen \texttt{nameIndex} auf das Property \texttt{name} angelegt. Zum Schreiben der Daten wird eine Transaktion gestartet und das Objekt wird in den Speicher gelegt. Jede Aktion läuft in einem "`Request"', so dass es möglich ist \texttt{onsuccess} und \texttt{onerror} Callbacks zu definieren. Möchte man die Daten wieder auslesen, ist es möglich einen Cursor zu erstellen und alle Daten sequentiell zu durchlaufen. Die Indizes erlauben einem aber auch den direkten Zugriff auf bestimmte Daten, wenn nötig auch über einen Cursor.  Beispielweise ist es folgendermaßen möglich alle Daten mit dem Namen "`Roman"' zu finden, wenn auf diesem Property ein Index liegt (siehe \cite{MDN2011}:
+\begin{lstlisting}
+// auslesen
+var index = dataStore.index("nameIndex");
+
+// alle die, die Roman heißen
+var singleKeyRange = IDBKeyRange.only("Roman");
+ 
+index.openCursor(singleKeyRange).onsuccess = function(event) {
+  var cursor = event.target.result;
+  if (cursor) {
+    // arbeite mit den Ergebnissen
+    cursor.continue();
+  }
+};
+\end{lstlisting} 
+
+\subsubsection{Zusammenfassung - Wahl der Technologie}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./Figures/storage_browser_compatibility.pdf}
+    \rule{35em}{0.5pt}
+  \caption[Storage Browser Kompatibilität]{Browser-Kompatibilität der unterschiedlichen Storage-Technologien}
+  \label{fig:storage_browser_compatibility}
+\end{figure}
+
+Abbildung \ref{fig:storage_browser_compatibility} zeigt, welche der vorgestellten Techologien aktuell in welchen Browsern unterstützt werden. Wie man sieht, wird bisher nur der Local-/Web-Storage flächendeckend und insbesondere auch in mobilen Browsern unterstützt. Insbesondere Mozilla hat sich sehr stark gegen Web SQL und für die Verwendung von IndexedDb ausgesprochen und unterstützt auch nur noch letzteres. Gegen diese Entscheidung gibt es aufgrund der im Gegensatz zu Web SQL bedeutend komplexeren Api und der komplizierten Systementwicklung auf Basis von IndexedDb eine Menge Widerspruch (\cite{Ranganathan2010}), aber momentan sieht es so aus, als ob IndexedDb zu einer W3C-Recommendation wird, während Web SQL nur von einzelnen Browserherstellern unterstützt wird.
+
+TODO Bezug, Zusammenfassung, Kritik
+
+\subsection{Online-/Offline-Erkennung}\label{section:online_offline_erkennung}
+TODO Bezug zu Anforderungen
+
+In aktuellen Browsern existiert eine API, die es dem System erlaubt zu erkennen, ob eine Verbindung mit dem Internet besteht oder nicht. Zum einen gibt es die Eigenschaft \texttt{onLine} des globalen \texttt{navigator}-Objektes. \texttt{navigator.onLine} gibt true, wenn eine Netzwerkverbindung besteht und ansonsten \texttt{false}. Zum anderen wird bei Änderung des Online-/Offline-Zustandes ein Event aus gelöst, für welches im Code Listener definiert werden können:
+
+\begin{lstlisting}
+document.body.addEventListener("online", function () {...} 
+document.body.addEventListener("offline", function () {...}.
+\end{lstlisting}          
+Diese in den Listenern definierten Callbacks werden bei einem Wechsel von online zu offline oder umgekehrt ausgeführt. Es ist jedoch zu beachten, dass unterschiedliche Browserhersteller "`offline"' unterschiedlich definieren. Aktuell wechselt zum Beispiel Chrome bei Verlust der Internetverbindung in den Offline-Modus, im Firefox muss dieser Modus explizit vom User angeschaltet werden \cite{MozBug2011}.
+
+TODO Bezug, Zusammenfassung, Kritik
+
+\section{Protokolle (TODO Schlauer Titel)}
+
+TODO Einleitung/Bezug zu Arbeit
+Bei der Erstellung von Mashup-Anwendungen, besondere Herausforderungen lalblal
 
 \subsection{CORS}\label{section:cors}
 Moderne Browser benutzen als Teil ihres Sicherheitskonzeptes die Same-Origin-Policy. Diese bewirkt, dass Sprachen, die auf Clientseite ausgeführt werden (wie Javascript), nicht die Möglichkeit haben, Requests an einen anderen Zielpunkt als ihrem Ursprung zu starten\cite{Ruderman2008}. Diese Policy wird also lediglich bei Zugriff auf URLs mit der selben Domain und dem selben Port, wie die URL von der die Seite geladen wurde, erfüllt. Das bedeutet, dass ein Skript auf \texttt{http://sop.example.com/directory1} Requests an \texttt{http://sop.example.com/directory2} starten kann, nicht jedoch an \\ \texttt{http://example.com/directory2} (unterschiedliche Domain) oder an \\ \texttt{http://sop.example.com:8080/directory2} (unterschiedlicher Port). Ausgenommen ist hierbei das in eine Seite eingebettete Laden von Resourcen. Hierzu gehören externe Inhalte, die über iFrames geladen werden aber auch externe Javascript-Dateien(über $<$script$>$...$<$/script$>$ Tags) und Medienresourcen wie Bilder und Videos. Des Weiteren ist es auch möglich Formulare an andere Zielpunkte als den Ursprung abzuschicken. Diese Einschränkung hat also primär Auswirkungen auf das Absenden von XMLHttp-Requests, also auf normale Ajax-Requests.
@@ -111,6 +323,8 @@ Content-Type: text/html; charset=utf-8
 \end{lstlisting}
 Der Preflight-Request ist nur erfolgreich, wenn die Methode aus \texttt{Access-Control-Request-Method} in \texttt{Access-Control-Allow-Methods} und alle Header aus \texttt{Access-Control-Request-Headers} in \texttt{Access-Control-Allow-Headers} vorhanden sind.
 
+TODO Bezug, Zusammenfassung, Kritik, eventuell kürzen
+
 \subsection{Kommunikation zwischen den IFrames}\label{section:kommunikation_zwischen_iframes}
 Mashup-Anwendungen im Internet werden wie in Kapitel \ref{section:widgets} beschrieben hauptsächlich über iframes umgesetzt. Benutzt man nun für die Widget-Auslieferung einen Widget-Container wie Wookie oder Shindig, so läuft dieser zumeist auf einer anderen Domain wenigstens aber auf einem anderen Port, als die Anwendung, die die Widgets aggregiert ausgibt. Die im vorigen Abschnitt vorgestellte Same-Origin-Policy aktueller Browser erlaubt aber nur, dass die Hauptanwendung nur Daten aus iframes mit der gleichen Origin ausliest. Dies erschwert den Informationsaustausch zwischen der Hauptapplikation und den Widgets beträchtlich. Aus diesem Grund wurde das "`Postmessage"'-System entwickelt, welches diese Einschränkung auf eine sichere Art und Weise umgeht \cite{MDN2012}. Ein Fenster (zum Beispiel ein Frame) kann mit einem Methodenaufruf an ein andere Fenster eine Nachricht schicken (aus \cite{MDN2012});
 \begin{lstlisting}
@@ -129,6 +343,8 @@ function receiveMessage(event) {
 Empfängt das Fenster also eine Nachricht ist es möglich auch den Origin des Senders zu prüfen, damit man nur Nachrichten aus vertrauenswürdigen Quellen bearbeitet.
 
 \subsection{REST}\label{section:rest}
+TODO: Satz wie, das das benötigt wird. lalala
+
 Für die Entwicklung von Mashup-Anwendungen ist es von Vorteil, wenn die Bestandteile der Anwendung für ihre Anfragen einen ähnliches Prinzip verwenden. Bei der Verwendung eines gemeinsamen Interfaces würde sich die Interoperabilität zwischen den Teilanwendungen erhöhen und es erleichtert Entwicklern das Hinzufügen neuer Anwendungen zu der Anwendung beträchtlich. In den letzten Jahren ist hierfür das REST-Prinzip immer weiter in den Fokus  gerückt.
 REST (Representational State Transfer Protocol), ist ein Architekturstil, welcher versucht 
 \begin{quotation}
@@ -196,204 +412,13 @@ Um zu den Customer-Ressourcen aus dem obigen Beispiel also einen Kunden hinzuzuf
 GET und POST sind die am häufigsten genutzten Methoden. Der Grund hierfür ist, dass diese beiden Methoden der normale Weg eines Brwoser sind mit einem Server zu kommunizieren. Jeder direkte Aufruf einer URI über einen Browser sendet eine GET-Anfrage an einen Server. Die im Web häufig anzutreffenden Formulare werden meist über eine POST-Anfrage abgeschickt. So werden diese beiden Methoden ausserhalb von Anwendungen, die dem REST-Prinzip folgen, auch für alle anderen Anfragen benutzt, so dass man sich bei diesen Anwendungen nicht sicher sein kann, ob ein GET-Request an eine URI nicht ein Ändern oder Löschen der Ressource zur Folge hat (man betrachte beispielsweise die URI: \texttt{http://example.com/customers/5?action=delete}.
 
 Der letzte Punkt in den obigen Forderungen bedeutet, dass der Server keinerlei Session Informationen über den User speichert. Dies hat zur Folge, dass beispielsweise der Warenkorb in einem Shop ebenfalls als Ressource angelegt werden muss. Der Vorteil von dieser Vorgehensweise ist der, dass somit z.B. auch Lesezeichen auf einen Warenkorb angelegt werden können.
+
+TODO Bezug, Zusammenfassung, Kritik
  
-\section{Offline-Web-Anwendungen}
-Der Begriff "`Offline-Web-Anwendung"' mag sich zunächst nach einem Widerspruch in sich annhören. Normalerweise kennt der Nutzer den folgenden Arbeitsablauf, wenn er sich im Internet bewegt: Öffnen des Internetbrowser $\Rightarrow$ eingeben der gewünschten Url $\Rightarrow$ der Browser verbindet sich als Client mit dem hinter der URL stehenden Server und lädt die zur Verfügung gestellten Inhalte (Html, Javascript, Css, Medienressourcen etc) herunter $\Rightarrow$ der Browser rendert das Html/Css und führt die Anweisungen in den Javascript-Quellcode aus, so dass dem Nutzer eine funktionsfähige Seite zur Verfügung steht. Ist das System nun aber offline, kann der Browser keine Verbindung mit dem Server herstellen und erhält somit keine Daten, die er darstellen kann. Es gibt Systeme auf Html/Javascript Basis, die niemals den Kontakt mit dem Internet benötigen \cite{Mahemoff22010}. Diese Anwendungen werden komplett aus dem Dateisystem geladen und benutzen den Browser nur für die Darstellung (z.B. \href{http://tiddlywiki.com}{TiddlyWiki}\footnote{\url{http://tiddlywiki.com/}}, ein Wiki-System, welches komplett lokal auf dem Rechner des Anwenders läuft). Diese Systeme sind aber für diese Arbeit irrelevant, da die Anforderungsanalyse aus Kapitel \ref{chapter:Kapitel3} zeigt, dass für das zu entwickelnde System Anwendungen notwendig sind, die je nach Notwendigkeit sowohl online als auch offline arbeiten können. All diesen Systemen gemein ist, dass sie zumindest eine initiale Internetverbindung benötigen, bei der Zugriff auf die genutzten Ressourcen besteht.
-
-In HTML5 gibt es im Wesentlichen zwei Mechanismen, die für die Offline-Fähigkeiten von Webanwendungen verantwortlich sind: Application-Caching und Offline-Storage \cite{Mahemoff22010}. Der Unterschied zwischen ihnen liegt in der Art der Daten, die sie lokal vorhalten. Application-Caching ist für das Caching, also die Speicherung der zentralen Applikationslogik und des User-Interfaces im Browser zuständig. Dies bedeutet das alle benötigen Ressourcen (Html, Javascript, Css etc.) heruntergeladen und im Browsercache vorgehalten werden. Dieser Cache bleibt auch bestehen, wenn der Browser geschlossen wird. Gleiches gilt für den Offline-Storage. Offline-Storage ist ein Mechanismus, welche in der Lage ist die Daten, die der Nutzer eingibt oder bearbeitet ebenfalls im Browser zu speichern und wieder zur Verfügung zu stellen. Gemeinsam mit einem Mechanismus, der es Browsern erlaubt zu erkennen, ob sie online oder offline sind, versetzen Application-Caching und Offline-Storage den Entwickler also in die Lage ein System zu entwickeln, welches in der Lage ist ohne Konnektivität mit dem Internet erneut aufgerufen zu werden. Der Anwender kann mit dem System anschließend arbeiten, als wenn eine Internetverbindung zur Verfügung steht.
-
-Im Folgenden werden die Möglichkeiten die HTML5 für die Umsetzung des Application-Cachings und des Offline-Storages bietet genauer beschrieben.
-
-\subsection{Application-Caching}\label{section:appcache}
-Die Basis des Application-Cachings ist eine Manifest Datei \cite{Bidelman2010}. In dieser Datei wird hinterlegt, welche Ressourcen vom Webbrowser zwischengespeichert werden sollen. Die Datei ist eine einfache Textdatei, dessen Dateiendung frei gewählt werden kann. Es wird aber empfohlen die Manifestdatei auf .appcache enden zu lassen \cite{W3C2012}. Wichtig ist, dass die Datei vom Webserver mit dem MIME type \texttt{text/cache-manifest} ausgeliefert wird. Dies kann z.B. für den  Apache Webserver mit dem folgenden Eintrag in einer .htaccess Datei geschehen:
-\begin{lstlisting}
-AddType text/cache-manifest .appcache
-<IfModule mod_expires.c>
-  ExpiresActive On
-  ExpiresByType text/cache-manifest "access plus 0 seconds"
-</IfModule>
-\end{lstlisting}
-Der Bereich in dem \texttt{IfModule}-Tag ist dafür zuständig, dass die Manifest-Datei selber nicht gecached wird. Dies ist momentan noch für den Firefox-Browser notwendig.
-
-Jede HTML-Seite die den Application-Cache nutzen soll, muss diese Datei über das \texttt{manifest}-Attribut in ihrem html-Tag einbinden \cite{html5upandrunningchapter8}. Es ist dabei egal, ob die Datei über einen relativen oder einen absoluten Pfad eingebunden wird. Sie muss nur von der HTML-Seite aus erreichbar sein:
-\begin{lstlisting}
-<!DOCTYPE html>
-<html manifest="cache.appcache">
-<body>
-...
-</body>
-</html>
-\end{lstlisting}
-
-Das folgende Listing zeigt den beispielhaften Aufbau einer Manifestdatei und stammt bis auf den Fallback Bereich aus der entwickelten PLE:
-\begin{lstlisting}
-CACHE MANIFEST
-#Rev 9
-
-CACHE:
-#Partials
-/partials/dashboard
-/partials/workspace
-#CSS
-/css/compiled/plesynd/main.css
-#JS
-/js/compiled/plesynd/main.js
-#ICONS
-http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/img/glyphicons-halflings.png
-
-NETWORK:
-*
-
-FALLBACK:
-/ /offline.html
-\end{lstlisting}
-
-(TODO: besser machen: Folgende Erklärungen aus \cite{W3C2012}, \cite{html5upandrunningchapter8} und \cite{Bidelman2010}). Die Datei beginnt mit einem \texttt{CACHE MANIFEST}-Header, der angibt, dass es sich um eine Manifestdatei handelt. Es folgt eine Kommentarzeile mit einer Revisionsnummer. Diese Zeile ist nach der Spezifikation eigentlich nicht notwendig. Der Grund für ihr Vorhandensein ist der, dass ein Browser den Inhalt des Caches nur aktualisiert, wenn sich die Manifestdatei selber ändert, nicht aber wenn sich die Dateien, die im Manifest referenziert werden aktualisiert wurden. Ändert man nun beispielsweise eine Javascript-Datei, so würde der Browser diese Änderung nicht registrieren. Man muss zusätzlich die Manifestdatei (und sei es nur in einem Zeichen, wie hier die Revisionsnummer) ändern. Der Browser bemerkt dies und aktualisiert sowohl die Datei, als auch die von ihr referenzierten Inhalte. Die Zeilen nach dem \texttt{CACHE}-Eintrag geben die Ressourcen, an die explizit vom Browser gecached werden sollen. Wie man sieht können hier alle möglichen Ressourcentypen, also auch Binärdateien wie Bilder angegeben werden. Die Zeilen die mit einem Hash anfangen, sind nur Kommentare zur besseren Lesbarkeit. Der \texttt{NETWORK}-Eintrag defniniert eine Whitelist, welche angibt welche Ressourcen in jedem Fall über das Netz geholt werden, (auch wenn der Browser offline ist). Hier könnte beispielsweise der Zugriff auf vom Server dynamisch interpretierte PHP oder CGI Dateien definiert werden. Der in diesem Fall verwendete Platzhalter gibt an, dass alle Dateien, die nicht in der \texttt{CACHE}-Sektion definiert wurden über das Netz geholt werden. Der \texttt{FALLBACK}-Bereich beschreibt eine alternative Datei, welche angezeigt wird, wenn die angeforderte Ressource nicht im Cache liegt und kein Internetzugang besteht. Im vorliegenden Fall trifft \texttt{/} auf jede Seite ab dem Wurzelverzeichnis zu. Wenn die angeforderte Seite also nicht im Cache liegt, wird die Fallback-Datei angezeigt. Abschließend ist zu bemerken, das jede HTML-Datei, die auf eine Manifestdatei verweist implizit ebenfalls gecached wird. Der Cache kann also bei einer Webseite, durch die sich der Anwender bewegt sukzessive wachsen.
-
-\subsection{Offline-Storage}\label{section:offline_storage}
-In der Vergangenheit wurden vor allem Cookies benutzt, um die Daten eines Anwenders innerhalb des Browsers vorzuhalten \cite{Mahemoff22010}. Cookies haben jedoch einige schwerwiegende Nachteile, die es verhindern, dass sie für ein wirkliches Speichern von Daten und Einstellungen des Nutzers Verwendung finden konnten. Zum einen werden sie bei jedem Request an den Server gesendet, wodurch die Netzwerkverbindung verlangsamt wurde und potentiell unverschlüsselte Daten über das Netz geschickt wurden (außer bei Benutzung von SSL). Zum anderen sind sie auf eine Größe von 4 Kilobyte beschränkt, wodurch es nicht möglich ist eine nennenswerte Datenmenge zu hinterlegen \cite{html5upandrunningchapter7}. Im Zuge der Entwicklung von HTML5 und immer größeren Applikationen, welche primär auf der Clientseite laufen, wurden mehrere Technologien und Apis entwickelt, die für das Speichern der Daten im Browser verwendet werden können. Im Folgenden werden die wichtigesten drei hiervon, Web-Storage, Web SQL and IndexedDb, vorgestellt. Für alle drei Technologien befolgen die die Browser eine Same-Origin-Policy (für eine genauere Erklärung siehe Kapitel \ref{section:cors}), d. h. nur Skripte der selben Quelle haben Zugriff auf den Speicher \cite{Mahemoff2010}.
-
-\subsubsection{Web-Storage}
-Web-Storage basiert auf benannten Schlüssel-/Wert Paaren, welche mit Hilfe von Javascript im Browser hinterlegt werden können \cite{html5upandrunningchapter7}. Die Api hierfür wurde vom W3C mit dem folgenden Interface festgelegt \cite{W3C2011}:
-\begin{lstlisting}
-interface Storage {
-  readonly attribute unsigned long length;
-  DOMString? key(unsigned long index);
-  getter DOMString getItem(DOMString key);
-  setter creator void setItem(DOMString key, DOMString value);
-  deleter void removeItem(DOMString key);
-  void clear();
-};
-\end{lstlisting}
-Die Daten können also über \texttt{setItem(key, value)} gesetzt, über \texttt{getItem(key)} wieder ausgelesen und über \texttt{removeItem(key)} aus dem Web-Storage entfernt werden. Wichtig ist jedoch, dass der LocalStorage nur mit Zeichenketten arbeiten kann \cite{W3C2011}. Möchte man numerische Daten wieder auslesen, müssen die mit \texttt{parseInt()} oder \texttt{parseFloat()} umgewandelt werden werden. Javascript-Objekte müssen in das Json Format umgewandelt werden, damit sie im Web-Storage hinterlegt werden können. Dies geht am besten über die \texttt{JSON.stringify} und \texttt{JSON.parse}-Methoden. Es existieren zwei unterschiedliche Implementierungen des Web-Storage Interfaces: Session-Storage und Local-Storage. Während der Session-Storage nach Schließen des Browsers geleert wird, bleiben die Werte die im Local-Storage hinterlegt werden auch nach dem Schließen des Browsers bestehen. Die \texttt{localStorage}- und \texttt{sessionStorage}-Objekte zum Zugriff auf den Local-Storage und Session-Storage sind in Javascript global, so dass ein Schreiben und Lesen folgendermaßen aussieht:
-\begin{lstlisting}
-// Session-Storage (wird bei Beenden des Browser geleert)
-
-// schreiben
-sessionStorage.setItem('key', 'value');
- 
-// lesen 
-sessionStorage.getItem('key'));
-
-// Local-Storage (persistent auch nach Beenden des Browsers)
-
-// schreiben
-localStorage.setItem('key', 'value');
- 
-// lesen
-localStorage.getItem('key');
-\end{lstlisting}
-
-Pro Origin erhält der Browser Zugriff auf zwischen 2,5 Megabyte und 10 Megabyte Speicherplatz.
-
-Zusammenfassend ist zu sagen, dass die Vorteile des Web-Storage sind, dass er in allen aktuellen Browsern verfügbar ist und, dass der Zugriff über eine sehr einfache Api über Schlüssel-/Wertpaare möglich ist. Der Nachteil des Web-Storage begründet sich aber ebenfalls in dieser einfachen Speicherung. Alle Werte müssen in Zeichenketten umgewandelt werden. Es ist nicht möglich native Javascript-Objekte zu hinterlegen und abzufragen. Des weiteren ist keine Indizierung des Datenbestandes möglich und die Zugriffe auf den Speicher laufen nicht in Transaktionen, so dass im schlimmsten Fall Race-Conditions auftreten können. Aus diesem Grund eignet sich der Web-Storage nicht für Anwendungen, die auf ein schnelles Durchlaufen eines großen Datenbestandes und ein einfaches Auffinden einzelner Datensätze angewiesen sind.
-
-\subsubsection{Web SQL}
-Web SQL ist oder besser war der Versuch ein relationales Datenbanksystem im Browser zu implementieren. Es ermöglicht alle Abfragen, die aus anderen relationalen Systemen bekannt sind, also Transaktionen, Joins, Counts etc. Ein Beispiel für die Syntax ist folgend aufgeführt \cite{W3C2010}:
-
-\begin{lstlisting}
-function showDocCount(db, span) {
-  db.readTransaction(function (t) {
-    t.executeSql('SELECT COUNT(*) AS c FROM docids', [], function (t, r) {
-      span.textContent = r.rows[0].c;
-    }, function (t, e) {
-      // couldn't read database
-      span.textContent = '(unknown: ' + e.message + ')';
-    });
-  });
-}
-\end{lstlisting}
-Es wird also die Methode \texttt{executeSql} auf ein Transaktionsobjekt ausgeführt. Diese Methode ermöglicht das Setzen eines Callbacks für den Erfolgs- und eines für den Fehlerfall. 
-
-Alle vorhanden Implementierungen für Web SQL basieren auf SQLite{\url{http://www.sqlite.org/}}, welches seine eigene Teilmenge des SQL-92-Standards \footnote{\url{http://www.contrib.andrew.cmu.edu/~shadow/sql/sql1992.txt}} implementiert. Nach Ansicht des W3Cs und einiger Browserhersteller (insbesondere Mozilla) sollte ein Web-Standard nicht auf einer fertigen Technologie, sondern auf einer allgemeinen Spezifikation beruhen \cite{W3C2010}, \cite{Ranganathan2010}. Da es aber in dieser Hinsicht keinen Fortschritt in der Entwicklung gab, hat das W3C folgenden Eintrag auf die Spezifikationseite von Web Sql hinterlegt :
-\begin{quotation}
- This document was on the W3C Recommendation track but specification work has stopped. The specification reached an impasse: all interested implementors have used the same SQL backend (Sqlite), but we need multiple independent implementations to proceed along a standardisation path.
-\end{quotation} \cite{W3C2010}
-
-\subsubsection{IndexedDb}
-IndexedDb ist ein Versuch einen Standard für ein nicht relationales Datenbanksystem zum Offline-Speichern von Daten zu entwickeln. Genau so wie Web-Storage speichert IndexedDb Schlüssel-/Wertpaare \cite{Mehta2012}. Die Unterschiede zum Web-Storage sind jedoch die, dass als Werte native Javascript Objekte in beliebiger Komplexität hinterlegt werden können  und dass es möglich ist den Speicher nach bestimmten Attributen innerhalb der Objekte zu indizieren. Des weiteren arbeiten alle Aktionen auf der Datenbank innerhalb von Transaktionen \cite{MDN2011}. Das Erstellen und Wiedereröffnen einer Datenbank wird hier nicht weiter beschrieben. Im Folgenden wird nur kurz gezeigt, wie ein Datenspeicher erstellt wird, ein Index auf dem Speicher gesetzt und Daten mit Hilfe dieses Indexes ausgelesen werden (analog zu \cite{Mahemoff2010}:
-
-\begin{lstlisting}
-// anlegen
-var dataStore = db.createObjectStore("data", { keyPath: "identifier" });
-dataStore.createIndex("nameIndex", "name", { unique: false });
-
-var data = { 'identifier' : 3, 'name' : 'Roman'}
-var store = db.transaction(["database_name"], 'readwrite').objectStore("data");
-var request = store.put(data);
-request.onsuccess(function() {...})
-\end{lstlisting}  
-Es wird ein Objektspeicher mit dem Namen \texttt{dataStore} erstellt. Der Speicher hat einen Primärschlüssel \texttt{identifier}. Nach diesem Property werden die Objekte im Speicher geordnet. Anschließend wird ein Index mit dem Namen \texttt{nameIndex} auf das Property \texttt{name} angelegt. Zum Schreiben der Daten wird eine Transaktion gestartet und das Objekt wird in den Speicher gelegt. Jede Aktion läuft in einem "`Request"', so dass es möglich ist \texttt{onsuccess} und \texttt{onerror} Callbacks zu definieren. Möchte man die Daten wieder auslesen, ist es möglich einen Cursor zu erstellen und alle Daten sequentiell zu durchlaufen. Die Indizes erlauben einem aber auch den direkten Zugriff auf bestimmte Daten, wenn nötig auch über einen Cursor.  Beispielweise ist es folgendermaßen möglich alle Daten mit dem Namen "`Roman"' zu finden, wenn auf diesem Property ein Index liegt (siehe \cite{MDN2011}:
-\begin{lstlisting}
-// auslesen
-var index = dataStore.index("nameIndex");
-
-// alle die, die Roman heißen
-var singleKeyRange = IDBKeyRange.only("Roman");
- 
-index.openCursor(singleKeyRange).onsuccess = function(event) {
-  var cursor = event.target.result;
-  if (cursor) {
-    // arbeite mit den Ergebnissen
-    cursor.continue();
-  }
-};
-\end{lstlisting} 
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./Figures/storage_browser_compatibility.pdf}
-    \rule{35em}{0.5pt}
-  \caption[Storage Browser Kompatibilität]{Browser-Kompatibilität der unterschiedlichen Storage-Technologien}
-  \label{fig:storage_browser_compatibility}
-\end{figure}
-
-Abbildung \ref{fig:storage_browser_compatibility} zeigt, welche der vorgestellten Techologien aktuell in welchen Browsern unterstützt werden. Wie man sieht, wird bisher nur der Local-/Web-Storage flächendeckend und insbesondere auch in mobilen Browsern unterstützt. Insbesondere Mozilla hat sich sehr stark gegen Web SQL und für die Verwendung von IndexedDb ausgesprochen und unterstützt auch nur noch letzteres. Gegen diese Entscheidung gibt es aufgrund der im Gegensatz zu Web SQL bedeutend komplexeren Api und der komplizierten Systementwicklung auf Basis von IndexedDb eine Menge Widerspruch (\cite{Ranganathan2010}), aber momentan sieht es so aus, als ob IndexedDb zu einer W3C-Recommendation wird, während Web SQL nur von einzelnen Browserherstellern unterstützt wird.
-
-\subsection{Online-/Offline-Erkennung}\label{section:online_offline_erkennung}
-In aktuellen Browsern existiert eine API, die es dem System erlaubt zu erkennen, ob eine Verbindung mit dem Internet besteht oder nicht. Zum einen gibt es die Eigenschaft \texttt{onLine} des globalen \texttt{navigator}-Objektes. \texttt{navigator.onLine} gibt true, wenn eine Netzwerkverbindung besteht und ansonsten \texttt{false}. Zum anderen wird bei Änderung des Online-/Offline-Zustandes ein Event aus gelöst, für welches im Code Listener definiert werden können:  
-
-\begin{lstlisting}
-document.body.addEventListener("online", function () {...} 
-document.body.addEventListener("offline", function () {...}.
-\end{lstlisting}          
-Diese in den Listenern definierten Callbacks werden bei einem Wechsel von online zu offline oder umgekehrt ausgeführt. Es ist jedoch zu beachten, dass unterschiedliche Browserhersteller "`offline"' unterschiedlich definieren. Aktuell wechselt zum Beispiel Chrome bei Verlust der Internetverbindung in den Offline-Modus, im Firefox muss dieser Modus explizit vom User angeschaltet werden \cite{MozBug2011}
-
-\section{Klassifizierungsmethoden für Personal Learning Environments}\label{section:klassifizierungsmethoden}
-Es existieren zwei wichtige Ansätze um Funktionalitäten von PLEs auf unterschiedliche Klassen abzubilden. Zum einen gibt es den Versuch von Palmér Dimensionen zu definieren und die Funktionalitäten von PLEs diesen Dimensionen zuzuordnen. Palmér schafft damit ein System, um unterschiedliche PLE-Systeme kategorisieren zu können. Zum anderen definiert Wilson Muster, die helfen sollen eine PLE zu entwickeln und bestehende Systeme auf wichtige Funktionalitäten zu überprüfen. Diese beiden Ansätze werden im Folgenden vorgestellt.
-
-\subsubsection{Dimensionen nach Palmér}\label{section:dimensions_palmer} 
-Palmér definiert sechs Dimensionen mit denen er so viele relevanten Funktionalitäten von PLEs wie möglich erfassen möchte\cite{Palmer2009}. Trotz dessen sollen diese Dimensionen relativ unabhängig voneinander sein, so dass es möglich ist das unterschiedliche Plattformen einige Dimensionen mehr und andere weniger berücksichtigen und implementieren. Eine PLE kann dann Anhand des Grades ihrer Implementierung der einzelnen Dimensionen kategorisiert und bewertet werden.
-\begin{enumerate}
- \item \emph{Screen-Dimension}: Die Screen-Dimension befasst sich mit Aspekten, welche die Darstellungsebene von PLEs definieren. Hierzu zählt Palmér insbesondere das User-Interface und die Usability des PLE-Containers (wie sind die Widgets angeordnet, wie können neue Widgets gesucht und hinzugefügt werden, wie einfach kann sich der Nutzer im System bewegen etc.), welcher als Einstiegspunkt in die Systembedienung dient und das User-Interface der einzelnen Widgets. Es gehören aber auch Funktionalitäten wie die Möglichkeit Inhalte und Ressourcen mit anderen Nutzern zu teilen und die Integration der selben Widgets in unterschiedlichen PLE-Containern zu der Screen-Dimension.
- \item \emph{Data-Dimension}: Mit der Data-Dimension beschreibt Palmér Funktionalitäten, die für die Portabilität der verwendeten Daten innerhalb einer PLE notwendig sind. Idealerweise sollen Widgets in der Lage sein untereinander und mit dem PLE-Container zu kommunizieren. Sie sollen Daten austauschen können und sich so weit wie möglich über ihre Zustände informieren. Des Weiteren soll es möglich sein die Daten der Widgets zu exportieren und sie an anderer Stelle oder in einem anderen PLE-Container wieder zu importieren und weiterzuverwenden. Mit der fortschreitenden Mobilität der Nutzer wird es immer wichtiger, dass der Zugriff auf die PLE auch dann möglich ist, wenn kein Zugriff auf das Internet besteht. Somit ist es nicht nur notwendig Daten zu importieren und zu exportieren, sondern auch zwischen einem Offline und einem Online-Speicher zu synchronisieren, sobald eine entsprechende Zustandsänderung eintritt.
- \item \emph{Social-Dimension}: Ein wesentlicher Bestandteil des Web 2.0 ist die Vernetzung von Freunden und Menschen mit ähnlichen Interessen untereinander. Dem trägt Palmér mit der Social-Dimension Rechnung. Diese Dimension gibt an, wie sehr eine PLE Funktionalitäten sozialer Netzwerke wie Freundeslisten integriert und Möglichkeitkeiten bietet den Zugriff auf geteilte Ressourcen auf bestimmte Typen von Freunden einzuschränken. Palmér zählt aber auch die Möglichkeit zur Erstellung von eigenen offenen oder geschlossenen Lerngruppen zu Funktionalitäten, die in diese Dimension fallen.
- \item \emph{Temporal-Dimension}: Die in der Screen- und der Social-Dimension beschriebene Kollaboration zwischen Nutzern der PLE neue Anforderungen mit sich. So ist es beispielsweise notwendig oder zumindest wünschenswert, dass geänderte Inhalte sich in Echtzeit in den Instanzen der Widgets manifestieren, die ebenfalls auf diese Inhalte zugreifen. Hierbei sollten auch Probleme, wie auftretende Konflikte bei gleichzeitigem Bearbeiten der selben Ressource in Betracht gezogen werden.
- \item \emph{Activity-Dimension}: Die Activity-Dimension beschreibt die Möglichkeit Abläufe und Workflows innerhalb einer PLE aktiv zu gestalten. Hierzu gehören unterer anderem einfache Dinge wie Anleitungen als Hilfestellung für den Nutzer zur Bewegung innerhalb der PLE. Besonderen Wert legt Palmér aber auf die Abbildung von Lernsequenzen innerhalb der PLE. So können bestimmte Widgets auf bestimmte Ereignisse reagieren oder sich selbst aktivieren oder deaktivieren. Des Weiteren können unterschiedlichste Konzepte aus dem Bereich des E-Learnings wie zum Beispiel \href{http://www.imsglobal.org/learningdesign/}{IMS Learning Design}\footnote{\url{http://www.imsglobal.org/learningdesign/}} oder \href{http://ltsc.ieee.org/wg12/files/LOM_1484_12_1_v1_Final_Draft.pdf}{Learning Object Metadata (LOM)}\footnote{\url{http://ltsc.ieee.org/wg12/files/LOM_1484_12_1_v1_Final_Draft.pdf}}) in den Widgets oder dem PLE-Container selber implementiert werden.
- \item \emph{Runtime-Dimension}: Die Runtime-Dimension befasst sich mit Funktionalitäten, die die Interoperabilität zwischen PLE-Systemen und Komponenten. Nach Palmér werden Nutzer in der Zukunft nicht nur eine PLE benutzen, sondern je nach Bedürfnis oder Anwendungsfall zwischen ihnen hin und herwechseln. Hierfür sollte es möglich sein Importe und Exporte für Inhalte und Einstellungen sowohl der einzelnen Widgets als auch des PLE-Containers vorzunehmen. Damit eine Interoperabilität
- zwischen PLEs möglich wird, ist es notwendig, dass Standards geschaffen werden, welche von den unterschiedlichen PLEs anerkannt und implementiert werden. Zusätzlich gehört für Palmér auch die Möglichkeit der Einbettung und Kommunikation von PLEs in und mit größeren Systemen zu dieser Dimension.
-\end{enumerate}
-
-\subsubsection{Muster für das Design von Personal Learning Environments}\label{section:wilson_patterns}
-Wilson stellt unterschiedliche Muster vor, die bei der Entwicklung einer PLE helfen sollen \cite{Wilson2008}. Hierbei legt er seinen Fokus auf die dezentralisierte  nutzerzentrierte Natur von PLEs. Als Motivation dafür gibt er an, dass PLEs nicht ein einfaches Stück Software seien. Vielmehr stellen sie eine Umgebung dar, in der Menschen mit Werkzeugen Ressourcen und Communities in einer lockeren und nicht vorher strikt fixierten Art und Weise kommunizieren. Dieser lockere Aufbau macht es für den Entwickler jedoch nicht leichter für den Anwender gut nutzbares System zu entwerfen. Wilson leitet seine Muster von denen ab, die von der Universität von Bolton während des "`Personal Learning Environments Reference Model Project"' Projektes entwickelt wurden. Er versucht die Anzahl der Muster jedoch von ursprünglich 77 deutlich zu reduzieren, indem er Muster, die sich auf einfache Funktionen beziehen zu größeren Gruppen zusammenfasst und so eher allgemeine Charakteristika von PLEs beschreibt.
-
-Wilson unterscheidet zwischen zwei verschiedenen Arten von Mustern für PLEs: Muster für persönliche Anwendungen (Personal Tools) und Muster für Lernnetzwerke (Learning Networks). Personal Tools stellen hiebei die Werkzeuge dar, die ein Nutzer direkt für seine Lernaktivitäten nutzt. Er interagiert mit unterschiedlichen sozialen Netzen (zum Beispiel Lernnetzwerken) oder verwendet die Tools anderweitig für seine persönliche Art des Lernens. 
-Wilson definiert Learning Networks als die Infrastruktur, welche notwendig ist um Lernnetzwerke mit Hilfer sozialer Netze oder Communities aufzubauen. Des weiteren zählt er auch die Menge der Online-Services hinzu, welche von einem Lehrinstitut den Lernenden zur Verfügung gestellt werden.
-
-Diese Arbeit beschäftigt sich mit dem Aufbau einer PLE, welche direkt vom Nutzer für seine Lernaktivitäten verwendet wird. Learning Networks spielen hierfür keine oder eine nur sehr untergeordnete Rolle, so dass die Muster für das Erstellen eben dieser hier nicht weiter beleuchtet werden. Im Folgenden werden die Muster für Personal Tools vorgestellt. Diese ähneln meist einer Empfehlung, wie eine bestimmte Funktion umgesetzt werden sollte oder welche Funktionalitäten vorhanden sein sollten, um die Erfahrung des Nutzers im Umgang mit dem System zu verbessern.
-
-\begin{enumerate}
- \item \emph{Discourse Monitor}\label{wilson_patterns:discourse_monitor}: In einer PLE werden Informationen aus potentiell sehr vielen und unterschiedlichen Quellen verarbeitet. Um dem Nutzer die Möglichkeit zu geben wichtige Informationen schneller herauszufiltern oder zu prioritisieren, sollte ein Discourse Monitor implementiert werden. Dieser fasst die wichtigsten Informationen aus den unterschiedlichen Quellen zusammen und bereitet sie in übersichtlicher Art und Weise auf. Dem Nutzer soll es dann möglich sein, die dargestellten Daten zu Filtern, zu prioritisieren, seine Favoriten zu kennzeichnen oder neu eingetroffene Daten einfach und zeitnah zu erkennen. 
- \item \emph{Connection Hub}: Der Nutzer einer PLE ist bei verschiedensten Netzwerken angemeldet und hat dort höchstwahrscheinlich unterschiedliche Informationen hinterlegt. Es ist auch möglich, dass eine Kommunikation über Netzwerkgrenzen hinweg stattgefunden hat. Diese Daten sind meist nicht in einem einzigen Netzwerk darstellbar. Ein Connection Hub soll in der Lage sein oder den Nutzer in die Lage versetzen diese Verbindungen darzustellen und aufzubereiten. Es wäre beispielsweise vorstellbar, dass es dem Nutzer ermöglicht wird Informationen und Daten verschiedenster Netzwerke zu kombinieren ohne, dass diese Netzwerke direkt in Kontakt zueinander stehen.
- \item \emph{Create and Mix Media}: Es ist unabdingbar, dass während des computergestützen Lernens sowohl von dem Lehrnenden, als auch von dem Lehrenden Ressourcen erstellt und diese auch anderen zur Verfügung gestellt werden. Hierzu gehören alle Arten von Ressourcen, also Textdateien, Notizen, Quellcode, Videos, Bilder, Präsentationen etc.. Die PLE sollte es dem Nutzer ermöglichen diese Ressourcen zu erstellen (auch unter Zuhilfenahme externer Services) und diese dann an unterschiedliche Netzwerke zu verteilen. 
- \item \emph{Integrate Identities}: Durch das Nutzen unterschiedlicher Services hat der Nutzer höchstwahrscheinlich auch Useraccounts bei all diesen Services erstellt. Wilson schlägt für die Vereinfachung des Umgangs mit diesen Accounts die Implementierung von Mechanismen zur Vereinfachung vor. Hierzu gehören die Nutzung von Systemen, die in der Lage sind Zugangsdaten für unterschiedliche Accounts zu verwalten und zu speichern. Es können aber auch Konzepte wie das zentrale Hinterlegen von Profildaten, zum Beispiel bei einem OpenID Server-Anbieter \footnote{\url{http://openid.net/}}, verwendet werden. Die Registrierung und der Login bei unterschiedlichen Services erfolgt dann über den Umweg eines zentralen Services, welcher alle notwendigen Daten zu dem Service übermittelt, bei dem sich der Nutzer einloggen möchte.  
- \item \emph{Manage Time and Effort}\label{wilson_patterns:manage_time_effort}: Benutzt man ein System wie eine PLE zur Organisation des persönlichen Lernens, so sollte einem dieses System Werkzeuge an die Hand geben, um das Lernen und die Arbeit zu organisieren. Hierzu gehören Zeitplaner, Kalender, Todo-Listen oder auch die Möglichkeit zur Erstellung von Notizen innerhalb des Systems.
- \item \emph{Navigation Layer}\label{wilson_patterns:navigation_layer}: Bei einer PLE hat sich der Nutzer idealerweise seine Lernumgebung aus unterschiedlichen Quellen und Werkzeugen zusammengestellt. Die Navigationsebene fasst diese in einem System zusammen und ermöglicht dem User einen einfachen Zugriff auf seine Werkzeuge. Wilson schlägt vor die Services als Widgets in der PLE einzubinden. Somit wird die PLE zu einem zentralen Zugriffspunkt oder zu einem Dashboard von dem aus der Nutzer alle seinen Aktionen ausführen kann. 
- \item \emph{Multi-platform/Multimode}\label{wilson_patterns:multimode}: Die Nutzergewohnheiten bezüglich des Gebrauchs des Internets haben sich in den letzten Jahren deutlich gewandelt \cite{VanHarmelen}. Der Zugriff erfolgt nicht mehr primär über den eigenen (Heim-)Rechner, sondern über die verschiedensten Zugriffspunkte. Hierzu gehören Computer in der Universität, am Arbeitsplatz, im Internetcafé und in letzter Zeit verstärkt auch mobile Geräte wie Smartphones oder Tablets. Aus diesem Grunde ist es notwendig, das der Zugriff auf Lernnetzwerke von all diesen Geräten aus möglich ist und die Systeme auch gut von den unterschiedlichen Geräten aus bedienbar sind. Des weiteren sollte es ein System geben, welches die Daten auf den unterschiedlichen Geräten miteinander synchronisiert, so dass der Nutzer von überall auf die aktuellsten Daten zugreifen kann.
- \item \emph{Choose, Change, Discard}\label{wilson_patterns:choose_change_discard}: Dieses Muster steht in engem Bezug zu der nutzerzentrierten Herangehensweise in dem Aufbau von PLEs. User sollen in der Lage sein, sich ihre Lernumgebung nach eigenen Vorlieben und Anforderungen einzurichten. Außerdem ist es sehr gut möglich, dass sich die Anforderungen im Laufe der Zeit ändern. Aus diesen Gründen ist es notwendig, dass es dem Nutzer frei steht Inhalte und Services innerhalb der PLE zu verschieben und anzupassen und neue Werkzeuge hinzuzufügen und nicht mehr benötigte Werkzeuge wieder zu entfernen. Die PLE sollte hierbei nicht zu viele vom Nutzer nicht änderbare Bedienungsvorgaben und Konfigurationseinstellungen machen, sondern dem Nutzer so viele Freiheiten wie möglich bei Einrichten der eigenen Lernumgebung zu geben.
-\end{enumerate}
 
 \section{Ähnliche Systeme}\label{section:aehnliche_systeme}
 Wie in Kapitel \ref{chapter:Kapitel2} beschrieben gibt es zwei unterschiedliche Arten vom E-Learning Systemen. Lern-Management-Systeme (LMS) und Personal Learning Environments (PLE). Vertreter der klassischen LMS sind beispielsweise \href{https://moodle.org/}{Moodle}\footnote{\url{https://moodle.org/}} oder \href{http://www.sakaiproject.org/}{Sakai}\footnote{\url{http://www.sakaiproject.org/}}. Diese Systeme verfolgen einen sehr kurszentrierten Ansatz und werden hier nicht eingehender betrachtet, da sie nicht dem Konzept einer Personal Learning Environments entsprechen. In den Bereich der PLEs fallen Systeme, die es dem Anwender erlauben sich sein eigenes System aus Widgets zusammenzubauen, also wirklich als Informationsaggregatoren fungieren. Die zwei wichtigsten und verbreitetsten Vertreter dieser Art Anwendungen sind das von Google entwickelte \href{http://www.google.de/ig}{iGoogle}\footnote{\url{http://www.google.de/ig}} und \href{http://www.netvibes.com}{Netvibes}\footnote{\url{http://www.netvibes.com}}. Beide Systeme verfolgen den Ansatz einer personalisierbaren Homepage. Es ist möglich Widgets für die unterschiedlichsten Services aus einer Widgetdatenbank auszuwählen und dem System zuzuordnen. Die Widgets können innerhalb des Systemes unterschiedlichen frei definierbaren Arbeitsflächen sogenannten Workspaces oder Tabs zugewiesen und dort per Drag an Drop angeordnet werden. Als Widgetformat benutzt Netvibes die eigens entwickelte "`Universal Widget Api"' (\href{http://dev.netvibes.com/doc/uwa}{UWA}\footnote{\url{http://dev.netvibes.com/doc/uwa}}), welche erlaubt Widgets auf Basis von HTML, XML, und Javascript zu entwickeln. Für iGoogle hat Google die sogenannten \href{https://developers.google.com/gadgets/}{Google Gadgets}\footnote{\url{https://developers.google.com/gadgets/}} entworfen. Die in Abschnitt \ref{section:opensocial_gadgets} vorgestellten OpenSocial Gadgets basieren zum Großteil auf der Google Gadgets Spezifikation. Zusätzlich zu den eigenen Widgets werden auf der iGoogle Startseite neben einem standard Suchfeld für die Google Suche nicht entfernbare Direktlinks zu anderen Google-Services angeboten wie Calender, Google Drive oder Google+ angeboten. Weder das Netvibes noch das iGoogle Grundsystem stehen als Open Source im Quellcode zur Verfügung. Beide Systeme sind kostenlos, zusätzliche Funktionen (insbesondere für Business Anwendungen) können bei Netvibes für 499 Dollar im Monat dazugebucht werden. Google hat angekündigt das iGoogle-System zu Gunsten von des Chrome App Shops oder Google Play Marktplatzes für Android-Systeme zum 1. November 2013 abzuschalten \cite{Google2012}.
 
 In ihrer Funktionalität und Arbeitsweise ähneln sie sehr dem in dieser Arbeit zu entwickelnden System. Beide Systeme besitzen jedoch keine expliziten Funktionalitäten zum Offline-Arbeiten. Netvibes erlaubt es einzelne Artikel zum Beispiel in einem Newsfeed als "`zum später lesen"' zu markieren und herunterzuladen. Es gibt jedoch weder Möglichkeit die Seite erneut zu laden, wenn keine Internetverbindung besteht, noch eine Möglichkeit offline Weiterzuarbeiten und vorgenommene Änderungen bei einer erneuten Verbindung zu synchronisieren. 
+
+TODO Erweiterungen Moodle?
