@@ -2,6 +2,174 @@
 \label{chapter:Kapitel3}
 \lhead{Kapitel 3. \emph{Anforderungsanalyse}}  
 
+Das Ziel der vorliegenden Arbeit ist die prototypische Implementierung einer leichtgewichtigen Personal Learning Environment mit Offlinefähigkeiten auf Basis aktueller Technologien. In Abschnitt \ref{section:anwendungsfaelle} werden typische Anwendungsfälle beschrieben, die für ein solches System umgesetzt werden müssen. Auf Basis dieser Anwendungsfälle werden die funktionalen Anforderungen an das System abgeleitet. In Abschnitt \ref{section:nichtfunktionale_anforderunge} werden anschließend werden auf Basis von anderen Randbedingungen und Umständen weitere (nichtfunktionale) Anforderungen definiert.
+
+\section{Anwendungsfälle}\label{section:anwendungsfaelle}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./Figures/anwendungsfaelle_quer.pdf}
+    \rule{35em}{0.5pt}
+  \caption[Die wichtigsten Anwendungsfälle für die prototypische Personal Learning EnvironmentAnwendungsfälle der PLE]{Anwendungsfälle der PLE}
+  \label{fig:anwendungsfaelle}
+\end{figure}
+
+Im folgenden werden die Anwendungsfälle aus Abbildung \ref{fig:anwendungsfaelle} in textueller Form beschrieben. Aus diesen Beschreibungen werden dann direkt die funktionalen Anforderungen an das zu entwickelnde System abgeleitet.
+
+\subsection{Registrieren}
+\textbf{use case} \emph{Registrieren}\\
+\textbf{actors} Student\\
+\textbf{precondition} Das System ist online, der Student ist nicht eingeloggt und es existiert mindestens ein Workspace.\\
+\textbf{main flow} Der Student bekommt auf der Startseite die Möglichkeit sich für den Zugang zum System zu registrieren. Er füllt ein Formular mit seinen Daten (Vorname, Nachname, E-Mailadresse, Nutzername, Passwort) aus und schickt das Formular ab.\\
+\textbf{postcondition} Der Student ist mit einer Nutzername-/Passwortkombination und seiner E-Mailadresse im System hinterlegt und kann sich somit in das System einloggen.\\
+\textbf{exceptional flow} Nutzername oder Mail-Adresse bereits vorhanden. Nutzername und E-Mail-Adresse dürfen nur einmal im System vorkommen.\\
+\textbf{postcondition} Der Student bekommt eine Fehlermeldung und muss seine eingetragenen Daten ändern.
+ 
+Aus diesem Anwendungsfall folgt die funktionale Anforderung \emph{fA1}:\\
+\emph{fA1: Der Anwender muss sich selbständig in dem registrieren können.}
+ 
+\subsection{Login}
+\textbf{use case} \emph{Login}\\
+\textbf{actors} Student\\
+\textbf{precondition} Das System ist online, der Student ist nicht eingeloggt, ist aber in dem System registriert.\\
+\textbf{main flow} Der Student bekommt auf der Startseite die Möglichkeit sich im System anzumelden. Er füllt ein Formular mit seiner Nutzername-/Passwortkombination aus und schickt das Formular ab.\\
+\textbf{postcondition} Der Student ist im System eingeloggt und das System präsentiert ihm eine Übersicht über seine aktuellen Workspaces und die wichtigsten aggregierten Informationen dieser.
+ 
+Aus diesem Anwendungsfall folgen die funktionalen Anforderungungen \emph{fA2} und \emph{fA2}:\\
+\emph{fA2: Der Anwender muss sich sich in das System mit Nutzername und Passwort einloggen können.}\\
+\emph{fA3: Dem Anwender darf nur Zugriff auf die zu seinem Account gehörigen Workspaces und Widgets gewährt werden.}
+ 
+ \subsection{Logout}
+\textbf{use case} \emph{Logout}\\
+\textbf{actors} Student\\
+\textbf{precondition} Das System ist online, der Student ist eingeloggt.\\
+\textbf{main flow} Der Student wählt die Aktion "`Logout"' und wird anschließend auf die Login-Seite weitergeleitet.\\
+\textbf{postcondition} Die aktuelle Session des Anwenders ist beendet und es ist ohne weiteres Login nicht möglich auf die Daten des Anwenders zuzugreifen 
+ 
+Aus diesem Anwendungsfall folgen die funktionale Anforderung \emph{fA4} und \emph{fA5}:\\
+\emph{fA4: Der Anwender muss sich aus dem System ausloggen können.}\\
+\emph{fA5: Nach Beendigung der Anwender-Session, darf kein Zugriff mehr auf die Daten des Anwenders bestehen.}
+ 
+\subsection{Workspace hinzufügen}
+\textbf{use case} \emph{Workspace hinzufügen}\\
+\textbf{actors} Student\\
+\textbf{precondition} Das System ist online, der Student ist eingeloggt.\\
+\textbf{main flow} Der Student wählt die Aktion "`Workspace hinzufügen"'. Es öffnet sich hierdurch ein neuer Bereich, welcher einen neuen Workspace repräsentiert. Der Student hat nun die Möglichkeit den Workspace nach seinen Wünschen anzupasssen (extension point: Workspace bearbeiten).\\
+\textbf{postcondition} Ein neuer Workspace wurde dem System des Studenten hinzugefügt.
+ 
+Aus diesem Anwendungsfall folgt die funktionale Anforderungung \emph{fA6}:\\
+\emph{fA6: Der Anwender soll neue Workspaces in seine Lernumgebung einfügen können.}\\
+ 
+\subsection{Workspace bearbeiten}
+\textbf{use case} \emph{Workspace bearbeiten}\\
+\textbf{actors} Student\\
+\textbf{precondition} Das System ist online, der Student ist eingeloggt und es existiert mindestens ein Workspace.\\
+\textbf{main flow} Der Student wählt bei einem Workspace die Aktion "`Workspace bearbeiten"'. Der Anwender hat nun die Möglichkeit den Workspace nach seinen Wünschen zu benennen und kann Widgets zu dem Workspace hinzufügen (extension point: Widget hinzufügen).\\
+\textbf{postcondition} Der Workspace wurde nach den Vorstellungen des Akteures angepasst.
+ 
+\textbf{extend relationship}\\
+\textbf{base} "`Workspace hinzufügen"'\\
+\textbf{extensionPoint} Workspace bearbeiten\\
+\textbf{extension} "`Workspace bearbeiten"'
+ 
+Aus diesem Anwendungsfall folgt die funktionale Anforderungung \emph{fA7}:\\
+\emph{fA7: Der Anwender soll den Namen des Workspaces ändern können.}\\
+ 
+ \subsection{Workspace löschen}
+\textbf{use case} \emph{Workspace löschen}\\
+\textbf{actors} Student\\
+\textbf{precondition} Das System ist online, der Student ist eingeloggt und es existiert mindestens ein Workspace.\\
+\textbf{main flow} Der Student wählt bei einem Workspace die Aktion "`Workspace löschen"'. Es erscheint eine Rückfrage, welche eine Bestätigung des Löschvorganges (mitsamt aller Widgets) erfragt. Bei positiver Rückmeldung gibt das System die Nachricht des Löschens aus. \\
+\textbf{postcondition} Der Workspace und alle seine Widgets sind aus dem System entfernt.
+ 
+Aus diesem Anwendungsfall folgt die funktionale Anforderungung \emph{fA8}:\\
+\emph{fA8: Der Anwender soll einen Workspace löschen können.}\\
+
+\subsection{Widget hinzufügen}
+\textbf{use case} \emph{Widget hinzufügen}\\
+\textbf{actors} Student\\
+\textbf{precondition} Das System ist online, der Student ist eingeloggt und es existiert mindestens ein Workspace.\\
+\textbf{main flow} Der Student befindet sich in einem Workspace und wählt die Aktion "`Widget hinzufügen"' Es erscheint eine Maske in der die zur Verfügung stehenden Widgets ausgewählt werden können. Der Student wählt das gewünschte Widget und fügt es dem Workspace hinzu. Wenn gewünscht kann der Student die Liste der Widgets über Suchfilter einschränken (extension point: Widgets filtern)\\
+\textbf{postcondition} Das Widget wurde dem Workspace hinzugefügt.
+ 
+\textbf{extend relationship}\\
+\textbf{base} `Workspace bearbeiten"'\\
+\textbf{extensionPoint} Widget hinzufügen\\
+\textbf{extension} "`Widget hinzufügen"'
+
+Aus diesem Anwendungsfall folgt die funktionale Anforderungung \emph{fA9}:\\
+\emph{fA9: Der Anwender soll über ein Auswahlfeld Widgets zu Workspaces hinzufügen können.}\\ 
+
+\subsection{Widgets Filtern}
+\textbf{use case} \emph{Widgets Filtern}\\
+\textbf{actors} Student\\
+\textbf{precondition} Der Student ist dabei einem Workspace ein Widget hinzuzufügen.\\
+\textbf{main flow} Der Student gibt in einem Textfeld eine Zeichenkette an, nach der im Widgetnamen gesucht wird. Des weiteren kann er in einem binären Filter wählen, ob er nur Widgets angezeigt bekommen möchte, die in der Lage sind in einem Offline-Modus zu arbeiten.\\
+\textbf{postcondition} In der Liste der zur Auswahl stehenden Widgets werden nur noch diejenigen angezeigt, die der Filterung entsprechen.
+ 
+\textbf{extend relationship}\\
+\textbf{base} "`Widget hinzufügen"'\\
+\textbf{extensionPoint} Widgets filtern\\
+\textbf{extension} "`Widgets filtern"'
+ 
+Aus diesem Anwendungsfall folgen die funktionale Anforderung \emph{fA10} und \emph{fA11}:\\
+\emph{fA10: Der Anwender muss die zur Auswahl stehenden Widgets über ein Suchfeld einschränken können.}\\
+\emph{fA11: Der Anwender muss die zur Auswahl stehenden Widgets so einschränken können, dass in der Liste nur offline-fähige Widgets vorkommen.}
+ 
+ \subsection{Widget löschen}
+\textbf{use case} \emph{Widget löschen}\\
+\textbf{actors} Student\\
+\textbf{precondition} Das System ist online, der Student ist eingeloggt, er und es existiert mindestens ein Widget auf einem Workspace.\\
+\textbf{main flow} Der Student befindet sich in einem Workspace und wählt bei einem Widget die Aktion "`Widget löschen"'. Es erscheint eine Rückfrage, welche eine Bestätigung des Löschvorganges erfragt. Bei positiver Rückmeldung gibt das System die Nachricht des Löschens aus.
+\textbf{postcondition} Das Widget wurde aus dem System entfernt.
+ 
+Aus diesem Anwendungsfall folgt die funktionale Anforderungung \emph{fA12}:\\
+\emph{fA12: Der Anwender soll ein Widget löschen können.}\\
+ 
+\subsection{Anordnung der Widgets ändern}
+\textbf{use case} \emph{Anordnung der Widgets ändern}\\
+\textbf{actors}Student\\
+\textbf{precondition} Das System ist online, der Student ist eingeloggt und befindet sich auf der Seite eines Workspaces mit mindestens zwei Widgets.\\
+\textbf{main flow} Der Student hat die Möglichkeit die einzelnen Widgets innerhalb eines Workspaces über einen Drag and Drop Mechanismus neu anzuordnen. Er wählt hierfür ein Widget mit der Maus aus und zieht es an die gewünschte Position.\\
+\textbf{postcondition} Die Anordnung der Widgets innerhalb des Workspaces hat sich nach dem Wunsch des Studenten geändert.
+ 
+Aus diesem Anwendungsfall folgt die funktionale Anforderungung \emph{fA13}:\\
+\emph{fA13: Der Anwender muss in der Lage sein Widgets nach seinen Wünschen über einen Drag and Drop Mechanismus auf dem Workspace zu sortieren .}\\
+ 
+\section{Nichtunktionale Anforderungen}\label{section:nichtfunktionale_anforderunge}
+Randbedingungen, umstände etc
+ 
+\section{Zusammenfassung}
+Im den vorherigen Abschnitten wurden funktionale und nichtfunktionale Anforderungen an das zu entwickelnde System aufgestellt und beschrieben. In den folgenden zwei Tabellen sind diese Anforderungen noch einmal zusammengefasst.
+
+\renewcommand{\arraystretch}{1.4} 
+\begin{table}[h]
+\caption{Funktionale Anforderungen}
+\begin{tabularx}{\textwidth}{ l | X }
+\emph{fA1} & \emph{Der Anwender muss sich selbständig in dem registrieren können.} \\ \hline
+\emph{fA2} & \emph{Der Anwender muss sich sich in das System mit Nutzername und Passwort einloggen können.} \\ \hline
+\emph{fA3} & \emph{Dem Anwender darf nur Zugriff auf die zu seinem Account gehörigen Workspaces und Widgets gewährt werden.} \\ \hline
+\emph{fA4} & \emph{Der Anwender muss sich aus dem System ausloggen können.} \\ \hline
+\emph{fA5} & \emph{Nach Beendigung der Anwender-Session, darf kein Zugriff mehr auf die Daten des Anwenders bestehen.} \\ \hline
+\emph{fA6} & \emph{Der Anwender soll neue Workspaces in seine Lernumgebung einfügen können.} \\ \hline
+\emph{fA7} & \emph{Der Anwender soll den Namen des Workspaces ändern können.} \\ \hline
+\emph{fA8} & \emph{Der Anwender soll einen Workspace löschen können.} \\ \hline
+\emph{fA9} & \emph{Der Anwender soll über ein Auswahlfeld Widgets zu Workspaces hinzufügen können.} \\ \hline
+\emph{fA10} & \emph{Der Anwender muss die zur Auswahl stehenden Widgets über ein Suchfeld einschränken können.} \\ \hline
+\emph{fA11} & \emph{Der Anwender muss die zur Auswahl stehenden Widgets so einschränken können, dass in der Liste nur offline-fähige Widgets vorkommen.} \\ \hline
+\emph{fA12} & \emph{Der Anwender soll ein Widget löschen können.} \\\hline
+\emph{fA13} & \emph{Der Anwender muss in der Lage sein Widgets nach seinen Wünschen über einen Drag and Drop Mechanismus auf dem Workspace zu sortieren .} \\ \hline
+\end{tabularx}
+\label{table:funktionale_anforderungen}
+\end{table}
+
+\section{bla}
+Student 1 und Student 2 leben in Kamerun. Beide haben dort das Problem, dass der Internetzugriff aus mehreren Gründen nicht immer gegeben ist. Student 1 hat zu Hause keinen Internetzugang. Er hat nur die Möglichkeit in der Universität oder in einem Internetcafe online zu gehen. Student 2 hat einen Internetzugang, allerdings ist dieser relativ langsam und wird nach Zeit abgerechnet, so dass es vorteilhaft für ihn ist, wenn er nur für kurze Zeit online ist. Aus diesem Grund benötigen die beiden idealerweise ein System, welches ihnen die Möglichkeit bietet die neuesten Informationen auch offline zu lesen und zumindest rudimentär auch offline kleine Aufgaben zu erledigen. Diese sollten sich bei Wiederverbindung mit dem Internet mit den entsprechenden Services synchronisieren. Des Weiteren sollten sie in der Lage sein die Daten auch ohne Internetverbindung zwischen verschiedenen Rechnern auszutauschen. Insbesondere Student 1 sollte in der Lage seine Aktionen bei sich zu Hause vorzunehmen und die durchgeführten Änderungen dann an einem Rechner mit Internetanschluss zu synchronisieren. Die Anforderungen von Student 3 sind ähnlich gelagert. Er ist sehr viel unterwegs und erledigt daher viele kurze Aufgaben mit dem Smartphone. Auch hier ist eine Internetverbindung nicht immer gewährleistet ist oder sie wird temporär deaktiviert um die Akkulaufzeit zu verlängern. Durch die Arbeit an unterschiedlichen Rechnern mit potentiell unterschiedlichen Betriebssystemen, ist die Installation einer komplexen Software nicht ohne Weiteres möglich.
+
+Idealerweise nutzen alle Studenten das selbe Basissystem und können sich hier die benötigten Services und Applikationen so zusammenstellen wie es ihren Ansprüchen entspricht.
+
+
+Die Arbeit mit einer solchen Lernumgebung kann durch die folgenden Use-Cases beschrieben werden.
+
 Das Ziel der vorliegenden Arbeit ist die Planung und Implementierung eines Prototypen für eine leichtgewichtige Personal-Learning-Environment. Die Anforderungen an das finale System lassen sich aus dem in dem nächsten Abschnitt vorgestellten Use-Case ableiten, welcher die Arbeit mit dem System verdeutlichen soll.
 
 \section{Use Case}
