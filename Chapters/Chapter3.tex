@@ -145,25 +145,27 @@ Somit ergeben sich die nichtfunktionalen Anforderungen \emph{nfA1}, und \emph{nf
 \emph{nfA2. Die Services müssen über einen frei verfügbaren Standard in das System eingebunden werden können.}
 
 \subsection{Randbedingungen}
-Eine wichtige Randbedingung an das System ist der mögliche Einsatz in im Bezug auf die technologische Infrastruktur schwächeren Ländern wie Kamerun. Studenten in solchen Ländern  haben das Problem, dass der Internetzugriff aus mehreren Gründen nicht immer gegeben ist. Es ist beispielsweise möglich, dass sie an ihrem Wohnort keinen Internetzugang besitzen, sondern nur die Möglichkeit haben in der Universität oder in einem Internetcafe online zu gehen. Des weiteren kann ein vorhandener Internetzugang relativ langsam sein und nach Zeit abgerechnet werden, so dass es vorteilhaft ist, nur für kurze Zeit online zu sein. Aus diesen Gründen wird eine System benötigt, welches die Möglichkeit bietet die neuesten Informationen auch offline zu lesen und zumindest rudimentär offline kleine Aufgaben zu erledigen. Diese sollten sich bei Wiederverbindung mit dem Internet mit den entsprechenden Services synchronisieren. Die Möglichkeit der Offlinebenutzbarkeit des Systems spielt auch für die Verwendung auf aktuellen mobilen Geräten wie Smartphones oder Tablets eine wichtige Rolle. Eine Internetverbindung ist auch hier nicht immer gewährleistet oder sie kann temporär deaktiviert werden, um die Akkulaufzeit der Geräte zu verlängern. 
-Zusätzlich sollten die die Daten auch ohne Internetverbindung zwischen verschiedenen Rechnern ausgetauscht werden können, so dass gewisse Arbeiten an einem Rechner durchgeführt werden können und diese Arbeiten dann an einem Rechner mit Internetanschluss zu synchronisieren.
-Somit ergeben sich die nichtfunktionalen Anforderungen \emph{nfA3}, und \emph{nfA4}:\\
-\emph{nfA3: Das System muss den Anwender in die Lage versetzen mit den gewählten Services, zumindest rudimentär, offline zu arbeiten. Bei einer Verbindung mit dem Internet müssen die vorgenommenen Arbeiten synchronisiert werden.}\\
-\emph{nfA4: Die durchgeführten Arbeiten müssen offline zwischen unterschiedlichen Rechnern transportiert werden können.}
+Eine wichtige Randbedingung an das System ist der mögliche Einsatz in im Bezug auf die technologische Infrastruktur schwächeren Ländern wie Kamerun. Studenten in solchen Ländern  haben das Problem, dass der Internetzugriff aus mehreren Gründen nicht immer gegeben ist. Es ist beispielsweise möglich, dass sie an ihrem Wohnort keinen Internetzugang besitzen, sondern nur die Möglichkeit haben in der Universität oder in einem Internetcafe online zu gehen. Des weiteren kann ein vorhandener Internetzugang relativ langsam sein und nach Zeit abgerechnet werden, so dass es vorteilhaft ist, nur für kurze Zeit online zu sein. Aus diesen Gründen wird eine System benötigt, welches in der Lage ist zu erkennen, ob es online oder offline ist und die Möglichkeit bietet die neuesten Informationen auch offline zu lesen und zumindest rudimentär offline kleine Aufgaben zu erledigen. Diese sollten sich bei Wiederverbindung mit dem Internet mit den entsprechenden Services synchronisieren. Die Möglichkeit der Offlinebenutzbarkeit des Systems spielt auch für die Verwendung auf aktuellen mobilen Geräten wie Smartphones oder Tablets eine wichtige Rolle. Eine Internetverbindung ist auch hier nicht immer gewährleistet oder sie kann temporär deaktiviert werden, um die Akkulaufzeit der Geräte zu verlängern.
+Zusätzlich sollten die die Daten auch ohne Internetverbindung zwischen verschiedenen Rechnern ausgetauscht werden können, so dass gewisse Arbeiten an einem Rechner durchgeführt werden können und diese Arbeiten dann an einem Rechner mit Internetanschluss zu synchronisieren. Somit ist es auch notwendig, dass alle benötigten Anwendungsdaten zwischengespeichert werden und das System nach einem initialen Downloaden der Ressourcen auch offline gestartet werden kann.
+Daraus ergeben sich die nichtfunktionalen Anforderungen \emph{nfA3} - \emph{nfA6}:\\
+\emph{nfA3: Das System muss für die Applikation notwendigen Ressourcen zwischenspeichern, so dass es auch offline gestartet werden kann.}
+\emph{nfA4: Das System muss seinen Onlinestatus kennen und bemerken, wenn sich dieser ändert.}
+\emph{nfA5: Das System muss den Anwender in die Lage versetzen mit den gewählten Services, zumindest rudimentär, offline zu arbeiten. Bei einer Verbindung mit dem Internet müssen die vorgenommenen Arbeiten synchronisiert werden.}\\
+\emph{nfA6: Die durchgeführten Arbeiten müssen offline zwischen unterschiedlichen Rechnern transportiert werden können.}
 
 Dadurch, dass die Studenten an unterschiedlichen Rechnern mit potentiell unterschiedlichen Betriebssystemen, arbeiten, welche zum Teil nicht in ihrem persönlichen Besitz sind, ist es für sie nicht oder nur sehr schwer möglich eine neue Software zu installieren. Aus diesem Grund soll das System mit nativen Browsertechnologien ohne weitere Installation nutzbar sein:\\
-\emph{nfA5: Das System muss in aktuellen Browsern mit nativen Browsertechnologien ohne weitere Installation nutzbar sein.}
+\emph{nfA7: Das System muss in aktuellen Browsern mit nativen Browsertechnologien ohne weitere Installation nutzbar sein.}
 
 \subsection{Erweiterbarkeit}
-In dieser Arbeit kann nur eine prototypische Implementierung der Anforderungen erfolgen. Das System soll also als Basis für weitere Entwicklungen und Forschungsarbeiten dienen und einfach erweitert und verändert werden können. Das System muss als Aggregator für die unterschiedlichsten Services dienen. Es soll aus diesem Grund möglich sein auf Basis einer vorgegebenen Implementierung oder API weitere Services oder Kanäle in das System zu laden, welche ebenfalls offlinefähig sind und es so beständig in seiner Funktionalität zu erweitern. Schließlich wird die Software in unterschiedlichen Bereichen, insbesondere in einem universitären Umfeld eingesetzt. Dies verlangt eine Nutzbarkeit ohne Lizengebühren für die verwendeten Technologien, so dass für die Umsetzung keine proprietären, sondern nur freie Technologien verwendet werden dürfen. Aus diesen Punkten folgen die nichtfunktionalen Anforderungen \emph{nfA6}, \emph{nfA7} und \emph{nfA8}:\\
-\emph{nfA6: Das System muss einfach erweitert werden können.}\\
-\emph{nfA7: Es muss möglich sein über eine API oder eine vorgegebene Implementierung neue Services und Kanäle mit Offlinefähigkeiten in das System zu laden.}\\
-\emph{nfA8: Es dürfen keine proprietären, sondern nur freie Technologien für die Umsetzung des Systems genutzt werden.}
-
+In dieser Arbeit kann nur eine prototypische Implementierung der Anforderungen erfolgen. Das System soll also als Basis für weitere Entwicklungen und Forschungsarbeiten dienen und einfach erweitert und verändert werden können. Das System muss als Aggregator für die unterschiedlichsten Services dienen. Es soll aus diesem Grund möglich sein auf Basis einer vorgegebenen Implementierung oder API weitere Services oder Kanäle in das System zu laden, welche ebenfalls offlinefähig sind und es so beständig in seiner Funktionalität zu erweitern. Schließlich wird die Software in unterschiedlichen Bereichen, insbesondere in einem universitären Umfeld eingesetzt. Dies verlangt eine Nutzbarkeit ohne Lizengebühren für die verwendeten Technologien, so dass für die Umsetzung keine proprietären, sondern nur freie Technologien verwendet werden dürfen. Aus diesen Punkten folgen die nichtfunktionalen Anforderungen \emph{nfA8}, \emph{nfA9} und \emph{nfA10}:\\
+\emph{nfA8: Das System muss einfach erweitert werden können.}\\
+\emph{nfA9: Es muss möglich sein über eine API oder eine vorgegebene Implementierung neue Services und Kanäle mit Offlinefähigkeiten in das System zu laden.}\\
+\emph{nfA10: Es dürfen keine proprietären, sondern nur freie Technologien für die Umsetzung des Systems genutzt werden.}
  
 \section{Überblick über die Anforderungen}
 Im den vorherigen Abschnitten wurden funktionale und nichtfunktionale Anforderungen an das zu entwickelnde System aufgestellt und beschrieben. In den folgenden zwei Tabellen sind diese Anforderungen noch einmal zusammengefasst.
 
+\renewcommand{\arraystretch}{1.4} 
 \begin{table}[ht]
 \caption{Funktionale Anforderungen}
 \begin{tabularx}{\textwidth}{ l | X }
@@ -184,18 +186,19 @@ Im den vorherigen Abschnitten wurden funktionale und nichtfunktionale Anforderun
 \label{table:funktionale_anforderungen}
 \end{table}
 
-\renewcommand{\arraystretch}{1.4} 
 \begin{table}[ht]
 \caption{Nichtfunktionale Anforderungen}
 \begin{tabularx}{\textwidth}{ l | X }
 \emph{nfA1} & \emph{Das System muss als Aggregator für unterschiedliche externe Kanäle und Services dienen und dem Anwender die Arbeit mit ihnen an zentraler Stelle ermöglichen.} \\ \hline
 \emph{nfA2} & \emph{Die Services müssen über einen frei verfügbaren Standard in das System eingebunden werden können.} \\ \hline
-\emph{nfA3} & \emph{Das System muss den Anwender in die Lage versetzen mit den gewählten Services, zumindest rudimentär, offline zu arbeiten. Bei einer Verbindung mit dem Internet müssen die vorgenommenen Arbeiten synchronisiert werden.} \\ \hline
-\emph{nfA4} & \emph{Die durchgeführten Arbeiten müssen offline zwischen unterschiedlichen Rechnern transportiert werden können.} \\ \hline
-\emph{nfA5} & \emph{Das System muss in aktuellen Browsern mit nativen Browsertechnologien ohne weitere Installation nutzbar sein.} \\ \hline
-\emph{nfA6} & \emph{Das System muss einfach erweitert werden können.} \\ \hline
-\emph{nfA7} & \emph{Es muss möglich sein über eine API oder eine vorgegebene Implementierung neue Services und Kanäle mit Offlinefähigkeiten in das System zu laden.} \\ \hline
-\emph{nfA8} & \emph{Es dürfen keine proprietären, sondern nur freie Technologien für die Umsetzung des Systems genutzt werden.} \\ \hline
+\emph{nfA3} & \emph{Das System muss für die Applikation notwendigen Ressourcen zwischenspeichern, so dass es auch offline gestartet werden kann.} \\ \hline
+\emph{nfA4} & \emph{Das System muss seinen Onlinestatus kennen und bemerken, wenn sich dieser ändert.} \\ \hline
+\emph{nfA5} & \emph{Das System muss den Anwender in die Lage versetzen mit den gewählten Services, zumindest rudimentär, offline zu arbeiten. Bei einer Verbindung mit dem Internet müssen die vorgenommenen Arbeiten synchronisiert werden.} \\ \hline
+\emph{nfA6} & \emph{Die durchgeführten Arbeiten müssen offline zwischen unterschiedlichen Rechnern transportiert werden können.} \\ \hline
+\emph{nfA7} & \emph{Das System muss in aktuellen Browsern mit nativen Browsertechnologien ohne weitere Installation nutzbar sein.} \\ \hline
+\emph{nfA8} & \emph{Das System muss einfach erweitert werden können.} \\ \hline
+\emph{nfA9} & \emph{Es muss möglich sein über eine API oder eine vorgegebene Implementierung neue Services und Kanäle mit Offlinefähigkeiten in das System zu laden.} \\ \hline
+\emph{nfA19} & \emph{Es dürfen keine proprietären, sondern nur freie Technologien für die Umsetzung des Systems genutzt werden.} \\ \hline
 \end{tabularx}
 \label{table:nichtfunktionale_anforderungen}
 \end{table}
