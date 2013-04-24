@@ -633,10 +633,10 @@ Anwendungen W3C-Widgets<y:LabelModel>
                   <y:Geometry height="77.5" width="284.2075195312498" x="896.0000000000001" y="115.0"/>
                   <y:Fill color="#FFFFFF" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="73.84375" modelName="custom" textColor="#000000" visible="true" width="187.609375" x="48.299072265624886" y="1.828125">Anlegen, Bearbeiten, Löschen 
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="73.84375" modelName="custom" textColor="#000000" visible="true" width="182.787109375" x="50.710205078124886" y="1.828125">anlegen, bearbeiten, löschen 
 von Workspaces und Widgets
-Ausliefern der Ressourcen
-Ausliefern von Widget-
+ausliefern der Ressourcen
+ausliefern von Widget-
 Informationen (Wookie-URL)<y:LabelModel>
                       <y:SmartNodeLabelModel distance="4.0"/>
                     </y:LabelModel>
@@ -663,7 +663,7 @@ Informationen (Wookie-URL)<y:LabelModel>
                     </y:ModelParameter>
                   </y:NodeLabel>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="59.875" modelName="custom" textColor="#000000" visible="true" width="259.08203125" x="12.562744140625" y="6.3125">Backend des Plesynd-Todo-Listen-
-Widgets: Anlegen, Bearbeiten Löschen 
+Widgets: anlegen, bearbeiten, löschen 
 von Todo-Listen und Todo-Items
 (jedes Plesynd-Widget im eigenen Bundle)<y:LabelModel>
                       <y:SmartNodeLabelModel distance="4.0"/>
@@ -690,8 +690,8 @@ von Todo-Listen und Todo-Items
                       <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
                     </y:ModelParameter>
                   </y:NodeLabel>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" modelName="custom" textColor="#000000" visible="true" width="219.208984375" x="32.499267578125" y="4.484375">User Management:
-Registrieren, Bearbeiten von Usern,
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" modelName="custom" textColor="#000000" visible="true" width="215.189453125" x="34.509033203125" y="4.484375">User Management:
+registrieren, bearbeiten von Usern,
 Rechtemanagement (ACL)<y:LabelModel>
                       <y:SmartNodeLabelModel distance="4.0"/>
                     </y:LabelModel>
@@ -709,10 +709,10 @@ Rechtemanagement (ACL)<y:LabelModel>
                   <y:Geometry height="79.111328125" width="284.20751953125" x="896.0" y="406.9375"/>
                   <y:Fill color="#FFFFFF" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="73.84375" modelName="custom" textColor="#000000" visible="true" width="256.146484375" x="14.030517578125" y="2.6337890625">Kommunikation mit Wookie:
-Holen der Liste der verfügbaren Widgets, 
-Erstellen einer neuen Widgetinstanz in 
-Wookie, Übermittlung der Widget-Id 
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="73.84375" modelName="custom" textColor="#000000" visible="true" width="254.728515625" x="14.739501953125" y="2.6337890625">Kommunikation mit Wookie:
+holen der Liste der verfügbaren Widgets, 
+erstellen einer neuen Widgetinstanz in 
+Wookie, übermitteln der Widget-Id 
 an PlesyndBundle<y:LabelModel>
                       <y:SmartNodeLabelModel distance="4.0"/>
                     </y:LabelModel>
@@ -754,7 +754,7 @@ Authentifizierung
           <y:Path sx="304.989397670249" sy="-12.715651041045817" tx="-160.87254172668736" ty="-14.323072916045817"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="146.681640625" x="23.705617268880133" y="6.86430483046729">Laden von Workspaces 
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="143.330078125" x="25.381398518880133" y="6.864304830467233">laden von Workspaces 
 und der Liste der 
 verfügbaren Widgets<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
@@ -793,7 +793,7 @@ verfügbaren Widgets<y:LabelModel>
           <y:Path sx="304.9537467104717" sy="-192.82479425408008" tx="-160.8582025764328" ty="-194.43221612908008"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="171.8359375" x="11.137318929036383" y="13.84871825150202">Laden der Ressourcen 
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="171.8359375" x="11.137318929036383" y="13.84871825150202">laden der Ressourcen 
 (auch von Plesynd-Widgets)<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
@@ -831,9 +831,9 @@ verfügbaren Widgets<y:LabelModel>
           <y:Path sx="20.42279632688951" sy="240.30843884412025" tx="180.27024376268207" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="282.4609375" x="-151.02546625474588" y="86.3917157254117">Holt Liste der vergbaren Widgets,
-Anweisung zum Erstellen neue Widget Instanz
-Holt URI der Widget-Instanz<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="314.482421875" x="-162.54106435758217" y="83.83456723800691">holt Liste der verfügbaren Widgets,
+gibt Anweisung zum Erstellen neuer Widget Instanz
+holt URI der Widget-Instanz<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -852,8 +852,8 @@ Holt URI der Widget-Instanz<y:LabelModel>
           <y:Path sx="304.9966770129199" sy="164.3056365119549" tx="-160.82952427592377" ty="162.6982146369549"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="171.8359375" x="11.121144612630133" y="6.864365031968646">Anlegen, Bearbeiten, 
-Löschen von Entitäten
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="171.8359375" x="11.121144612630133" y="6.864365031968646">anlegen, bearbeiten, 
+löschen von Entitäten
 (auch von Plesynd-Widgets)<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
