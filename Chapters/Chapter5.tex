@@ -5,7 +5,7 @@ Das Ziel dieser Arbeit ist die Entwicklung eines leichtgewichtigen Prototypen ei
 
 Das vorliegende Kapitel liefert einen Überblick über die grundsätzliche Architektur von Plesynd und seiner Komponenten und eine Beschreibung des implementierten User-Interfaces.
 
-\section{Überblick über die Architektur von Plesynd}
+\section{Überblick über die Architektur von Plesynd}\label{section:plesynd_architektur}
 Abbildung \ref{fig:ueberblick_plesynd_komponenten} gibt einen Überblick über die wichtigsten Komponenten des entwickelten Systems und über deren Zusammenspiel. Plesynd selbst besteht aus zwei Komponenten, Plesynd-Client und Plesynd-Server. Diese liefern zusammen die Funktionalitäten, welche die gestellten Anforderungen erfüllen sollen. Zusätzlich zu den in dieser Arbeit entwickelten Komponenten wird Wookie als externe Komponente zum Ausliefern und Erstellen der Widgets verwendet.
 
 \begin{landscape}
@@ -34,11 +34,16 @@ Für die Abfrage welche Widgets grundsätzlich im System vorhanden sind verwende
 Als externe Komponente wird der W3C-Widget-Container Wookie (siehe \ref{section:widget_frameworks}) eingebunden. Dieser speichert die verfügbaren Widgets in einer internen Datenbank und kann Plesynd so eine Liste der auslieferbaren Widgets zur Verfügung stellen. Wookie hinterlegt außerdem jede einzelne erstellte Widget-Instanz samt ihrem Zustand und kann so das eigentliche Widget bei Bedarf an Plesynd-Client ausliefern. Diese Funktionalität ist die einzige, bei der Plesynd-Client direkt Kontakt zu Wookie aufnimmt, ansonsten wird die gesamte Kommunikation über Plesynd-Server abgewickelt. Zusätzlich zu diesen Anwendungsfällen bietet Wookie Werkzeuge an, um aus normalen HTML/Javascript-Applikationen ein W3C-Widget zu erstellen. Diese Funktionalität steht jedoch nicht über die Kommunikation mit Plesynd zur Verfügung, sondern muss über die Kommandozeile in Anspruch genommen werden.
 
 \section{User Interface}\label{section:user_interface}
-Das Ziel beim Design von Plesynd war es dem Nutzer die Bedienung so einfach wie möglich zu machen. Die wichtigsten Informationen sollten ihm direkt direkt zur Verfügung gestellt werden (sind alle Daten aktuell, welche Widgets werden benutzt, ist das System offline oder online etc). Widgets können gesucht, nach Offline-Kompatibilität gefiltert und dem System hinzugefügt werden. Es existiert ein Dashboard, welches dem Nutzer anzeigt welche Widgets auf welchen Workspaces zur Verfügung stehen und wie ihr Online-/Offline-Status ist. 
+Für die Umsetzung der Screen-Dimension (siehe \ref{section:dimensions_palmer}), also des User-Interfaces kommen in Plesynd drei wichtige Konzepte zum Einsatz: Dashboard, Widgets und Workspaces. Über Widgets werden die unterschiedlichen Werkzeuge und Services, die ein Nutzer innerhalb des Systems nutzen möchte eingebunden (siehe: Kapitel \ref{section:widgets}). Die Umsetzung der einzelnen Widgets liegt in der Hand des jeweiligen Designers. Das Ziel beim Design von Plesynd war es dem Nutzer die Bedienung so einfach wie möglich zu machen. Die wichtigsten Informationen sollten ihm direkt direkt zur Verfügung gestellt werden (sind alle Daten aktuell, welche Widgets werden benutzt, ist das System offline oder online etc). Widgets können gesucht, nach Offline-Kompatibilität gefiltert und dem System hinzugefügt werden. Es existiert ein Dashboard (siehe Abbildung \ref{fig:plesynd_dashboard}), welches dem Nutzer anzeigt welche Widgets auf welchen Workspaces zur Verfügung stehen und wie ihr Online-/Offline-Status ist.
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./Figures/plesynd_dashboard.png}
+    \rule{35em}{0.5pt}
+  \caption[Plesynd User-Interface: Dashboard]{Das Dashboard fasst die wichtigsten Informationen zusammen.}
+  \label{fig:plesynd_dashboard}
+\end{figure}
 
-Für die Umsetzung der Screen-Dimension, also des User-Interfaces kommen in Plesynd drei wichtige Konzepte zum Einsatz: Dashboard, Widgets und Workspaces. 
-
-Über Widgets werden die unterschiedlichen Werkzeuge und Services, die ein Nutzer innerhalb des Systems nutzen möchte eingebunden (siehe: Kapitel \ref{section:widgets}). Die Umsetzung der einzelnen Widgets liegt in der Hand des jeweiligen Designers. Da Plesynd Wookie als Widget Container benutzt, ist es möglich alle W3C-Widgets in das System einzubinden. Für diese Arbeit wurde ein Todo-Listen-Service entwickelt für den als prototypische Entwicklung ein Widget mit Online-/Offline-Fähigkeiten implementiert wurde. Besitzt ein Widget Online-/Offline-Fähigkeiten so erhält es eine von Plesynd zur Verfügung gestellte Statusleiste, in der der aktuelle Online-/Offline-Status, sowie die Anzahl der verfügbaren Items und der noch nicht synchronisierten Item angezeigt wird (Abbildungen \ref{fig:plesynd_workspace_online} und \ref{fig:plesynd_workspace_offline}).
+Da Plesynd Wookie als Widget Container benutzt, ist es möglich alle W3C-Widgets in das System einzubinden. Für diese Arbeit wurde ein Todo-Listen-Service entwickelt für den als prototypische Entwicklung ein Widget mit Online-/Offline-Fähigkeiten implementiert wurde. Besitzt ein Widget Online-/Offline-Fähigkeiten so erhält es eine von Plesynd zur Verfügung gestellte Statusleiste, in der der aktuelle Online-/Offline-Status, sowie die Anzahl der verfügbaren Items und der noch nicht synchronisierten Item angezeigt wird (Abbildungen \ref{fig:plesynd_workspace_online} und \ref{fig:plesynd_workspace_offline}).
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./Figures/plesynd_workspace_online.png}
@@ -62,12 +67,4 @@ Der Nutzer hat die Möglichkeit Widgets nach Themen oder Einsatzgebieten zu grup
   \caption[Plesynd User-Interface: Bearbeiten von Workspaces]{Workspaces können direkt bearbeitet werden.}
   \label{fig:plesynd_workspace_edit}
 \end{figure}
-
-Jedes Widget kann einem Workspace hinzugefügt werden. Die Position der Widgets innerhalb eines Workspaces kann über einen Drag and Drop Mechanismus angepasst werden. Die Startseite stellt als Dashboard die wichtigsten Informationen dar. Jeder Workspace wird in einer eigenen Tabelle inklusive seiner Widgets und der Anzahl der zur Verfügung stehenden Widgets präsentiert. Über direkte Links innerhalb des Dashboards ist es dem Nutzer möglich direkt zu dem gewünschten Workspace zu navigieren (siehe Abbildung \ref{fig:plesynd_dashboard}.
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./Figures/plesynd_dashboard.png}
-    \rule{35em}{0.5pt}
-  \caption[Plesynd User-Interface: Dashboard]{Das Dashboard fasst die wichtigsten Informationen zusammen.}
-  \label{fig:plesynd_dashboard}
-\end{figure}
+Jedes Widget kann einem Workspace hinzugefügt werden. Die Position der Widgets innerhalb eines Workspaces kann über einen Drag and Drop Mechanismus angepasst werden. Die Startseite stellt als Dashboard die wichtigsten Informationen dar. Jeder Workspace wird in einer eigenen Tabelle inklusive seiner Widgets und der Anzahl der zur Verfügung stehenden Widgets präsentiert. Über direkte Links innerhalb des Dashboards ist es dem Nutzer möglich direkt zu dem gewünschten Workspace zu navigieren (siehe Abbildung \ref{fig:plesynd_dashboard}).
