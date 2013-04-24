@@ -60,7 +60,7 @@ $scope.deleteWidget = function (widget) {
 \end{lstlisting}
 
 \subsubsection{Ressources/public/app/coruja-frame-messenger}
-Die coruja-frame-messenger Komponente stellt mit dem \texttt{parentFrameMessenger} und dem \texttt{childFrameMessenger} zwei Services zur Verfügung, die unter Zuhilfenahme des postmessage Plugins (siehe \ref{section:kommunikation_zwischen_iframes} die Kommunikation zwischen dem Eltern-Frame (Plesynd) und dem Kind-Frame (Widget) erlauben. Im \texttt{parentFrameMessenger} wird auf die Events gehört, welche im \texttt{childFrameMessenger} ausgelöst werden.
+Die coruja-frame-messenger Komponente stellt mit dem \texttt{parentFrameMessenger} und dem \texttt{childFrameMessenger} zwei Services zur Verfügung, die unter Zuhilfenahme des postmessage Plugins (siehe \ref{section:kommunikation_zwischen_iframes_implementierung} die Kommunikation zwischen dem Eltern-Frame (Plesynd) und dem Kind-Frame (Widget) erlauben. Im \texttt{parentFrameMessenger} wird auf die Events gehört, welche im \texttt{childFrameMessenger} ausgelöst werden.
 
 \subsubsection{Ressources/public/app/coruja-message}
 coruja-message erlaubt es den Anwender Rückmeldung zu seinen Aktionen zu geben (siehe Listing \ref{listing:confirmation_and_message}). Hierzu benutzt die Komponente den eine Direktive zur Erstellung des Containers, welche die Nachrichten ausgibt (\texttt{messageContainer}) und einen Service, welcher in den unterschiedlichen Controllern genutzt werden kann (\texttt{systemMessageService}). Wenn eine neue Nachricht an den Service übergeben wurde, löst dieser eine \texttt{systemMessageAdded}-Event aus, auf welches in der Direktive mit der Darstellung der Nachricht reagiert wird. 
