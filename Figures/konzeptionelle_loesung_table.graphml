@@ -633,11 +633,11 @@ Anwendungen W3C-Widgets<y:LabelModel>
                   <y:Geometry height="77.5" width="284.2075195312498" x="896.0000000000001" y="115.0"/>
                   <y:Fill color="#FFFFFF" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="73.84375" modelName="custom" textColor="#000000" visible="true" width="182.787109375" x="50.710205078124886" y="1.828125">anlegen, bearbeiten, löschen 
+                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="73.84375" modelName="custom" textColor="#000000" visible="true" width="221.04296875" x="31.582275390624886" y="1.828125">anlegen, bearbeiten, löschen 
 von Workspaces und Widgets
-ausliefern der Ressourcen
-ausliefern von Widget-
-Informationen (Wookie-URL)<y:LabelModel>
+ausliefern der Ressourcen (inkl. 
+manifest Datei), ausliefern von 
+Widget-Informationen (Wookie-URL)<y:LabelModel>
                       <y:SmartNodeLabelModel distance="4.0"/>
                     </y:LabelModel>
                     <y:ModelParameter>
@@ -812,7 +812,7 @@ verfügbaren Widgets<y:LabelModel>
           <y:Path sx="-17.585965944768986" sy="241.21548466045817" tx="-180.27024376268207" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="224.154296875" x="-183.82882432902508" y="62.187255189267034">Holt Wookie Instanz 
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="224.154296875" x="-183.82882432902508" y="62.187255189267034">holt Wookie Instanz 
 (mit von Wookie injiziertem JS-Code)<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
