@@ -337,47 +337,72 @@ nichtfunktional: Szenario, fiktiver Walkthrough, keine Zeit für Usability tests
 \subsection{Validierung der funktionalen Anforderungen}
 Die Validierung der funktionalen Anforderungen befasst sich primär mit der Analyse der Use-Cases und deren Umsetzung in Plesynd. Hierzu wird Bezug auf die in Kaptitel \ref{chapter:Kapitel5} vorgestellten Komponenten und das User-Interface genommen, um die Erfüllung der Anforderungen zu validieren
 
-\textbullet{} \emph{fA1: Der Anwender muss sich selbständig in dem registrieren können.}\\
+\textbullet{} \reqref{requirementRegistrieren} \emph{\requirementRegistrieren}\\
 Ist der Anwender noch nicht registriert, hat er die Möglichkeit ein Anmeldeformular (siehe Abbildung TODO) auszufüllen und dieses an den Server zu senden. Die gesendeten Daten werden validiert und führen Fehlerfall zu einer erneuten Darstellung des Formulars samt Fehlermeldung und im Erfolgsfall zu einer Mitteilung an den Anwender einem neuen Nutzer innerhalb des Plesynd-Systems.
 
-\textbullet{} \emph{fA2: Der Anwender muss sich sich in das System mit Nutzername und Passwort einloggen können.}\\
+\textbullet{} \reqref{requirementLogin} \emph{\requirementLogin}\\
 Plesynd-Server hinterlegt die registrierten Anwender in einer Datenbank. Plesynd-Client bietet dem Nutzer die Möglichkeit sich über ein Formular an dem System anzumelden (siehe Abbildung TODO)
 
-\textbullet{} \emph{fA3: Dem Anwender darf nur Zugriff auf die zu seinem Account gehörigen Workspaces und Widgets gewährt werden.}\\
-Plesyndbenutzt wie Abbildung \ref{fig:ueberblick_plesynd_komponenten} zeigt auf Serverseite Access-Control-Lists und hinterlegt damit für jeden Workspace und jedes Widget welcher Anwender diese erstellt und damit auch Zugriff auf sie hat. Andere Nutzer erhalten auch, wenn sie den Link zu einem Workspace kennen keinen Zugriff darauf. Ähnliches gilt auch für die mit Hilfe des Todo-Listen-Widgets erstellten 
+\textbullet{} \reqref{requirementZugriffAufEigeneWidgets} \emph{\requirementZugriffAufEigeneWidgets}\\
+Plesynd benutzt wie Abbildung \ref{fig:ueberblick_plesynd_komponenten} zeigt auf Serverseite Access-Control-Lists und hinterlegt damit für jeden Workspace und jedes Widget welcher Anwender diese erstellt und damit auch Zugriff auf sie hat. Andere Nutzer erhalten auch, wenn sie den Link zu einem Workspace kennen keinen Zugriff darauf. Ähnliches gilt auch für die mit Hilfe des Todo-Listen-Widgets erstellten 
 
-\textbullet{} \emph{fA4: Der Anwender muss sich aus dem System ausloggen können.}\\
+\textbullet{} \reqref{requirementLogout} \emph{\requirementLogout}\\
 Klickt der Anwender auf den Link Logout (siehe Abbildung TODO), beendet das System seine Session und leitet ihn wieder auf die Login-Seite um. 
 
-\textbullet{} \emph{fA5: Nach Beendigung der Anwender-Session, darf kein Zugriff mehr auf die Daten des Anwenders bestehen.}\\
+\textbullet{} \reqref{requirementKeinZugriffNachLogout} \emph{\requirementKeinZugriffNachLogout}\\
 Klickt der Anwender auf den Logout-Link, so wird seine Session auf dem Server beendet. Dies bedeutet, dass jeder weitere Request zu einem Fehler (403-Error) führt, welcher das System dazu veranlasst dem Anwender erneut die Login-Seite zu präsentieren. Es ist somit kein weiterer Zugriff auf die Daten möglich. Das System löscht bei einem Logout auch die Daten aus dem Local-Storage des Browsers. Dies ist in der momentanen Umsetzung jedoch nicht für den Local-Storage der einzelnen Widgets möglich. Somit kann ein anderer Anwender sich theoretisch den Local-Storage mit Werkzeugen wie Firebug oder den Chrome-Developer-Tools anschauen und so die Daten zwar nicht ändern, aber doch lesen. Dieses Problem müsste in einer Erweiterung des Plesynd-Systems gelöst werden.
 
-\textbullet{} \emph{fA6: Der Anwender muss neue Workspaces in seine Lernumgebung einfügen können.}\\
+\textbullet{} \reqref{requirementWorkspaceAdd} \emph{\requirementWorkspaceAdd}\\
 Mit einem Klick auf den Hinzufügen Button in der Reiternavigation des Systems wird direkt eine neuer Workspace zu dem System hinzugefügt.
 
-\textbullet{} \emph{fA7: Der Anwender muss den Namen des Workspaces ändern können.}\\
+\textbullet{} \reqref{requirementWorkspaceEdit} \emph{\requirementWorkspaceEdit}\\
 In der Reiternavigation von Plesynd befindet sich neben einem aktiven Workspace ein Icon (siehe Abbildung \ref{fig:plesynd_workspace_edit}). Aktiviert der Anwender dieses öffnet sich ein Bereich zum Bearbeiten des Workspaces. In diesem kann der Name direkt geändert werden.
 
-\textbullet{} \emph{fA8: Der Anwender muss einen Workspace löschen können.}\\
+\textbullet{} \reqref{requirementWorkspaceDelete} \emph{\requirementWorkspaceDelete}\\
 In dem Bereich zum Ändern des Workspace befindet sich auch ein Button zum Löschen desselben (siehe Abbildung \ref{fig:plesynd_workspace_edit}). Klickt der Anwender auf diesen, so wird ihm ein Rückfragefenster präsentiert. Bestätigt er hier das Löschen, wird der Workspace samt seinen Widgets aus dem System entfernt. 
 
-\textbullet{} \emph{fA9: Der Anwender muss über ein Auswahlfeld Widgets zu Workspaces hinzufügen können.}\\
+\textbullet{} \reqref{requirementWidgetAdd} \emph{\requirementWidgetAdd}\\
 Im Bereich zum Bearbeiten eines Workspaces wird dem Anwender eine Maske zum Hinzufügen von Widgets angezeigt (siehe Abbildung \ref{fig:plesynd_workspace_edit}). Hier ist es ihm möglich ein Widget aus der Liste der zur Verfügung stehende Widgets auszuwählen. Wird ein Widget ausgwählt, werden dem Anwender die wichtigsten Informationen zu diesem Widget präsentiert. Bei Klick auf einen Button zum Hinzufügen wird das ausgwählte Widget an der nächste freien Position dem Workspace angehängt.
 
-\textbullet{} \emph{fA10: Der Anwender muss die zur Auswahl stehenden Widgets über ein Suchfeld einschränken können.}\\
+\textbullet{} \reqref{requirementWidgetFilterName} \emph{\requirementWidgetFilterName}\\
 Plesynd-Client bietet dem Anwender in der Maske zum Hinzufügen von Widgets einen eigenen Bereich an, in dem nach dem Namen des Widgets gesucht werden kann (siehe Abbildung \ref{fig:plesynd_workspace_edit}). Diese Suche findet nur auf dem Client statt, sendet also keine weiteren Anfragen an Plesynd-Server.
 
-\textbullet{} \emph{fA11: Der Anwender muss die zur Auswahl stehenden Widgets so einschränken können, dass in der Liste nur offline-fähige Widgets vorkommen.}\\
+\textbullet{} \reqref{requirementWidgetFilterOnline} \emph{\requirementWidgetFilterOnline}\\
 Der in der Analyse der Anforderung \emph{fA10} vorgestellte Suchbereich, enthält neben dem Suchfeld noch einen Filter-Button, der es erlaubt nur offline-fähige Widgets anzuzeigen (siehe Abbildung \ref{fig:plesynd_workspace_edit}). Diese Filterung findet wie die Suche nur auf dem Client statt 
 
-\textbullet{} \emph{fA12 Der Anwender muss ein Widget löschen können.}\\
+\textbullet{} \reqref{requirementWidgetDelete} \emph{\requirementWidgetDelete}\\
 Ein Widget kann mit einem Klick auf einen entfernen Button auf die Widget-Statusleiste (siehe Abbildung \ref{fig:plesynd_workspace_edit}) oder auf dem Dashboard (siehe Abbildung \ref{fig:plesynd_dashboard}) entfernt werden. Dem Anwender wird ein Rückfragefenster präsentiert. Bestätigt er hier das Löschen, wird das Widget aus dem Workspace und damit auch aus dem System entfernt.
 
-\textbullet{} \emph{fA13 Der Anwender muss in der Lage sein Widgets nach seinen Wünschen über einen Drag and Drop Mechanismus auf dem Workspace zu sortieren .}\\
+\textbullet{} \reqref{requirementWidgetSortDragNDrop} \emph{\requirementWidgetSortDragNDrop}\\
 Befindet sich der Anwender auf einem Workspace und hat dieser Workspace mehr als ein Widget, so ist der Anwender in der Lage mit einem Klick auf die Widget-Statusleiste die Widgets per Drag and Drop auf dem Workspace neu anzuordnen (siehe Abbildung TODO). Die neuen Positionen werden direkt an den Server weitergegeben und somit persistiert.
 
-\subsection{Validierung der nichtfunktionalen Anforderungen}
+\textbullet{} \reqref{requirementWidgetInformSystem} \emph{\requirementWidgetInformSystem}\\
 
-\subsection{Zusammenfassung}
+\textbullet{} \reqref{requirementDashboard} \emph{\requirementDashboard}\\
+
+\textbullet{} \reqref{requirementCheckOnlineStatus} \emph{\requirementCheckOnlineStatus}\\
+
+\textbullet{} \reqref{requirementOfflineStart} \emph{\requirementOfflineStart}\\
+
+\textbullet{} \reqref{requirementOfflineWork} \emph{\requirementOfflineWork}\\
+
+\textbullet{} \reqref{requirementOnlineSync} \emph{\requirementOnlineSync}\\
+
+
+\subsection{Validierung der nichtfunktionalen Anforderungen}
+\textbullet{} \reqref{requirementAggregator} \emph{\requirementAggregator}\\
+
+\textbullet{} \reqref{requirementWidgetStandard} \emph{\requirementWidgetStandard}\\
+
+\textbullet{} \reqref{requirementUsbStick} \emph{\requirementUsbStick}\\
+
+\textbullet{} \reqref{requirementUsageInBrowser} \emph{\requirementUsageInBrowser}\\
+
+\textbullet{} \reqref{requirementExtensibility} \emph{\requirementExtensibility}\\
+
+\textbullet{} \reqref{requirementNewWidgetsWithApi} \emph{\requirementNewWidgetsWithApi}\\
+
+\textbullet{} \reqref{requirementOpenSource} \emph{\requirementOpenSource}\\
+
 
 
