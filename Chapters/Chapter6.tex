@@ -330,81 +330,54 @@ ParentFrameMessenger.prototype.initialize = function () {
 \end{lstlisting}
 
 \section{Evaluation}
+In diesem Abschnitt wird die in Kapitel \ref{chapter:Kapitel5} vorgestellte Lösung analysiert
 
+nichtfunktional: Szenario, fiktiver Walkthrough, keine Zeit für Usability tests etc
 
+\subsection{Validierung der funktionalen Anforderungen}
+Die Validierung der funktionalen Anforderungen befasst sich primär mit der Analyse der Use-Cases und deren Umsetzung in Plesynd. Hierzu wird Bezug auf die in Kaptitel \ref{chapter:Kapitel5} vorgestellten Komponenten und das User-Interface genommen, um die Erfüllung der Anforderungen zu validieren
 
-\section{Use Case}
+\textbullet{} \emph{fA1: Der Anwender muss sich selbständig in dem registrieren können.}\\
+Ist der Anwender noch nicht registriert, hat er die Möglichkeit ein Anmeldeformular (siehe Abbildung TODO) auszufüllen und dieses an den Server zu senden. Die gesendeten Daten werden validiert und führen Fehlerfall zu einer erneuten Darstellung des Formulars samt Fehlermeldung und im Erfolgsfall zu einer Mitteilung an den Anwender einem neuen Nutzer innerhalb des Plesynd-Systems.
 
-Die Arbeit mit einer solchen Lernumgebung kann durch die folgenden Use-Cases beschrieben werden.
+\textbullet{} \emph{fA2: Der Anwender muss sich sich in das System mit Nutzername und Passwort einloggen können.}\\
+Plesynd-Server hinterlegt die registrierten Anwender in einer Datenbank. Plesynd-Client bietet dem Nutzer die Möglichkeit sich über ein Formular an dem System anzumelden (siehe Abbildung TODO)
 
-Das Ziel der vorliegenden Arbeit ist die Planung und Implementierung eines Prototypen für eine leichtgewichtige Personal-Learning-Environment. Die Anforderungen an das finale System lassen sich aus dem in dem nächsten Abschnitt vorgestellten Use-Case ableiten, welcher die Arbeit mit dem System verdeutlichen soll.
-Der folgende Use-Case soll durch das finale System idealerweise abgedeckt werden:
+\textbullet{} \emph{fA3: Dem Anwender darf nur Zugriff auf die zu seinem Account gehörigen Workspaces und Widgets gewährt werden.}\\
+Plesyndbenutzt wie Abbildung \ref{fig:ueberblick_plesynd_komponenten} zeigt auf Serverseite Access-Control-Lists und hinterlegt damit für jeden Workspace und jedes Widget welcher Anwender diese erstellt und damit auch Zugriff auf sie hat. Andere Nutzer erhalten auch, wenn sie den Link zu einem Workspace kennen keinen Zugriff darauf. Ähnliches gilt auch für die mit Hilfe des Todo-Listen-Widgets erstellten 
 
-\subsection{Akteure}
+\textbullet{} \emph{fA4: Der Anwender muss sich aus dem System ausloggen können.}\\
+Klickt der Anwender auf den Link Logout (siehe Abbildung TODO), beendet das System seine Session und leitet ihn wieder auf die Login-Seite um. 
 
-\begin{itemize}
- \item Dozent mit Sitz in Hagen
- \item Student 1 mit Sitz in Kamerun (Fernuni Hagen)
- \item Student 2 mit Sitz in Kamerun (Fernuni Hagen)
- \item Student 3 mit Sitz in Berlin (Fernuni Hagen)
- \item Student 4 mit Sitz in Osnabrück (Universität Osnabrück) 
-\end{itemize}
+\textbullet{} \emph{fA5: Nach Beendigung der Anwender-Session, darf kein Zugriff mehr auf die Daten des Anwenders bestehen.}\\
+Klickt der Anwender auf den Logout-Link, so wird seine Session auf dem Server beendet. Dies bedeutet, dass jeder weitere Request zu einem Fehler (403-Error) führt, welcher das System dazu veranlasst dem Anwender erneut die Login-Seite zu präsentieren. Es ist somit kein weiterer Zugriff auf die Daten möglich. Das System löscht bei einem Logout auch die Daten aus dem Local-Storage des Browsers. Dies ist in der momentanen Umsetzung jedoch nicht für den Local-Storage der einzelnen Widgets möglich. Somit kann ein anderer Anwender sich theoretisch den Local-Storage mit Werkzeugen wie Firebug oder den Chrome-Developer-Tools anschauen und so die Daten zwar nicht ändern, aber doch lesen. Dieses Problem müsste in einer Erweiterung des Plesynd-Systems gelöst werden.
 
-\subsection{Ausgangssituation}\label{section:ausgangssituation}
-Der Dozent betreut an der Fernuni Hagen unter anderem den Kurs "`E-Learning: A new approach"'. Hierfür haben auch die Studenten 1 und 3 eingeschrieben. Für diesen Kurs hat der Dozent mehrere Kanäle zur Kommunikation angelegt. Die Studenten sollen die Kanäle wählen, die ihren Arbeitsgewohnten am meisten entsprechen. Am Ende des Semesters soll es eine Auswertung geben, welche Kanäle am häufigsten genutzt und welche von den Studenten eher ignoriert wurden. Parallel dazu werden die Systeme der Fernuni zur Online Bearbeitung der Einsendeaufgaben genutzt. Die vom Dozenten angelegten Kommunikationskanäle sind:
+\textbullet{} \emph{fA6: Der Anwender muss neue Workspaces in seine Lernumgebung einfügen können.}\\
+Mit einem Klick auf den Hinzufügen Button in der Reiternavigation des Systems wird direkt eine neuer Workspace zu dem System hinzugefügt.
 
-\begin{itemize}
- \item ein Twitter Channel
- \item eine Facebookgruppe
- \item einen eigenen Google-Calender
- \item einen Chat
- \item zur Terminabsprache und Abstimmung der nächsten Schritte soll Doodle verwendet werden
- \item ein System zur Hinterlegung von Todo-Listen
- \item einen eigenen Blog, welcher einen RSS Feed bereitstellt 
- \item Etherpad Lite soll zur gemeinsamen Erstellung von Texten genutzt werden
-\end{itemize}
+\textbullet{} \emph{fA7: Der Anwender muss den Namen des Workspaces ändern können.}\\
+In der Reiternavigation von Plesynd befindet sich neben einem aktiven Workspace ein Icon (siehe Abbildung \ref{fig:plesynd_workspace_edit}). Aktiviert der Anwender dieses öffnet sich ein Bereich zum Bearbeiten des Workspaces. In diesem kann der Name direkt geändert werden.
 
-Die Studenten sind angehalten sich regelmäßig über Aktualisierungen der Kanäle auf dem Laufenden zu halten.
+\textbullet{} \emph{fA8: Der Anwender muss einen Workspace löschen können.}\\
+In dem Bereich zum Ändern des Workspace befindet sich auch ein Button zum Löschen desselben (siehe Abbildung \ref{fig:plesynd_workspace_edit}). Klickt der Anwender auf diesen, so wird ihm ein Rückfragefenster präsentiert. Bestätigt er hier das Löschen, wird der Workspace samt seinen Widgets aus dem System entfernt. 
 
-Zusätzlich haben sich Student 1, 2 und 4 zu einer virtuellen Lerngruppe zum Thema Datenbanken zusammengeschlossen. Hierfür können nicht die Systeme der Fernuni Hagen genutzt werden, da nur Student 2 momentan in dem spezifischen Kurs eingeschrieben ist. Student 1 hat sich nicht für den Kurs angemeldet und Student 4 hat überhaupt keine Möglichkeit dazu, da er nicht an der Fernuni immatrikuliert ist. Sie haben sich dazu entschlossen primär einen Chat zur Kommunikation zu benutzen.
+\textbullet{} \emph{fA9: Der Anwender muss über ein Auswahlfeld Widgets zu Workspaces hinzufügen können.}\\
+Im Bereich zum Bearbeiten eines Workspaces wird dem Anwender eine Maske zum Hinzufügen von Widgets angezeigt (siehe Abbildung \ref{fig:plesynd_workspace_edit}). Hier ist es ihm möglich ein Widget aus der Liste der zur Verfügung stehende Widgets auszuwählen. Wird ein Widget ausgwählt, werden dem Anwender die wichtigsten Informationen zu diesem Widget präsentiert. Bei Klick auf einen Button zum Hinzufügen wird das ausgwählte Widget an der nächste freien Position dem Workspace angehängt.
 
-\subsubsection{Einschränkungen/Umstände}
-Student 1 und Student 2 leben in Kamerun. Beide haben dort das Problem, dass der Internetzugriff aus mehreren Gründen nicht immer gegeben ist. Student 1 hat zu Hause keinen Internetzugang. Er hat nur die Möglichkeit in der Universität oder in einem Internetcafe online zu gehen. Student 2 hat einen Internetzugang, allerdings ist dieser relativ langsam und wird nach Zeit abgerechnet, so dass es vorteilhaft für ihn ist, wenn er nur für kurze Zeit online ist. Aus diesem Grund benötigen die beiden idealerweise ein System, welches ihnen die Möglichkeit bietet die neuesten Informationen auch offline zu lesen und zumindest rudimentär auch offline kleine Aufgaben zu erledigen. Diese sollten sich bei Wiederverbindung mit dem Internet mit den entsprechenden Services synchronisieren. Des Weiteren sollten sie in der Lage sein die Daten auch ohne Internetverbindung zwischen verschiedenen Rechnern auszutauschen. Insbesondere Student 1 sollte in der Lage seine Aktionen bei sich zu Hause vorzunehmen und die durchgeführten Änderungen dann an einem Rechner mit Internetanschluss zu synchronisieren. Die Anforderungen von Student 3 sind ähnlich gelagert. Er ist sehr viel unterwegs und erledigt daher viele kurze Aufgaben mit dem Smartphone. Auch hier ist eine Internetverbindung nicht immer gewährleistet ist oder sie wird temporär deaktiviert um die Akkulaufzeit zu verlängern. Durch die Arbeit an unterschiedlichen Rechnern mit potentiell unterschiedlichen Betriebssystemen, ist die Installation einer komplexen Software nicht ohne Weiteres möglich.
+\textbullet{} \emph{fA10: Der Anwender muss die zur Auswahl stehenden Widgets über ein Suchfeld einschränken können.}\\
+Plesynd-Client bietet dem Anwender in der Maske zum Hinzufügen von Widgets einen eigenen Bereich an, in dem nach dem Namen des Widgets gesucht werden kann (siehe Abbildung \ref{fig:plesynd_workspace_edit}). Diese Suche findet nur auf dem Client statt, sendet also keine weiteren Anfragen an Plesynd-Server.
 
-Idealerweise nutzen alle Studenten das selbe Basissystem und können sich hier die benötigten Services und Applikationen so zusammenstellen wie es ihren Ansprüchen entspricht.
+\textbullet{} \emph{fA11: Der Anwender muss die zur Auswahl stehenden Widgets so einschränken können, dass in der Liste nur offline-fähige Widgets vorkommen.}\\
+Der in der Analyse der Anforderung \emph{fA10} vorgestellte Suchbereich, enthält neben dem Suchfeld noch einen Filter-Button, der es erlaubt nur offline-fähige Widgets anzuzeigen (siehe Abbildung \ref{fig:plesynd_workspace_edit}). Diese Filterung findet wie die Suche nur auf dem Client statt 
 
-\subsection{Arbeitsabläufe}
-Im Folgenden werden die unterschiedlichen Arbeitsabläufe mit dem System exemplarisch an Student 1 und an Student 3 dargelegt.
+\textbullet{} \emph{fA12 Der Anwender muss ein Widget löschen können.}\\
+Ein Widget kann mit einem Klick auf einen entfernen Button auf die Widget-Statusleiste (siehe Abbildung \ref{fig:plesynd_workspace_edit}) oder auf dem Dashboard (siehe Abbildung \ref{fig:plesynd_dashboard}) entfernt werden. Dem Anwender wird ein Rückfragefenster präsentiert. Bestätigt er hier das Löschen, wird das Widget aus dem Workspace und damit auch aus dem System entfernt.
 
-\subsubsection{Grundsätzlicher Arbeitsablauf für Studenten}
-Um mit der PLE arbeiten zu können müssen die Studenten als erstes online eine Account in dem PLE-System erstellen. Anschließend melden sie sich mit ihren gewählten Login-Daten an. Bei erfolgreicher Anmeldung hat der Anwender die Möglichkeit direkt Workspaces zu erstellen, mit diesen zu arbeiten (Workspace umbenennen, Einstellungen vornehmen, Widgets hinzufügen etc).
+\textbullet{} \emph{fA13 Der Anwender muss in der Lage sein Widgets nach seinen Wünschen über einen Drag and Drop Mechanismus auf dem Workspace zu sortieren .}\\
+Befindet sich der Anwender auf einem Workspace und hat dieser Workspace mehr als ein Widget, so ist der Anwender in der Lage mit einem Klick auf die Widget-Statusleiste die Widgets per Drag and Drop auf dem Workspace neu anzuordnen (siehe Abbildung TODO). Die neuen Positionen werden direkt an den Server weitergegeben und somit persistiert.
 
-\subsubsection{Arbeitsablauf Student 1}
-\begin{itemize}
- \item \emph{Tag 1:} Student 1 befindet sich in der Universität und verbindet seinen USB-Stick mit einem PC. Auf diesem Stick befindet sich die ausführbare mobiler Version eines aktuellen Browsers. Er öffnet die Applikation online in diesem Browser (alle folgenden Aktionen werden mit dem selben Browser durchgeführt). Student 1 erstellt einen neuen Workspace und benennt ihn in "`PLE"' um. Anschließend sucht er die Widgets für den PLE Workspace aus der Widget-Datenbank heraus. Das System zeigt ihm dabei an, für welche Widgets eine Offline-Fähigkeit zur Verfügung steht. Daraufhin organisiert er die Anordnung der Widgets nach seinen Vorstellungen per Drag and Drop neu. Damit er mit den einzelnen Widgets auch arbeit kann meldet sich Student 1 schließlich bei den jeweiligen Services mit seinen Account-Daten an. Bevor er den Browser schließt haben sich alle Widgets mit ihren Services synchronisiert und zeigen ihm dies auch an.
- \item \emph{Tag 2:} Student 1 loggt sich an der Uni in das PLE-System ein. Das System zeigt ihm auf der Startseite (dem Dashboard) an wie viele neue Items es auf seinem PLE Workspace gibt. Ein direkter Link führt ihn zum Workspace. Er sieht, dass momentan mehrere Leute im Chat sind und unterhält sich über das Widget mit ihnen. Der Dozent hat einige globale Todos angelegt und die ersten Nachrichten kommen über den Twitter Channel herein. Nach einiger Zeit klickt Student 1 auf “jetzt offline gehen” wodurch alle Widgets seines Workspaces auf den neuesten Stand gebracht werden. Er sieht, dass Student 3 einen längeren Text im Chat geschrieben hat, beschließt diesen jedoch später zu lesen. Gleiches gilt für den Einführungsartikel des Dozenten im Kursblog. Hierfür erstellt er sich Items in seiner Todo-Liste. Abschließend schließt Student 1 den Browser und entfernt den USB-Stick.
- \item \emph{Tag 3:} Student 1 öffnet die Applikation in seinem mobilen Browser zu Hause. Das System erkennt, dass es sich im Offline-Modus befindet und versucht keine Synchronisierung mit dem Internet herzustellen. Student 1 liest den Text, den Student 3 im Chat hinterlegt hat und beantwortet die darin gestellten Fragen ebenfalls im Chatfenster. Anschließend teilt er dies über Twitter mit und erledigt sein Todo-Item.
- \item \emph{Tag 4:} Student 1 loggt sich im Internet-Cafe mit seinem mobilen Browser in das System ein. Das System erkennt, dass es online ist, lädt die neuesten Items der Services herunter und synchronisiert die nur lokal vorgenommenen Aktionen (Twitter, Chat, Todo). Per Mail hat Student 1 den Vorschlag von Student 2 bekommen gemeinsam mit Student 4 eine Lerngruppe zum Thema Datenbanken zu gründen. Hierzu wollen sie unter anderem ein Chat-System benutzen. Student 1 schlägt per Mail das ihm bekannte Chat-Widget für die PLE-Applikation vor. Er erstellt einen neuen Workspace, nennt ihn “Lerngruppe DB” und fügt das Chat-Widget mit den passenden Einstellungen hinzu.
- \item \emph{Tag 5:} Student 1 sieht in seinem Dashboard, dass es für den Workspace “Lerngruppe DB” 12 neue Items gibt. Er geht direkt zu dem Workspace und stellt fest, dass die beiden anderen Studenten sich ebenfalls in dem Chat angemeldet haben. Da momentan alle online verfügbar sind, beginnen sie ihre erste Gruppenunterhaltung und planen die weitere Vorgehensweise.
-\end{itemize}
+\subsection{Validierung der nichtfunktionalen Anforderungen}
 
-\subsubsection{Arbeitsablauf Student 3}
-Student 3 nutzt das System hauptsächlich mit seinem Tablet, welches in der Lage ist sich über Wlan, sowie UMTS mit dem Internet zu verbinden.
-
-\begin{itemize}
- \item \emph{Tag 1:} Student 3 meldet sich ähnlich wie Student 1 in der PLE an und erstellt für seine Uni-Kurse jeweils einen Workspace. Außerdem legt er sich einen Workspace an, in dem sich nicht kursspezifische Widgets finden. Hierzu gehören sein Google-Kalender, sein RSS-Reader, eine Todo Liste, sowie ein News-Widget
- \item \emph{Tag 2:} Student 3 verbindet sich zu Hause mit seinem Wlan und loggt sich in der PLE ein. Nach Prüfung des Dashboards erstellt er sich in der allgemeinen Todo Liste für den Tag. Er sieht, dass es in seinem RSS-Reader 9 neue Artikel gibt. Diese möchte er auf seinem Weg zur Uni in der U-Bahn lesen. Da dort der Empfang eher schlecht ist, synchronisiert er die PLE noch einmal. Auf dem Weg zu Uni ruft Student 3 das System auf seinem Tablet auf. Da kein Internetzugang besteht greift das System nur auf die lokalen Daten zurück. Das News-Widget in seinem globalen Workspace ist nicht offline-fähig. Aus diesem Grund wird es auch nur ausgegraut und nicht-funktional angezeigt. Der Student ist jedoch in der Lage seine lokal gecachten RSS-Artikel zu lesen. Bei Lektüre eines Artikels über Javascript fällt ihm ein, dass er sein Uni-Projekt noch mit der neuesten JQuery Version updaten wollte. Hierzu erstellt er sich ein weiteres Todo auf seiner Liste.
- In der Uni verbindet er sein Tablet mit dem Uni-Wlan. Der RSS-Reader markiert die 6 Artikel die, Student 3 in der U-Bahn gelesen hat als gelesen und synchronisiert das neueste Todo-Item mit dem Service im Internet.  
-\end{itemize}
-
-\section{Anforderungen}\label{section:anforderungen_summary}
-Zusammenfassend kann also gesagt werden, dass Betreuer und Studenten stehen über unterschiedliche Kanäle in Kommunikation miteinander stehen. Es müssen Termine geplant oder auch Notizen und Nachrichten hin und hergeschickt werden. Diese Kanäle sollen auf einem zentralen Zugang so zusammengefasst sein, dass es den Teilnehmern des Kurse alle relevanten Informationen an einer aufrufen und bearbeiten zu können. Dabei sind die Teilnehmer zu unterschiedlichen Zeiten online. Die Teilnehmer sollen das System offline Nutzen können, um einfache Arbeiten wie das Schreiben von Twitter-Nachrichten, Notizen und Instant-Messaging Nachrichten oder eine Terminabsprache über einen Kalender erledigen können. Bei dem Wechsel zwischen Online und Offline müssen die Daten synchronisiert werden. Idealerweise haben die Nutzer alle Daten auf einem USB-Stick bei sich und können so von unterschiedlichsten Rechnern, wie beispielsweise in der Universität, im Internetcafe oder zu von Hause aus, arbeiten.
-
-Daraus lassen sich mehrere Anforderungen an das zu entwickelnde System ableiten. Es soll in der Lage sein als Aggregator für die unterschiedlichsten Services und Kanäle zu dienen. Es muss möglich sein auf die wichtigsten Informationen an einem zentralen Platz zuzugreifen und diese auch zu bearbeiten (Anforderung 1). Dadurch, dass die Teilnehmer an unterschiedlichen Rechnern arbeiten, welche zum Teil nicht in ihrem persönlichen Besitz sind, ist es für sie nicht oder nur sehr schwer möglich eine neue Software zu installieren. Aus diesem Grund soll das System mit nativen Browsertechnologien ohne weitere Installation nutzbar sein (Anforderung 2). Das System muss in der Lage die wichtigsten Funktionalitäten auch dann zu Verfügung zu stellen, wenn es keinen Kontakt zu dem Internet hat (Anforderung 3). Des Weiteren soll es in der Lage sein bei einer Wiederaufnahme der Verbindung die durchgeführten Aktionen mit dem jeweiligen Service zu synchronisieren (Anforderung 4). Dies gilt insbesondere für die Arbeit mit unterschiedlichen Rechnern. Der Nutzer soll sein System an einem Computer mit dem Internet synchronisieren können und dann an einem anderen Rechner offline weiterarbeiten können. Es ist also notwendig, dass es dem Nutzer ermöglicht wird die Daten mitzunehmen (beispielsweise per USB-Stick) und an anderer Stelle weiterzuverwenden (Anforderung 5). 
-
-Neben diesen funktionalen Anforderungen gibt es noch weitere Anforderungen, welche das System erfüllen soll. In dieser Arbeit kann nur eine prototypische Implementierung der Anforderungen erfolgen. Das System soll also als Basis für weitere Entwicklungen und Forschungsarbeiten dienen und einfach erweitert und verändert werden können (Anforderung 6). Es soll auch möglich sein auf Basis einer vorgegebenen Implementierung oder API weitere Services oder Kanäle in das System zu laden und es so beständig in seiner Funktionalität zu erweitern (Anforderung 7). Schließlich wird die Software in unterschi Bereichen, insbesondere in einem universitären Umfeld eingesetzt. Dies verlangt eine Nutzbarkeit ohne Lizengebühren für die genutzten Technologien. Daraus folgt, dass für die Umsetzun keine proprietären, sondern nur freie Technologien verwendet werden dürfen (Anforderung 8). 
-
-
-Die in Abschnitt \ref{section:ausgangssituation} beschriebenen Kanäle und Services müssen für eine vollständige PLE implementiert werden. Da die Umsetzung all dieser aber den Rahmen dieser Arbeit übersteigen würde und das Ziel ist einen Prototypen für die Grundlage einer solchen PLE zu schaffen, werden diese nicht in die Anforderungen aufgenommen.
+\subsection{Zusammenfassung}
 
 
