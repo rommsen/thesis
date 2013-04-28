@@ -330,30 +330,27 @@ ParentFrameMessenger.prototype.initialize = function () {
 \end{lstlisting}
 
 \section{Evaluation}
-In diesem Abschnitt wird die in Kapitel \ref{chapter:Kapitel5} vorgestellte Lösung analysiert
+In diesem Abschnitt wird die in Kapitel \ref{chapter:Kapitel5} vorgestellte Lösung analysiert und auf die Erfüllung der in Kapitel \ref{chapter:Kapitel3} aufgestellten Anforderungen hin untersucht. Die Evaluation der funktionalen Anforderungen befasst sich primär mit der Analyse der Use-Cases und deren Umsetzung in Plesynd. Hierzu wird Bezug auf die in Kaptitel \ref{chapter:Kapitel5} vorgestellten Komponenten und das User-Interface genommen. Die nichtfunktionalen Anforderungen werden argumentativ auf Basis des umgesetzten Systems evaluiert.
 
-nichtfunktional: Szenario, fiktiver Walkthrough, keine Zeit für Usability tests etc
-
-\subsection{Validierung der funktionalen Anforderungen}
-Die Validierung der funktionalen Anforderungen befasst sich primär mit der Analyse der Use-Cases und deren Umsetzung in Plesynd. Hierzu wird Bezug auf die in Kaptitel \ref{chapter:Kapitel5} vorgestellten Komponenten und das User-Interface genommen, um die Erfüllung der Anforderungen zu validieren
+\subsection{Evaluation der funktionalen Anforderungen}
 
 \textbullet{} \reqref{requirementRegistrieren} \emph{\requirementRegistrieren}\\
-Ist der Anwender noch nicht registriert, hat er die Möglichkeit ein Anmeldeformular (siehe Abbildung TODO) auszufüllen und dieses an den Server zu senden. Die gesendeten Daten werden validiert und führen Fehlerfall zu einer erneuten Darstellung des Formulars samt Fehlermeldung und im Erfolgsfall zu einer Mitteilung an den Anwender einem neuen Nutzer innerhalb des Plesynd-Systems.
+Ist der Anwender noch nicht registriert, hat er die Möglichkeit ein Anmeldeformular (siehe Abbildung \ref{fig:plesynd_register}) auszufüllen und dieses an den Server zu senden. Die gesendeten Daten werden validiert und führen Fehlerfall zu einer erneuten Darstellung des Formulars samt Fehlermeldung und im Erfolgsfall zu einer Mitteilung an den Anwender, dass er sich als neuer Nutzer von Plesynd registriert hat.
 
 \textbullet{} \reqref{requirementLogin} \emph{\requirementLogin}\\
-Plesynd-Server hinterlegt die registrierten Anwender in einer Datenbank. Plesynd-Client bietet dem Nutzer die Möglichkeit sich über ein Formular an dem System anzumelden (siehe Abbildung TODO)
+Plesynd-Server hinterlegt die registrierten Anwender in einer Datenbank. Plesynd-Client bietet dem Nutzer die Möglichkeit sich über ein Formular an dem System anzumelden und anschließend mit ihm zu arbeiten.
 
 \textbullet{} \reqref{requirementZugriffAufEigeneWidgets} \emph{\requirementZugriffAufEigeneWidgets}\\
-Plesynd benutzt wie Abbildung \ref{fig:ueberblick_plesynd_komponenten} zeigt auf Serverseite Access-Control-Lists und hinterlegt damit für jeden Workspace und jedes Widget welcher Anwender diese erstellt und damit auch Zugriff auf sie hat. Andere Nutzer erhalten auch, wenn sie den Link zu einem Workspace kennen keinen Zugriff darauf. Ähnliches gilt auch für die mit Hilfe des Todo-Listen-Widgets erstellten 
+Plesynd benutzt wie Abbildung \ref{fig:ueberblick_plesynd_komponenten} zeigt auf Serverseite Access-Control-Lists und hinterlegt damit für jeden Workspace und jedes Widget welcher Anwender diese erstellt und damit auch Zugriff auf sie hat. Andere Nutzer erhalten auch, wenn sie den Link zu einem Workspace kennen keinen Zugriff darauf. Ähnliches gilt auch für die mit Hilfe des Todo-Listen-Widgets erstellten Todo-Listen und Todo-Einträge.
 
 \textbullet{} \reqref{requirementLogout} \emph{\requirementLogout}\\
-Klickt der Anwender auf den Link Logout (siehe Abbildung TODO), beendet das System seine Session und leitet ihn wieder auf die Login-Seite um. 
+Klickt der Anwender auf den Link Logout (siehe Abbildung \ref{fig:plesynd_dashboard}), beendet das System seine Session und leitet ihn wieder auf die Login-Seite um. 
 
 \textbullet{} \reqref{requirementKeinZugriffNachLogout} \emph{\requirementKeinZugriffNachLogout}\\
 Klickt der Anwender auf den Logout-Link, so wird seine Session auf dem Server beendet. Dies bedeutet, dass jeder weitere Request zu einem Fehler (403-Error) führt, welcher das System dazu veranlasst dem Anwender erneut die Login-Seite zu präsentieren. Es ist somit kein weiterer Zugriff auf die Daten möglich. Das System löscht bei einem Logout auch die Daten aus dem Local-Storage des Browsers. Dies ist in der momentanen Umsetzung jedoch nicht für den Local-Storage der einzelnen Widgets möglich. Somit kann ein anderer Anwender sich theoretisch den Local-Storage mit Werkzeugen wie Firebug oder den Chrome-Developer-Tools anschauen und so die Daten zwar nicht ändern, aber doch lesen. Dieses Problem müsste in einer Erweiterung des Plesynd-Systems gelöst werden.
 
 \textbullet{} \reqref{requirementWorkspaceAdd} \emph{\requirementWorkspaceAdd}\\
-Mit einem Klick auf den Hinzufügen Button in der Reiternavigation des Systems wird direkt eine neuer Workspace zu dem System hinzugefügt.
+Mit einem Klick auf den Hinzufügen Button in der Reiternavigation des Systems (siehe Abbildung \ref{fig:plesynd_dashboard}) wird direkt eine neuer Workspace zu dem System hinzugefügt.
 
 \textbullet{} \reqref{requirementWorkspaceEdit} \emph{\requirementWorkspaceEdit}\\
 In der Reiternavigation von Plesynd befindet sich neben einem aktiven Workspace ein Icon (siehe Abbildung \ref{fig:plesynd_workspace_edit}). Aktiviert der Anwender dieses öffnet sich ein Bereich zum Bearbeiten des Workspaces. In diesem kann der Name direkt geändert werden.
@@ -374,35 +371,94 @@ Der in der Analyse der Anforderung \reqref{requirementWidgetFilterName} vorgeste
 Ein Widget kann mit einem Klick auf einen entfernen Button auf die Widget-Statusleiste (siehe Abbildung \ref{fig:plesynd_workspace_edit}) oder auf dem Dashboard (siehe Abbildung \ref{fig:plesynd_dashboard}) entfernt werden. Dem Anwender wird ein Rückfragefenster präsentiert. Bestätigt er hier das Löschen, wird das Widget aus dem Workspace und damit auch aus dem System entfernt.
 
 \textbullet{} \reqref{requirementWidgetSortDragNDrop} \emph{\requirementWidgetSortDragNDrop}\\
-Befindet sich der Anwender auf einem Workspace und hat dieser Workspace mehr als ein Widget, so ist der Anwender in der Lage mit einem Klick auf die Widget-Statusleiste die Widgets per Drag and Drop auf dem Workspace neu anzuordnen (siehe Abbildung TODO). Die neuen Positionen werden direkt an den Server weitergegeben und somit persistiert.
+Befindet sich der Anwender auf einem Workspace und hat dieser Workspace mehr als ein Widget, so ist der Anwender in der Lage mit einem Klick auf die Widget-Statusleiste die Widgets per Drag and Drop auf dem Workspace neu anzuordnen. Die neuen Positionen werden direkt an den Server weitergegeben und somit persistiert.
 
 \textbullet{} \reqref{requirementWidgetInformSystem} \emph{\requirementWidgetInformSystem}\\
+Wenn der Anwender ein Plesynd-kompatibles Widget zu einem Workspace hinzufügt, meldet sich dieses bei Plesynd an und kann es über die Anzahl der verfügbaren und synchronisierten und nicht synchronisierten Einträge informieren. Diese Funktionalität wurde über die Postmessage-Api implementiert (siehe Abschnitt \ref{section:kommunikation_in_mashup_anwendungen}). In einer Erweiterung des Systems könnten die Widgets auch Kurzinfos über die verfügbaren Einträge geben (z.B. eine Vorschau der neuesten Einträge in einem RSS-Reader).
 
 \textbullet{} \reqref{requirementDashboard} \emph{\requirementDashboard}\\
+Als Startseite von Plesynd wurde ein Dashboard umgesetzt, welches die Workspaces samt ihrer Widgets auflistet (siehe Abbildung \ref{fig:plesynd_dashboard}). Für jedes Widget erhält der Anwender die Information, ob es Plesynd-kompatibel ist. Falls dem so ist, werden dem Anwender angezeigt wie viele Einträge vorhanden und wie viele synchronisiert und nicht synchronisiert sind. Zusätzlich kann der der Anwender über das Dashboard direkt Widgets entfernen und sich auch zu den Workspaces bewegen.
 
 \textbullet{} \reqref{requirementCheckOnlineStatus} \emph{\requirementCheckOnlineStatus}\\
+Plesynd nutzt die in Abschnitt \ref{section:online_offline_erkennung} beschriebene Online-/Offline-Erkennung. Der aktuelle Status wird dem Nutzer direkt im System (siehe Abbildung \ref{fig:plesynd_dashboard}) und bei Plesynd-kompatiblen Widgets (siehe Abbildung \ref{fig:plesynd_workspace_offline}) angezeigt.
 
 \textbullet{} \reqref{requirementOfflineStart} \emph{\requirementOfflineStart}\\
+Plesynd-Client speichert mit Hilfe der HTML-Appcache-Api (siehe Abschnitt \ref{section:appcache}) die benötigten Ressourcen beim erstmaligen Systemstart im Browser. Ab diesem Zeitpunkt ist es möglich das System auch ohne Online-Verbindung zu laden.
 
 \textbullet{} \reqref{requirementOfflineWork} \emph{\requirementOfflineWork}\\
-
 \textbullet{} \reqref{requirementOnlineSync} \emph{\requirementOnlineSync}\\
-
+Mit Hilfe der in Abschnitt \ref{section:offline_storage} beschriebenen Techniken und der entwickelten Systematik zum Speichern und Synchronisieren von Daten (siehe \ref{section:local_storage_api}), ist es möglich mit Plesynd-Client und den kompatiblen Widgets offline zu arbeiten. Das System synchronisiert die hinzugefügten, geänderten und gelöschten Einträge mit den jeweiligen Backends, wenn wieder eine Verbindung zum Internet hergestellt wurde.
 
 \subsection{Validierung der nichtfunktionalen Anforderungen}
 \textbullet{} \reqref{requirementAggregator} \emph{\requirementAggregator}\\
+Plesynd ist als Personal Learning Environment konzipiert und umgesetzt worden. Das System ist in der Lage unterschiedlichste Arten von Services mit Hilfe von Widgets in einem System zusammenzufassen und dem Anwender so zu präsentieren, dass er aus dem System heraus mit ihnen arbeiten kann.
 
 \textbullet{} \reqref{requirementWidgetStandard} \emph{\requirementWidgetStandard}\\
+Wie in den Abschnitten \ref{section:widget_frameworks} und \ref{section:loesung_wookie} beschrieben nutzt Plesynd als Widget-Container Wookie. Somit ist es möglich alle nach dem W3C -Standard implementierten Widgets einzubinden. Die Offline-Funktionalitäten sind allerdings nur bei den Widgets möglich, die zusätzlich Plesynd-kompatibel umgesetzt wurden.
 
 \textbullet{} \reqref{requirementUsbStick} \emph{\requirementUsbStick}\\
+Abschnitt \ref{section:ple_auf_usb} beschreibt, wie es möglich ist, dass Plesynd samt seiner Daten mit Hilfe von portablen Versionen aktueller Browser auf einem mobilen Speichermedium wie USB-Sticks offline zwischen unterschiedlichen Rechnern transportiert wird.
 
 \textbullet{} \reqref{requirementUsageInBrowser} \emph{\requirementUsageInBrowser}\\
-
-\textbullet{} \reqref{requirementExtensibility} \emph{\requirementExtensibility}\\
+Plesynd-Client wurde komplett auf Basis von HTML und Javascript umgesetzt. Diese Technologien stehen in jedem aktuellen Browser nativ zur Verfügung. Die Serverseite ist für die Erfüllung dieser Anforderung irrelevant.
 
 \textbullet{} \reqref{requirementNewWidgetsWithApi} \emph{\requirementNewWidgetsWithApi}\\
+Das System ist in der Lage mit allen W3C-Widgets umzugehen. Zusätzlich beschreibt Abschnitt \ref{section:local_storage_api} die implementierte Schnittstelle mit der die Offlinefähigleit des Systems umgesetzt wurde. Auf Basis dieser Beschreibung und des exemplarischen Todo-Listen-Widgets ist es einfach möglich neue Plesynd-kompatible Widgets zu implementieren.
+
+\textbullet{} \reqref{requirementExtensibility} \emph{\requirementExtensibility}\\
+Durch die Umsetzung der in \reqref{requirementNewWidgetsWithApi} geforderten Schnittstelle zur Widget-Implementierung ist es relativ einfach möglich neue Widgets zu dem System hinzufügen. Des weiteren wurde durch die Nutzung REST-konformer Anfragen und Antworten (siehe \ref{section:rest}) ein Standard zur Kommunikation innerhalb des Systems eingeführt, welcher es vereinfacht neue Systeme (wie zum Beispiel Services für eigene Widgets) zu Plesynd hinzuzufügen. Bei der Umsetzung des Systems wurde darauf geachtet Frameworks und Werkzeuge zu benutzen, die aktiv weiterentwickelt werden und für die eine gute Dokumentation existiert. Somit sollte es gut möglich sein die entwickelte PLE zu erweitern.
 
 \textbullet{} \reqref{requirementOpenSource} \emph{\requirementOpenSource}\\
+Alle Werkzeuge, die für die Umsetzung von Plesynd genutzt wurden (siehe Abschnitt \ref{section:entwicklungsumgebungen_tools}) stehen unter freien Lizenzen, welche es erlauben ohne kostenpflichtige Lizensierungen mit dem System zu arbeiten und dieses zu erweitern.
+
+\subsection{Überblick}
+Es folgt ein tabellarischer Überblick über die Anforderungen.
+Bedeutung der letzten Spalte:\\
+\checkmark: Anforderung erfüllt\\
+(\checkmark): Anforderung teilweise erfüllt\\
+\textbf{x}: Anforderung nicht erfüllt
+
+\renewcommand{\arraystretch}{1.4} 
+
+\begin{table}[ht]
+\caption{Nichtfunktionale Anforderungen Evaluation}
+\begin{tabularx}{\textwidth}{ l | X | c}
+\reqref{requirementAggregator} & \emph{\requirementAggregator}  & \checkmark\\ \hline 
+\reqref{requirementWidgetStandard} & \emph{\requirementWidgetStandard}  & \checkmark\\ \hline 
+\reqref{requirementUsbStick} & \emph{\requirementUsbStick}  & \checkmark\\ \hline 
+\reqref{requirementUsageInBrowser} & \emph{\requirementUsageInBrowser}  & \checkmark\\ \hline 
+\reqref{requirementNewWidgetsWithApi} & \emph{\requirementNewWidgetsWithApi}  & \checkmark\\ \hline 
+\reqref{requirementExtensibility} & \emph{\requirementExtensibility}  & \checkmark\\ \hline 
+\reqref{requirementOpenSource} & \emph{\requirementOpenSource}  & \checkmark\\ \hline 
+\end{tabularx}
+\label{table:nichtfunktionale_anforderungen_evaluation}
+\end{table}
+
+\begin{table}[ht]
+\caption{Funktionale Anforderungen Evaluation}
+\begin{tabularx}{\textwidth}{ l | X | c }
+\reqref{requirementRegistrieren} & \emph{\requirementRegistrieren} & \checkmark \\ \hline 
+\reqref{requirementLogin} & \emph{\requirementLogin} & \checkmark \\ \hline 
+\reqref{requirementZugriffAufEigeneWidgets} & \emph{\requirementZugriffAufEigeneWidgets} & \checkmark \\ \hline 
+\reqref{requirementLogout} & \emph{\requirementLogout} & \checkmark \\ \hline 
+\reqref{requirementKeinZugriffNachLogout} & \emph{\requirementKeinZugriffNachLogout} & (\checkmark) \\ \hline 
+\reqref{requirementWorkspaceAdd} & \emph{\requirementWorkspaceAdd} & \checkmark \\ \hline 
+\reqref{requirementWorkspaceEdit} & \emph{\requirementWorkspaceEdit} & \checkmark \\ \hline 
+\reqref{requirementWorkspaceDelete} & \emph{\requirementWorkspaceDelete} & \checkmark \\ \hline 
+\reqref{requirementWidgetAdd} & \emph{\requirementWidgetAdd} & \checkmark \\ \hline 
+\reqref{requirementWidgetFilterName} & \emph{\requirementWidgetFilterName} & \checkmark \\ \hline 
+\reqref{requirementWidgetFilterOnline} & \emph{\requirementWidgetFilterOnline} & \checkmark \\ \hline 
+\reqref{requirementWidgetDelete} & \emph{\requirementWidgetDelete} & \checkmark \\ \hline 
+\reqref{requirementWidgetSortDragNDrop} & \emph{\requirementWidgetSortDragNDrop} & \checkmark \\ \hline 
+\reqref{requirementWidgetInformSystem} & \emph{\requirementWidgetInformSystem} & \checkmark \\ \hline 
+\reqref{requirementDashboard} & \emph{\requirementDashboard} & \checkmark \\ \hline 
+\reqref{requirementCheckOnlineStatus} & \emph{\requirementCheckOnlineStatus} & \checkmark \\ \hline 
+\reqref{requirementOfflineStart} & \emph{\requirementOfflineStart} & \checkmark \\ \hline 
+\reqref{requirementOfflineWork} & \emph{\requirementOfflineWork} & \checkmark \\ \hline 
+\reqref{requirementOnlineSync} & \emph{\requirementOnlineSync} & \checkmark \\ \hline 
+\end{tabularx}
+\label{table:funktionale_anforderungen_evaluation}
+\end{table}
 
 
 

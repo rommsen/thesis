@@ -100,6 +100,23 @@ Student 3 nutzt das System hauptsächlich mit seinem Tablet, welches in der Lage
 
 Zusammenfassend kann also gesagt werden, dass Betreuer und Studenten stehen über unterschiedliche Kanäle in Kommunikation miteinander stehen. Es müssen Termine geplant oder auch Notizen und Nachrichten hin und hergeschickt werden. Diese Kanäle sollen auf einem zentralen Zugang so zusammengefasst sein, dass es den Teilnehmern des Kurse alle relevanten Informationen an einer aufrufen und bearbeiten zu können. Dabei sind die Teilnehmer zu unterschiedlichen Zeiten online. Die Teilnehmer sollen das System offline Nutzen können, um einfache Arbeiten wie das Schreiben von Twitter-Nachrichten, Notizen und Instant-Messaging Nachrichten oder eine Terminabsprache über einen Kalender erledigen können. Bei dem Wechsel zwischen Online und Offline müssen die Daten synchronisiert werden. Idealerweise haben die Nutzer alle Daten auf einem USB-Stick bei sich und können so von unterschiedlichsten Rechnern, wie beispielsweise in der Universität, im Internetcafe oder zu von Hause aus, arbeiten.
 
+\section{Nichtunktionale Anforderungen}\label{section:nichtfunktionale_anforderunge}
+
+\subsection{Voraussetzungen}
+Wie in Kapitel \ref{chapter:Kapitel2} beschrieben sind Personal Learning Environments Mashup-Anwendungen, welche unterschiedliche Anwendungen zu einem System zusammenfassen. Diese Anwendungen sind Services oder Kanäle, wie zum Beispiel Twitter, Facebook oder auch Applikationen für Todo-Listen oder Chats. Das System muss also als Aggregator fungieren, welcher diese Anwendungen in einer Anwendung bündelt und dem Nutzer in übersichtlicher Form präsentiert und ihm die Arbeit mit ihnen ermöglicht. Die in den funktionalen Anforderungen beschriebenen Widgets stellen hierbei die Umsetzung dieser Applikationen in der PLE dar. Diese Widgets sollten in der Lage sein wichtige Informationen an das System zu kommunizieren, so dass diese für den Nutzer aufbereitet und zusammengefasst dargestellt werden können. Dem Nutzer sollten genügend Services für seine PLE zur Verfügung stehen und die Entwicklung sollte nicht von einer Person oder Firma abhängen. Aus diesem Grund muss für die Einbindung der Services ein frei verfügbarer Standard und keine proprietäre Schnittstelle verwendet werden. Die Daten sollen auch ohne Internetverbindung zwischen verschiedenen Rechnern ausgetauscht werden können, so dass gewisse Arbeiten an einem Rechner durchgeführt werden können und diese Arbeiten dann an einem Rechner mit Internetanschluss zu synchronisieren. Dadurch, dass die Studenten an unterschiedlichen Rechnern mit potentiell unterschiedlichen Betriebssystemen, arbeiten, welche zum Teil nicht in ihrem persönlichen Besitz sind, ist es für sie nicht oder nur sehr schwer möglich eine neue Software zu installieren. Aus diesem Grund soll das System mit nativen Browsertechnologien ohne weitere Installation nutzbar sein
+
+Somit ergeben sich die nichtfunktionalen Anforderungen \reqref{requirementAggregator}, \reqref{requirementWidgetStandard}, \reqref{requirementUsageInBrowser} und 
+\requirement{\requirementAggregator}\label{requirementAggregator}\\
+\requirement{\requirementWidgetStandard}\label{requirementWidgetStandard}\\
+\requirement{\requirementUsbStick}\label{requirementUsbStick}\\
+\requirement{\requirementUsageInBrowser}\label{requirementUsageInBrowser}\\
+
+\subsection{Erweiterbarkeit}
+In dieser Arbeit kann nur eine prototypische Implementierung der Anforderungen erfolgen. Das System soll also als Basis für weitere Entwicklungen und Forschungsarbeiten dienen und einfach erweitert und verändert werden können. Das System muss als Aggregator für die unterschiedlichsten Services dienen. Es soll aus diesem Grund möglich sein auf Basis einer vorgegebenen Implementierung oder API weitere Services oder Kanäle in das System zu laden, welche ebenfalls offlinefähig sind und es so beständig in seiner Funktionalität zu erweitern. Schließlich wird die Software in unterschiedlichen Bereichen, insbesondere in einem universitären Umfeld eingesetzt. Dies verlangt eine Nutzbarkeit ohne Lizengebühren für die verwendeten Technologien, so dass für die Umsetzung keine proprietären, sondern nur freie Technologien verwendet werden dürfen. Aus diesen Punkten folgen die nichtfunktionalen Anforderungen \reqref{requirementNewWidgetsWithApi}, \reqref{requirementExtensibility}, und \reqref{requirementOpenSource}:\\
+\requirement{\requirementNewWidgetsWithApi}\label{requirementNewWidgetsWithApi}\\
+\requirement{\requirementExtensibility}\label{requirementExtensibility}\\
+\requirement{\requirementOpenSource}\label{requirementOpenSource}\\
+
 \section{Anwendungsfälle/Funktionale Anforderungen}\label{section:anwendungsfaelle}
 \begin{figure}[hb]
   \centering
@@ -291,27 +308,25 @@ Aus diesem Anwendungsfall folgt die funktionale Anforderungung \reqref{requireme
 Aus diesem Anwendungsfall folgt die funktionale Anforderungung \reqref{requirementOnlineSync}:\\
 \requirement{\requirementOnlineSync}\label{requirementOnlineSync}\\
 
-\section{Nichtunktionale Anforderungen}\label{section:nichtfunktionale_anforderunge}
-
-\subsection{Voraussetzungen}
-Wie in Kapitel \ref{chapter:Kapitel2} beschrieben sind Personal Learning Environments Mashup-Anwendungen, welche unterschiedliche Anwendungen zu einem System zusammenfassen. Diese Anwendungen sind Services oder Kanäle, wie zum Beispiel Twitter, Facebook oder auch Applikationen für Todo-Listen oder Chats. Das System muss also als Aggregator fungieren, welcher diese Anwendungen in einer Anwendung bündelt und dem Nutzer in übersichtlicher Form präsentiert und ihm die Arbeit mit ihnen ermöglicht. Die in den funktionalen Anforderungen beschriebenen Widgets stellen hierbei die Umsetzung dieser Applikationen in der PLE dar. Diese Widgets sollten in der Lage sein wichtige Informationen an das System zu kommunizieren, so dass diese für den Nutzer aufbereitet und zusammengefasst dargestellt werden können. Dem Nutzer sollten genügend Services für seine PLE zur Verfügung stehen und die Entwicklung sollte nicht von einer Person oder Firma abhängen. Aus diesem Grund muss für die Einbindung der Services ein frei verfügbarer Standard und keine proprietäre Schnittstelle verwendet werden. Die Daten sollen auch ohne Internetverbindung zwischen verschiedenen Rechnern ausgetauscht werden können, so dass gewisse Arbeiten an einem Rechner durchgeführt werden können und diese Arbeiten dann an einem Rechner mit Internetanschluss zu synchronisieren. Dadurch, dass die Studenten an unterschiedlichen Rechnern mit potentiell unterschiedlichen Betriebssystemen, arbeiten, welche zum Teil nicht in ihrem persönlichen Besitz sind, ist es für sie nicht oder nur sehr schwer möglich eine neue Software zu installieren. Aus diesem Grund soll das System mit nativen Browsertechnologien ohne weitere Installation nutzbar sein
-
-Somit ergeben sich die nichtfunktionalen Anforderungen \reqref{requirementAggregator}, \reqref{requirementWidgetStandard}, \reqref{requirementUsageInBrowser} und 
-\requirement{\requirementAggregator}\label{requirementAggregator}\\
-\requirement{\requirementWidgetStandard}\label{requirementWidgetStandard}\\
-\requirement{\requirementUsbStick}\label{requirementUsbStick}\\
-\requirement{\requirementUsageInBrowser}\label{requirementUsageInBrowser}\\
-
-\subsection{Erweiterbarkeit}
-In dieser Arbeit kann nur eine prototypische Implementierung der Anforderungen erfolgen. Das System soll also als Basis für weitere Entwicklungen und Forschungsarbeiten dienen und einfach erweitert und verändert werden können. Das System muss als Aggregator für die unterschiedlichsten Services dienen. Es soll aus diesem Grund möglich sein auf Basis einer vorgegebenen Implementierung oder API weitere Services oder Kanäle in das System zu laden, welche ebenfalls offlinefähig sind und es so beständig in seiner Funktionalität zu erweitern. Schließlich wird die Software in unterschiedlichen Bereichen, insbesondere in einem universitären Umfeld eingesetzt. Dies verlangt eine Nutzbarkeit ohne Lizengebühren für die verwendeten Technologien, so dass für die Umsetzung keine proprietären, sondern nur freie Technologien verwendet werden dürfen. Aus diesen Punkten folgen die nichtfunktionalen Anforderungen \reqref{requirementExtensibility}, \reqref{requirementNewWidgetsWithApi} und \reqref{requirementOpenSource}:\\
-\requirement{\requirementExtensibility}\label{requirementExtensibility}\\
-\requirement{\requirementNewWidgetsWithApi}\label{requirementNewWidgetsWithApi}\\
-\requirement{\requirementOpenSource}\label{requirementOpenSource}\\
-
 \section{Überblick über die Anforderungen}
 Im den vorherigen Abschnitten wurden funktionale und nichtfunktionale Anforderungen an das zu entwickelnde System aufgestellt und beschrieben. In den folgenden zwei Tabellen sind diese Anforderungen noch einmal zusammengefasst.
 
 \renewcommand{\arraystretch}{1.4} 
+
+\begin{table}[ht]
+\caption{Nichtfunktionale Anforderungen}
+\begin{tabularx}{\textwidth}{ l | X }
+\reqref{requirementAggregator} & \emph{\requirementAggregator} \\ \hline 
+\reqref{requirementWidgetStandard} & \emph{\requirementWidgetStandard} \\ \hline 
+\reqref{requirementUsbStick} & \emph{\requirementUsbStick} \\ \hline 
+\reqref{requirementUsageInBrowser} & \emph{\requirementUsageInBrowser} \\ \hline 
+\reqref{requirementNewWidgetsWithApi} & \emph{\requirementNewWidgetsWithApi} \\ \hline 
+\reqref{requirementExtensibility} & \emph{\requirementExtensibility} \\ \hline 
+\reqref{requirementOpenSource} & \emph{\requirementOpenSource} \\ \hline 
+\end{tabularx}
+\label{table:nichtfunktionale_anforderungen}
+\end{table}
+
 \begin{table}[ht]
 \caption{Funktionale Anforderungen}
 \begin{tabularx}{\textwidth}{ l | X }
@@ -337,21 +352,6 @@ Im den vorherigen Abschnitten wurden funktionale und nichtfunktionale Anforderun
 \end{tabularx}
 \label{table:funktionale_anforderungen}
 \end{table}
-
-\begin{table}[ht]
-\caption{Nichtfunktionale Anforderungen}
-\begin{tabularx}{\textwidth}{ l | X }
-\reqref{requirementAggregator} & \emph{\requirementAggregator} \\ \hline 
-\reqref{requirementWidgetStandard} & \emph{\requirementWidgetStandard} \\ \hline 
-\reqref{requirementUsbStick} & \emph{\requirementUsbStick} \\ \hline 
-\reqref{requirementUsageInBrowser} & \emph{\requirementUsageInBrowser} \\ \hline 
-\reqref{requirementExtensibility} & \emph{\requirementExtensibility} \\ \hline 
-\reqref{requirementNewWidgetsWithApi} & \emph{\requirementNewWidgetsWithApi} \\ \hline 
-\reqref{requirementOpenSource} & \emph{\requirementOpenSource} \\ \hline 
-\end{tabularx}
-\label{table:nichtfunktionale_anforderungen}
-\end{table}
-
 
 
 

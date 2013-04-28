@@ -30,10 +30,18 @@ Plesynd-Server nimmt für die Arbeit mit den Anwendungsdaten (Workspace, Widgets
 
 Für die Abfrage welche Widgets grundsätzlich im System vorhanden sind verwendet Plesynd-Server eine Schnittstelle zur Wookie-Komponente. Diese Schnittstelle wird auch verwendet wenn der Anwender ein neues Widget zu einem Workspace hinzufügen möchten, also eine neue Widget-Instanz erstellt werden muss.
 
-\subsection{Wookie}
+\subsection{Wookie}\label{section:loesung_wookie}
 Als externe Komponente wird der W3C-Widget-Container Wookie (siehe \ref{section:widget_frameworks}) eingebunden. Dieser speichert die verfügbaren Widgets in einer internen Datenbank und kann Plesynd so eine Liste der auslieferbaren Widgets zur Verfügung stellen. Wookie hinterlegt außerdem jede einzelne erstellte Widget-Instanz samt ihrem Zustand und kann so das eigentliche Widget bei Bedarf an Plesynd-Client ausliefern. Diese Funktionalität ist die einzige, bei der Plesynd-Client direkt Kontakt zu Wookie aufnimmt, ansonsten wird die gesamte Kommunikation über Plesynd-Server abgewickelt. Zusätzlich zu diesen Anwendungsfällen bietet Wookie Werkzeuge an, um aus normalen HTML/Javascript-Applikationen ein W3C-Widget zu erstellen. Diese Funktionalität steht jedoch nicht über die Kommunikation mit Plesynd zur Verfügung, sondern muss über die Kommandozeile in Anspruch genommen werden.
 
 \section{User Interface}\label{section:user_interface}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./Figures/plesynd_register.png}
+    \rule{35em}{0.5pt}
+  \caption[Plesynd User-Interface: Registrieren]{Der Anwender kann sich für die Nutzung von Plesynd registrieren}
+  \label{fig:plesynd_register}
+\end{figure}
+
 Für die Umsetzung der Screen-Dimension (siehe \ref{section:dimensions_palmer}), also des User-Interfaces kommen in Plesynd drei wichtige Konzepte zum Einsatz: Dashboard, Widgets und Workspaces. Über Widgets werden die unterschiedlichen Werkzeuge und Services, die ein Nutzer innerhalb des Systems nutzen möchte eingebunden (siehe: Kapitel \ref{section:widgets}). Die Umsetzung der einzelnen Widgets liegt in der Hand des jeweiligen Designers. Das Ziel beim Design von Plesynd war es dem Nutzer die Bedienung so einfach wie möglich zu machen. Die wichtigsten Informationen sollten ihm direkt direkt zur Verfügung gestellt werden (sind alle Daten aktuell, welche Widgets werden benutzt, ist das System offline oder online etc). Widgets können gesucht, nach Offline-Kompatibilität gefiltert und dem System hinzugefügt werden. Es existiert ein Dashboard (siehe Abbildung \ref{fig:plesynd_dashboard}), welches dem Nutzer anzeigt welche Widgets auf welchen Workspaces zur Verfügung stehen und wie ihr Online-/Offline-Status ist.
 \begin{figure}
   \centering
