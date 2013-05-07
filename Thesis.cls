@@ -48,14 +48,14 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{2.0ex plus0.5ex minus0.2ex}
 \usepackage{vmargin}
-\setmarginsrb           { 1.5in}  % left margin
-                        { 0.6in}  % top margin
-                        { 1.0in}  % right margin
-                        { 0.8in}  % bottom margin
+\setmarginsrb           { 4cm}  % left margin
+                        { 1.6cm}  % top margin
+                        { 2cm}  % right margin
+                        { 2cm}  % bottom margin
                         {  20pt}  % head height
-                        {0.25in}  % head sep
+                        { 0.8cm}  % head sep
                         {   9pt}  % foot height
-                        { 0.3in}  % foot sep
+                        { 0.4cm}  % foot sep
 \raggedbottom
 \setlength{\topskip}{1\topskip \@plus 5\p@}
 \doublehyphendemerits=10000       % No consecutive line hyphens.
@@ -283,8 +283,8 @@ captionpos=b}
 }\end{spacing}
 }
 \renewcommand\listoffigures{
-\btypeout{List of Figures}
-\addtotoc{List of Figures}
+\btypeout{Abbildungsverzeichnis}
+\addtotoc{Abbildungsverzeichnis}
 \begin{spacing}{1}{
     \setlength{\parskip}{1pt}
     \if@twocolumn
@@ -301,8 +301,8 @@ captionpos=b}
 }\end{spacing}
 }
 \renewcommand\listoftables{
-\btypeout{List of Tables}
-\addtotoc{List of Tables}
+\btypeout{Tabellenverzeichnis}
+\addtotoc{Tabellenverzeichnis}
 \begin{spacing}{1}{
     \setlength{\parskip}{1pt}
     \if@twocolumn
@@ -318,7 +318,7 @@ captionpos=b}
     \cleardoublepage
 }\end{spacing}
 }
-\newcommand\listsymbolname{Abbreviations}
+\newcommand\listsymbolname{Abkürzungsverzeichnis}
 \usepackage{longtable}
 \newcommand\listofsymbols[2]{
 \btypeout{\listsymbolname}
