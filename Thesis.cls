@@ -48,9 +48,9 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{2.0ex plus0.5ex minus0.2ex}
 \usepackage{vmargin}
-\setmarginsrb           { 4cm}  % left margin
+\setmarginsrb           { 3cm}  % left margin
                         { 1.6cm}  % top margin
-                        { 2cm}  % right margin
+                        { 3cm}  % right margin
                         { 2cm}  % bottom margin
                         {  20pt}  % head height
                         { 0.8cm}  % head sep
