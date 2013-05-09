@@ -26,12 +26,12 @@
 \newcommand\bhrule{\typeout{------------------------------------------------------------------------------}}
 
 \newcommand\Declaration[1]{
-\btypeout{Declaration of Authorship}
-\addtotoc{Declaration of Authorship}
+\btypeout{Erklärung über selbstständige Anfertigung der Masterarbeit}
+\addtotoc{Erklärung über selbstständige Anfertigung der Masterarbeit}
 \thispagestyle{plain}
 \null\vfil
 %\vskip 60\p@
-\begin{center}{\huge\bf Declaration of Authorship\par}\end{center}
+
 %\vskip 60\p@
 {\normalsize #1}
 \vfil\vfil\null
@@ -158,24 +158,24 @@ captionpos=b}
 \UNIVERSITY  {\texorpdfstring{\href{http://fernuni-hagen.de)}
                 {FERNUNIVERSITÄT HAGEN}}
                 {FERNUNIVERSITÄT HAGEN}}
-\department  {\texorpdfstring{\href{Department or School Web Site URL Here (include http://)}
-                {Department or School Name}}
-                {Department or School Name}}
-\DEPARTMENT  {\texorpdfstring{\href{Department or School Web Site URL Here (include http://)}
-                {DEPARTMENT OR SCHOOL NAME (IN BLOCK CAPITALS)}}
-                {DEPARTMENT OR SCHOOL NAME (IN BLOCK CAPITALS)}}
+\department  {\texorpdfstring{\href{http://www.fernuni-hagen.de/ks/}
+                {Lehrgebiet Kooperative Systeme}}
+                {Lehrgebiet Kooperative Systeme}}
+\DEPARTMENT  {\texorpdfstring{\href{http://www.fernuni-hagen.de/ks/}
+                {LEHRGEBIET KOOPERATIVE SYSTEME}}
+                {LEHRGEBIET KOOPERATIVE SYSTEME}}
 \group       {\texorpdfstring{\href{Research Group Web Site URL Here (include http://)}
                 {Research Group Name}}
                 {Research Group Name}}
 \GROUP       {\texorpdfstring{\href{Research Group Web Site URL Here (include http://)}
                 {RESEARCH GROUP NAME (IN BLOCK CAPITALS)}}
                 {RESEARCH GROUP NAME (IN BLOCK CAPITALS)}}
-\faculty     {\texorpdfstring{\href{Faculty Web Site URL Here (include http://)}
-                {Faculty Name}}
-                {Faculty Name}}
-\FACULTY     {\texorpdfstring{\href{Faculty Web Site URL Here (include http://)}
-                {FACULTY NAME (IN BLOCK CAPITALS)}}
-                {FACULTY NAME (IN BLOCK CAPITALS)}}
+\faculty     {\texorpdfstring{\href{http://www.fernuni-hagen.de/mathinf/}
+                {Fakultät für Mathematik und Informatik}}
+                {Fakultät für Mathematik und Informatik}}
+\FACULTY     {\texorpdfstring{\href{http://www.fernuni-hagen.de/mathinf/}
+                {FAKULTÄT FÜR MATHEMATIK UND INFORMATIK}}
+                {FAKULTÄT FÜR MATHEMATIK UND INFORMATIK}}
 \addresses   {}
 \subject     {}
 \keywords    {}
@@ -199,12 +199,12 @@ captionpos=b}
       \vfill
       {\huge \bf \@title \par}
       \vfill
-      {\LARGE by \par}
+      {\LARGE von \par}
       \smallskip
       {\LARGE \authornames \par}
       \vfill
-      {\large A thesis submitted in partial fulfillment for the \par}
-      {\large degree of Master of Computerscience \par}
+      {\large Masterarbeit zur Erlangung des Akademischen Grades  \par}
+      {\large "`Master of Science"' (M. Sc.) im Studiengang Praktische Informatik \par}
       \bigskip
       \bigskip
       {\large in the \par}
@@ -247,11 +247,11 @@ captionpos=b}
     {\normalsize \facname \par}
     {\normalsize \deptname \par}
     \bigskip
-    {\normalsize Master of Computerscience\par}
+    {\normalsize "`Master of Science"' (M. Sc.) im Studiengang Praktische Informatik\par}
     \bigskip
     {\normalsize\bf \@title \par}
     \medskip
-    {\normalsize by \authornames \par}
+    {\normalsize von \authornames \par}
     \bigskip
   \end{center}
 }
