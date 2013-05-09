@@ -26,8 +26,6 @@
 \newcommand\bhrule{\typeout{------------------------------------------------------------------------------}}
 
 \newcommand\Declaration[1]{
-\btypeout{Erklärung über selbstständige Anfertigung der Masterarbeit}
-\addtotoc{Erklärung über selbstständige Anfertigung der Masterarbeit}
 \thispagestyle{plain}
 \null\vfil
 %\vskip 60\p@
@@ -207,7 +205,7 @@ captionpos=b}
       {\large "`Master of Science"' (M. Sc.) im Studiengang Praktische Informatik \par}
       \bigskip
       \bigskip
-      {\large in the \par}
+%       {\large in the \par}
       {\large \facname \par}
       {\large \deptname \par}
       \bigskip
