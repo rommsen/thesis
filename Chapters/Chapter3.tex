@@ -38,6 +38,7 @@
 \newcommand{\requirementUsageInBrowser}{Das System muss in aktuellen Browsern mit nativen Browsertechnologien ohne weitere Installation nutzbar sein.}
 \newcommand{\requirementExtensibility}{Das System muss einfach erweitert werden können.}
 \newcommand{\requirementNewWidgetsWithApi}{Es muss möglich sein über eine API oder eine vorgegebene Implementierung neue Services und Kanäle mit Offline-Fähigkeiten in das System zu laden.}
+\newcommand{\requirementExampleWidget}{Es muss ein offline fähiges Widget entwickelt werden, welches die Offline-Funktionalitäten beispielhaft umsetzt.}
 \newcommand{\requirementOpenSource}{Es dürfen keine proprietären, sondern nur freie Technologien für die Umsetzung des Systems genutzt werden.}
 
 \chapter{Anforderungsanalyse} 
@@ -112,8 +113,9 @@ Somit ergeben sich die nichtfunktionalen Anforderungen \reqref{requirementAggreg
 \requirement{\requirementUsageInBrowser}\label{requirementUsageInBrowser}\\
 
 \subsection{Erweiterbarkeit}
-In dieser Arbeit kann nur eine prototypische Implementierung der Anforderungen erfolgen. Das System soll also als Basis für weitere Entwicklungen und Forschungsarbeiten dienen und einfach erweitert und verändert werden können. Das System muss als Aggregator für die unterschiedlichsten Services dienen. Es soll aus diesem Grund möglich sein auf Basis einer vorgegebenen Implementierung oder API weitere Services oder Kanäle in das System zu laden, welche ebenfalls offline fähig sind und es so beständig in seiner Funktionalität zu erweitern. Schließlich wird die Software in unterschiedlichen Bereichen, insbesondere in einem universitären Umfeld eingesetzt. Dies verlangt eine Nutzbarkeit ohne Lizenzgebühren für die verwendeten Technologien, so dass für die Umsetzung keine proprietären, sondern nur freie Technologien verwendet werden dürfen. Aus diesen Punkten folgen die nichtfunktionalen Anforderungen \reqref{requirementNewWidgetsWithApi}, \reqref{requirementExtensibility}, und \reqref{requirementOpenSource}:\\
+In dieser Arbeit kann nur eine prototypische Implementierung der Anforderungen erfolgen. Das System soll also als Basis für weitere Entwicklungen und Forschungsarbeiten dienen und einfach erweitert und verändert werden können. Das System muss als Aggregator für die unterschiedlichsten Services dienen. Es soll aus diesem Grund möglich sein auf Basis einer vorgegebenen Implementierung oder API weitere Services oder Kanäle in das System zu laden, welche ebenfalls offline fähig sind und es so beständig in seiner Funktionalität zu erweitern. Als Grundlage für diese Erweiterung soll ein Widget auf Basis der API umgesetzt werden. Dieses soll die beschriebenen Offline-Funktionalitäten nutzen. Schließlich wird die Software in unterschiedlichen Bereichen, insbesondere in einem universitären Umfeld eingesetzt. Dies verlangt eine Nutzbarkeit ohne Lizenzgebühren für die verwendeten Technologien, so dass für die Umsetzung keine proprietären, sondern nur freie Technologien verwendet werden dürfen. Aus diesen Punkten folgen die nichtfunktionalen Anforderungen \reqref{requirementNewWidgetsWithApi}, \reqref{requirementExampleWidget}, \reqref{requirementExtensibility}, und \reqref{requirementOpenSource}:\\
 \requirement{\requirementNewWidgetsWithApi}\label{requirementNewWidgetsWithApi}\\
+\requirement{\requirementExampleWidget}\label{requirementExampleWidget}\\
 \requirement{\requirementExtensibility}\label{requirementExtensibility}\\
 \requirement{\requirementOpenSource}\label{requirementOpenSource}\\
 
@@ -321,6 +323,7 @@ Im den vorherigen Abschnitten wurden nichtfunktionale und funktionale Anforderun
 \reqref{requirementUsbStick} & \emph{\requirementUsbStick} \\ \hline 
 \reqref{requirementUsageInBrowser} & \emph{\requirementUsageInBrowser} \\ \hline 
 \reqref{requirementNewWidgetsWithApi} & \emph{\requirementNewWidgetsWithApi} \\ \hline 
+\reqref{requirementExampleWidget} & \emph{\requirementExampleWidget} \\ \hline
 \reqref{requirementExtensibility} & \emph{\requirementExtensibility} \\ \hline 
 \reqref{requirementOpenSource} & \emph{\requirementOpenSource} \\ \hline 
 \end{tabularx}

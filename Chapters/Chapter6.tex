@@ -329,7 +329,32 @@ ParentFrameMessenger.prototype.initialize = function () {
 \end{lstlisting}
 
 \section{Evaluation}\label{section:evaluation}
-In diesem Abschnitt wird die in Kapitel \ref{chapter:Kapitel5} vorgestellte Lösung analysiert und auf die Erfüllung der in Kapitel \ref{chapter:Kapitel3} aufgestellten Anforderungen hin untersucht. Die Evaluation der funktionalen Anforderungen befasst sich primär mit der Analyse der Anwendungsfälle und deren Umsetzung in Plesynd. Hierzu wird Bezug auf die in Kapitel \ref{chapter:Kapitel5} vorgestellten Komponenten und das User-Interface genommen. Die nichtfunktionalen Anforderungen werden argumentativ auf Basis des umgesetzten Systems evaluiert.
+In diesem Abschnitt wird die in Kapitel \ref{chapter:Kapitel5} vorgestellte Lösung analysiert und auf die Erfüllung der in Kapitel \ref{chapter:Kapitel3} aufgestellten Anforderungen hin untersucht. Die nichtfunktionalen Anforderungen werden argumentativ auf Basis des umgesetzten Systems evaluiert. Die Evaluation der funktionalen Anforderungen befasst sich primär mit der Analyse der Anwendungsfälle und deren Umsetzung in Plesynd. Hierzu wird Bezug auf die in Kapitel \ref{chapter:Kapitel5} vorgestellten Komponenten und das User-Interface genommen. 
+
+\subsection{Validierung der nichtfunktionalen Anforderungen}
+\textbullet{} \reqref{requirementAggregator} \emph{\requirementAggregator}\\
+Plesynd ist als Personal Learning Environment konzipiert und umgesetzt worden. Das System ist in der Lage unterschiedlichste Arten von Services mit Hilfe von Widgets in einem System zusammenzufassen und dem Anwender so zu präsentieren, dass er aus dem System heraus mit ihnen arbeiten kann.
+
+\textbullet{} \reqref{requirementWidgetStandard} \emph{\requirementWidgetStandard}\\
+Wie in den Abschnitten \ref{section:widget_frameworks} und \ref{section:loesung_wookie} beschrieben nutzt Plesynd als Widget-Container Wookie. Somit ist es möglich alle nach dem W3C -Standard implementierten Widgets einzubinden. Die Offline-Funktionalitäten sind allerdings nur bei den Widgets möglich, die zusätzlich Plesynd-kompatibel umgesetzt wurden.
+
+\textbullet{} \reqref{requirementUsbStick} \emph{\requirementUsbStick}\\
+Abschnitt \ref{section:ple_auf_usb} beschreibt, wie es möglich ist, dass Plesynd samt seiner Daten mit Hilfe von portablen Versionen aktueller Browser auf einem mobilen Speichermedium wie USB-Sticks offline zwischen unterschiedlichen Rechnern transportiert wird.
+
+\textbullet{} \reqref{requirementUsageInBrowser} \emph{\requirementUsageInBrowser}\\
+Plesynd-Client wurde komplett auf Basis von HTML und Javascript umgesetzt. Diese Technologien stehen in jedem aktuellen Browser nativ zur Verfügung. Die Serverseite ist für die Erfüllung dieser Anforderung irrelevant.
+
+\textbullet{} \reqref{requirementNewWidgetsWithApi} \emph{\requirementNewWidgetsWithApi}\\
+Das System ist in der Lage mit allen W3C-Widgets umzugehen. Zusätzlich beschreibt Abschnitt \ref{section:offline_faehigkeiten} die implementierte Schnittstelle mit der die Offline-Fähigkeit des Systems umgesetzt wurde. Auf Basis dieser Beschreibung und des exemplarischen Todo-Listen-Widgets ist es einfach möglich neue Plesynd-kompatible Widgets zu implementieren.
+
+\textbullet{} \reqref{requirementExampleWidget} \emph{\requirementExampleWidget}\\
+Es wurde ein komplett funktionsfähiges Todo-Listen-Widget entworfen und umgesetzt. Dieses nutzt die beschriebenen Offline-Funktionalitäten und ist in der Lage mit Plesynd zu kommunizieren und dem System Informationen zukommen zu lassen. Das Widget nutzt ebenfalls die REST-API zur Kommunikation mit dem Backend und bietet ein User-Interface zur Arbeit (hinzufügen, bearbeiten, Löschen und filtern) mit Todo-Listen und den zugehörige Todo-Einträgen .
+
+\textbullet{} \reqref{requirementExtensibility} \emph{\requirementExtensibility}\\
+Durch die Umsetzung der in \reqref{requirementNewWidgetsWithApi} geforderten Schnittstelle zur Widget-Implementierung ist es relativ einfach möglich neue Widgets zu dem System hinzufügen. Des Weiteren wurde durch die Nutzung REST-konformer Anfragen und Antworten (siehe \ref{section:rest}) ein Standard zur Kommunikation innerhalb des Systems eingeführt, welcher es vereinfacht neue Systeme (wie zum Beispiel Services für eigene Widgets) zu Plesynd hinzuzufügen. Bei der Umsetzung des Systems wurde darauf geachtet Frameworks und Werkzeuge zu benutzen, die aktiv weiterentwickelt werden und für die eine gute Dokumentation existiert. Somit sollte es gut möglich sein die entwickelte PLE zu erweitern.
+
+\textbullet{} \reqref{requirementOpenSource} \emph{\requirementOpenSource}\\
+Alle Werkzeuge, die für die Umsetzung von Plesynd genutzt wurden (siehe Abschnitt \ref{section:entwicklungsumgebungen_tools}) stehen unter freien Lizenzen, welche es erlauben ohne kostenpflichtige Lizensierungen mit dem System zu arbeiten und dieses zu erweitern.
 
 \subsection{Evaluation der funktionalen Anforderungen}\label{section:funktionale_anforderungen_evaluation}
 \textbullet{} \reqref{requirementRegistrieren} \emph{\requirementRegistrieren}\\
@@ -387,28 +412,6 @@ Plesynd-Client speichert mit Hilfe der HTML-Appcache-API (siehe Abschnitt \ref{s
 \textbullet{} \reqref{requirementOnlineSync} \emph{\requirementOnlineSync}\\
 Mit Hilfe der in Abschnitt \ref{section:offline_storage} beschriebenen Techniken und der entwickelten Systematik zum Speichern und Synchronisieren von Daten (siehe \ref{section:offline_faehigkeiten}), ist es möglich mit Plesynd-Client und den kompatiblen Widgets offline zu arbeiten. Das System synchronisiert die hinzugefügten, geänderten und gelöschten Einträge mit den jeweiligen Backends, wenn wieder eine Verbindung zum Internet hergestellt wurde.
 
-\subsection{Validierung der nichtfunktionalen Anforderungen}
-\textbullet{} \reqref{requirementAggregator} \emph{\requirementAggregator}\\
-Plesynd ist als Personal Learning Environment konzipiert und umgesetzt worden. Das System ist in der Lage unterschiedlichste Arten von Services mit Hilfe von Widgets in einem System zusammenzufassen und dem Anwender so zu präsentieren, dass er aus dem System heraus mit ihnen arbeiten kann.
-
-\textbullet{} \reqref{requirementWidgetStandard} \emph{\requirementWidgetStandard}\\
-Wie in den Abschnitten \ref{section:widget_frameworks} und \ref{section:loesung_wookie} beschrieben nutzt Plesynd als Widget-Container Wookie. Somit ist es möglich alle nach dem W3C -Standard implementierten Widgets einzubinden. Die Offline-Funktionalitäten sind allerdings nur bei den Widgets möglich, die zusätzlich Plesynd-kompatibel umgesetzt wurden.
-
-\textbullet{} \reqref{requirementUsbStick} \emph{\requirementUsbStick}\\
-Abschnitt \ref{section:ple_auf_usb} beschreibt, wie es möglich ist, dass Plesynd samt seiner Daten mit Hilfe von portablen Versionen aktueller Browser auf einem mobilen Speichermedium wie USB-Sticks offline zwischen unterschiedlichen Rechnern transportiert wird.
-
-\textbullet{} \reqref{requirementUsageInBrowser} \emph{\requirementUsageInBrowser}\\
-Plesynd-Client wurde komplett auf Basis von HTML und Javascript umgesetzt. Diese Technologien stehen in jedem aktuellen Browser nativ zur Verfügung. Die Serverseite ist für die Erfüllung dieser Anforderung irrelevant.
-
-\textbullet{} \reqref{requirementNewWidgetsWithApi} \emph{\requirementNewWidgetsWithApi}\\
-Das System ist in der Lage mit allen W3C-Widgets umzugehen. Zusätzlich beschreibt Abschnitt \ref{section:offline_faehigkeiten} die implementierte Schnittstelle mit der die Offline-Fähigkeit des Systems umgesetzt wurde. Auf Basis dieser Beschreibung und des exemplarischen Todo-Listen-Widgets ist es einfach möglich neue Plesynd-kompatible Widgets zu implementieren.
-
-\textbullet{} \reqref{requirementExtensibility} \emph{\requirementExtensibility}\\
-Durch die Umsetzung der in \reqref{requirementNewWidgetsWithApi} geforderten Schnittstelle zur Widget-Implementierung ist es relativ einfach möglich neue Widgets zu dem System hinzufügen. Des Weiteren wurde durch die Nutzung REST-konformer Anfragen und Antworten (siehe \ref{section:rest}) ein Standard zur Kommunikation innerhalb des Systems eingeführt, welcher es vereinfacht neue Systeme (wie zum Beispiel Services für eigene Widgets) zu Plesynd hinzuzufügen. Bei der Umsetzung des Systems wurde darauf geachtet Frameworks und Werkzeuge zu benutzen, die aktiv weiterentwickelt werden und für die eine gute Dokumentation existiert. Somit sollte es gut möglich sein die entwickelte PLE zu erweitern.
-
-\textbullet{} \reqref{requirementOpenSource} \emph{\requirementOpenSource}\\
-Alle Werkzeuge, die für die Umsetzung von Plesynd genutzt wurden (siehe Abschnitt \ref{section:entwicklungsumgebungen_tools}) stehen unter freien Lizenzen, welche es erlauben ohne kostenpflichtige Lizensierungen mit dem System zu arbeiten und dieses zu erweitern.
-
 \subsection{Überblick}
 Es folgt ein tabellarischer Überblick über die Anforderungen.
 Bedeutung der letzten Spalte:\\
@@ -421,13 +424,14 @@ Bedeutung der letzten Spalte:\\
 \begin{table}[ht]
 \caption{Nichtfunktionale Anforderungen Evaluation}
 \begin{tabularx}{\textwidth}{ l | X | c}
-\reqref{requirementAggregator} & \emph{\requirementAggregator}  & \checkmark\\ \hline 
-\reqref{requirementWidgetStandard} & \emph{\requirementWidgetStandard}  & \checkmark\\ \hline 
-\reqref{requirementUsbStick} & \emph{\requirementUsbStick}  & \checkmark\\ \hline 
-\reqref{requirementUsageInBrowser} & \emph{\requirementUsageInBrowser}  & \checkmark\\ \hline 
-\reqref{requirementNewWidgetsWithApi} & \emph{\requirementNewWidgetsWithApi}  & \checkmark\\ \hline 
-\reqref{requirementExtensibility} & \emph{\requirementExtensibility}  & \checkmark\\ \hline 
-\reqref{requirementOpenSource} & \emph{\requirementOpenSource}  & \checkmark\\ \hline 
+\reqref{requirementAggregator} & \emph{\requirementAggregator} & \checkmark\\ \hline 
+\reqref{requirementWidgetStandard} & \emph{\requirementWidgetStandard} & \checkmark\\ \hline 
+\reqref{requirementUsbStick} & \emph{\requirementUsbStick} & \checkmark\\ \hline 
+\reqref{requirementUsageInBrowser} & \emph{\requirementUsageInBrowser} & \checkmark\\ \hline 
+\reqref{requirementNewWidgetsWithApi} & \emph{\requirementNewWidgetsWithApi} & \checkmark\\ \hline 
+\reqref{requirementExampleWidget} & \emph{\requirementExampleWidget} & \checkmark\\ \hline
+\reqref{requirementExtensibility} & \emph{\requirementExtensibility} & \checkmark\\ \hline 
+\reqref{requirementOpenSource} & \emph{\requirementOpenSource} & \checkmark\\ \hline 
 \end{tabularx}
 \label{table:nichtfunktionale_anforderungen_evaluation}
 \end{table}
