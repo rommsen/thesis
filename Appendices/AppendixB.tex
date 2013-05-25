@@ -1,16 +1,16 @@
 % Appendix B
-\chapter{Beschreibung der wichtigsten Komponenten}
+\chapter{Beschreibung der wichtigsten Komponenten von Plesynd}
 \label{AppendixB}
-\lhead{Anhang B. \emph{Beschreibung der wichtigsten Komponenten}}
+\lhead{Anhang B. \emph{Beschreibung der wichtigsten Komponenten von Plesynd}}
 
 Dieser Anhang beschreibt die wichtigsten AngularJS-Komponenten auf Basis ihrer Symfony2 Bundle-Zugehörigkeit.
 \section{CorujaAngularModuleBundle}
-In dem CorujaAngularModuleBundle werden Komponenten zusammengefasst, welche sowohl von Plesynd direkt, als auch von Widgets genutzt werden können. 
+In dem CorujaAngularModuleBundle werden Komponenten zusammengefasst, welche sowohl von Plesynd direkt als auch von Widgets genutzt werden können. 
 
 \subsection{AngularJs-Komponenten}
 
 \subsubsection*{Ressources/public/app/coruja-auth}\label{section:coruja_auth}
-Die coruja-auth Komponente besteht aus dem \texttt{AccountActionCtrl} und einer \texttt{auth}-Direktive. Wenn diese Komponente genutzt wird bekommt der Controller aus der Application Config die Info, welche Aktion der User wünscht. Möchte er seinen Account aktivieren ist der Controller dafür zuständig:
+Die coruja-auth Komponente besteht aus dem \texttt{AccountActionCtrl} und einer \texttt{auth}-Direktive. Wenn diese Komponente genutzt wird, bekommt der Controller aus der Application Config die Info, welche Aktion der User wünscht. Möchte er seinen Account aktivieren ist der Controller dafür zuständig:
 \begin{lstlisting}[caption=Hauptapplikation reagiert auf Account Confirmation Route]
  angular.module('application', ['ui', 'application.constants', 'application.controllers', 'application.filters', 'application.services', 'application.directives'])
     .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
@@ -57,13 +57,13 @@ $scope.deleteWidget = function (widget) {
 \end{lstlisting}
 
 \subsubsection*{Ressources/public/app/coruja-frame-messenger}
-Die coruja-frame-messenger Komponente stellt mit dem \texttt{parentFrameMessenger} und dem \texttt{childFrameMessenger} zwei Services zur Verfügung, die unter Zuhilfenahme des postmessage Plugins (siehe \ref{section:kommunikation_zwischen_iframes_implementierung} die Kommunikation zwischen dem Eltern-Frame (Plesynd) und dem Kind-Frame (Widget) erlauben. Im \texttt{parentFrameMessenger} wird auf die Events gehört, welche im \texttt{childFrameMessenger} ausgelöst werden.
+Die coruja-frame-messenger Komponente stellt mit dem \texttt{parentFrameMessenger} und dem \texttt{childFrameMessenger} zwei Services zur Verfügung, die unter Zuhilfenahme des postmessage Plugins (siehe Abschnitt \ref{section:kommunikation_zwischen_iframes_implementierung}) die Kommunikation zwischen dem Eltern-Frame (Plesynd) und dem Kind-Frame (Widget) erlauben. Im \texttt{parentFrameMessenger} wird auf die Events gehört, welche im \texttt{childFrameMessenger} ausgelöst werden.
 
 \subsubsection*{Ressources/public/app/coruja-message}
-coruja-message erlaubt es den Anwender Rückmeldung zu seinen Aktionen zu geben (siehe Listing \ref{listing:confirmation_and_message}). Hierzu benutzt die Komponente den eine Direktive zur Erstellung des Containers, welche die Nachrichten ausgibt (\texttt{messageContainer}) und einen Service, welcher in den unterschiedlichen Controllern genutzt werden kann (\texttt{systemMessageService}). Wenn eine neue Nachricht an den Service übergeben wurde, löst dieser eine \texttt{systemMessageAdded}-Event aus, auf welches in der Direktive mit der Darstellung der Nachricht reagiert wird. 
+Die coruja-message Komponente erlaubt es den Anwender Rückmeldung zu seinen Aktionen zu geben (siehe Listing \ref{listing:confirmation_and_message}). Hierzu benutzt die Komponente eine Direktive zur Erstellung des Containers, welche die Nachrichten ausgibt (\texttt{messageContainer}) und einen Service, welcher in den unterschiedlichen Controllern genutzt werden kann (\texttt{systemMessageService}). Wenn eine neue Nachricht an den Service übergeben wurde, löst dieser eine \texttt{systemMessageAdded}-Event aus, auf welches in der Direktive mit der Darstellung der Nachricht reagiert wird. 
 
 \subsubsection*{Ressources/public/app/coruja-online-status}
-Der \texttt{onlineStatus}-Service in der coruja-online-status Komponente wird dazu genutzt um dem System die Möglichkeit zu geben, den aktuellen Online-Status abzufragen.
+Der \texttt{onlineStatus}-Service in der coruja-online-status Komponente wird dazu genutzt, um dem System die Möglichkeit zu geben, den aktuellen Online-Status abzufragen.
 
 \subsubsection*{Ressources/public/app/coruja-password-validator}
 Diese Komponente enthält eine Direktive zur Überprüfung der Gleichheit der angegeben Passwörter bei der Nutzerregistrierung.
@@ -71,7 +71,7 @@ Diese Komponente enthält eine Direktive zur Überprüfung der Gleichheit der an
 \subsubsection*{Ressources/public/app/coruja-remote-form}
 AngularJs bietet standardmäßig nur eine clientseitige Validierung von Formularen. Da im Zuge der Nutzerregistrierung jedoch auch eine serverseitige Validierung erforderlich war (prüfen, ob E-Mail Adresse bereits vergeben etc.) wurde eine Direktive (\texttt{remoteForm}) zu diesem Zwecke entwickelt. Diese Direktive ermöglicht es Teile des Formulares beim Absenden an der Server zu senden und dort validieren zu lassen. Eventuelle Fehlermeldungen werden den jeweiligen Formularelementen auf Basis des Nutzernamens zugeordnet.
 
-\begin{lstlisting}[caption=Nutzung der remoteForm Direktive im HTML,label=listing:remoteForm_in_HTML]
+\begin{lstlisting}
  <form novalidate remote-form method='post' target="user" success="registrationSuccessful" name="registerForm">
     <div class="control-group" ng-class="{error: !registerForm.username.$valid}">
         <div class="controls">
@@ -99,7 +99,7 @@ AngularJs bietet standardmäßig nur eine clientseitige Validierung von Formular
     </div>
     <button type="submit" ng-click="submit(user)" ng-disabled="registerForm.$pristine || !registerForm.repeatPassword.$valid" class="btn btn-primary">Register</button>
 \end{lstlisting}
-Die Direktive wird dem Formularelement in Zeile 1 per \texttt{remote-form} Attribut zugewiesen. Zusätzlich werden noch Parameter als Attribute an die Direktive übergeben. Mögliche Parameter sind
+Die Direktive wird dem Formularelement in Zeile 1 per \texttt{remote-form} Attribut zugewiesen. Zusätzlich werden noch Parameter als Attribute an die Direktive übergeben. Mögliche Parameter sind:
 \begin{itemize}
  \item \texttt{target}: Das Ziel bei Abschicken des Formulares. Im vorliegenden Fall ein relativer Pfad auf user (also beispielsweise http://plesynd.de/user)
  \item \texttt{method}: HTTP Methode mit der die Daten gesendet werden sollen (default: POST)
@@ -108,18 +108,18 @@ Die Direktive wird dem Formularelement in Zeile 1 per \texttt{remote-form} Attri
  \item \texttt{property\_path\_key}: Property des Json-Objekts, welches der Server zurückgibt, in dem die Validierungsinformationen zu finden sind (default: propertyPath).
  \item \texttt{message\_key}: Property des Json-Objekts, welches der Server zurückgibt, in dem die Nachrichten an den Anwender zu finden sind (default: message).
 \end{itemize}
-Jedem Formularelement, welches vom Server geprüft werden soll, muss die \texttt{remoteFormComponent}-Direktive zugewiesen werden. Diese registriert das Element mit seinem Namen bei der \texttt{remoteForm}-Direktive. Wie man sieht wird das Formularelement mit dem Namen \texttt{repeatPassword} nicht serverseitig, sondern nur clientseitig mit der \texttt{passwordValidator}-Direktive validiert. Wenn das Formular abgeschickt wird, wird die \texttt{submit}-Funktion des Controllers der Direktive mit den Daten des Formulares aufgerufen und der Validierungs-/Speicherungsprozess in Gang gesetzt.
+Jedem Formularelement, welches vom Server geprüft werden soll, muss die \texttt{remoteFormComponent}-Direktive zugewiesen werden. Diese registriert das Element mit seinem Namen bei der \texttt{remoteForm}-Direktive. Wie man sieht wird das Formularelement mit dem Namen \texttt{repeatPassword} nicht serverseitig, sondern nur clientseitig mit der \texttt{passwordValidator}-Direktive validiert. Wenn das Formular abgeschickt wird, wird die \texttt{submit}-Funktion des Controllers der Direktive mit den Daten des Formulares aufgerufen und der Validierungs-/Speicherungsprozess gestartet.
 
 Die Direktive wurde als Opensource unter Github veröffentlicht: 
 
 \subsubsection*{Ressources/public/app/coruja-resource}
-Der \texttt{resourceService} in der coruja-resource Komponente wird genauer unter: \ref{section:offline_faehigkeiten} beschrieben.
+Der \texttt{resourceService} in der coruja-resource Komponente wird genauer in Abschnitt \ref{section:offline_faehigkeiten} beschrieben.
 
 \subsubsection*{Ressources/public/app/coruja-storage}
-Der \texttt{localStorage}-Service in der coruja-resource Komponente wird genauer unter: \ref{section:offline_faehigkeiten} beschrieben.
+Der \texttt{localStorage}-Service in der coruja-resource Komponente wird genauer in Abschnitt \ref{section:offline_faehigkeiten} beschrieben.
 
 \subsubsection*{Ressources/public/app/lib}
-Dieses Verzeichnis beinhaltet die externen Bibliotheken, die von Plesynd und den Widgets genutzt werden. Hierzu gehören AngularJs, jQuery, aber auch das \texttt{http-auth-interceptor}-Modul. Dieses prüft, ob der Server auf eine Anfrage mit einem 403 (Access-Denied) Statuscode antwortet. Ist dies der Fall werden diese Anfragen zwischengespeichert und ein \texttt{event:auth-loginRequired}-Event wird ausgelöst, welches dann von der coruja-auth Komponente (siehe \ref{section:coruja_auth}) behandelt wird. War der Login erfolgreich, werden die zwischengespeicherten Anfragen erneut an den Server gesendet. 
+Dieses Verzeichnis beinhaltet die externen Bibliotheken, die von Plesynd und den Widgets genutzt werden. Hierzu gehören AngularJs, jQuery, aber auch das \texttt{http-auth-interceptor}-Modul. Dieses prüft, ob der Server auf eine Anfrage mit einem 403 (Access-Denied) Statuscode antwortet. Ist dies der Fall werden diese Anfragen zwischengespeichert und ein \texttt{event:auth-loginRequired}-Event wird ausgelöst, welches dann von der coruja-auth Komponente (siehe Abschnitt \ref{section:coruja_auth}) behandelt wird. War der Login erfolgreich, werden die zwischengespeicherten Anfragen erneut an den Server gesendet. 
 
 \section{CorujaPlesyndBundle}
 Dieses Bundle enthält die Komponenten, welche direkt für das Plesynd-System implementiert wurden.
@@ -129,7 +129,7 @@ Dieses Bundle enthält die Komponenten, welche direkt für das Plesynd-System im
 \subsection{AngularJs-Komponenten}
 
 \subsubsection*{Ressources/public/app/application}\label{section:app_application}
-Diese Komponente enthält neben der Datei \texttt{configuration-constants.js} in der systemweite Konfigurationseinstellungen hinterlegt werden die Datei \texttt{application.js}. In dieser Datei werden die einzelnen Komponenten in einem AngularJs-Modul zusammengefasst, welches dann über die \texttt{ng-app}-Direktive dem Haupt-Dom-Knoten zugeordnet wird. Zusätzlich werden die Routen der Applikation (z.B. /dashboard, /workspace/23) definiert und es wird hinterlegt welche Aktion das System bei dem Aufruf einer Route durchführen soll. Schlussendlich werden innerhalb der \texttt{run}-Methode wichtige Initialisierungen vorgenommen.
+Diese Komponente enthält, neben der Datei \texttt{configuration-constants.js} in der die systemweiten Konfigurationseinstellungen hinterlegt werden, die Datei \texttt{application.js}. In dieser Datei werden die einzelnen Komponenten in einem AngularJs-Modul zusammengefasst, welches dann über die \texttt{ng-app}-Direktive dem Haupt-Dom-Knoten zugeordnet wird. Zusätzlich werden die Routen der Applikation (z.B. /dashboard, /workspace/23) definiert und es wird hinterlegt, welche Aktion das System bei dem Aufruf einer Route durchführen soll. Schlussendlich werden innerhalb der \texttt{run}-Methode wichtige Initialisierungen vorgenommen.
 \begin{lstlisting}[caption=Beispiel für die Definition einer Route und eines Resolvers]
 workspaceResolver = function ($q, $route, $location, $timeout, workspaceService, systemMessageService) {
     var deferred = $q.defer(),
@@ -156,13 +156,13 @@ $routeProvider.when('/workspace/:id', {
 
 Es wird ein zu ladendes Template und der Controller hinterlegt, welcher für die Bearbeitung zuständig ist. Der Parameter \texttt{workspace} des Controllers \texttt{WorkspaceCtrl} wird auf Basis des id Parameters in der Route unter zuhilfenahme des \texttt{workspaceService} geholt. 
 \subsubsection*{Ressources/public/app/dashboard}
-Diese Komponente beinhaltet den \texttt{dashboardCtrl}-Controller, welcher die Aktionen zu Arbeit mit dem Dashboard zur Verfügung stellt.
+Diese Komponente beinhaltet den \texttt{dashboardCtrl}-Controller, welcher die Aktionen zur Arbeit mit dem Dashboard zur Verfügung stellt.
 
 \subsubsection*{Ressources/public/app/plesynd}
 Der \texttt{PlesyndCtrl}-Controller dieser Komponente ist der Hauptcontroller von Plesynd. Er initialisiert das Laden der Workspaces und Widgets, reagiert auf Änderungen der Route und erlaubt Aktionen, die auf Grund ihrer globalen Eigenschaften nicht in den Controllern für Workspaces und Widgets implementiert werden können (z.B. das Hinzufügen von Workspaces).
 
 \subsubsection*{Ressources/public/app/widget}
-Diese Komponente besteht aus einem Controller zur Arbeit mit den Widgets (\texttt{widgetCtrl}), einer Direktive zum Sortieren der Widgets per Drag and Drop (\texttt{widgetSort}) und dem \texttt{widgetService}. Dieser stellt eine Implementierung der Local-Storage Api (siehe \ref{section:offline_faehigkeiten}) dar.
+Diese Komponente besteht aus einem Controller zur Arbeit mit den Widgets (\texttt{widgetCtrl}), einer Direktive zum Sortieren der Widgets per Drag and Drop (\texttt{widgetSort}) und dem \texttt{widgetService}. Dieser stellt eine Implementierung der Local-Storage API (siehe Abschnitt \ref{section:offline_faehigkeiten}) dar.
 
 \subsubsection*{Ressources/public/app/workspace}
 Diese Komponente bietet ähnlich wie die vorige Komponente einen Service und einen Controller zur Arbeit mit den Workspaces.
@@ -173,10 +173,10 @@ Dieses Bundle stellt die Funktionalitäten für das Todo-Widget zur Verfügung.
 \subsection{AngularJs-Komponenten}
 
 \subsubsection*{Ressources/public/app/application}
-Siehe \ref{section:app_application}.
+Siehe Abschnitt \ref{section:app_application}.
 
 \subsubsection*{Ressources/public/app/todo}
-In dieser Komponente befindet sich der Controller \texttt{TodoCtrl}, welcher der Hauptcontroller für das Widget ist. Zusätzlich gibt es noch Direktiven für das Ein- und Ausblenden von Formularelementen per Doppelklick und den \texttt{TodoService} als Implementierung der Local-Storage Api.
+In dieser Komponente befindet sich der Controller \texttt{TodoCtrl}, welcher der Hauptcontroller für das Widget ist. Zusätzlich gibt es noch Direktiven für das Ein- und Ausblenden von Formularelementen per Doppelklick und den \texttt{TodoService} als Implementierung der Local-Storage API.
 
 \subsubsection*{Ressources/public/app/todo-list}
-Der \texttt{TodoListService dieser Komponente} ist eine Implementierung der Local-Storage Api zur Arbeit mit Todo-Listen.
+Der \texttt{TodoListService dieser Komponente} ist eine Implementierung der Local-Storage API zur Arbeit mit Todo-Listen.

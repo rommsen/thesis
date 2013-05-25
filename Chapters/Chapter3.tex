@@ -14,10 +14,10 @@
 \def\requirementautorefname{Req}
 
 \newcommand{\requirementRegistrieren}{Der Anwender muss sich selbständig in dem System registrieren können.} 
-\newcommand{\requirementLogin}{Der Anwender muss sich sich in das System mit Nutzername und Passwort einloggen können.}
+\newcommand{\requirementLogin}{Der Anwender muss sich in das System mit Nutzername und Passwort einloggen können.}
 \newcommand{\requirementZugriffAufEigeneWidgets}{Dem Anwender darf nur Zugriff auf die zu seinem Account gehörigen Workspaces und Widgets gewährt werden.} 
 \newcommand{\requirementLogout}{Der Anwender muss sich aus dem System ausloggen können.}
-\newcommand{\requirementKeinZugriffNachLogout}{Nach Beendigung der Anwender-Session, darf kein Zugriff mehr auf die Daten des Anwenders bestehen.}
+\newcommand{\requirementKeinZugriffNachLogout}{Nach Beendigung der Anwender-Session darf kein Zugriff mehr auf die Daten des Anwenders bestehen.}
 \newcommand{\requirementWorkspaceAdd}{Der Anwender muss neue Workspaces in seine Lernumgebung einfügen können.}
 \newcommand{\requirementWorkspaceEdit}{Der Anwender muss den Namen des Workspaces ändern können.}
 \newcommand{\requirementWorkspaceDelete}{Der Anwender muss einen Workspace löschen können.}
@@ -37,20 +37,22 @@
 \newcommand{\requirementUsbStick}{Die durchgeführten Arbeiten müssen offline zwischen unterschiedlichen Rechnern transportiert werden können.}
 \newcommand{\requirementUsageInBrowser}{Das System muss in aktuellen Browsern mit nativen Browsertechnologien ohne weitere Installation nutzbar sein.}
 \newcommand{\requirementExtensibility}{Das System muss einfach erweitert werden können.}
-\newcommand{\requirementNewWidgetsWithApi}{Es muss möglich sein über eine API oder eine vorgegebene Implementierung neue Services und Kanäle mit Offline-Fähigkeiten in das System zu laden.}
-\newcommand{\requirementExampleWidget}{Es muss ein offline fähiges Widget entwickelt werden, welches die Offline-Funktionalitäten beispielhaft umsetzt.}
+\newcommand{\requirementNewWidgetsWithApi}{Es muss möglich sein über eine API oder eine vorgegebene Implementierung neue Services und Kanäle mit offline Fähigkeiten in das System zu laden.}
+\newcommand{\requirementExampleWidget}{Es muss ein offline fähiges Widget entwickelt werden, welches die offline Funktionalitäten beispielhaft umsetzt.}
 \newcommand{\requirementOpenSource}{Es dürfen keine proprietären, sondern nur freie Technologien für die Umsetzung des Systems genutzt werden.}
 
 \chapter{Anforderungsanalyse} 
 \label{chapter:Kapitel3}
 \lhead{Kapitel 3. \emph{Anforderungsanalyse}}  
 
-Das Ziel der vorliegenden Arbeit ist die prototypische Implementierung einer leichtgewichtigen Personal Learning Environment mit Offline-Fähigkeiten auf Basis aktueller Technologien. Das vorliegende Kapitel beginnt mit dem Aufbau eines möglichen Szenarios, in dem die zu entwickelnde PLE zum Einsatz kommt. Auf Basis dieses Szenarios werden im folgenden Abschnitt nichtfunktionale Anforderungen und Anwendungsfälle definiert. Aus den Anwendungsfälle werden die funktionalen Anforderungen an das System abgeleitet. Das Kapitel schließt mit einer tabellarischen Auflistung der funktionalen und nichtfunktionalen Anforderungen.
+Das Ziel der vorliegenden Arbeit ist die prototypische Implementierung einer leichtgewichtigen Personal Learning Environment mit offline Fähigkeiten auf Basis aktueller Technologien. Das vorliegende Kapitel beginnt mit dem Aufbau eines möglichen Szenarios, in dem die zu entwickelnde PLE zum Einsatz kommt. Auf Basis dieses Szenarios werden im folgenden Abschnitt nichtfunktionale Anforderungen und Anwendungsfälle definiert. Aus den Anwendungsfälle werden die funktionalen Anforderungen an das System abgeleitet. Das Kapitel schließt mit einer tabellarischen Auflistung der funktionalen und nichtfunktionalen Anforderungen.
 
 \section{Ausgangssituation/Szenario}
-Das in diesem Abschnitt vorgestellte Szenario beschreibt exemplarisch die mögliche Arbeit mit einer Personal Learning Environment und soll als Basis für die Anforderungen des in dieser Arbeit zu entwickelnden Systems dienen.
+Das in diesem Abschnitt vorgestellte Szenario beschreibt exemplarisch die mögliche Arbeit mit einer Personal Learning Environment und soll als Basis für die Anforderungen des in dieser Arbeit zu entwickelnden Systems dienen. 
 
 \subsection{Akteure}
+In dem Szenario kommen vier Akteure vor, die sich alle von unterschiedlichen Orten aus an einem Universitätskurs beteiligen.
+
 \begin{itemize}
  \item Dozent mit Sitz in Hagen
  \item Student 1 mit Sitz in Kamerun (Fernuni Hagen)
@@ -60,30 +62,29 @@ Das in diesem Abschnitt vorgestellte Szenario beschreibt exemplarisch die mögli
 \end{itemize}
 
 \subsection{Ausgangssituation}\label{section:ausgangssituation}
-Der Dozent betreut an der Fernuni Hagen unter anderem den Kurs "`E-Learning: A new approach"'. Ziel dieses Kurses ist es die Lerntheorie des Konnektivismus (siehe \ref{section:konnektivismus}) unter Einsatz aktueller Technologien und Medien wie beispielsweise sozialer Netze, in einem realen Umfeld zum Einsatz zu bringen.  Für diesen Kurs hat der Dozent mehrere Kanäle zur Kommunikation angelegt. Die Studenten sollen die Kanäle wählen, die ihren Arbeitsgewohnheiten am meisten entsprechen. Am Ende des Semesters soll es eine Auswertung geben, welche Kanäle am häufigsten genutzt und welche von den Studenten eher ignoriert wurden. Parallel dazu werden die Systeme der Fernuni zur Online Bearbeitung der Einsendeaufgaben genutzt. Die vom Dozenten angelegten Kommunikationskanäle sind:
+Der Dozent betreut an der Fernuni Hagen unter anderem den Kurs "`E-Learning: A new approach"'. Ziel dieses Kurses ist es die Lerntheorie des Konnektivismus (siehe \ref{section:konnektivismus}) unter Einsatz aktueller Technologien und Medien, wie beispielsweise sozialer Netze, in einem realen Umfeld zum Einsatz zu bringen.  Für diesen Kurs hat der Dozent mehrere Kanäle zur Kommunikation angelegt. Die Studenten sollen die Kanäle wählen, die ihren Arbeitsgewohnheiten am meisten entsprechen. Am Ende des Semesters soll es eine Auswertung geben, welche Kanäle am häufigsten genutzt und welche von den Studenten eher ignoriert wurden. Zusätzlich dazu werden die Systeme der Fernuni zur Online Bearbeitung der Einsendeaufgaben genutzt. Die vom Dozenten angelegten Kommunikationskanäle sind:
 \begin{itemize}
  \item ein Twitter Kanal
- \item einen eigenen Google-Calender
+ \item einen eigenen Google-Calendar
  \item einen Chat
  \item ein System zur Hinterlegung von Todo-Listen
  \item einen eigenen Blog, welcher einen RSS Feed bereitstellt 
 \end{itemize}
 Die Studenten sind angehalten sich regelmäßig über Aktualisierungen der Kanäle auf dem Laufenden zu halten. Für diesen Kurs haben sich die Studenten 1 und 3 eingeschrieben.
 
-Zusätzlich haben sich Student 1, 2 und 4 zu einer virtuellen Lerngruppe zum Thema Datenbanken zusammengeschlossen. Hierfür können nicht die Systeme der Fernuni Hagen genutzt werden, da nur Student 2 momentan in dem spezifischen Kurs eingeschrieben ist. Student 1 hat sich nicht für den Kurs angemeldet und Student 4 hat überhaupt keine Möglichkeit dazu, da er nicht an der Fernuni immatrikuliert ist. Sie haben sich dazu entschlossen primär einen Chat zur Kommunikation zu benutzen.
+Zusätzlich haben sich Student 1, 2 und 4 zu einer virtuellen Lerngruppe zum Thema Datenbanken zusammengeschlossen. Hierfür können nicht die Systeme der Fernuni Hagen genutzt werden, da nur Student 2 momentan in dem spezifischen Kurs eingeschrieben ist. Student 1 hat sich nicht für den Kurs angemeldet und Student 4 hat überhaupt keine Möglichkeit dazu, da er nicht an der Fernuni immatrikuliert ist. Sie haben sich dazu entschlossen, primär einen Chat zur Kommunikation zu benutzen.
 
-Student 1 und Student 2 leben in Kamerun. Beide haben dort das Problem, dass der Internetzugriff aus mehreren Gründen nicht immer gegeben ist. Student 1 hat zu Hause keinen Internetzugang. Er hat nur die Möglichkeit in der Universität oder in einem Internetcafe online zu gehen. Student 2 hat einen Internetzugang, allerdings ist dieser relativ langsam und wird nach Zeit abgerechnet, so dass es vorteilhaft für ihn ist, wenn er nur für kurze Zeit online ist. Aus diesem Grund benötigen die beiden idealerweise ein System, welches ihnen die Möglichkeit bietet die neuesten Informationen auch offline zu lesen und zumindest rudimentär auch offline kleine Aufgaben zu erledigen. Diese sollten sich bei Wiederverbindung mit dem Internet mit den entsprechenden Services synchronisieren. Des Weiteren sollten sie in der Lage sein die Daten auch ohne Internetverbindung zwischen verschiedenen Rechnern auszutauschen. Insbesondere Student 1 sollte in der Lage seine Aktionen bei sich zu Hause vorzunehmen und die durchgeführten Änderungen dann an einem Rechner mit Internetanschluss zu synchronisieren. Die Anforderungen von Student 3 sind ähnlich gelagert. Er ist sehr viel unterwegs und erledigt daher viele kurze Aufgaben mit dem Smartphone. Auch hier ist eine Internetverbindung nicht immer gewährleistet ist oder sie wird temporär deaktiviert um die Akkulaufzeit zu verlängern. Durch die Arbeit an unterschiedlichen Rechnern mit potentiell unterschiedlichen Betriebssystemen, ist die Installation einer komplexen Software nicht ohne Weiteres möglich.
-Idealerweise nutzen alle Studenten das selbe Basissystem und können sich hier die benötigten Services und Applikationen so zusammenstellen wie es ihren Ansprüchen entspricht.
+Student 1 und Student 2 leben in Kamerun. Beide haben dort das Problem, dass der Internetzugriff aus mehreren Gründen nicht immer gegeben ist. Student 1 hat zu Hause keinen Internetzugang. Er hat nur die Möglichkeit in der Universität oder in einem Internetcafe online zu gehen. Student 2 hat einen Internetzugang, allerdings ist dieser relativ langsam und wird nach Zeit abgerechnet, so dass es vorteilhaft für ihn ist, wenn er nur für kurze Zeit online ist. Aus diesem Grund benötigen die beiden idealerweise ein System, welches ihnen die Möglichkeit bietet die neuesten Informationen auch offline zu lesen und zumindest rudimentär auch offline kleine Aufgaben zu erledigen. Diese sollten sich bei Wiederverbindung mit dem Internet mit den entsprechenden Services synchronisieren. Des Weiteren sollten sie in der Lage sein, die Daten auch ohne Internetverbindung zwischen verschiedenen Rechnern auszutauschen. Insbesondere Student 1 sollte die Möglichkeit seine Aktionen bei sich zu Hause vorzunehmen und die durchgeführten Änderungen dann an einem Rechner mit Internetanschluss zu synchronisieren. Die Anforderungen von Student 3 sind ähnlich gelagert. Er ist sehr viel unterwegs und erledigt daher viele kurze Aufgaben mit dem Smartphone. Auch hier ist eine Internetverbindung nicht immer gewährleistet ist oder sie wird temporär deaktiviert um die Akkulaufzeit zu verlängern. Durch die Arbeit an unterschiedlichen Rechnern mit potentiell unterschiedlichen Betriebssystemen, ist die Installation einer komplexen Software nicht ohne Weiteres möglich. Wie durch diese kurze Beschreibung deutlich wird, haben die Teilnehmer dieses Kurses verschiedene Ausgangssituationen und damit auch spezifische Anforderungen an ein PLE-System. Idealerweise nutzen aber alle Studenten das selbe Basissystem und können sich hier die benötigten Services und Applikationen so zusammenstellen wie es ihren Ansprüchen entspricht.
 
 \subsection{Arbeitsabläufe}
-Im Folgenden werden die unterschiedlichen Arbeitsabläufe mit dem System exemplarisch an Student 1 und an Student 3 dargelegt.
+Im Folgenden werden die unterschiedlichen Arbeitsabläufe mit dem System exemplarisch an Student 1 und an Student 3 dargelegt, um die Komplexität der Anforderungen an eine PLE zu verdeutlichen.
 
 \subsubsection*{Grundsätzlicher Arbeitsablauf für Studenten}
 Um mit der PLE arbeiten zu können müssen die Studenten als erstes online eine Account in dem PLE-System erstellen. Anschließend melden sie sich mit ihren gewählten Login-Daten an. Bei erfolgreicher Anmeldung hat der Anwender die Möglichkeit direkt Workspaces zu erstellen, mit diesen zu arbeiten (Workspace umbenennen, Einstellungen vornehmen, Widgets hinzufügen etc).
 
 \subsubsection*{Arbeitsablauf Student 1}
 \begin{itemize}
- \item \emph{Tag 1:} Student 1 befindet sich in der Universität und verbindet seinen USB-Stick mit einem PC. Auf diesem Stick befindet sich die ausführbare mobiler Version eines aktuellen Browsers. Er öffnet die Applikation online in diesem Browser (alle folgenden Aktionen werden mit dem selben Browser durchgeführt). Student 1 erstellt einen neuen Workspace und benennt ihn in "`PLE"' um. Anschließend sucht er die Widgets für den PLE Workspace aus der Widget-Datenbank heraus. Das System zeigt ihm dabei an, für welche Widgets eine Offline-Fähigkeit zur Verfügung steht. Daraufhin organisiert er die Anordnung der Widgets nach seinen Vorstellungen per Drag and Drop neu. Damit er mit den einzelnen Widgets auch arbeiten kann, meldet sich Student 1 schließlich bei den jeweiligen Services mit seinen Account-Daten an. Bevor er den Browser schließt haben sich alle Widgets mit ihren Services synchronisiert und zeigen ihm dies auch an.
+ \item \emph{Tag 1:} Student 1 befindet sich in der Universität und verbindet seinen USB-Stick mit einem PC. Auf diesem Stick befindet sich die ausführbare mobile Version eines aktuellen Browsers. Er öffnet die Applikation online in diesem Browser (alle folgenden Aktionen werden mit dem selben Browser durchgeführt). Student 1 erstellt einen neuen Workspace und benennt ihn in "`PLE"' um. Anschließend sucht er die Widgets für den PLE Workspace aus der Widget-Datenbank heraus. Das System zeigt ihm dabei an, für welche Widgets eine Offline-Fähigkeit zur Verfügung steht. Daraufhin organisiert er die Anordnung der Widgets nach seinen Vorstellungen per Drag and Drop neu. Damit er mit den einzelnen Widgets auch arbeiten kann, meldet sich Student 1 schließlich bei den jeweiligen Services mit seinen Account-Daten an. Bevor er den Browser schließt haben sich alle Widgets mit ihren Services synchronisiert und zeigen ihm dies auch an.
  \item \emph{Tag 2:} Student 1 loggt sich an der Uni in das PLE-System ein. Das System zeigt ihm auf der Startseite (dem Dashboard) an wie viele neue Einträge es auf seinem PLE Workspace gibt. Ein direkter Link führt ihn zum Workspace. Er sieht, dass momentan mehrere Leute im Chat sind und unterhält sich über das Widget mit ihnen. Der Dozent hat einige globale Todos angelegt und die ersten Nachrichten kommen über den Twitter Kanal herein. Er sieht, dass Student 3 einen längeren Text im Chat geschrieben hat, beschließt diesen jedoch später zu lesen. Gleiches gilt für den Einführungsartikel des Dozenten im Kursblog. Hierfür erstellt er sich Einträge in seiner Todo-Liste. Abschließend schließt Student 1 den Browser und entfernt den USB-Stick.
  \item \emph{Tag 3:} Student 1 öffnet die Applikation in seinem mobilen Browser zu Hause. Das System erkennt, dass es sich im Offline-Modus befindet und versucht keine Synchronisierung mit dem Internet herzustellen. Student 1 liest den Text, den Student 3 im Chat hinterlegt hat und beantwortet die darin gestellten Fragen ebenfalls im Chatfenster. Anschließend teilt er dies über Twitter mit und erledigt seinen Todo-Eintrag.
  \item \emph{Tag 4:} Student 1 loggt sich im Internet-Cafe mit seinem mobilen Browser in das System ein. Das System erkennt, dass es online ist, lädt die neuesten Einträge der Services herunter und synchronisiert die nur lokal vorgenommenen Aktionen (Twitter, Chat, Todo). Per Mail hat Student 1 den Vorschlag von Student 2 bekommen gemeinsam mit Student 4 eine Lerngruppe zum Thema Datenbanken zu gründen. Hierzu wollen sie unter anderem ein Chat-System benutzen. Student 1 schlägt per Mail das ihm bekannte Chat-Widget für die PLE-Applikation vor. Er erstellt einen neuen Workspace, nennt ihn “Lerngruppe DB” und fügt das Chat-Widget mit den passenden Einstellungen hinzu.
@@ -91,20 +92,20 @@ Um mit der PLE arbeiten zu können müssen die Studenten als erstes online eine 
 \end{itemize}
 
 \subsubsection*{Arbeitsablauf Student 3}
-Student 3 nutzt das System hauptsächlich mit seinem Smartphone, welches in der Lage ist sich über WLAN, sowie UMTS mit dem Internet zu verbinden.
+Student 3 nutzt das System hauptsächlich mit seinem Smartphone, welches in der Lage ist sich über WLAN sowie UMTS mit dem Internet zu verbinden.
 
 \begin{itemize}
- \item \emph{Tag 1:} Student 3 meldet sich ähnlich wie Student 1 in der PLE an und erstellt für seine Uni-Kurse jeweils einen Workspace. Außerdem legt er sich einen Workspace an, in dem sich nicht kursspezifische Widgets finden. Hierzu gehören, sein RSS-Reader, eine Todo Liste, sowie ein Google-Calender-Widget
- \item \emph{Tag 2:} Student 3 verbindet sich zu Hause mit seinem WLAN und loggt sich in der PLE ein. Nach Prüfung des Dashboards erstellt er sich in der allgemeinen Todo Liste für den Tag. Er sieht, dass es in seinem RSS-Reader 9 neue Artikel gibt. Diese möchte er auf seinem Weg zur Uni in der U-Bahn lesen. Auf dem Weg in die Universität ruft Student 3 das System auf seinem Smartphone auf. Da kein Internetzugang besteht greift das System nur auf die lokalen Daten zurück. Das Calender-Widget in seinem globalen Workspace ist nicht offline-fähig. Aus diesem Grund wird es auch nur ausgegraut und nicht-funktional angezeigt. Der Student ist jedoch in der Lage seine lokal gecachten RSS-Artikel zu lesen. Bei Lektüre eines Artikels über Javascript fällt ihm ein, dass er sein Uni-Projekt noch mit der neuesten jQuery Version aktualisieren wollte. Hierzu erstellt er sich ein weiteres Todo auf seiner Liste.
+ \item \emph{Tag 1:} Student 3 meldet sich ähnlich wie Student 1 in der PLE an und erstellt für seine Uni-Kurse jeweils einen Workspace. Außerdem legt er sich einen Workspace an, in dem sich nicht kursspezifische Widgets finden. Hierzu gehören sein RSS-Reader, eine Todo Liste, sowie ein Google-Calendar-Widget.
+ \item \emph{Tag 2:} Student 3 verbindet sich zu Hause mit seinem WLAN und loggt sich in der PLE ein. Nach Prüfung des Dashboards erstellt er sich in der allgemeinen Todo Liste für den Tag. Er sieht, dass es in seinem RSS-Reader 9 neue Artikel gibt. Diese möchte er auf seinem Weg zur Uni in der U-Bahn lesen. Auf dem Weg in die Universität ruft Student 3 das System auf seinem Smartphone auf. Da kein Internetzugang besteht greift das System nur auf die lokalen Daten zurück. Das Calendar-Widget in seinem globalen Workspace ist nicht offlinefähig. Aus diesem Grund wird es auch nur ausgegraut und nicht-funktional angezeigt. Der Student ist jedoch in der Lage seine lokal gecachten RSS-Artikel zu lesen. Bei Lektüre eines Artikels über Javascript fällt ihm ein, dass er sein Uni-Projekt noch mit der neuesten jQuery Version aktualisieren wollte. Hierzu erstellt er sich ein weiteres Todo auf seiner Liste.
  In der Uni verbindet er sein Smartphone mit dem Uni-WLAN. Der RSS-Reader markiert die 6 Artikel die, Student 3 in der U-Bahn gelesen hat als gelesen und synchronisiert das neueste Todo-Eintrag mit dem Service im Internet.  
 \end{itemize}
 
-Zusammenfassend kann also gesagt werden, dass Betreuer und Studenten über unterschiedliche Kanäle in Kommunikation miteinander stehen. Es müssen Termine geplant oder auch Notizen und Nachrichten hin und hergeschickt werden. Diese Kanäle sollen auf einem zentralen Zugang so zusammengefasst sein, dass es den Teilnehmern des Kurse alle relevanten Informationen an einer Stelle aufrufen und bearbeiten zu können. Dabei sind die Teilnehmer zu unterschiedlichen Zeiten online. Die Teilnehmer sollen das System offline nutzen können, um einfache Arbeiten wie das Schreiben von Twitter-Nachrichten, Notizen und Instant-Messaging Nachrichten oder eine Terminabsprache über einen Kalender erledigen können. Bei dem Wechsel zwischen online und offline müssen die Daten synchronisiert werden. Idealerweise haben die Nutzer alle Daten auf einem USB-Stick bei sich und können so von unterschiedlichsten Rechnern, wie beispielsweise in der Universität, im Internetcafe oder zu von Hause aus, arbeiten.
+Zusammenfassend kann gesagt werden, dass Betreuer und Studenten über unterschiedliche Kanäle in Kommunikation miteinander stehen. Es müssen Termine geplant oder auch Notizen und Nachrichten hin und hergeschickt werden. Diese Kanäle sollen auf einem zentralen Zugang so zusammengefasst sein, dass die Teilnehmer des Kurses alle relevanten Informationen an einer Stelle aufrufen und bearbeiten können. Dabei sind die Teilnehmer zu unterschiedlichen Zeiten online. Die Teilnehmer sollen das System offline nutzen können, um einfache Arbeiten wie das Schreiben von Twitter-Nachrichten, Notizen und Instant-Messaging Nachrichten oder eine Terminabsprache über einen Kalender erledigen zu können. Bei dem Wechsel zwischen online und offline müssen die Daten synchronisiert werden. Idealerweise haben die Nutzer alle Daten auf einem USB-Stick bei sich und können so von unterschiedlichsten Rechnern, wie beispielsweise in der Universität, im Internetcafe oder zu von Hause aus, arbeiten.
 
 \section{Nichtunktionale Anforderungen}\label{section:nichtfunktionale_anforderunge}
 
 \subsection{Voraussetzungen}
-Wie in Kapitel \ref{chapter:Kapitel2} beschrieben sind Personal Learning Environments Mashup-Anwendungen, welche unterschiedliche Anwendungen zu einem System zusammenfassen. Diese Anwendungen sind Services oder Kanäle, wie zum Beispiel Twitter, Facebook oder auch Applikationen für Todo-Listen oder Chats. Das System muss also als Aggregator fungieren, welcher diese Anwendungen in einer Anwendung bündelt und dem Nutzer in übersichtlicher Form präsentiert und ihm die Arbeit mit ihnen ermöglicht. Die in den funktionalen Anforderungen beschriebenen Widgets stellen hierbei die Umsetzung dieser Applikationen in der PLE dar. Diese Widgets sollten in der Lage sein wichtige Informationen an das System zu kommunizieren, so dass diese für den Nutzer aufbereitet und zusammengefasst dargestellt werden können. Dem Nutzer sollten genügend Services für seine PLE zur Verfügung stehen und die Entwicklung weiterer Widgets sollte nicht von einer Person oder Firma abhängen. Aus diesem Grund muss für die Einbindung der Services ein frei verfügbarer Standard und keine proprietäre Schnittstelle verwendet werden. Die Daten sollen auch ohne Internetverbindung zwischen verschiedenen Rechnern ausgetauscht werden können, so dass gewisse Arbeiten an einem Rechner durchgeführt werden können und diese Arbeiten dann an einem Rechner mit Internetanschluss zu synchronisieren. Dadurch, dass die Studenten an unterschiedlichen Rechnern mit potentiell unterschiedlichen Betriebssystemen, arbeiten, welche zum Teil nicht in ihrem persönlichen Besitz sind, ist es für sie nicht oder nur sehr schwer möglich eine neue Software zu installieren. Aus diesem Grund soll das System mit nativen Browsertechnologien ohne weitere Installation nutzbar sein
+Wie in Kapitel \ref{chapter:Kapitel2} beschrieben sind Personal Learning Environments Mashup-Anwendungen, welche unterschiedliche Anwendungen zu einem System zusammenfassen. Diese Anwendungen sind Services oder Kanäle, wie zum Beispiel Twitter, Facebook oder auch Applikationen für Todo-Listen oder Chats. Das System muss also als Aggregator fungieren, welcher diese Anwendungen in einer Anwendung bündelt und dem Nutzer in übersichtlicher Form präsentiert und ihm die Arbeit mit ihnen ermöglicht. Die in Abschnitt \ref{section:anwendungsfaelle} beschriebenen Widgets stellen hierbei die Umsetzung dieser Applikationen in der PLE dar. Diese Widgets sollten in der Lage sein, wichtige Informationen an das System zu kommunizieren, so dass diese für den Nutzer aufbereitet und zusammengefasst dargestellt werden können. Dem Nutzer sollten genügend Services für seine PLE zur Verfügung stehen und die Entwicklung weiterer Widgets sollte nicht von einer Person oder Firma abhängen. Aus diesem Grund muss für die Einbindung der Services ein frei verfügbarer Standard und keine proprietäre Schnittstelle verwendet werden. Die Daten sollen auch ohne Internetverbindung zwischen verschiedenen Rechnern ausgetauscht werden können, so dass gewisse Arbeiten an einem Rechner durchgeführt werden können, um sie dann an einem Rechner mit Internetanschluss zu synchronisieren. Dadurch, dass die Studenten an unterschiedlichen Rechnern mit potentiell unterschiedlichen Betriebssystemen arbeiten, welche zum Teil nicht in ihrem persönlichen Besitz sind, ist es für sie nicht oder nur sehr schwer möglich eine neue Software zu installieren. Aus diesem Grund soll das System mit nativen Browsertechnologien ohne weitere Installation nutzbar sein.
 
 Somit ergeben sich die nichtfunktionalen Anforderungen \reqref{requirementAggregator}, \reqref{requirementWidgetStandard}, \reqref{requirementUsageInBrowser} und 
 \requirement{\requirementAggregator}\label{requirementAggregator}\\
@@ -113,7 +114,7 @@ Somit ergeben sich die nichtfunktionalen Anforderungen \reqref{requirementAggreg
 \requirement{\requirementUsageInBrowser}\label{requirementUsageInBrowser}\\
 
 \subsection{Erweiterbarkeit}
-In dieser Arbeit kann nur eine prototypische Implementierung der Anforderungen erfolgen. Das System soll also als Basis für weitere Entwicklungen und Forschungsarbeiten dienen und einfach erweitert und verändert werden können. Das System muss als Aggregator für die unterschiedlichsten Services dienen. Es soll aus diesem Grund möglich sein auf Basis einer vorgegebenen Implementierung oder API weitere Services oder Kanäle in das System zu laden, welche ebenfalls offline fähig sind und es so beständig in seiner Funktionalität zu erweitern. Als Grundlage für diese Erweiterung soll ein Widget auf Basis der API umgesetzt werden. Dieses soll die beschriebenen Offline-Funktionalitäten nutzen. Schließlich wird die Software in unterschiedlichen Bereichen, insbesondere in einem universitären Umfeld eingesetzt. Dies verlangt eine Nutzbarkeit ohne Lizenzgebühren für die verwendeten Technologien, so dass für die Umsetzung keine proprietären, sondern nur freie Technologien verwendet werden dürfen. Aus diesen Punkten folgen die nichtfunktionalen Anforderungen \reqref{requirementNewWidgetsWithApi}, \reqref{requirementExampleWidget}, \reqref{requirementExtensibility}, und \reqref{requirementOpenSource}:\\
+In dieser Arbeit kann auf Grund der beschränkten Zeit nur eine prototypische Implementierung der Anforderungen erfolgen. Das System soll also als Basis für weitere Entwicklungen und Forschungsarbeiten dienen und einfach erweitert und verändert werden können. Das System muss als Aggregator für die unterschiedlichsten Services dienen. Es soll aus diesem Grund möglich sein, auf Basis einer vorgegebenen Implementierung oder API, weitere Services oder Kanäle in das System zu laden, welche ebenfalls offline fähig sind und es so beständig in seiner Funktionalität zu erweitern. Als Grundlage für diese Erweiterung soll ein Widget auf Basis der API umgesetzt werden. Dieses soll die beschriebenen offline Funktionalitäten nutzen. Schließlich wird die Software in unterschiedlichen Bereichen, insbesondere in einem universitären Umfeld eingesetzt. Dies verlangt eine Nutzbarkeit ohne Lizenzgebühren für die verwendeten Technologien, so dass für die Umsetzung keine proprietären, sondern nur freie Technologien verwendet werden dürfen. Aus diesen Punkten folgen die weiteren nichtfunktionalen Anforderungen \reqref{requirementNewWidgetsWithApi}, \reqref{requirementExampleWidget}, \reqref{requirementExtensibility}, und \reqref{requirementOpenSource}:\\
 \requirement{\requirementNewWidgetsWithApi}\label{requirementNewWidgetsWithApi}\\
 \requirement{\requirementExampleWidget}\label{requirementExampleWidget}\\
 \requirement{\requirementExtensibility}\label{requirementExtensibility}\\
@@ -128,7 +129,7 @@ In dieser Arbeit kann nur eine prototypische Implementierung der Anforderungen e
   \label{fig:anwendungsfaelle}
 \end{figure}
 
-Abbildung \ref{fig:anwendungsfaelle} zeigt die in dem aufgestellten Szenario auftretenden Anwendungsfälle. Diese werden im folgenden in textueller Form beschrieben. Aus diesen Beschreibungen werden dann direkt die funktionalen Anforderungen an das zu entwickelnde System abgeleitet.
+Wie in Abschnitt \ref{section:nichtfunktionale_anforderunge} herausgestellt wurde, gibt es verschiedene nichtfunktionale Anforderungen. In diesem Abschnitt werden nun die Anwendungsfälle und die daraus resultierenden funktionalen Anforderungen beschrieben. Abbildung \ref{fig:anwendungsfaelle} zeigt die in dem aufgestellten Szenario auftretenden Anwendungsfälle. Diese werden im folgenden in textueller Form beschrieben. Aus diesen Beschreibungen werden dann direkt die funktionalen Anforderungen an das zu entwickelnde System abgeleitet.
 
 \subsection{Registrieren}
 \textbf{use case} \emph{Registrieren}\\
@@ -158,7 +159,7 @@ Aus diesem Anwendungsfall folgen die funktionalen Anforderungen \reqref{requirem
 \textbf{actors} Student\\
 \textbf{precondition} Das System ist online, der Student ist eingeloggt.\\
 \textbf{main flow} Der Student wählt die Aktion "`Logout"' und wird anschließend auf die Login-Seite weitergeleitet.\\
-\textbf{postcondition} Die aktuelle Session des Anwenders ist beendet und es ist ohne weiteres Login nicht möglich auf die Daten des Anwenders zuzugreifen 
+\textbf{postcondition} Die aktuelle Session des Anwenders ist beendet und es ist ohne einen weiteren Login nicht möglich, auf die Daten des Anwenders zuzugreifen 
  
 Aus diesem Anwendungsfall folgen die funktionale Anforderung \reqref{requirementLogout} und \reqref{requirementKeinZugriffNachLogout}:\\
 \requirement{\requirementLogout}\label{requirementLogout}\\
@@ -183,7 +184,7 @@ Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementW
  
 \textbf{extend relationship}\\
 \textbf{base} "`Workspace hinzufügen"'\\
-\textbf{extensionPoint} Workspace bearbeiten\\
+\textbf{extension point} Workspace bearbeiten\\
 \textbf{extension} "`Workspace bearbeiten"'
  
 Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementWorkspaceEdit}:\\
@@ -203,19 +204,19 @@ Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementW
 \textbf{use case} \emph{Widget hinzufügen}\\
 \textbf{actors} Student\\
 \textbf{precondition} Das System ist online, der Student ist eingeloggt und es existiert mindestens ein Workspace.\\
-\textbf{main flow} Der Student befindet sich in einem Workspace und wählt die Aktion "`Widget hinzufügen"' Es erscheint eine Maske in der die zur Verfügung stehenden Widgets ausgewählt werden können. Der Student wählt das gewünschte Widget und fügt es dem Workspace hinzu. Wenn gewünscht kann der Student die Liste der Widgets über Suchfilter einschränken (extension point: Widgets filtern)\\
+\textbf{main flow} Der Student befindet sich in einem Workspace und wählt die Aktion "`Widget hinzufügen"' Es erscheint eine Maske in der die zur Verfügung stehenden Widgets ausgewählt werden können. Der Student wählt das gewünschte Widget und fügt es dem Workspace hinzu. Wenn gewünscht kann der Student die Liste der Widgets über Suchfilter einschränken (extension point: Widgets filtern).\\
 \textbf{postcondition} Das Widget wurde dem Workspace hinzugefügt.
 
 \textbf{extend relationship}\\
 \textbf{base} `Workspace bearbeiten"'\\
-\textbf{extensionPoint} Widget hinzufügen\\
+\textbf{extension point} Widget hinzufügen\\
 \textbf{extension} "`Widget hinzufügen"'
 
 Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementWidgetAdd}:\\
 \requirement{\requirementWidgetAdd}\label{requirementWidgetAdd}\\
 
-\subsection{Widgets Filtern}
-\textbf{use case} \emph{Widgets Filtern}\\
+\subsection{Widgets filtern}
+\textbf{use case} \emph{Widgets filtern}\\
 \textbf{actors} Student\\
 \textbf{precondition} Der Student ist dabei einem Workspace ein Widget hinzuzufügen.\\
 \textbf{main flow} Der Student gibt in einem Textfeld eine Zeichenkette an, nach der im Widget-Namen gesucht wird. Des Weiteren kann er in einem binären Filter wählen, ob er nur Widgets angezeigt bekommen möchte, die in der Lage sind in einem Offline-Modus zu arbeiten.\\
@@ -223,7 +224,7 @@ Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementW
  
 \textbf{extend relationship}\\
 \textbf{base} "`Widget hinzufügen"'\\
-\textbf{extensionPoint} Widgets filtern\\
+\textbf{extension point} Widgets filtern\\
 \textbf{extension} "`Widgets filtern"'
  
 Aus diesem Anwendungsfall folgen die funktionalen Anforderungen \reqref{requirementWidgetFilterName} und \reqref{requirementWidgetFilterOnline}:\\
@@ -253,7 +254,7 @@ Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementW
 \subsection{Informationen über Widgets erhalten}
 \textbf{use case} \emph{Informationen über Widgets erhalten}\\
 \textbf{actors} Student\\
-\textbf{precondition} Der Student ist eingeloggt bewegt sich zu einem Workspace Workspace.\\
+% \textbf{precondition} Der Student ist eingeloggt und bewegt sich zu einem Workspace.\\
 \textbf{main flow} Die Widgets des Workspaces aktualisieren sich mit ihren Services. \\
 \textbf{postcondition} Jedes Widget zeigt ihm die wichtigsten Informationen an. Hierzu gehören, wie viele neue Einträge es gibt, wie viele eventuell noch nicht mit dem Backend synchronisiert sind und ob das Widget online oder offline ist.
  
@@ -264,7 +265,7 @@ Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementW
 \textbf{use case} \emph{Überblick verschaffen}\\
 \textbf{actors} Student\\
 \textbf{precondition} Der Student ist eingeloggt.\\
-\textbf{main flow} Der Student wählt eine Aktion aus, die in zu einer Übersichtsseite innerhalb des Systems bringt.\\
+\textbf{main flow} Der Student wählt eine Aktion aus, die ihn zu einer Übersichtsseite innerhalb des Systems bringt.\\
 \textbf{postcondition} Der Student befindet sich auf einer Seite, welche ihm seine Workspaces und Widgets anzeigt und ihm die wichtigsten Informationen darüber vermittelt.
 
 Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementDashboard}:\\
@@ -273,7 +274,7 @@ Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementD
 \subsection{Erkennen des Onlinestatus}
 \textbf{use case} \emph{Erkennen des Onlinestatus}\\
 \textbf{actors} Student\\
-\textbf{precondition} Der Student ist eingeloggt, das System ist online\\
+\textbf{precondition} Der Student ist eingeloggt, das System ist online.\\
 \textbf{main flow} Der Student sieht auf den ersten Blick, dass das System online ist. Sowohl die Hauptapplikation, als auch die Widgets zeigen ihm dies an. Der Nutzer beendet die Internetverbindung.\\
 \textbf{postcondition} Das System zeigt dem Nutzer den Verlust der Verbindung direkt an.
  
@@ -285,7 +286,7 @@ Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementC
 \textbf{actors} Student\\
 \textbf{precondition} Es besteht keine Internetverbindung.\\
 \textbf{main flow} Der Anwender öffnet seinen Browser und gibt die URL der PLE ein.\\
-\textbf{postcondition} Das System hat sich trotz fehlender Internetverbindung geöffnet stellt dem Studenten das ihm bekannte User-Interface dar.
+\textbf{postcondition} Das System hat sich trotz fehlender Internetverbindung geöffnet und stellt dem Studenten das ihm bekannte User-Interface dar.
  
 Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementOfflineStart}:\\
 \requirement{\requirementOfflineStart}\label{requirementOfflineStart}\\
@@ -294,7 +295,7 @@ Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementO
 \textbf{use case} \emph{Arbeiten mit Widgets ohne Internetverbindung}\\
 \textbf{actors} Student\\
 \textbf{precondition} Das System ist geladen, hat aber keine Internetverbindung.\\
-\textbf{main flow} Der Anwender arbeitet mit den Widgets und kann neue Einträge etc hinzufügen und bearbeiten.\\
+\textbf{main flow} Der Anwender arbeitet mit den Widgets und kann neue Einträge etc. hinzufügen und bearbeiten.\\
 \textbf{postcondition} Die Änderungen wurden zwischengespeichert. Dies wird dem Nutzer angezeigt.
 
 Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementOfflineWork}:\\
