@@ -15,19 +15,19 @@
 
 \newcommand{\requirementRegistrieren}{Der Anwender muss sich selbständig in dem System registrieren können.} 
 \newcommand{\requirementLogin}{Der Anwender muss sich in das System mit Nutzername und Passwort einloggen können.}
-\newcommand{\requirementZugriffAufEigeneWidgets}{Dem Anwender darf nur Zugriff auf die zu seinem Account gehörigen Workspaces und Widgets gewährt werden.} 
+\newcommand{\requirementZugriffAufEigeneWidgets}{Dem Anwender darf nur Zugriff auf die zu seinem Account gehörigen Work"-spaces und Widgets gewährt werden.} 
 \newcommand{\requirementLogout}{Der Anwender muss sich aus dem System ausloggen können.}
 \newcommand{\requirementKeinZugriffNachLogout}{Nach Beendigung der Anwender-Session darf kein Zugriff mehr auf die Daten des Anwenders bestehen.}
-\newcommand{\requirementWorkspaceAdd}{Der Anwender muss neue Workspaces in seine Lernumgebung einfügen können.}
-\newcommand{\requirementWorkspaceEdit}{Der Anwender muss den Namen des Workspaces ändern können.}
+\newcommand{\requirementWorkspaceAdd}{Der Anwender muss neue Work"-spaces in seine Lernumgebung einfügen können.}
+\newcommand{\requirementWorkspaceEdit}{Der Anwender muss den Namen des Work"-spaces ändern können.}
 \newcommand{\requirementWorkspaceDelete}{Der Anwender muss einen Workspace löschen können.}
-\newcommand{\requirementWidgetAdd}{Der Anwender muss über ein Auswahlfeld Widgets zu Workspaces hinzufügen können.}
+\newcommand{\requirementWidgetAdd}{Der Anwender muss über ein Auswahlfeld Widgets zu Work"-spaces hinzufügen können.}
 \newcommand{\requirementWidgetFilterName}{Der Anwender muss die zur Auswahl stehenden Widgets über ein Suchfeld einschränken können.}
 \newcommand{\requirementWidgetFilterOnline}{Der Anwender muss die zur Auswahl stehenden Widgets so einschränken können, dass in der Liste nur offline fähige Widgets vorkommen.}
 \newcommand{\requirementWidgetDelete}{Der Anwender muss ein Widget löschen können.}
 \newcommand{\requirementWidgetSortDragNDrop}{Der Anwender muss in der Lage sein Widgets nach seinen Wünschen über einen Drag and Drop Mechanismus auf dem Workspace zu sortieren.}
 \newcommand{\requirementWidgetInformSystem}{Die Widgets müssen dem System Informationen mitteilen können, welche Aufschluss über ihren Zustand geben. Diese sollen dem Nutzer dargestellt werden können.}
-\newcommand{\requirementDashboard}{Das System muss dem Anwender eine Übersichtsseite über die verwendeten Workspaces und Widgets und ihre wichtigsten Informationen zur Verfügung stellen.}
+\newcommand{\requirementDashboard}{Das System muss dem Anwender eine Übersichtsseite über die verwendeten Work"-spaces und Widgets und ihre wichtigsten Informationen zur Verfügung stellen.}
 \newcommand{\requirementCheckOnlineStatus}{Das System muss seinen Onlinestatus kennen, bemerken, wenn sich dieser ändert und dies dem Anwender mitteilen.}
 \newcommand{\requirementOfflineStart}{Das System muss für die Applikation notwendigen Ressourcen zwischenspeichern, so dass es auch offline gestartet werden kann.}
 \newcommand{\requirementOfflineWork}{Das System muss den Anwender in die Lage versetzen mit den gewählten Services, zumindest rudimentär, offline zu arbeiten.}
@@ -80,7 +80,7 @@ Student 1 und Student 2 leben in Kamerun. Beide haben dort das Problem, dass der
 Im Folgenden werden die unterschiedlichen Anwendungsszenarien mit dem System exemplarisch an Student 1 und an Student 3 dargelegt, um die Komplexität der Anforderungen an eine PLE zu verdeutlichen.
 
 \subsubsection*{Grundsätzliches Anwendungsszenario für Studenten zur Arbeit mit der PLE}
-Um mit der PLE arbeiten zu können müssen die Studenten als erstes online eine Account in dem PLE-System erstellen. Anschließend melden sie sich mit ihren gewählten Login-Daten an. Bei erfolgreicher Anmeldung hat der Anwender die Möglichkeit direkt Workspaces zu erstellen, mit diesen zu arbeiten (Workspace umbenennen, Einstellungen vornehmen, Widgets hinzufügen etc).
+Um mit der PLE arbeiten zu können müssen die Studenten als erstes online eine Account in dem PLE-System erstellen. Anschließend melden sie sich mit ihren gewählten Login-Daten an. Bei erfolgreicher Anmeldung hat der Anwender die Möglichkeit direkt Work"-spaces zu erstellen, mit diesen zu arbeiten (Workspace umbenennen, Einstellungen vornehmen, Widgets hinzufügen etc).
 
 \subsubsection*{Anwendungsszenario Student 1}
 \begin{itemize}
@@ -154,7 +154,7 @@ Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementR
 \textbf{actors} Student\\
 \textbf{precondition} Das System ist online, der Student ist nicht eingeloggt, ist aber in dem System registriert.\\
 \textbf{main flow} Der Student bekommt auf der Startseite die Möglichkeit sich im System anzumelden. Er füllt ein Formular mit seiner Nutzername-/Passwortkombination aus und schickt das Formular ab.\\
-\textbf{postcondition} Der Student ist im System eingeloggt und das System präsentiert ihm eine Übersicht über seine aktuellen Workspaces und die wichtigsten aggregierten Informationen dieser.
+\textbf{postcondition} Der Student ist im System eingeloggt und das System präsentiert ihm eine Übersicht über seine aktuellen Work"-spaces und die wichtigsten aggregierten Informationen dieser.
  
 Aus diesem Anwendungsfall folgen die funktionalen Anforderungen \reqref{requirementLogin} und \reqref{requirementZugriffAufEigeneWidgets}:
 \begin{itemize}
@@ -266,9 +266,9 @@ Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementW
 \subsection{Anordnung der Widgets ändern}
 \textbf{use case} \emph{Anordnung der Widgets ändern}\\
 \textbf{actors} Student\\
-\textbf{precondition} Das System ist online, der Student ist eingeloggt und befindet sich auf der Seite eines Workspaces mit mindestens zwei Widgets.\\
-\textbf{main flow} Der Student hat die Möglichkeit die einzelnen Widgets innerhalb eines Workspaces über einen Drag and Drop Mechanismus neu anzuordnen. Er wählt hierfür ein Widget mit der Maus aus und zieht es an die gewünschte Position.\\
-\textbf{postcondition} Die Anordnung der Widgets innerhalb des Workspaces hat sich nach dem Wunsch des Studenten geändert.
+\textbf{precondition} Das System ist online, der Student ist eingeloggt und befindet sich auf der Seite eines Work"-spaces mit mindestens zwei Widgets.\\
+\textbf{main flow} Der Student hat die Möglichkeit die einzelnen Widgets innerhalb eines Work"-spaces über einen Drag and Drop Mechanismus neu anzuordnen. Er wählt hierfür ein Widget mit der Maus aus und zieht es an die gewünschte Position.\\
+\textbf{postcondition} Die Anordnung der Widgets innerhalb des Work"-spaces hat sich nach dem Wunsch des Studenten geändert.
  
 Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementWidgetSortDragNDrop}:
 \begin{itemize}
@@ -279,7 +279,7 @@ Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementW
 \textbf{use case} \emph{Informationen über Widgets erhalten}\\
 \textbf{actors} Student\\
 \textbf{precondition} Der Student ist eingeloggt und bewegt sich zu einem Workspace.\\
-\textbf{main flow} Die Widgets des Workspaces aktualisieren sich mit ihren Services. \\
+\textbf{main flow} Die Widgets des Work"-spaces aktualisieren sich mit ihren Services. \\
 \textbf{postcondition} Jedes Widget zeigt ihm die wichtigsten Informationen an. Hierzu gehören, wie viele neue Einträge es gibt, wie viele eventuell noch nicht mit dem Backend synchronisiert sind und ob das Widget online oder offline ist.
  
 Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementWidgetInformSystem}:
@@ -292,7 +292,7 @@ Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementW
 \textbf{actors} Student\\
 \textbf{precondition} Der Student ist eingeloggt.\\
 \textbf{main flow} Der Student wählt eine Aktion aus, die ihn zu einer Übersichtsseite innerhalb des Systems bringt.\\
-\textbf{postcondition} Der Student befindet sich auf einer Seite, welche ihm seine Workspaces und Widgets anzeigt und ihm die wichtigsten Informationen darüber vermittelt.
+\textbf{postcondition} Der Student befindet sich auf einer Seite, welche ihm seine Work"-spaces und Widgets anzeigt und ihm die wichtigsten Informationen darüber vermittelt.
 
 Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementDashboard}:
 \begin{itemize}

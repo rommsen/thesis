@@ -202,7 +202,7 @@ xleftmargin=20pt}
       \smallskip
       {\LARGE \authornames \par}
       \vfill
-      {\large Masterarbeit zur Erlangung des Akademischen Grades  \par}
+      {\large Masterarbeit zur Erlangung des akademischen Grades  \par}
       {\large "`Master of Science"' (M. Sc.) im Studiengang Praktische Informatik \par}
       \bigskip
       \bigskip
