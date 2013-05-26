@@ -210,6 +210,9 @@ xleftmargin=20pt}
       {\large \facname \par}
       {\large \deptname \par}
       \bigskip
+
+      {Erstprüfer: Prof. Dr.-Ing. Jörg M. Haake \par}
+      {Zweitprüfer: Dr. Erick R. Gankam Tambo \par}
       \bigskip
       \bigskip
       {\Large \@date \par}
