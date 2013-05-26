@@ -14,10 +14,13 @@ Wookie muss wie in \url{http://wookie.apache.org/docs/source.html} beschrieben i
 Für die Installation von Plesynd müssen mehrere Schritte durchgeführt werden:
 \begin{enumerate}
  \item Composer installieren: \url{http://getcomposer.org/}
- \item Node.js installieren: \url{https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager}
- \item Arbeitskopie aus github auschecken: \texttt{git clone git@github.com:rommsen/plesynd.git verzeichnis\_in\_dem\_plesynd\_installiert\_werden\_soll}
+ \item Node.js installieren: \texttt{https://github.com/joyent/node/}\\
+ \texttt{wiki/Installing-Node.js-via-package-manager}
+ \item Arbeitskopie aus github auschecken:\\ \texttt{git clone git@github.com:rommsen/plesynd.git}\\
+ \texttt{verzeichnis\_in\_dem\_plesynd\_installiert\_werden\_soll}
  \item Symfony2 installieren: \texttt{./composer install} im Verzeichnis der Arbeitskopie
- \item Virtual Host im Webserver anlegen und Document Root auf \texttt{plesynd\_verzeichnis/web} setzen.
+ \item Virtual Host im Webserver anlegen und Document Root auf \\
+ \texttt{plesynd\_verzeichnis/web} setzen.
  \item Configs anpassen: In \texttt{app/config} die Datei parameters.yml.dist in parameters.yml umbenennen und die Einstellungen anpassen: 
  \begin{lstlisting}
  parameters:
@@ -59,7 +62,9 @@ Für die Installation von Plesynd müssen mehrere Schritte durchgeführt werden:
 
 \subsection{Todo-Widget}
 \begin{enumerate}
- \item Arbeitskopie aus github auschecken: \texttt{git clone git@github.com:rommsen/plesynd-todo.git verzeichnis\_in\_dem\_das\_widget\_hinterlegt\_werden\_soll}
+ \item Arbeitskopie aus github auschecken: \\
+ \texttt{git clone git@github.com:rommsen/plesynd-todo.git}\\ 
+ \texttt{verzeichnis\_in\_dem\_das\_widget\_hinterlegt\_werden\_soll}
  \item Pfad von \texttt{wookie.root.dir} in \texttt{build.xml} auf das Installationsverzeichnis von Wookie anpassen.
  \item Pfad von \texttt{widget.root.dir} in \texttt{build.xml} auf den aktuellen Widgetordner anpassen.
 \end{enumerate}

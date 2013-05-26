@@ -45,7 +45,7 @@ Die coruja-child-frame Komponente beinhaltet den \texttt{childFrameService}, wel
 
 \subsubsection*{Ressources/public/app/coruja-confirmation}
 Diese Komponente nutzt den \texttt{ConfirmationCtrl}-Controller und den \texttt{confirmationService}-Service um dem System einen Mechanismus zur Verfügung zur stellen, mit dem Rückfragen an den Anwender gestellt werden können. Diese Rückfragen werden über ein Modal Fenster dargestellt und können aus dem gesamten System her angefragt werden:
-\begin{lstlisting}
+\begin{lstlisting}[label=listing:confirmation_and_message]
 $scope.deleteWidget = function (widget) {
     confirmationService.confirm('Do you really want to delete this widget?', function () {
         widgetService['delete'](widget, function () {
