@@ -118,7 +118,8 @@ basicstyle=\ttfamily\footnotesize,
 numbers=left,
 stepnumber=1,
 breaklines=true,
-captionpos=b}
+captionpos=b,
+xleftmargin=20pt}
 \lstdefinestyle{matlab} {
         language=Matlab,
         keywordstyle=\color{blue},
