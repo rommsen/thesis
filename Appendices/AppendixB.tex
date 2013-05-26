@@ -11,7 +11,7 @@ In dem CorujaAngularModuleBundle werden Komponenten zusammengefasst, welche sowo
 
 \subsubsection*{Ressources/public/app/coruja-auth}\label{section:coruja_auth}
 Die coruja-auth Komponente besteht aus dem \texttt{AccountActionCtrl} und einer \texttt{auth}-Direktive. Wenn diese Komponente genutzt wird, bekommt der Controller aus der Application Config die Info, welche Aktion der User wünscht. Möchte er seinen Account aktivieren ist der Controller dafür zuständig:
-\begin{lstlisting}[caption=Hauptapplikation reagiert auf Account Confirmation Route]
+\begin{lstlisting}
  angular.module('application', ['ui', 'application.constants', 'application.controllers', 'application.filters', 'application.services', 'application.directives'])
     .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
 
@@ -45,7 +45,7 @@ Die coruja-child-frame Komponente beinhaltet den \texttt{childFrameService}, wel
 
 \subsubsection*{Ressources/public/app/coruja-confirmation}
 Diese Komponente nutzt den \texttt{ConfirmationCtrl}-Controller und den \texttt{confirmationService}-Service um dem System einen Mechanismus zur Verfügung zur stellen, mit dem Rückfragen an den Anwender gestellt werden können. Diese Rückfragen werden über ein Modal Fenster dargestellt und können aus dem gesamten System her angefragt werden:
-\begin{lstlisting}[caption=Rückfrage an den Anwender bei Löschen eines Widgets, label=listing:confirmation_and_message]
+\begin{lstlisting}
 $scope.deleteWidget = function (widget) {
     confirmationService.confirm('Do you really want to delete this widget?', function () {
         widgetService['delete'](widget, function () {
@@ -130,7 +130,7 @@ Dieses Bundle enthält die Komponenten, welche direkt für das Plesynd-System im
 
 \subsubsection*{Ressources/public/app/application}\label{section:app_application}
 Diese Komponente enthält, neben der Datei \texttt{configuration-constants.js} in der die systemweiten Konfigurationseinstellungen hinterlegt werden, die Datei \texttt{application.js}. In dieser Datei werden die einzelnen Komponenten in einem AngularJs-Modul zusammengefasst, welches dann über die \texttt{ng-app}-Direktive dem Haupt-Dom-Knoten zugeordnet wird. Zusätzlich werden die Routen der Applikation (z.B. /dashboard, /workspace/23) definiert und es wird hinterlegt, welche Aktion das System bei dem Aufruf einer Route durchführen soll. Schlussendlich werden innerhalb der \texttt{run}-Methode wichtige Initialisierungen vorgenommen.
-\begin{lstlisting}[caption=Beispiel für die Definition einer Route und eines Resolvers]
+\begin{lstlisting}
 workspaceResolver = function ($q, $route, $location, $timeout, workspaceService, systemMessageService) {
     var deferred = $q.defer(),
         id = $route.current.params.id;
