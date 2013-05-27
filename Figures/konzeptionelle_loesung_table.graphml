@@ -20,14 +20,14 @@
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
             <y:GroupNode>
-              <y:Geometry height="482.3984375" width="609.93115234375" x="34.353759765625" y="30.6640625"/>
+              <y:Geometry height="389.5984375" width="235.28530273437465" x="-181.89809570312488" y="-88.94921875"/>
               <y:Fill color="#FFFF99" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#5F021F" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.4609375" modelName="internal" modelPosition="t" textColor="#FFFFFF" visible="true" width="609.93115234375" x="0.0" y="0.0">Plesynd Client (HTML/Javascript)</y:NodeLabel>
+              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#5F021F" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.4609375" modelName="internal" modelPosition="t" textColor="#FFFFFF" visible="true" width="235.28530273437465" x="0.0" y="0.0">Plesynd Client     </y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
               <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="0" bottomF="0.0" left="4" leftF="3.896240234375" right="0" rightF="0.0" top="0" topF="0.0"/>
+              <y:BorderInsets bottom="26" bottomF="25.64921874999999" left="4" leftF="3.7730957031248806" right="7" rightF="6.762207031249773" top="2" topF="2.48828125"/>
             </y:GroupNode>
             <y:GroupNode>
               <y:Geometry height="50.0" width="50.0" x="14324.166666666666" y="547.0"/>
@@ -43,334 +43,85 @@
         </y:ProxyAutoBoundsNode>
       </data>
       <graph edgedefault="directed" id="n0:">
-        <node id="n0::n0" yfiles.foldertype="group">
+        <node id="n0::n0">
+          <data key="d5"/>
           <data key="d6">
-            <y:TableNode configuration="YED_TABLE_NODE">
-              <y:Geometry height="429.5" width="289.20751953125" x="340.077392578125" y="67.125"/>
-              <y:Fill color="#ECF5FF" color2="#0042F440" transparent="false"/>
+            <y:GenericNode configuration="com.yworks.entityRelationship.small_entity">
+              <y:Geometry height="40.0" width="194.75" x="-163.125" y="-50.0"/>
+              <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.4609375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="137.80615234375" x="75.70068359375" y="4.0">Offlinefähigkeiten</y:NodeLabel>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" rotationAngle="270.0" textColor="#000000" visible="true" width="82.146484375" x="3.0" y="31.4267578125">Web-Storage<y:LabelModel>
-                  <y:RowNodeLabelModel offset="3.0"/>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="58.09375" x="68.328125" y="11.015625">Frontend<y:LabelModel>
+                  <y:SmartNodeLabelModel distance="4.0"/>
                 </y:LabelModel>
                 <y:ModelParameter>
-                  <y:RowNodeLabelModelParameter horizontalPosition="0.0" id="row_0" inside="true"/>
-                </y:ModelParameter>
-              </y:NodeLabel>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" rotationAngle="270.0" textColor="#000000" visible="true" width="62.98046875" x="3.0" y="118.509765625">Appcache<y:LabelModel>
-                  <y:RowNodeLabelModel offset="3.0"/>
-                </y:LabelModel>
-                <y:ModelParameter>
-                  <y:RowNodeLabelModelParameter horizontalPosition="0.0" id="row_1" inside="true"/>
-                </y:ModelParameter>
-              </y:NodeLabel>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" rotationAngle="270.0" textColor="#000000" visible="true" width="105.115234375" x="3.0" y="189.4423828125">navigator.onLine<y:LabelModel>
-                  <y:RowNodeLabelModel offset="3.0"/>
-                </y:LabelModel>
-                <y:ModelParameter>
-                  <y:RowNodeLabelModelParameter horizontalPosition="0.0" id="row_2" inside="true"/>
-                </y:ModelParameter>
-              </y:NodeLabel>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" rotationAngle="270.0" textColor="#000000" visible="true" width="121.791015625" x="3.0" y="303.3544921875">Local-REST-Storage<y:LabelModel>
-                  <y:RowNodeLabelModel offset="3.0"/>
-                </y:LabelModel>
-                <y:ModelParameter>
-                  <y:RowNodeLabelModelParameter horizontalPosition="0.0" id="row_3" inside="true"/>
+                  <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
                 </y:ModelParameter>
               </y:NodeLabel>
               <y:StyleProperties>
-                <y:Property class="java.awt.Color" name="yed.table.header.color.main" value="#c4d7ed"/>
-                <y:Property class="java.awt.Color" name="yed.table.section.color" value="#7192b2"/>
-                <y:Property name="y.view.tabular.TableNodePainter.ALTERNATE_COLUMN_SELECTION_STYLE">
-                  <y:SimpleStyle fillColor="#474A4380" lineColor="#000000" lineType="line" lineWidth="3.0"/>
-                </y:Property>
-                <y:Property class="java.lang.String" name="yed.table.lane.style" value="lane.style.rows"/>
-                <y:Property name="y.view.tabular.TableNodePainter.ALTERNATE_ROW_STYLE">
-                  <y:SimpleStyle fillColor="#474A4340" lineColor="#000000" lineType="line" lineWidth="1.0"/>
-                </y:Property>
-                <y:Property name="y.view.tabular.TableNodePainter.ALTERNATE_ROW_SELECTION_STYLE">
-                  <y:SimpleStyle fillColor="#474A4380" lineColor="#000000" lineType="line" lineWidth="3.0"/>
-                </y:Property>
-                <y:Property class="java.awt.Color" name="yed.table.lane.color.alternating" value="#abc8e2"/>
-                <y:Property class="java.awt.Color" name="yed.table.header.color.alternating" value="#abc8e2"/>
-                <y:Property name="y.view.tabular.TableNodePainter.ALTERNATE_COLUMN_STYLE">
-                  <y:SimpleStyle fillColor="#474A4340" lineColor="#000000" lineType="line" lineWidth="1.0"/>
-                </y:Property>
-                <y:Property class="java.awt.Color" name="yed.table.lane.color.main" value="#c4d7ed"/>
-                <y:Property class="java.lang.Double" name="yed.table.header.height" value="24.0"/>
+                <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
               </y:StyleProperties>
-              <y:State autoResize="true" closed="false" closedHeight="80.0" closedWidth="100.0"/>
-              <y:Insets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
-              <y:BorderInsets bottom="11" bottomF="10.576171875" left="10" leftF="9.7763671875" right="15" rightF="15.43115234375" top="12" topF="11.875"/>
-              <y:Table autoResizeTable="true" defaultColumnWidth="120.0" defaultMinimumColumnWidth="80.0" defaultMinimumRowHeight="50.0" defaultRowHeight="80.0">
-                <y:DefaultColumnInsets bottom="0.0" left="0.0" right="0.0" top="0.0"/>
-                <y:DefaultRowInsets bottom="0.0" left="24.0" right="0.0" top="0.0"/>
-                <y:Insets bottom="0.0" left="0.0" right="0.0" top="30.0"/>
-                <y:Columns>
-                  <y:Column id="column_0" minimumWidth="80.0" width="265.20751953125">
-                    <y:Insets bottom="0.0" left="0.0" right="0.0" top="0.0"/>
-                  </y:Column>
-                </y:Columns>
-                <y:Rows>
-                  <y:Row height="85.0" id="row_0" minimumHeight="50.0">
-                    <y:Insets bottom="0.0" left="24.0" right="0.0" top="0.0"/>
-                  </y:Row>
-                  <y:Row height="70.0" id="row_1" minimumHeight="50.0">
-                    <y:Insets bottom="0.0" left="24.0" right="0.0" top="0.0"/>
-                  </y:Row>
-                  <y:Row height="114.0" id="row_2" minimumHeight="50.0">
-                    <y:Insets bottom="0.0" left="24.0" right="0.0" top="0.0"/>
-                  </y:Row>
-                  <y:Row height="130.5" id="row_3" minimumHeight="50.0">
-                    <y:Insets bottom="0.0" left="24.0" right="0.0" top="0.0"/>
-                  </y:Row>
-                </y:Rows>
-              </y:Table>
-            </y:TableNode>
+            </y:GenericNode>
           </data>
-          <graph edgedefault="directed" id="n0::n0:">
-            <node id="n0::n0::n0">
-              <data key="d6">
-                <y:ShapeNode>
-                  <y:Geometry height="60.5" width="240.0" x="373.853759765625" y="109.0"/>
-                  <y:Fill color="#FFFFFF" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" modelName="custom" textColor="#000000" visible="true" width="119.119140625" x="60.4404296875" y="7.296875">speichert Daten 
-und Informationen 
-im Browser<y:LabelModel>
-                      <y:SmartNodeLabelModel distance="4.0"/>
-                    </y:LabelModel>
-                    <y:ModelParameter>
-                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-                    </y:ModelParameter>
-                  </y:NodeLabel>
-                  <y:Shape type="rectangle"/>
-                </y:ShapeNode>
-              </data>
-            </node>
-            <node id="n0::n0::n1">
-              <data key="d6">
-                <y:ShapeNode>
-                  <y:Geometry height="47.5" width="240.0" x="373.853759765625" y="193.5244140625"/>
-                  <y:Fill color="#FFFFFF" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" modelName="custom" textColor="#000000" visible="true" width="137.130859375" x="51.4345703125" y="0.796875">speichert Ressourcen 
-wie Bilder und 
-HTML/JS/CSS-Dateien<y:LabelModel>
-                      <y:SmartNodeLabelModel distance="4.0"/>
-                    </y:LabelModel>
-                    <y:ModelParameter>
-                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-                    </y:ModelParameter>
-                  </y:NodeLabel>
-                  <y:Shape type="rectangle"/>
-                </y:ShapeNode>
-              </data>
-            </node>
-            <node id="n0::n0::n2">
-              <data key="d6">
-                <y:ShapeNode>
-                  <y:Geometry height="88.5" width="240.0" x="373.853759765625" y="265.048828125"/>
-                  <y:Fill color="#FFFFFF" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" modelName="custom" textColor="#000000" visible="true" width="168.7421875" x="35.62890625" y="21.296875">prüft ob System, online
-oder offline ist und reagiert
-bei Veränderung<y:LabelModel>
-                      <y:SmartNodeLabelModel distance="4.0"/>
-                    </y:LabelModel>
-                    <y:ModelParameter>
-                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-                    </y:ModelParameter>
-                  </y:NodeLabel>
-                  <y:Shape type="rectangle"/>
-                </y:ShapeNode>
-              </data>
-            </node>
-            <node id="n0::n0::n3">
-              <data key="d6">
-                <y:ShapeNode>
-                  <y:Geometry height="102.5" width="240.0" x="373.853759765625" y="383.548828125"/>
-                  <y:Fill color="#FFFFFF" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="73.84375" modelName="custom" textColor="#000000" visible="true" width="203.388671875" x="18.3056640625" y="14.328125">ermöglicht auf Basis von REST-
-Methoden Daten für den
-Offlinebetrieb für den Entwickler 
-transparent im Local-Storage 
-zu speichern<y:LabelModel>
-                      <y:SmartNodeLabelModel distance="4.0"/>
-                    </y:LabelModel>
-                    <y:ModelParameter>
-                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-                    </y:ModelParameter>
-                  </y:NodeLabel>
-                  <y:Shape type="rectangle"/>
-                </y:ShapeNode>
-              </data>
-            </node>
-          </graph>
         </node>
-        <node id="n0::n1" yfiles.foldertype="group">
+        <node id="n0::n1">
+          <data key="d5"/>
           <data key="d6">
-            <y:TableNode configuration="YED_TABLE_NODE">
-              <y:Geometry height="430.9375" width="266.0" x="53.25" y="67.125"/>
-              <y:Fill color="#ECF5FF" color2="#0042F440" transparent="false"/>
+            <y:GenericNode configuration="com.yworks.entityRelationship.small_entity">
+              <y:Geometry height="40.0" width="194.75" x="-163.125" y="40.0"/>
+              <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.4609375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="126.27783203125" x="69.861083984375" y="4.0">Funktionalitäten</y:NodeLabel>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" rotationAngle="270.0" textColor="#000000" visible="true" width="114.73046875" x="3.0" y="32.134765625">User-Management<y:LabelModel>
-                  <y:RowNodeLabelModel offset="3.0"/>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="89.40625" x="52.671875" y="11.015625">User-Interface<y:LabelModel>
+                  <y:SmartNodeLabelModel distance="4.0"/>
                 </y:LabelModel>
                 <y:ModelParameter>
-                  <y:RowNodeLabelModelParameter horizontalPosition="0.0" id="row_0" inside="true"/>
-                </y:ModelParameter>
-              </y:NodeLabel>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" rotationAngle="270.0" textColor="#000000" visible="true" width="69.314453125" x="3.0" y="164.8427734375">Dashboard<y:LabelModel>
-                  <y:RowNodeLabelModel offset="3.0"/>
-                </y:LabelModel>
-                <y:ModelParameter>
-                  <y:RowNodeLabelModelParameter horizontalPosition="0.0" id="row_1" inside="true"/>
-                </y:ModelParameter>
-              </y:NodeLabel>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" rotationAngle="270.0" textColor="#000000" visible="true" width="76.544921875" x="3.0" y="257.2275390625">Workspaces<y:LabelModel>
-                  <y:RowNodeLabelModel offset="3.0"/>
-                </y:LabelModel>
-                <y:ModelParameter>
-                  <y:RowNodeLabelModelParameter horizontalPosition="0.0" id="row_2" inside="true"/>
-                </y:ModelParameter>
-              </y:NodeLabel>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" rotationAngle="270.0" textColor="#000000" visible="true" width="52.7734375" x="3.0" y="359.58203125">Widgets<y:LabelModel>
-                  <y:RowNodeLabelModel offset="3.0"/>
-                </y:LabelModel>
-                <y:ModelParameter>
-                  <y:RowNodeLabelModelParameter horizontalPosition="0.0" id="row_3" inside="true"/>
+                  <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
                 </y:ModelParameter>
               </y:NodeLabel>
               <y:StyleProperties>
-                <y:Property class="java.awt.Color" name="yed.table.header.color.main" value="#c4d7ed"/>
-                <y:Property class="java.awt.Color" name="yed.table.section.color" value="#7192b2"/>
-                <y:Property name="y.view.tabular.TableNodePainter.ALTERNATE_COLUMN_SELECTION_STYLE">
-                  <y:SimpleStyle fillColor="#474A4380" lineColor="#000000" lineType="line" lineWidth="3.0"/>
-                </y:Property>
-                <y:Property class="java.lang.String" name="yed.table.lane.style" value="lane.style.rows"/>
-                <y:Property name="y.view.tabular.TableNodePainter.ALTERNATE_ROW_STYLE">
-                  <y:SimpleStyle fillColor="#474A4340" lineColor="#000000" lineType="line" lineWidth="1.0"/>
-                </y:Property>
-                <y:Property name="y.view.tabular.TableNodePainter.ALTERNATE_ROW_SELECTION_STYLE">
-                  <y:SimpleStyle fillColor="#474A4380" lineColor="#000000" lineType="line" lineWidth="3.0"/>
-                </y:Property>
-                <y:Property class="java.awt.Color" name="yed.table.lane.color.alternating" value="#abc8e2"/>
-                <y:Property class="java.awt.Color" name="yed.table.header.color.alternating" value="#abc8e2"/>
-                <y:Property name="y.view.tabular.TableNodePainter.ALTERNATE_COLUMN_STYLE">
-                  <y:SimpleStyle fillColor="#474A4340" lineColor="#000000" lineType="line" lineWidth="1.0"/>
-                </y:Property>
-                <y:Property class="java.lang.Double" name="yed.table.header.height" value="24.0"/>
-                <y:Property class="java.awt.Color" name="yed.table.lane.color.main" value="#c4d7ed"/>
+                <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
               </y:StyleProperties>
-              <y:State autoResize="true" closed="false" closedHeight="80.0" closedWidth="100.0"/>
-              <y:Insets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
-              <y:BorderInsets bottom="13" bottomF="13.0" left="12" leftF="11.5" right="16" rightF="16.0" top="12" topF="11.875"/>
-              <y:Table autoResizeTable="true" defaultColumnWidth="120.0" defaultMinimumColumnWidth="80.0" defaultMinimumRowHeight="50.0" defaultRowHeight="80.0">
-                <y:DefaultColumnInsets bottom="0.0" left="0.0" right="0.0" top="0.0"/>
-                <y:DefaultRowInsets bottom="0.0" left="24.0" right="0.0" top="0.0"/>
-                <y:Insets bottom="0.0" left="0.0" right="0.0" top="30.0"/>
-                <y:Columns>
-                  <y:Column id="column_0" minimumWidth="80.0" width="242.0">
-                    <y:Insets bottom="0.0" left="0.0" right="0.0" top="0.0"/>
-                  </y:Column>
-                </y:Columns>
-                <y:Rows>
-                  <y:Row height="119.0" id="row_0" minimumHeight="50.0">
-                    <y:Insets bottom="0.0" left="24.0" right="0.0" top="0.0"/>
-                  </y:Row>
-                  <y:Row height="101.0" id="row_1" minimumHeight="50.0">
-                    <y:Insets bottom="0.0" left="24.0" right="0.0" top="0.0"/>
-                  </y:Row>
-                  <y:Row height="91.0" id="row_2" minimumHeight="50.0">
-                    <y:Insets bottom="0.0" left="24.0" right="0.0" top="0.0"/>
-                  </y:Row>
-                  <y:Row height="89.9375" id="row_3" minimumHeight="50.0">
-                    <y:Insets bottom="0.0" left="24.0" right="0.0" top="0.0"/>
-                  </y:Row>
-                </y:Rows>
-              </y:Table>
-            </y:TableNode>
+            </y:GenericNode>
           </data>
-          <graph edgedefault="directed" id="n0::n1:">
-            <node id="n0::n1::n0">
-              <data key="d6">
-                <y:ShapeNode>
-                  <y:Geometry height="94.5" width="214.5" x="88.75" y="109.0"/>
-                  <y:Fill color="#FFFFFF" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" modelName="custom" textColor="#000000" visible="true" width="88.85546875" x="62.822265625" y="31.28125">Registrierung,
-Login, Logout<y:LabelModel>
-                      <y:SmartNodeLabelModel distance="4.0"/>
-                    </y:LabelModel>
-                    <y:ModelParameter>
-                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-                    </y:ModelParameter>
-                  </y:NodeLabel>
-                  <y:Shape type="rectangle"/>
-                </y:ShapeNode>
-              </data>
-            </node>
-            <node id="n0::n1::n1">
-              <data key="d6">
-                <y:ShapeNode>
-                  <y:Geometry height="77.5" width="208.0" x="88.75" y="231.25"/>
-                  <y:Fill color="#FFFFFF" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="59.875" modelName="custom" textColor="#000000" visible="true" width="173.34765625" x="17.326171875" y="8.8125">Überblick über Workspaces,
-Widgets und die Anzahl der 
-synchronisierten und nicht 
-synchronisierten Items<y:LabelModel>
-                      <y:SmartNodeLabelModel distance="4.0"/>
-                    </y:LabelModel>
-                    <y:ModelParameter>
-                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-                    </y:ModelParameter>
-                  </y:NodeLabel>
-                  <y:Shape type="rectangle"/>
-                </y:ShapeNode>
-              </data>
-            </node>
-            <node id="n0::n1::n2">
-              <data key="d6">
-                <y:ShapeNode>
-                  <y:Geometry height="63.375" width="214.5" x="88.75" y="331.25"/>
-                  <y:Fill color="#FFFFFF" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" modelName="custom" textColor="#000000" visible="true" width="183.765625" x="15.3671875" y="15.71875">Workspace anlegen, löschen, 
-umbenennen<y:LabelModel>
-                      <y:SmartNodeLabelModel distance="4.0"/>
-                    </y:LabelModel>
-                    <y:ModelParameter>
-                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-                    </y:ModelParameter>
-                  </y:NodeLabel>
-                  <y:Shape type="rectangle"/>
-                </y:ShapeNode>
-              </data>
-            </node>
-            <node id="n0::n1::n3">
-              <data key="d6">
-                <y:ShapeNode>
-                  <y:Geometry height="63.375" width="214.5" x="88.75" y="421.6875"/>
-                  <y:Fill color="#FFFFFF" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" modelName="custom" textColor="#000000" visible="true" width="203.74609375" x="5.376953125" y="8.734375">Widget hinzufügen, suchen, 
-filtern, verschieben, Anzeige der 
-wichtigsten Widgetinformationen<y:LabelModel>
-                      <y:SmartNodeLabelModel distance="4.0"/>
-                    </y:LabelModel>
-                    <y:ModelParameter>
-                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-                    </y:ModelParameter>
-                  </y:NodeLabel>
-                  <y:Shape type="rectangle"/>
-                </y:ShapeNode>
-              </data>
-            </node>
-          </graph>
+        </node>
+        <node id="n0::n2">
+          <data key="d5"/>
+          <data key="d6">
+            <y:GenericNode configuration="com.yworks.entityRelationship.small_entity">
+              <y:Geometry height="40.0" width="194.75" x="-163.125" y="130.0"/>
+              <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="177.771484375" x="8.4892578125" y="11.015625">Applikationslogik im Browser<y:LabelModel>
+                  <y:SmartNodeLabelModel distance="4.0"/>
+                </y:LabelModel>
+                <y:ModelParameter>
+                  <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+                </y:ModelParameter>
+              </y:NodeLabel>
+              <y:StyleProperties>
+                <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+              </y:StyleProperties>
+            </y:GenericNode>
+          </data>
+        </node>
+        <node id="n0::n3">
+          <data key="d5"/>
+          <data key="d6">
+            <y:GenericNode configuration="com.yworks.entityRelationship.small_entity">
+              <y:Geometry height="40.0" width="194.75" x="-163.125" y="220.0"/>
+              <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="126.888671875" x="33.9306640625" y="11.015625">Online-/Offline-Logik<y:LabelModel>
+                  <y:SmartNodeLabelModel distance="4.0"/>
+                </y:LabelModel>
+                <y:ModelParameter>
+                  <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+                </y:ModelParameter>
+              </y:NodeLabel>
+              <y:StyleProperties>
+                <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+              </y:StyleProperties>
+            </y:GenericNode>
+          </data>
         </node>
       </graph>
     </node>
@@ -380,14 +131,14 @@ wichtigsten Widgetinformationen<y:LabelModel>
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
             <y:GroupNode>
-              <y:Geometry height="222.4609375" width="360.51374308268237" x="461.2431284586588" y="529.201171875"/>
+              <y:Geometry height="389.5984375" width="247.05983886718747" x="393.16293945312515" y="-88.94921875"/>
               <y:Fill color="#FFFF99" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#5F021F" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.4609375" modelName="internal" modelPosition="t" textColor="#FFFFFF" visible="true" width="360.51374308268237" x="0.0" y="0.0">Wookie</y:NodeLabel>
+              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#5F021F" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.4609375" modelName="internal" modelPosition="t" textColor="#FFFFFF" visible="true" width="247.05983886718747" x="0.0" y="0.0">Plesynd Server     </y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
               <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+              <y:BorderInsets bottom="97" bottomF="97.43281250000007" left="3" leftF="2.6142822265622954" right="0" rightF="0.0" top="2" topF="2.48828125"/>
             </y:GroupNode>
             <y:GroupNode>
               <y:Geometry height="50.0" width="50.0" x="14324.166666666666" y="547.0"/>
@@ -403,112 +154,65 @@ wichtigsten Widgetinformationen<y:LabelModel>
         </y:ProxyAutoBoundsNode>
       </data>
       <graph edgedefault="directed" id="n1:">
-        <node id="n1::n0" yfiles.foldertype="group">
+        <node id="n1::n0">
           <data key="d5"/>
           <data key="d6">
-            <y:TableNode configuration="YED_TABLE_NODE">
-              <y:Geometry height="171.0" width="330.51374308268237" x="476.2431284586588" y="565.662109375"/>
-              <y:Fill color="#ECF5FF" color2="#0042F440" transparent="false"/>
+            <y:GenericNode configuration="com.yworks.entityRelationship.small_entity">
+              <y:Geometry height="40.0" width="214.445556640625" x="410.7772216796875" y="-50.0"/>
+              <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.4609375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="105.22802734375" x="112.64285786946618" y="4.0">W3C-Widgets</y:NodeLabel>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" rotationAngle="270.0" textColor="#000000" visible="true" width="64.263671875" x="3.0" y="33.8681640625">Ausliefern<y:LabelModel>
-                  <y:RowNodeLabelModel offset="3.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="55.73828125" x="79.3536376953125" y="11.015625">Backend<y:LabelModel>
+                  <y:SmartNodeLabelModel distance="4.0"/>
                 </y:LabelModel>
                 <y:ModelParameter>
-                  <y:RowNodeLabelModelParameter horizontalPosition="0.0" id="row_0" inside="true"/>
-                </y:ModelParameter>
-              </y:NodeLabel>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" rotationAngle="270.0" textColor="#000000" visible="true" width="56.51171875" x="3.0" y="108.244140625">Erstellen<y:LabelModel>
-                  <y:RowNodeLabelModel offset="3.0"/>
-                </y:LabelModel>
-                <y:ModelParameter>
-                  <y:RowNodeLabelModelParameter horizontalPosition="0.0" id="row_1" inside="true"/>
+                  <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
                 </y:ModelParameter>
               </y:NodeLabel>
               <y:StyleProperties>
-                <y:Property class="java.awt.Color" name="yed.table.header.color.main" value="#c4d7ed"/>
-                <y:Property class="java.awt.Color" name="yed.table.section.color" value="#7192b2"/>
-                <y:Property name="y.view.tabular.TableNodePainter.ALTERNATE_COLUMN_SELECTION_STYLE">
-                  <y:SimpleStyle fillColor="#474A4380" lineColor="#000000" lineType="line" lineWidth="3.0"/>
-                </y:Property>
-                <y:Property class="java.lang.String" name="yed.table.lane.style" value="lane.style.rows"/>
-                <y:Property name="y.view.tabular.TableNodePainter.ALTERNATE_ROW_STYLE">
-                  <y:SimpleStyle fillColor="#474A4340" lineColor="#000000" lineType="line" lineWidth="1.0"/>
-                </y:Property>
-                <y:Property name="y.view.tabular.TableNodePainter.ALTERNATE_ROW_SELECTION_STYLE">
-                  <y:SimpleStyle fillColor="#474A4380" lineColor="#000000" lineType="line" lineWidth="3.0"/>
-                </y:Property>
-                <y:Property class="java.awt.Color" name="yed.table.lane.color.alternating" value="#abc8e2"/>
-                <y:Property class="java.awt.Color" name="yed.table.header.color.alternating" value="#abc8e2"/>
-                <y:Property name="y.view.tabular.TableNodePainter.ALTERNATE_COLUMN_STYLE">
-                  <y:SimpleStyle fillColor="#474A4340" lineColor="#000000" lineType="line" lineWidth="1.0"/>
-                </y:Property>
-                <y:Property class="java.lang.Double" name="yed.table.header.height" value="24.0"/>
-                <y:Property class="java.awt.Color" name="yed.table.lane.color.main" value="#c4d7ed"/>
+                <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
               </y:StyleProperties>
-              <y:State autoResize="true" closed="false" closedHeight="80.0" closedWidth="100.0"/>
-              <y:Insets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
-              <y:BorderInsets bottom="14" bottomF="13.662109375" left="8" leftF="7.5137430826823675" right="10" rightF="9.79248046875" top="13" topF="13.337890625"/>
-              <y:Table autoResizeTable="true" defaultColumnWidth="120.0" defaultMinimumColumnWidth="80.0" defaultMinimumRowHeight="50.0" defaultRowHeight="80.0">
-                <y:DefaultColumnInsets bottom="0.0" left="0.0" right="0.0" top="0.0"/>
-                <y:DefaultRowInsets bottom="0.0" left="24.0" right="0.0" top="0.0"/>
-                <y:Insets bottom="0.0" left="0.0" right="0.0" top="30.0"/>
-                <y:Columns>
-                  <y:Column id="column_0" minimumWidth="80.0" width="306.51374308268237">
-                    <y:Insets bottom="0.0" left="0.0" right="0.0" top="0.0"/>
-                  </y:Column>
-                </y:Columns>
-                <y:Rows>
-                  <y:Row height="72.0" id="row_0" minimumHeight="50.0">
-                    <y:Insets bottom="0.0" left="24.0" right="0.0" top="0.0"/>
-                  </y:Row>
-                  <y:Row height="69.0" id="row_1" minimumHeight="50.0">
-                    <y:Insets bottom="0.0" left="24.0" right="0.0" top="0.0"/>
-                  </y:Row>
-                </y:Rows>
-              </y:Table>
-            </y:TableNode>
+            </y:GenericNode>
           </data>
-          <graph edgedefault="directed" id="n1::n0:">
-            <node id="n1::n0::n0">
-              <data key="d5"/>
-              <data key="d6">
-                <y:ShapeNode>
-                  <y:Geometry height="42.0" width="284.20751953125" x="507.7568715413412" y="609.0"/>
-                  <y:Fill color="#FFFFFF" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" modelName="custom" textColor="#000000" visible="true" width="278.083984375" x="3.061767578125" y="5.03125">Liste aller verfügbaren Widgets,
-Wookieinstanzen (gespeichert in interner DB)<y:LabelModel>
-                      <y:SmartNodeLabelModel distance="4.0"/>
-                    </y:LabelModel>
-                    <y:ModelParameter>
-                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-                    </y:ModelParameter>
-                  </y:NodeLabel>
-                  <y:Shape type="rectangle3d"/>
-                </y:ShapeNode>
-              </data>
-            </node>
-            <node id="n1::n0::n1">
-              <data key="d5"/>
-              <data key="d6">
-                <y:ShapeNode>
-                  <y:Geometry height="42.0" width="289.20751953125" x="507.7568715413412" y="681.0"/>
-                  <y:Fill color="#FFFFFF" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" modelName="custom" textColor="#000000" visible="true" width="189.05078125" x="50.078369140625" y="5.03125">Erstellt aus normalen HTML/JS-
-Anwendungen W3C-Widgets<y:LabelModel>
-                      <y:SmartNodeLabelModel distance="4.0"/>
-                    </y:LabelModel>
-                    <y:ModelParameter>
-                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-                    </y:ModelParameter>
-                  </y:NodeLabel>
-                  <y:Shape type="rectangle3d"/>
-                </y:ShapeNode>
-              </data>
-            </node>
-          </graph>
+        </node>
+        <node id="n1::n1">
+          <data key="d5"/>
+          <data key="d6">
+            <y:GenericNode configuration="com.yworks.entityRelationship.small_entity">
+              <y:Geometry height="40.0" width="214.4455566406251" x="410.7772216796875" y="51.599999999999994"/>
+              <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="202.896484375" x="5.7745361328125" y="11.015625">Applikationslogik auf dem Server<y:LabelModel>
+                  <y:SmartNodeLabelModel distance="4.0"/>
+                </y:LabelModel>
+                <y:ModelParameter>
+                  <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+                </y:ModelParameter>
+              </y:NodeLabel>
+              <y:StyleProperties>
+                <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+              </y:StyleProperties>
+            </y:GenericNode>
+          </data>
+        </node>
+        <node id="n1::n2">
+          <data key="d5"/>
+          <data key="d6">
+            <y:GenericNode configuration="com.yworks.entityRelationship.small_entity">
+              <y:Geometry height="40.0" width="214.4455566406251" x="410.77722167968744" y="148.21640624999992"/>
+              <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="169.99609375" x="22.2247314453125" y="11.015625">Kommunikation mit Wookie<y:LabelModel>
+                  <y:SmartNodeLabelModel distance="4.0"/>
+                </y:LabelModel>
+                <y:ModelParameter>
+                  <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+                </y:ModelParameter>
+              </y:NodeLabel>
+              <y:StyleProperties>
+                <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+              </y:StyleProperties>
+            </y:GenericNode>
+          </data>
         </node>
       </graph>
     </node>
@@ -518,14 +222,14 @@ Anwendungen W3C-Widgets<y:LabelModel>
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
             <y:GroupNode>
-              <y:Geometry height="480.634765625" width="372.57460530598985" x="838.4253946940104" y="32.740234375"/>
+              <y:Geometry height="100.36093750000009" width="323.4127929687501" x="61.38720703124977" y="365.01953125"/>
               <y:Fill color="#FFFF99" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#5F021F" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.4609375" modelName="internal" modelPosition="t" textColor="#FFFFFF" visible="true" width="372.57460530598985" x="0.0" y="0.0">Plesynd Server (PHP/MySQL)</y:NodeLabel>
+              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#5F021F" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.4609375" modelName="internal" modelPosition="t" textColor="#FFFFFF" visible="true" width="323.4127929687501" x="0.0" y="0.0">Wookie     </y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
               <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="0" bottomF="0.0" left="4" leftF="4.002970377604129" right="0" rightF="0.0" top="0" topF="0.0"/>
+              <y:BorderInsets bottom="8" bottomF="8.380468750000091" left="4" leftF="3.6127929687502274" right="16" rightF="15.592480468749898" top="1" topF="0.51953125"/>
             </y:GroupNode>
             <y:GroupNode>
               <y:Geometry height="50.0" width="50.0" x="14324.166666666666" y="547.0"/>
@@ -541,202 +245,185 @@ Anwendungen W3C-Widgets<y:LabelModel>
         </y:ProxyAutoBoundsNode>
       </data>
       <graph edgedefault="directed" id="n2:">
-        <node id="n2::n0" yfiles.foldertype="group">
+        <node id="n2::n0">
+          <data key="d5"/>
           <data key="d6">
-            <y:TableNode configuration="YED_TABLE_NODE">
-              <y:Geometry height="429.173828125" width="338.5716349283857" x="857.4283650716145" y="69.201171875"/>
-              <y:Fill color="#ECF5FF" color2="#0042F440" transparent="false"/>
+            <y:GenericNode configuration="com.yworks.entityRelationship.small_entity">
+              <y:Geometry height="40.0" width="274.20751953125" x="80.0" y="402.0"/>
+              <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="1.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.4609375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="126.27783203125" x="106.14690144856786" y="4.0">Funktionalitäten</y:NodeLabel>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" rotationAngle="270.0" textColor="#000000" visible="true" width="96.12109375" x="3.0" y="33.439453125">Plesynd Bundle<y:LabelModel>
-                  <y:RowNodeLabelModel offset="3.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" textColor="#000000" visible="true" width="263.236328125" x="5.485595703125" y="11.015625">speichern und ausliefern von W3C-Widgets<y:LabelModel>
+                  <y:SmartNodeLabelModel distance="4.0"/>
                 </y:LabelModel>
                 <y:ModelParameter>
-                  <y:RowNodeLabelModelParameter horizontalPosition="0.0" id="row_0" inside="true"/>
-                </y:ModelParameter>
-              </y:NodeLabel>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" rotationAngle="270.0" textColor="#000000" visible="true" width="75.408203125" x="3.0" y="145.6708984375">TodoBundle<y:LabelModel>
-                  <y:RowNodeLabelModel offset="3.0"/>
-                </y:LabelModel>
-                <y:ModelParameter>
-                  <y:RowNodeLabelModelParameter horizontalPosition="0.0" id="row_1" inside="true"/>
-                </y:ModelParameter>
-              </y:NodeLabel>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" rotationAngle="270.0" textColor="#000000" visible="true" width="73.12890625" x="3.0" y="240.810546875">UserBundle<y:LabelModel>
-                  <y:RowNodeLabelModel offset="3.0"/>
-                </y:LabelModel>
-                <y:ModelParameter>
-                  <y:RowNodeLabelModelParameter horizontalPosition="0.0" id="row_2" inside="true"/>
-                </y:ModelParameter>
-              </y:NodeLabel>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" rotationAngle="270.0" textColor="#000000" visible="true" width="89.9921875" x="3.0" y="330.0908203125">WookieBundle<y:LabelModel>
-                  <y:RowNodeLabelModel offset="3.0"/>
-                </y:LabelModel>
-                <y:ModelParameter>
-                  <y:RowNodeLabelModelParameter horizontalPosition="0.0" id="row_3" inside="true"/>
+                  <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
                 </y:ModelParameter>
               </y:NodeLabel>
               <y:StyleProperties>
-                <y:Property class="java.awt.Color" name="yed.table.header.color.main" value="#c4d7ed"/>
-                <y:Property class="java.awt.Color" name="yed.table.section.color" value="#7192b2"/>
-                <y:Property name="y.view.tabular.TableNodePainter.ALTERNATE_COLUMN_SELECTION_STYLE">
-                  <y:SimpleStyle fillColor="#474A4380" lineColor="#000000" lineType="line" lineWidth="3.0"/>
-                </y:Property>
-                <y:Property class="java.lang.String" name="yed.table.lane.style" value="lane.style.rows"/>
-                <y:Property name="y.view.tabular.TableNodePainter.ALTERNATE_ROW_STYLE">
-                  <y:SimpleStyle fillColor="#474A4340" lineColor="#000000" lineType="line" lineWidth="1.0"/>
-                </y:Property>
-                <y:Property name="y.view.tabular.TableNodePainter.ALTERNATE_ROW_SELECTION_STYLE">
-                  <y:SimpleStyle fillColor="#474A4380" lineColor="#000000" lineType="line" lineWidth="3.0"/>
-                </y:Property>
-                <y:Property class="java.awt.Color" name="yed.table.lane.color.alternating" value="#abc8e2"/>
-                <y:Property class="java.awt.Color" name="yed.table.header.color.alternating" value="#abc8e2"/>
-                <y:Property name="y.view.tabular.TableNodePainter.ALTERNATE_COLUMN_STYLE">
-                  <y:SimpleStyle fillColor="#474A4340" lineColor="#000000" lineType="line" lineWidth="1.0"/>
-                </y:Property>
-                <y:Property class="java.lang.Double" name="yed.table.header.height" value="24.0"/>
-                <y:Property class="java.awt.Color" name="yed.table.lane.color.main" value="#c4d7ed"/>
+                <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
               </y:StyleProperties>
-              <y:State autoResize="true" closed="false" closedHeight="80.0" closedWidth="100.0"/>
-              <y:Insets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
-              <y:BorderInsets bottom="12" bottomF="12.326171875" left="15" leftF="14.571634928385492" right="16" rightF="15.792480468750227" top="16" topF="15.798828125"/>
-              <y:Table autoResizeTable="true" defaultColumnWidth="120.0" defaultMinimumColumnWidth="80.0" defaultMinimumRowHeight="50.0" defaultRowHeight="80.0">
-                <y:DefaultColumnInsets bottom="0.0" left="0.0" right="0.0" top="0.0"/>
-                <y:DefaultRowInsets bottom="0.0" left="24.0" right="0.0" top="0.0"/>
-                <y:Insets bottom="0.0" left="0.0" right="0.0" top="30.0"/>
-                <y:Columns>
-                  <y:Column id="column_0" minimumWidth="80.0" width="314.5716349283857">
-                    <y:Insets bottom="0.0" left="0.0" right="0.0" top="0.0"/>
-                  </y:Column>
-                </y:Columns>
-                <y:Rows>
-                  <y:Row height="103.0" id="row_0" minimumHeight="50.0">
-                    <y:Insets bottom="0.0" left="24.0" right="0.0" top="0.0"/>
-                  </y:Row>
-                  <y:Row height="100.75" id="row_1" minimumHeight="50.0">
-                    <y:Insets bottom="0.0" left="24.0" right="0.0" top="0.0"/>
-                  </y:Row>
-                  <y:Row height="87.25" id="row_2" minimumHeight="50.0">
-                    <y:Insets bottom="0.0" left="24.0" right="0.0" top="0.0"/>
-                  </y:Row>
-                  <y:Row height="108.173828125" id="row_3" minimumHeight="50.0">
-                    <y:Insets bottom="0.0" left="24.0" right="0.0" top="0.0"/>
-                  </y:Row>
-                </y:Rows>
-              </y:Table>
-            </y:TableNode>
+            </y:GenericNode>
           </data>
-          <graph edgedefault="directed" id="n2::n0:">
-            <node id="n2::n0::n0">
-              <data key="d6">
-                <y:ShapeNode>
-                  <y:Geometry height="77.5" width="284.2075195312498" x="896.0000000000001" y="115.0"/>
-                  <y:Fill color="#FFFFFF" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="73.84375" modelName="custom" textColor="#000000" visible="true" width="221.04296875" x="31.582275390624886" y="1.828125">anlegen, bearbeiten, löschen 
-von Workspaces und Widgets
-ausliefern der Ressourcen (inkl. 
-manifest Datei), ausliefern von 
-Widget-Informationen (Wookie-URL)<y:LabelModel>
-                      <y:SmartNodeLabelModel distance="4.0"/>
-                    </y:LabelModel>
-                    <y:ModelParameter>
-                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-                    </y:ModelParameter>
-                  </y:NodeLabel>
-                  <y:Shape type="rectangle"/>
-                </y:ShapeNode>
-              </data>
-            </node>
-            <node id="n2::n0::n1">
-              <data key="d6">
-                <y:ShapeNode>
-                  <y:Geometry height="72.5" width="284.20751953125" x="896.0" y="215.875"/>
-                  <y:Fill color="#FFFFFF" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="custom" textColor="#000000" visible="true" width="4.0" x="140.103759765625" y="34.25">
-                    <y:LabelModel>
-                      <y:SmartNodeLabelModel distance="4.0"/>
-                    </y:LabelModel>
-                    <y:ModelParameter>
-                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-                    </y:ModelParameter>
-                  </y:NodeLabel>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="59.875" modelName="custom" textColor="#000000" visible="true" width="259.08203125" x="12.562744140625" y="6.3125">Backend des Plesynd-Todo-Listen-
-Widgets: anlegen, bearbeiten, löschen 
-von Todo-Listen und Todo-Items
-(jedes Plesynd-Widget im eigenen Bundle)<y:LabelModel>
-                      <y:SmartNodeLabelModel distance="4.0"/>
-                    </y:LabelModel>
-                    <y:ModelParameter>
-                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-                    </y:ModelParameter>
-                  </y:NodeLabel>
-                  <y:Shape type="rectangle"/>
-                </y:ShapeNode>
-              </data>
-            </node>
-            <node id="n2::n0::n2">
-              <data key="d6">
-                <y:ShapeNode>
-                  <y:Geometry height="54.875" width="284.20751953125" x="896.0" y="318.375"/>
-                  <y:Fill color="#FFFFFF" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="custom" textColor="#000000" visible="true" width="4.0" x="140.103759765625" y="25.4375">
-                    <y:LabelModel>
-                      <y:SmartNodeLabelModel distance="4.0"/>
-                    </y:LabelModel>
-                    <y:ModelParameter>
-                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-                    </y:ModelParameter>
-                  </y:NodeLabel>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" modelName="custom" textColor="#000000" visible="true" width="215.189453125" x="34.509033203125" y="4.484375">User Management:
-registrieren, bearbeiten von Usern,
-Rechtemanagement (ACL)<y:LabelModel>
-                      <y:SmartNodeLabelModel distance="4.0"/>
-                    </y:LabelModel>
-                    <y:ModelParameter>
-                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-                    </y:ModelParameter>
-                  </y:NodeLabel>
-                  <y:Shape type="rectangle"/>
-                </y:ShapeNode>
-              </data>
-            </node>
-            <node id="n2::n0::n3">
-              <data key="d6">
-                <y:ShapeNode>
-                  <y:Geometry height="79.111328125" width="284.20751953125" x="896.0" y="406.9375"/>
-                  <y:Fill color="#FFFFFF" transparent="false"/>
-                  <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="73.84375" modelName="custom" textColor="#000000" visible="true" width="254.728515625" x="14.739501953125" y="2.6337890625">Kommunikation mit Wookie:
-holen der Liste der verfügbaren Widgets, 
-erstellen einer neuen Widgetinstanz in 
-Wookie, übermitteln der Widget-Id 
-an PlesyndBundle<y:LabelModel>
-                      <y:SmartNodeLabelModel distance="4.0"/>
-                    </y:LabelModel>
-                    <y:ModelParameter>
-                      <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-                    </y:ModelParameter>
-                  </y:NodeLabel>
-                  <y:Shape type="rectangle"/>
-                </y:ShapeNode>
-              </data>
-            </node>
-          </graph>
         </node>
       </graph>
     </node>
-    <edge id="e0" source="n0" target="n2">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="304.953466055607" sy="-105.8819129156017" tx="-160.8582025764328" ty="-107.4893347906017"/>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="171.8359375" x="11.137563069661383" y="6.864337942758311">Authorisierung
-Authentifizierung
+    <node id="n3">
+      <data key="d5"/>
+      <data key="d6">
+        <y:GenericNode configuration="com.yworks.entityRelationship.small_entity">
+          <y:Geometry height="58.299999999999955" width="202.0" x="410.7772216796875" y="362.0234375"/>
+          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="50.5625" modelName="custom" textColor="#000000" visible="true" width="185.0107421875" x="8.49462890625" y="3.8687499999999773">- holt Liste der verfügbaren Widgets
+- gibt Anweisung zum Erstellen von
+  Widget-Instanzen
+- holt URI der Widget-Instanz<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+          </y:StyleProperties>
+        </y:GenericNode>
+      </data>
+    </node>
+    <node id="n4">
+      <data key="d5"/>
+      <data key="d6">
+        <y:GenericNode configuration="com.yworks.entityRelationship.small_entity">
+          <y:Geometry height="40.0" width="183.25" x="-151.86279296875023" y="362.0"/>
+          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="27.28125" modelName="custom" textColor="#000000" visible="true" width="164.1806640625" x="9.53466796875" y="6.359375">liefert Wookie Instanz  (mit von 
+Wookie injiziertem JS-Code) aus<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+          </y:StyleProperties>
+        </y:GenericNode>
+      </data>
+    </node>
+    <node id="n5">
+      <data key="d5"/>
+      <data key="d6">
+        <y:GenericNode configuration="com.yworks.entityRelationship.small_entity">
+          <y:Geometry height="40.0" width="158.45" x="226.34999999999994" y="-40.39999999999998"/>
+          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="27.28125" modelName="custom" textColor="#000000" visible="true" width="143.86328125" x="7.293359374999966" y="6.359375">ausliefern der Ressourcen 
 (auch von Plesynd-Widgets)<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+          </y:StyleProperties>
+        </y:GenericNode>
+      </data>
+    </node>
+    <node id="n6">
+      <data key="d5"/>
+      <data key="d6">
+        <y:GenericNode configuration="com.yworks.entityRelationship.small_entity">
+          <y:Geometry height="40.0" width="183.25" x="61.625" y="40.0"/>
+          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="27.28125" modelName="custom" textColor="#000000" visible="true" width="170.318359375" x="6.4658203125" y="6.359375">Authorisierung, Authentifizierung
+(auch von Plesynd-Widgets)<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+          </y:StyleProperties>
+        </y:GenericNode>
+      </data>
+    </node>
+    <node id="n7">
+      <data key="d5"/>
+      <data key="d6">
+        <y:GenericNode configuration="com.yworks.entityRelationship.small_entity">
+          <y:Geometry height="40.0" width="235.28530273437465" x="149.51469726562527" y="115.48046875"/>
+          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="27.28125" modelName="custom" textColor="#000000" visible="true" width="228.365234375" x="3.4600341796873124" y="6.359375">ausliefern von Workspaces 
+ausliefern der Liste der verfügbaren Widgets<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+          </y:StyleProperties>
+        </y:GenericNode>
+      </data>
+    </node>
+    <node id="n8">
+      <data key="d5"/>
+      <data key="d6">
+        <y:GenericNode configuration="com.yworks.entityRelationship.small_entity">
+          <y:Geometry height="40.0" width="226.0" x="61.625" y="190.0"/>
+          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="27.28125" modelName="custom" textColor="#000000" visible="true" width="220.357421875" x="2.8212890625" y="6.359375">anlegen, bearbeiten, löschen von Entitäten
+(auch von Plesynd-Widgets)<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+          </y:StyleProperties>
+        </y:GenericNode>
+      </data>
+    </node>
+    <node id="n9">
+      <data key="d5"/>
+      <data key="d6">
+        <y:GenericNode configuration="com.yworks.entityRelationship.small_entity">
+          <y:Geometry height="29.599999999999966" width="165.9791544596353" x="218.8208455403646" y="266.24921875000007"/>
+          <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.640625" modelName="custom" textColor="#000000" visible="true" width="157.3251953125" x="4.0" y="4.0">ausliefern der aktiven Widgets
+<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="-0.5" labelRatioY="-0.5" nodeRatioX="-0.5" nodeRatioY="-0.5" offsetX="4.0" offsetY="4.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:StyleProperties>
+            <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+          </y:StyleProperties>
+        </y:GenericNode>
+      </data>
+    </node>
+    <edge id="e0" source="n0" target="n1">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="117.6368808537389" sy="-75.8367778349053" tx="-123.51160888671882" ty="-75.8367778349053"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="167.85215682983394" y="28.00000042437202">
+            <y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -748,15 +435,14 @@ Authentifizierung
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e1" source="n0" target="n2">
+    <edge id="e1" source="n0" target="n1">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="304.989397670249" sy="-12.715651041045817" tx="-160.87254172668736" ty="-14.323072916045817"/>
+          <y:Path sx="117.63940647244436" sy="0.0" tx="-123.52169549167161" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="143.330078125" x="25.381398518880133" y="6.864304830467233">laden von Workspaces 
-und der Liste der 
-verfügbaren Widgets<y:LabelModel>
+          <y:Arrows source="standard" target="none"/>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="167.8496315002441" y="28.0000015258789">
+            <y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -768,21 +454,12 @@ verfügbaren Widgets<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e2" source="n0" target="n2">
+    <edge id="e2" source="n0" target="n1">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="304.9778098666901" sy="74.60953528879622" tx="-160.82952427592377" ty="73.00211341379622"/>
+          <y:Path sx="117.66169433593761" sy="151.46004325436363" tx="-123.5505881790715" ty="151.46004325436363"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="163.234375" x="15.440846761067633" y="18.4708665729853">laden der aktiven Widgets
-(samt Wookie-Widget-URI)<y:LabelModel>
-              <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartEdgeLabelModelParameter angle="6.283185307179586" distance="18.499873457473086" distanceToCenter="false" position="right" ratio="0.5" segment="0"/>
-            </y:ModelParameter>
-            <y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/>
-          </y:EdgeLabel>
+          <y:Arrows source="standard" target="none"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -790,15 +467,15 @@ verfügbaren Widgets<y:LabelModel>
     <edge id="e3" source="n0" target="n2">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="304.9537467104717" sy="-192.82479425408008" tx="-160.8582025764328" ty="-194.43221612908008"/>
+          <y:Path sx="0.0" sy="194.80762637920571" tx="-160.43821893688198" ty="-49.122941641204136"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="171.8359375" x="11.137318929036383" y="13.84871825150202">laden der Ressourcen 
-(auch von Plesynd-Widgets)<y:LabelModel>
+          <y:Arrows source="standard" target="none"/>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="93.62582214571515" y="120.9970586726323">
+            <y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
-              <y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/>
+              <y:SmartEdgeLabelModelParameter angle="6.283185307179586" distance="65.51258629046909" distanceToCenter="true" position="right" ratio="1.0" segment="-1"/>
             </y:ModelParameter>
             <y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/>
           </y:EdgeLabel>
@@ -806,59 +483,39 @@ verfügbaren Widgets<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e4" source="n0" target="n1">
+    <edge id="e4" source="n1" target="n2">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="-17.585965944768986" sy="241.21548466045817" tx="-180.27024376268207" ty="0.0"/>
+          <y:Path sx="0.0" sy="194.7719106977459" tx="99.55309705225963" ty="-21.944739552781225"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="224.154296875" x="-183.82882432902508" y="62.187255189267034">holt Wookie Instanz 
-(mit von Wookie injiziertem JS-Code)<y:LabelModel>
-              <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartEdgeLabelModelParameter angle="6.283185307179586" distance="106.09704157605435" distanceToCenter="true" position="right" ratio="-0.29490754101127103" segment="-1"/>
-            </y:ModelParameter>
-            <y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/>
-          </y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e5" source="n2" target="n1">
+    <edge id="e5" source="n0" target="n1">
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="20.42279632688951" sy="240.30843884412025" tx="180.27024376268207" ty="0.0"/>
+          <y:Path sx="117.66470404891734" sy="74.75294429786987" tx="-123.5366088867188" ty="74.75294429786987"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="314.482421875" x="-162.54106435758217" y="83.83456723800691">holt Liste der verfügbaren Widgets,
-gibt Anweisung zum Erstellen neuer Widget Instanz
-holt URI der Widget-Instanz<y:LabelModel>
-              <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartEdgeLabelModelParameter angle="6.283185307179586" distance="90.19932231756911" distanceToCenter="true" position="left" ratio="0.44693525227294095" segment="-1"/>
-            </y:ModelParameter>
-            <y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/>
-          </y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e6" source="n0" target="n2">
+    <edge id="e6" source="n1" target="n0">
       <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="304.9966770129199" sy="164.3056365119549" tx="-160.82952427592377" ty="162.6982146369549"/>
+          <y:Path sx="-123.51272002677217" sy="-157.37500725443283" tx="117.63669433593763" ty="-157.37500725443283"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="171.8359375" x="11.121144612630133" y="6.864365031968646">anlegen, bearbeiten, 
-löschen von Entitäten
-(auch von Plesynd-Widgets)<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-171.86359863281254" y="28.00000190084061">
+            <y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
-              <y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="right" ratio="0.5" segment="0"/>
+              <y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="left" ratio="0.5" segment="0"/>
             </y:ModelParameter>
             <y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/>
           </y:EdgeLabel>
