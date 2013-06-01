@@ -1,6 +1,6 @@
 \chapter{Details zur Lösung - Plesynd} 
 \label{chapter:Kapitel6}
-\lhead{Kapitel 6. \emph{Details zur Lösung - Plesynd}}  
+\lhead{Kapitel 6 \emph{Details zur Lösung - Plesynd}}  
 
 \section{Entwicklungsumgebung und eingesetzte Werkzeuge}\label{section:entwicklungsumgebungen_tools}
 Für die Entwicklung von Plesynd wurden unterschiedliche Tools und Frameworks genutzt. Entwickelt wurde das System auf Serverseite mit PHP. Der clientseitige Code wurde mit Javascript implementiert. Die für die Entwicklung von Plesynd eingesetzten Frameworks werden im Folgenden kurz vorgestellt.
@@ -327,3 +327,88 @@ ParentFrameMessenger.prototype.initialize = function () {
     });
 };
 \end{lstlisting}
+
+\section{Validierung der Anforderungen}\label{section:validierung_der_anforderungen}
+In diesem Abschnitt wird die in Kapitel \ref{chapter:Kapitel5} vorgestellte Lösung analysiert und auf die Erfüllung der in Kapitel \ref{chapter:Kapitel3} aufgestellten Anforderungen hin untersucht. Die nichtfunktionalen Anforderungen werden argumentativ auf Basis des umgesetzten Systems validiert. In Abschnitt \ref{section:umsetzung} wurde die Umsetzung der funktionalen Anforderungen mit Hilfe von Mockups beschrieben. Diese Mockups wurden wie dargestellt im implementierten System umgesetzt, so dass die erwähnten funktionalen Anforderungen als validiert betrachtet werden. Im Folgenden wird deshalb nur noch auf Anforderungen eingegangen, die nicht komplett erfüllt wurden, oder deren Umsetzung noch in zukünftigen Arbeiten erweitert werden könnte.
+
+\subsection{Validierung der funktionalen Anforderungen}\label{section:funktionale_anforderungen_validierung}
+\textbullet{} \reqref{requirementKeinZugriffNachLogout} \emph{\requirementKeinZugriffNachLogout}\\
+Klickt der Anwender auf den Logout-Link, so wird seine Session auf dem Server beendet. Dies bedeutet, dass jeder weitere Request zu einem Fehler (403-Error) führt, welcher das System dazu veranlasst dem Anwender erneut die Login-Seite zu präsentieren. Es ist somit kein weiterer Zugriff auf die Daten möglich. Das System löscht bei einem Logout auch die Daten aus dem Local-Storage des Browsers. Dies ist in der momentanen Umsetzung jedoch nicht für den Local-Storage der einzelnen Widgets möglich. Somit kann ein anderer Anwender sich theoretisch den Local-Storage mit Werkzeugen wie Firebug oder den Chrome-Developer-Tools anschauen und so die Daten zwar nicht ändern, aber doch lesen. Dieses Problem müsste in einer Erweiterung des Plesynd-Systems gelöst werden.
+
+\textbullet{} \reqref{requirementWidgetInformSystem} \emph{\requirementWidgetInformSystem}\\
+Wenn der Anwender ein Plesynd-kompatibles Widget zu einem Workspace hinzufügt, meldet sich dieses bei Plesynd an und kann es über die Anzahl der verfügbaren und synchronisierten und nicht synchronisierten Einträge informieren. Diese Funktionalität wurde über die Postmessage-API implementiert (siehe Abschnitt \ref{section:kommunikation_in_mashup_anwendungen}). In einer Erweiterung des Systems könnten die Widgets auch Kurzinfos über die verfügbaren Einträge geben (z.B. eine Vorschau der neuesten Einträge in einem RSS-Reader).
+
+\subsection{Validierung der nichtfunktionalen Anforderungen}
+\textbullet{} \reqref{requirementAggregator} \emph{\requirementAggregator}\\
+Plesynd ist als Personal Learning Environment konzipiert und umgesetzt worden. Das System ist in der Lage unterschiedlichste Arten von Services mit Hilfe von Widgets in einem System zusammenzufassen und dem Anwender so zu präsentieren, dass er aus dem System heraus mit ihnen arbeiten kann.
+
+\textbullet{} \reqref{requirementWidgetStandard} \emph{\requirementWidgetStandard}\\
+Wie in den Abschnitten \ref{section:widget_frameworks} und \ref{section:loesung_wookie} beschrieben nutzt Plesynd als Widget-Container Wookie. Somit ist es möglich alle nach dem W3C -Standard implementierten Widgets einzubinden. Die Offline-Funktionalitäten sind allerdings nur bei den Widgets möglich, die zusätzlich Plesynd-kompatibel umgesetzt wurden.
+
+\textbullet{} \reqref{requirementUsbStick} \emph{\requirementUsbStick}\\
+Abschnitt \ref{section:ple_auf_usb} beschreibt, wie es möglich ist, dass Plesynd samt seiner Daten mit Hilfe von portablen Versionen aktueller Browser auf einem mobilen Speichermedium wie USB-Sticks offline zwischen unterschiedlichen Rechnern transportiert werden kann.
+
+\textbullet{} \reqref{requirementUsageInBrowser} \emph{\requirementUsageInBrowser}\\
+Plesynd-Client wurde komplett auf Basis von HTML und Javascript umgesetzt. Diese Technologien stehen in jedem aktuellen Browser nativ zur Verfügung. Die Serverseite ist für die Erfüllung dieser Anforderung irrelevant.
+
+\textbullet{} \reqref{requirementNewWidgetsWithApi} \emph{\requirementNewWidgetsWithApi}\\
+Das System ist in der Lage mit allen W3C-Widgets umzugehen. Zusätzlich beschreibt Abschnitt \ref{section:offline_faehigkeiten} die implementierte Schnittstelle mit der die Offline-Fähigkeit des Systems umgesetzt wurde. Auf Basis dieser Beschreibung und des exemplarischen Todo-Listen-Widgets ist es möglich neue Plesynd-kompatible Widgets zu implementieren.
+
+\textbullet{} \reqref{requirementExampleWidget} \emph{\requirementExampleWidget}\\
+Es wurde ein komplett funktionsfähiges Todo-Listen-Widget entworfen und umgesetzt. Dieses nutzt die beschriebenen Offline-Funktionalitäten und ist in der Lage mit Plesynd zu kommunizieren und dem System Informationen zukommen zu lassen. Das Widget nutzt ebenfalls die REST-API zur Kommunikation mit dem Backend und bietet ein User-Interface zur Arbeit (hinzufügen, bearbeiten, Löschen und filtern) mit Todo-Listen und den zugehörige Todo-Einträgen.
+
+\textbullet{} \reqref{requirementExtensibility} \emph{\requirementExtensibility}\\
+Durch die Umsetzung der in \reqref{requirementNewWidgetsWithApi} geforderten Schnittstelle zur Widget-Implementierung ist es relativ einfach möglich neue Widgets zu dem System hinzufügen. Des Weiteren wurde durch die Nutzung REST-konformer Anfragen und Antworten (siehe Abschnitt \ref{section:rest}) ein Standard zur Kommunikation innerhalb des Systems eingeführt, welcher es vereinfacht neue Systeme (wie zum Beispiel Services für eigene Widgets) zu Plesynd hinzuzufügen. Bei der Umsetzung des Systems wurde darauf geachtet Frameworks und Werkzeuge zu benutzen, die aktiv weiterentwickelt werden und für die eine gute Dokumentation existiert. Somit sollte es gut möglich sein die entwickelte PLE zu erweitern.
+
+\textbullet{} \reqref{requirementOpenSource} \emph{\requirementOpenSource}\\
+Alle Werkzeuge, die für die Umsetzung von Plesynd genutzt wurden (siehe Abschnitt \ref{section:entwicklungsumgebungen_tools}) stehen unter freien Lizenzen, welche es erlauben ohne kostenpflichtige Lizensierungen mit dem System zu arbeiten und dieses zu erweitern.
+\clearpage
+\subsection{Überblick über die Erfüllung der Anforderungen}
+Es folgt ein tabellarischer Überblick über die Anforderungen. Zusammenfassend kann also gesagt werden, dass Plesynd die Anforderungen aus Kapitel \ref{chapter:Kapitel3} bis auf Anforderung \reqref{requirementZugriffAufEigeneWidgets} vollständig erfüllen kann.
+Bedeutung der letzten Spalte:\\
+\checkmark: Anforderung erfüllt\\
+(\checkmark): Anforderung teilweise erfüllt\\
+\textbf{x}: Anforderung nicht erfüllt
+
+\renewcommand{\arraystretch}{1.4} 
+
+\begin{table}[ht]
+\caption{Funktionale Anforderungen Validierung}
+\begin{tabularx}{\textwidth}{ l | X | c }
+\reqref{requirementRegistrieren} & \emph{\requirementRegistrieren} & \checkmark \\ \hline 
+\reqref{requirementLogin} & \emph{\requirementLogin} & \checkmark \\ \hline 
+\reqref{requirementZugriffAufEigeneWidgets} & \emph{\requirementZugriffAufEigeneWidgets} & \checkmark \\ \hline 
+\reqref{requirementLogout} & \emph{\requirementLogout} & \checkmark \\ \hline 
+\reqref{requirementKeinZugriffNachLogout} & \emph{\requirementKeinZugriffNachLogout} & (\checkmark) \\ \hline 
+\reqref{requirementWorkspaceAdd} & \emph{\requirementWorkspaceAdd} & \checkmark \\ \hline 
+\reqref{requirementWorkspaceEdit} & \emph{\requirementWorkspaceEdit} & \checkmark \\ \hline 
+\reqref{requirementWorkspaceDelete} & \emph{\requirementWorkspaceDelete} & \checkmark \\ \hline 
+\reqref{requirementWidgetAdd} & \emph{\requirementWidgetAdd} & \checkmark \\ \hline 
+\reqref{requirementWidgetFilterName} & \emph{\requirementWidgetFilterName} & \checkmark \\ \hline 
+\reqref{requirementWidgetFilterOnline} & \emph{\requirementWidgetFilterOnline} & \checkmark \\ \hline 
+\reqref{requirementWidgetDelete} & \emph{\requirementWidgetDelete} & \checkmark \\ \hline 
+\reqref{requirementWidgetSortDragNDrop} & \emph{\requirementWidgetSortDragNDrop} & \checkmark \\ \hline 
+\reqref{requirementWidgetInformSystem} & \emph{\requirementWidgetInformSystem} & \checkmark \\ \hline 
+\reqref{requirementDashboard} & \emph{\requirementDashboard} & \checkmark \\ \hline 
+\reqref{requirementCheckOnlineStatus} & \emph{\requirementCheckOnlineStatus} & \checkmark \\ \hline 
+\reqref{requirementOfflineStart} & \emph{\requirementOfflineStart} & \checkmark \\ \hline 
+\reqref{requirementOfflineWork} & \emph{\requirementOfflineWork} & \checkmark \\ \hline 
+\reqref{requirementOnlineSync} & \emph{\requirementOnlineSync} & \checkmark \\ \hline 
+\end{tabularx}
+\label{table:funktionale_anforderungen_validierung}
+\end{table}
+
+\begin{table}[ht]
+\caption{Nichtfunktionale Anforderungen Evaluation}
+\begin{tabularx}{\textwidth}{ l | X | c}
+\reqref{requirementAggregator} & \emph{\requirementAggregator} & \checkmark\\ \hline 
+\reqref{requirementWidgetStandard} & \emph{\requirementWidgetStandard} & \checkmark\\ \hline 
+\reqref{requirementUsbStick} & \emph{\requirementUsbStick} & \checkmark\\ \hline 
+\reqref{requirementUsageInBrowser} & \emph{\requirementUsageInBrowser} & \checkmark\\ \hline 
+\reqref{requirementNewWidgetsWithApi} & \emph{\requirementNewWidgetsWithApi} & \checkmark\\ \hline 
+\reqref{requirementExampleWidget} & \emph{\requirementExampleWidget} & \checkmark\\ \hline
+\reqref{requirementExtensibility} & \emph{\requirementExtensibility} & \checkmark\\ \hline 
+\reqref{requirementOpenSource} & \emph{\requirementOpenSource} & \checkmark\\ \hline 
+\end{tabularx}
+\label{table:nichtfunktionale_anforderungen_validierung}
+\end{table}

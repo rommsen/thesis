@@ -47,9 +47,9 @@
 \setlength{\parskip}{2.0ex plus0.5ex minus0.2ex}
 \usepackage{vmargin}
 \setmarginsrb           { 3cm}  % left margin
-                        { 1.6cm}  % top margin
+                        { 1.3cm}  % top margin
                         { 3cm}  % right margin
-                        { 2cm}  % bottom margin
+                        { 1.3cm}  % bottom margin
                         {  20pt}  % head height
                         { 0.8cm}  % head sep
                         {   9pt}  % foot height
@@ -120,11 +120,6 @@ stepnumber=1,
 breaklines=true,
 captionpos=b,
 xleftmargin=20pt}
-\lstdefinestyle{matlab} {
-        language=Matlab,
-        keywordstyle=\color{blue},
-        commentstyle=\color[rgb]{0.13,0.55,0.13}\em,
-        stringstyle=\color[rgb]{0.7,0,0} }
 \usepackage[pdfpagemode={UseOutlines},bookmarks=true,bookmarksopen=true,
    bookmarksopenlevel=0,bookmarksnumbered=true,hypertexnames=false,
    colorlinks,linkcolor={blue},citecolor={blue},urlcolor={red},

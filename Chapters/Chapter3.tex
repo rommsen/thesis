@@ -36,9 +36,11 @@
 \newcommand{\requirementWidgetFilterOnline}{Der Anwender muss die zur Auswahl stehenden Widgets so einschränken können, dass in der Liste nur offline fähige Widgets vorkommen.}
 \newcommand{\requirementWidgetDelete}{Der Anwender muss ein Widget löschen können.}
 \newcommand{\requirementWidgetSortDragNDrop}{Der Anwender muss in der Lage sein Widgets nach seinen Wünschen über einen Drag and Drop Mechanismus auf dem Workspace zu sortieren.}
-\newcommand{\requirementWidgetInformSystem}{Die Widgets müssen dem System Informationen mitteilen können, welche Aufschluss über ihren Zustand geben. Diese sollen dem Nutzer dargestellt werden können.}
+\newcommand{\requirementWidgetInformSystem}{Die Widgets müssen dem System Informationen mitteilen können, welche Aufschluss über ihren Zustand geben.}
+\newcommand{\requirementWidgetInformUser}{Die Informationen, die die Widgets dem System mitteilen, müssen dem Anwender dargestellt werden.}
 \newcommand{\requirementDashboard}{Das System muss dem Anwender eine Übersichtsseite über die verwendeten Work"-spaces und Widgets und ihre wichtigsten Informationen zur Verfügung stellen.}
-\newcommand{\requirementCheckOnlineStatus}{Das System muss seinen Onlinestatus kennen, bemerken, wenn sich dieser ändert und dies dem Anwender mitteilen.}
+\newcommand{\requirementCheckOnlineStatus}{Das System muss seinen Onlinestatus kennen und bemerken, wenn sich dieser ändert.}
+\newcommand{\requirementOnlineStatusInformUser}{Der Anwender muss über eine Änderung des Onlinestatus informiert werden.}
 \newcommand{\requirementOfflineStart}{Das System muss für die Applikation notwendigen Ressourcen zwischenspeichern, so dass es auch offline gestartet werden kann.}
 \newcommand{\requirementOfflineWork}{Das System muss den Anwender in die Lage versetzen mit den gewählten Services, zumindest rudimentär, offline zu arbeiten.}
 \newcommand{\requirementOnlineSync}{Bei einer Verbindung mit dem Internet müssen die offline vorgenommenen Arbeiten mit den Services synchronisiert werden.}
@@ -80,13 +82,13 @@ In diesem Abschnitt werden die Anwendungsfälle und die daraus resultierenden fu
 \subsection{Anwendungsfall: Registrieren}
 Der Anwender ist nicht in der PLE registriert und kommt das erste Mal auf die Seite des Systems. Er bekommt auf der Startseite die Möglichkeit sich für den Zugang zum System zu registrieren. Er füllt ein Formular mit seinen Daten (Vorname, Nachname, E-Mail-Adresse, Nutzername, Passwort) aus und schickt das Formular ab. Das System stellt bei der Anmeldung sicher, dass der Anwender sowohl Nutzername, als auch Passwort und E-Mail-Adresse eingibt und Nutzername und E-Mail-Adresse nur einmal im System vorkommen dürfen. Anschließend ist der Anwender mit seiner gewählten Nutzername-/Passwortkombination und seiner E-Mail-Adresse im System hinterlegt und kann sich somit in das System einloggen. 
  
-Aus diesem Anwendungsfall folgen die funktionalen Anforderungen \reqref{requirementRegistrieren} und \reqref{requirementUniqueLoginEmail}:
+Aus diesem Anwendungsfall folgen die funktionalen Anforderungen \reqref{requirementRegistrieren} und \reqref{requirementUniqueLoginEmail}:\\
 \begin{itemize}
  \item \requirementf{\requirementRegistrieren}\label{requirementRegistrieren}
  \item \requirementf{\requirementUniqueLoginEmail}\label{requirementUniqueLoginEmail}
 \end{itemize}
  
-\subsection{Login}
+\subsection{Anwendungsfall: Login}
 Ist der Anwender im System registriert, bekommt auf der Startseite die Möglichkeit sich im System anzumelden. Er füllt ein Formular mit seiner Nutzername-/Passwortkombination aus und schickt das Formular ab. Der Anwender ist im System eingeloggt und das System präsentiert ihm eine Übersicht über seine aktuellen Work"-spaces samt der darauf befindlichen Widgets und die wichtigsten aggregierten Informationen dieser.
  
 Aus diesem Anwendungsfall folgen die funktionalen Anforderungen \reqref{requirementLogin} und \reqref{requirementZugriffAufEigeneWidgets}:
@@ -95,7 +97,7 @@ Aus diesem Anwendungsfall folgen die funktionalen Anforderungen \reqref{requirem
  \item \requirementf{\requirementZugriffAufEigeneWidgets}\label{requirementZugriffAufEigeneWidgets}
 \end{itemize}
 
-\subsection{Logout}
+\subsection{Anwendungsfall: Logout}
 Wenn der Anwender ist eingeloggt ist, kann er die Aktion "`Logout"' auswählen. Anschließend wird er auf die Login-Seite weitergeleitet. Die aktuelle Session des Anwenders ist beendet und es ist ihm ohne einen weiteren Login nicht möglich, auf seine Daten zuzugreifen 
  
 Aus diesem Anwendungsfall folgen die funktionale Anforderung \reqref{requirementLogout} und \reqref{requirementKeinZugriffNachLogout}:
@@ -104,7 +106,7 @@ Aus diesem Anwendungsfall folgen die funktionale Anforderung \reqref{requirement
  \item \requirementf{\requirementKeinZugriffNachLogout}\label{requirementKeinZugriffNachLogout}
 \end{itemize}
 
-\subsection{Workspace hinzufügen}
+\subsection{Anwendungsfall: Workspace hinzufügen}
 Der Anwender wählt die Aktion "`Workspace hinzufügen"'. Es öffnet sich hierdurch ein neuer Bereich, welcher einen neuen Workspace repräsentiert. Der Anwender hat nun die Möglichkeit den Workspace nach seinen Wünschen anzupassen. Nach dem Speichern wurde dem System des Anwenders ein neuer Workspace hinzugefügt.
  
 Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementWorkspaceAdd}:
@@ -112,7 +114,7 @@ Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementW
  \item \requirementf{\requirementWorkspaceAdd}\label{requirementWorkspaceAdd}
 \end{itemize}
  
-\subsection{Workspace bearbeiten}
+\subsection{Anwendungsfall: Workspace bearbeiten}
 Der Anwender wählt bei einem Workspace die Aktion "`Workspace bearbeiten"'. Er hat nun die Möglichkeit den Workspace nach seinen Wünschen zu benennen und kann Widgets zu dem Workspace hinzufügen. Nach dem Speichern wurde der Workspace nach den Vorstellungen des Anwenders angepasst.
 
 Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementWorkspaceEdit}:
@@ -120,7 +122,7 @@ Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementW
  \item \requirementf{\requirementWorkspaceEdit}\label{requirementWorkspaceEdit}
 \end{itemize}
  
-\subsection{Workspace löschen}
+\subsection{Anwendungsfall: Workspace löschen}
 Der Anwender wählt bei einem Workspace die Aktion "`Workspace löschen"'. Es erscheint eine Rückfrage, welche eine Bestätigung des Löschvorganges (mitsamt aller Widgets) erfragt. Bei positiver Rückmeldung löscht das System den Workspace und alle seine Widgets und informiert den Anwender darüber.
  
 Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementWorkspaceDelete}:
@@ -128,7 +130,7 @@ Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementW
  \item \requirementf{\requirementWorkspaceDelete}\label{requirementWorkspaceDelete}
 \end{itemize}
 
-\subsection{Widget hinzufügen}
+\subsection{Anwendungsfall: Widget hinzufügen}
 Der Anwender befindet sich in einem Workspace und wählt die Aktion "`Widget hinzufügen"' Es erscheint eine Maske in der die zur Verfügung stehenden Widgets ausgewählt werden können. Der Anwender wählt das gewünschte Widget und fügt es dem Workspace hinzu. Wenn gewünscht kann der Anwender die Liste der Widgets über Suchfilter einschränken. Nach dem Speichern wurde das Widget dem Workspace hinzugefügt.
 
 Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementWidgetAdd}:
@@ -136,7 +138,7 @@ Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementW
  \item \requirementf{\requirementWidgetAdd}\label{requirementWidgetAdd}
 \end{itemize}
 
-\subsection{Widgets filtern}
+\subsection{Anwendungsfall: Widgets filtern}
 Der Anwender ist dabei einem Workspace ein Widget hinzuzufügen. Er gibt in einem Textfeld eine Zeichenkette an, nach der im Widget-Namen gesucht wird. Des Weiteren kann er in einem binären Filter wählen, ob er nur Widgets angezeigt bekommen möchte, die in der Lage sind in einem Offline-Modus zu arbeiten. Anschließend werden in der Liste der zur Auswahl stehenden Widgets nur noch diejenigen angezeigt, die der Filterung entsprechen.
  
 Aus diesem Anwendungsfall folgen die funktionalen Anforderungen \reqref{requirementWidgetFilterName} und \reqref{requirementWidgetFilterOnline}:
@@ -145,7 +147,7 @@ Aus diesem Anwendungsfall folgen die funktionalen Anforderungen \reqref{requirem
  \item \requirementf{\requirementWidgetFilterOnline}\label{requirementWidgetFilterOnline}
 \end{itemize}
  
-\subsection{Widget löschen}
+\subsection{Anwendungsfall: Widget löschen}
 Der Anwender befindet sich in einem Workspace und wählt bei einem Widget die Aktion "`Widget löschen"'. Es erscheint eine Rückfrage, welche eine Bestätigung des Löschvorganges erfragt. Bei positiver Rückmeldung löscht das System das Widget und informiert den Anwender darüber.
  
 Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementWidgetDelete}:
@@ -153,7 +155,7 @@ Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementW
  \item \requirementf{\requirementWidgetDelete}\label{requirementWidgetDelete}
 \end{itemize}
  
-\subsection{Anordnung der Widgets ändern}
+\subsection{Anwendungsfall: Anordnung der Widgets ändern}
 Der Anwender hat die Möglichkeit die einzelnen Widgets innerhalb eines Work"-spaces über einen Drag and Drop Mechanismus neu anzuordnen. Er wählt hierfür ein Widget mit der Maus aus und zieht es an die gewünschte Position. Anschließend hat sich die Anordnung der Widgets innerhalb des Work"-spaces nach dem Wunsch des Anwenders geändert.
  
 Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementWidgetSortDragNDrop}:
@@ -161,19 +163,16 @@ Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementW
  \item \requirementf{\requirementWidgetSortDragNDrop}\label{requirementWidgetSortDragNDrop}
 \end{itemize}
 
-\subsection{Informationen über Widgets erhalten TODO}
-\textbf{use case} \emph{Informationen über Widgets erhalten}\\
-\textbf{actors} Student\\
-\textbf{precondition} Der Student ist eingeloggt und bewegt sich zu einem Workspace.\\
-\textbf{main flow} Die Widgets des Work"-spaces aktualisieren sich mit ihren Services. \\
-\textbf{postcondition} Jedes Widget zeigt ihm die wichtigsten Informationen an. Hierzu gehören, wie viele neue Einträge es gibt, wie viele eventuell noch nicht mit dem Backend synchronisiert sind und ob das Widget online oder offline ist.
+\subsection{Anwendungsfall: Informationen über Widgets erhalten}
+Der Anwender bewegt sich im System und erhält für jedes Widget direkt die wichtigsten Informationen. Hierzu gehören die Informationen wie viele neue Einträge es gibt, wie viele eventuell noch nicht mit dem Backend synchronisiert sind und ob das Widget online oder offline ist.
  
-Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementWidgetInformSystem}:
+Aus diesem Anwendungsfall folgen die funktionalen Anforderungen \reqref{requirementWidgetInformSystem} und \reqref{requirementWidgetInformUser}:
 \begin{itemize}
  \item \requirementf{\requirementWidgetInformSystem}\label{requirementWidgetInformSystem}
+ \item \requirementf{\requirementWidgetInformUser}\label{requirementWidgetInformUser}
 \end{itemize}
 
-\subsection{Überblick über Workspace/Widgets verschaffen}
+\subsection{Anwendungsfall: Überblick über Workspace/Widgets verschaffen}
 Der Anwender wählt eine Aktion aus, die ihn zu einer Übersichtsseite innerhalb des Systems bringt. Das System leitet den Anwender auf eine Seite, welche ihm seine Work"-spaces und Widgets anzeigt und ihm die wichtigsten Informationen darüber vermittelt.
 
 Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementDashboard}:
@@ -181,15 +180,16 @@ Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementD
  \item \requirementf{\requirementDashboard}\label{requirementDashboard}
 \end{itemize}
 
-\subsection{Erkennen des Onlinestatus}
+\subsection{Anwendungsfall: Erkennen des Onlinestatus}
 Der Anwender ist eingeloggt und sieht auf den ersten Blick, dass das System online ist. Sowohl die Hauptapplikation, als auch die Widgets zeigen ihm dies an. Beendet der Anwender die Internetverbindung aktualisieren sich diese Anzeigen und weisen damit den Anwender auf den veränderten Status hin.
  
-Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementCheckOnlineStatus}:
+Aus diesem Anwendungsfall folgen die funktionalen Anforderung \reqref{requirementCheckOnlineStatus} und reqref{\requirementOnlineStatusInformUser}:
 \begin{itemize}
  \item \requirementf{\requirementCheckOnlineStatus}\label{requirementCheckOnlineStatus}
+ \item \requirementf{\requirementOnlineStatusInformUser}\label{requirementOnlineStatusInformUser}
 \end{itemize}
 
-\subsection{Starten der Anwendung ohne Internetverbindung}
+\subsection{Anwendungsfall: Starten der Anwendung ohne Internetverbindung}
 Dem Anwender steht keine Internetverbindung zur Verfügung. Er öffnet seinen Browser und gibt die URL der PLE ein. Das System hat sich trotz fehlender Internetverbindung geöffnet und stellt dem Studenten das ihm bekannte User-Interface dar.
  
 Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementOfflineStart}:
@@ -197,7 +197,7 @@ Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementO
  \item \requirementf{\requirementOfflineStart}\label{requirementOfflineStart}
 \end{itemize}
 
-\subsection{Arbeiten mit Widgets ohne Internetverbindung}
+\subsection{Anwendungsfall: Arbeiten mit Widgets ohne Internetverbindung}
 Das System ist geladen, hat aber keine Internetverbindung. Der Anwender arbeitet mit den Widgets und kann neue Einträge etc. hinzufügen und bearbeiten. Alle Änderungen werden dem Anwender präsentiert, als wenn eine Internetverbindung bestehen würden. Die Änderungen wurden vom System zwischengespeichert. Der Anwender erhält diesbezüglich eine Information.
 
 Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementOfflineWork}:
@@ -205,7 +205,7 @@ Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementO
  \item \requirementf{\requirementOfflineWork}\label{requirementOfflineWork}
 \end{itemize}
 
-\subsection{Herstellen einer Internetverbindung}
+\subsection{Anwendungsfall: Herstellen einer Internetverbindung}
 Das System ist offline. Der Student hat in den Widgets Einträge hinzugefügt, bearbeitet oder gelöscht. Der Student stellt eine Verbindung mit dem Internet her. Anschließend werden die offline vorgenommenen Arbeiten wurden mit dem jeweiligen Backend synchronisiert.
 
 Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementOnlineSync}:
@@ -258,8 +258,10 @@ Im den vorherigen Abschnitten wurden nichtfunktionale und funktionale Anforderun
 \reqref{requirementWidgetDelete} & \emph{\requirementWidgetDelete} \\ \hline 
 \reqref{requirementWidgetSortDragNDrop} & \emph{\requirementWidgetSortDragNDrop} \\ \hline 
 \reqref{requirementWidgetInformSystem} & \emph{\requirementWidgetInformSystem} \\ \hline 
+\reqref{requirementWidgetInformUser} & \emph{\requirementWidgetInformUser} \\ \hline 
 \reqref{requirementDashboard} & \emph{\requirementDashboard} \\ \hline 
 \reqref{requirementCheckOnlineStatus} & \emph{\requirementCheckOnlineStatus} \\ \hline 
+\reqref{requirementOnlineStatusInformUser} & \emph{\requirementOnlineStatusInformUser} \\ \hline 
 \reqref{requirementOfflineStart} & \emph{\requirementOfflineStart} \\ \hline 
 \reqref{requirementOfflineWork} & \emph{\requirementOfflineWork} \\ \hline 
 \reqref{requirementOnlineSync} & \emph{\requirementOnlineSync} \\ \hline 
