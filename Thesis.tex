@@ -1,197 +1,141 @@
-%% ----------------------------------------------------------------
-%% Thesis.tex -- MAIN FILE (the one that you compile with LaTeX)
-%% ---------------------------------------------------------------- 
-
-% Set up the document
-\documentclass[a4paper, 11pt, oneside]{Thesis}  % Use the "Thesis" style, based on the ECS Thesis style by Steve Gunn
-%\usepackage[latin1]{inputenc}
-\graphicspath{{Figures/}}  % Location of the graphics files (set up for graphics to be in PDF format)
-
-% Include any extra LaTeX packages required
-\usepackage[square]{natbib}  % Use the "Natbib" style for the references in the Bibliography
-\usepackage{verbatim}  % Needed for the "comment" environment to make LaTeX comments
-\usepackage{vector}  % Allows "\bvec{}" and "\buvec{}" for "blackboard" style bold vectors in maths
+\documentclass[11pt, a4paper, oneside, headsepline, listof=totoc,index=totoc,bibliography=totoc]{scrbook}% siehe <http://www.komascript.de>
+\usepackage{selinput}% Eingabecodierung automatisch ermitteln …
+\SelectInputMappings{% … siehe <http://ctan.org/pkg/selinput>
+  adieresis={ä},
+  germandbls={ß},
+}
+\usepackage[ngerman]{babel}% Das Beispieldokument ist in Deutsch,
+                % daher wird mit Hilfe des babel-Pakets
+                % über Option ngerman auf deutsche Begriffe
+                % und gleichzeitig Trennmuster nach den
+                % aktuellen Rechtschreiberegeln umgeschaltet.
+                % Alternativen und weitere Sprachen sind
+                % verfügbar (siehe <http://ctan.org/pkg/babel>).
+                    
 \usepackage{tabularx} % Umbrüche in Tabellenspalten
-\usepackage{pdflscape} % Landscape mit gedrehter Ansicht im PDF
-\usepackage{chngcntr} % durchgehende Nummerierung der Fußnoten
-\counterwithout{footnote}{chapter}
-\hypersetup{urlcolor=blue, colorlinks=true}  % Colours hyperlinks in blue, but this can be distracting if there are many links.
+\usepackage{graphicx} % Grafiken einfügen
+% \usepackage[%
+%    acronym,
+%    toc,
+%    ]{glossaries}
+% \makeglossaries 
+% %%% Abkuerzungen
+% \newacronym{hvs}{hvs}{human visual system} 
 
-%% ----------------------------------------------------------------
+\usepackage{acronym} 
+
+\usepackage{amssymb}  % Mathematische Symbole 
+\usepackage[square]{natbib}  % Natbib für das Literaturverzeichnis
+\usepackage[onehalfspacing]{setspace} % 1,5 Zeilen Abstand
+\usepackage{geometry}
+
+\usepackage{listings} % Quellcode-Listings
+\lstset{ % Einstellungen für Listings
+numberstyle=\footnotesize,
+basicstyle=\ttfamily\footnotesize,
+numbers=left,
+stepnumber=1,
+breaklines=true,
+captionpos=b,
+xleftmargin=20pt}
+
+% Seitenränder
+\geometry{bottom=2cm, includefoot}
+
+\setlength{\headheight}{3\baselineskip}
+
+\usepackage{scrpage2}   % Header-/Footer-Definition
+\clearscrheadfoot       % Lösche Voreinstellungen
+\ohead{\headmark}       % Kapitelname oben rechts
+\cfoot{\pagemark}       % Seitennummern unten mittig
+\pagestyle{scrheadings} % Nutze Style
+
+% Hyperref immer als letztes laden
+\usepackage{hyperref}
+
 \begin{document}
+
 \frontmatter	  % Begin Roman style (i, ii, iii, iv...) page numbering
 
-% Set up the Title Page
-\title  {Entwicklung einer leichtgewichtigen Personal Learning Environment auf Basis aktueller Web-Technologien}
-\authors  {\texorpdfstring
-            {\href{http://plesynd.de}{Roman Sachse}}
-            {Roman Sachse}
-            }
-\addresses  {\groupname\\\deptname\\\univname}  % Do not change this here, instead these must be set in the "Thesis.cls" file, please look through it instead
-\date       {Juni 2013}
-\subject    {}
-\keywords   {}
+% ----------------------------------------------------------------------------
+% Titel (erst nach \begin{document}, damit babel bereits voll aktiv ist:
+\titlehead{Kopf über dem Titel mit Le(h/e)rstuhl u.\,ä.}% optional
+\subject{Masterarbeit}% optional
+\title{Entwicklung einer leichtgewichtigen "`Personal Learning Environment"' auf Basis aktueller Web-Technologien} % obligatorisch
+\subtitle{}% optional
+\author{Roman Sachse}% obligatorisch
+\date{Juni 2013}% sinnvoll
+\publishers{Platz für Betreuer o.\,ä.}% optional
+\maketitle% verwendet die zuvor gemachte Angaben zur Gestaltung eines Titels
+% ----------------------------------------------------------------------------
+\tableofcontents % Inhaltsverzeichnis
+\listoffigures % Abbildungsverzeichnis
+\listoftables % Tabellenverzeichnis
+\cleardoublepage
 
+\addchap{Abkürzungsverzeichnis} % Abkürzungsverzeichnis
+  \begin{acronym}[SQL]
+    \acro{API}{Application Programming Interface} 
+    \acro{CORS}{Cross-Origin Resource Sharing} 
+    \acro{CSS}{Cascading Style Sheets}
+    \acro{DOM}{Document Object Model}
+    \acro{HTML}{Hypertext Markup Language}
+    \acro{HTTP}{Hypertext Transfer Protocol}
+    \acro{JSON}{JavaScript Object Notation}
+    \acro{LMS}{Lern Management System}
+    \acro{MVC}{Model View Controller}
+    \acro{ORM}{Object Relational Mapping}
+    \acro{PHP}{PHP: Hypertext Preprocessor}
+    \acro{PLE}{Personal Learning Environment}
+    \acro{REST}{Representational State Transfer Protocol}
+    \acro{RSS}{Really Simple Syndication}
+    \acro{SQL}{Structured Query Language}
+    \acro{SSL}{Secure Sockets Layer}
+    \acro{URI}{Uniform Resource Identifier}
+    \acro{UMTS}{Universal Mobile Telecommunications System}
+    \acro{WLAN}{Wireless Local Area Network}
+    \acro{W3C}{World Wide Web Consortium}
+    \acro{XML}{eXtensible Markup Language}
+  \end{acronym} 
 
-\maketitle
-%% ----------------------------------------------------------------
-
-\setstretch{1.3}  % It is better to have smaller font and larger line spacing than the other way round
-
-% Define the page headers using the FancyHdr package and set up for one-sided printing
-\fancyhead{}  % Clears all page headers and footers
-\rhead{\thepage}  % Sets the right side header to show the page number
-\lhead{}  % Clears the left side page header
-
-\pagestyle{fancy}  % Finally, use the "fancy" page style to implement the FancyHdr headers
-
-
-
-%% ----------------------------------------------------------------
-% The "Funny Quote Page"
-%\pagestyle{empty}  % No headers or footers for the following pages
-
-%\null\vfill
-% Now comes the "Funny Quote", written in italics
-%\textit{``Write a funny quote here.''}
-
-%\begin{flushright}
-%If the quote is taken from someone, their name goes here
-%\end{flushright}
-
-%\vfill\vfill\vfill\vfill\vfill\vfill\null
-%\clearpage  % Funny Quote page ended, start a new page
-%% ----------------------------------------------------------------
-
-% The Abstract Page
-\abstract{
-{\vspace{1em}}  % Add a gap in the Contents, for aesthetics
-Die vorliegende Arbeit beschäftigt sich mit der Konzeption, dem Aufbau und der Umsetzung einer prototypischen Personal Learning Environment auf Basis aktueller Web-Technologien, welche den Anwender in die Lage versetzt, auch dann mit dem System zu arbeiten, wenn einmal keine Verbindung mit dem Internet besteht. Aufgrund der verstärkten Notwendigkeit des lebenslangen Lernens in unserer heutigen Gesellschaft sind Personal Learning Environments in den letzten Jahren immer stärker in das Blickfeld der Forschung im Bereich des computergestützten Lernens gerückt. Personal Learning Environments sind Lernumgebungen, in denen der Anwender selbst bestimmen kann, welche Werkzeuge er für seine persönliche Art des Lernens nutzen möchte und wie er diese Werkzeuge organisiert. Der Anwender kann für die Wahl seiner Werkzeuge zwischen den mannigfältig vorhandenen Services des heutigen Web 2.0 wählen. Eine Personal Learning Environment fasst diese Services für den Anwender zusammen und ermöglicht ihm an zentraler Stelle mit ihnen zu arbeiten. Leider steht dem Anwender jedoch nicht immer und zu jeder Zeit ein Internetzugang zur Verfügung. Die Gründe hierfür reichen von Netzabbrüchen bei der Nutzung von mobilen Endgeräten bis hin zu mangelnder Infrastruktur in strukturell eher schwächeren Ländern. Aus diesem Grund ist es wichtig, dass ein Anwender eine Lernumgebung und ihre Services auch dann noch benutzen kann, wenn ihm einmal keine Internetverbindung zur Verfügung steht. Das in dieser Arbeit konzipierte und entwickelte System stellt Funktionalitäten bereit mit denen diesen Anforderungen erfüllt werden.
-}
-
-\clearpage  % Abstract ended, start a new page
-%% ----------------------------------------------------------------
-
-%% ----------------------------------------------------------------
-% Declaration Page required for the Thesis, your institution may give you a different text to place here
-\Declaration{
-
-\addtocontents{toc}{\vspace{1em}}  % Add a gap in the Contents, for aesthetics
-\begin{center}{\huge\bf Erklärung über selbstständige Anfertigung der Masterarbeit\par}\end{center}
-Ich, Roman Sachse, versichere, dass ich diese Arbeit "`Entwicklung einer leichtgewichtigen Personal Learning Environment auf Basis aktueller Web-Technologien"' ohne Hilfe Dritter und ohne Benutzung anderer als den angegebenen Quellen und Hilfsmitteln angefertigt und die den benutzten Quellen wörtlich oder inhaltlich entnommenen Stellen als solche kenntlich gemacht habe. Diese Arbeit hat in gleicher oder ähnlicher Form noch keiner Prüfungsbehörde vorgelegen.
-\\\\\\ 
-Datum:\\
-\rule[1em]{25em}{0.5pt}  % This prints a line to write the date
-
-Unterschrift:\\
-\rule[1em]{25em}{0.5pt}  % This prints a line for the signature
-}
-\clearpage  % Declaration ended, now start a new page
-
-\setstretch{1.3}  % Reset the line-spacing to 1.3 for body text (if it has changed)
-%
-% The Acknowledgements page, for thanking everyone
-%\acknowledgements{
-%\addtocontents{toc}{\vspace{1em}}  % Add a gap in the Contents, for aesthetics
-%
-%The acknowledgements and the people to thank go here, don't forget to include your project advisor\ldots
-%
-%}
-%\clearpage  % End of the Acknowledgements
-%% ----------------------------------------------------------------
-
-\pagestyle{fancy}  %The page style headers have been "empty" all this time, now use the "fancy" headers as defined before to bring them back
-
-
-%% ----------------------------------------------------------------
-\lhead{\emph{Inhaltsverzeichnis}}  % Set the left side page header to "Contents"
-\tableofcontents  % Write out the Table of Contents
-
-%% ----------------------------------------------------------------
-\lhead{\emph{List of Figures}}  % Set the left side page header to "List if Figures"
-\listoffigures  % Write out the List of Figures
-
-%% ----------------------------------------------------------------
-\lhead{\emph{List of Tables}}  % Set the left side page header to "List of Tables"
-\listoftables  % Write out the List of Tables
-
-%% ----------------------------------------------------------------
-\setstretch{1.5}  % Set the line spacing to 1.5, this makes the following tables easier to read
-\clearpage  % Start a new page
-\lhead{\emph{Abkürzungen}}  % Set the left side page header to "Abbreviations"
-\listofsymbols{ll}  % Include a list of Abbreviations (a table of two columns)
-{
-% \textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
-\textbf{API} & \textbf{A}pplication \textbf{P}rogramming \textbf{I}nterface \\
-\textbf{CORS} & \textbf{C}ross-\textbf{O}rigin \textbf{R}esource \textbf{S}haring \\
-\textbf{CSS} & \textbf{C}ascading \textbf{S}tyle \textbf{S}heets \\
-\textbf{DOM} & \textbf{D}ocument \textbf{O}bject \textbf{M}odel \\
-\textbf{HTML} & \textbf{H}ypertext \textbf{M}arkup \textbf{L}anguage \\
-\textbf{HTTP} & \textbf{H}ypertext \textbf{T}ransfer \textbf{P}rotocol \\
-\textbf{JSON} &  \textbf{J}avaScript \textbf{O}bject \textbf{N}otation \\
-\textbf{LMS} & \textbf{L}ern \textbf{M}anagement \textbf{S}ystem \\
-\textbf{MVC} & \textbf{M}odel \textbf{V}iew \textbf{C}ontroller \\
-\textbf{ORM} & \textbf{O}bject \textbf{R}elational \textbf{M}apping \\
-\textbf{PHP} & \textbf{P}HP: \textbf{H}ypertext \textbf{P}reprocessor \\
-\textbf{PLE} & \textbf{P}ersonal \textbf{L}earning \textbf{E}nvironment \\
-\textbf{REST} & \textbf{R}epresentational \textbf{S}tate \textbf{T}ransfer \textbf{P}rotocol \\
-\textbf{SQL} & \textbf{S}tructured \textbf{Q}uery \textbf{L}anguage \\
-\textbf{SSL} & \textbf{S}ecure \textbf{S}ockets \textbf{L}ayer \\
-\textbf{URI} & \textbf{U}niform \textbf{R}esource \textbf{I}dentifier \\
-\textbf{UMTS} & \textbf{U}niversal \textbf{M}obile \textbf{T}elecommunications \textbf{S}ystem \\
-\textbf{WLAN} & \textbf{W}ireless \textbf{L}ocal \textbf{A}rea \textbf{N}etwork \\
-\textbf{W3C} & \textbf{W}orld \textbf{W}ide \textbf{W}eb \textbf{C}onsortium \\
-\textbf{XML} & e\textbf{X}tensible \textbf{M}arkup \textbf{L}anguage \\
-RSS
-        
-}
-
-\setstretch{1.2}  % Return the line spacing back to 1.3
-
-%% ----------------------------------------------------------------
-\mainmatter	  % Begin normal, numeric (1,2,3...) page numbering
-\pagestyle{fancy}  % Return the page headers back to the "fancy" style
-
-% Include the chapters of the thesis, as separate files
-% Just uncomment the lines as you write the chapters
+% ----------------------------------------------------------------------------
+\mainmatter % Gliederung und Text
 
 \input{./Chapters/Chapter1b} % Einführung
 
 \input{./Chapters/Chapter2} % Hintergrund/Begriffsklärung 
-
+ 
 \input{./Chapters/Chapter3} % Anforderungsanalyse
 
 \input{./Chapters/Chapter4} % Übersicht Stand der Forschung
-
+ 
 \input{./Chapters/Chapter5} % Lösungsansatz
-
+ 
 \input{./Chapters/Chapter6} % Details zur Lösung / Validierung der Anforderungen
 
 \input{./Chapters/Chapter7} % Zusammenfassung/Ausblick
+% ----------------------------------------------------------------------------
 
-%% ----------------------------------------------------------------
-\clearpage
-\addcontentsline{toc}{chapter}{Literaturverzeichnis}
-\label{Bibliography}
-\lhead{\emph{Literaturverzeichnis}}  % Change the left side page header to "Bibliography"
-\bibliographystyle{dinat}  % Use the "unsrtnat" BibTeX style for formatting the Bibliography
-\bibliography{Bibliography}  % The references (bibliography) information are stored in the file named "Bibliography.bib"
 
-%% ----------------------------------------------------------------
-% Now begin the Appendices, including them as separate files
-\clearpage
-\appendix  % Cue to tell LaTeX that the following 'chapters' are Appendices
- \addcontentsline{toc}{chapter}{Anhang} 
- \label{Anhang}
- \addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+\bibliographystyle{dinat}   % Benutze dinat bibliographystyle  
+\bibliography{Bibliography} % Literaturverzeichnis in "Bibliography.bib"
+
+% ----------------------------------------------------------------------------
+% Anhang
+
+\begin{appendix}
+% \cleardoublepage
+%  \phantomsection
+%   \addcontentsline{toc}{chapter}{Anhang} 
+%  \label{Anhang}
+%   \addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
  
 \input{./Appendices/AppendixA} % Inhalt / Inhalt der Cd
 
 \input{./Appendices/AppendixB} % Installation/Deployment
 
 \input{./Appendices/AppendixC} % Code Doku
-
+\end{appendix}
 \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 
-\end{document}  % The End
-%% ----------------------------------------------------------------
+\end{document}

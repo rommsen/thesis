@@ -53,9 +53,7 @@
 \newcommand{\requirementExampleWidget}{Es muss ein offline fähiges Widget entwickelt werden, welches die offline Funktionalitäten beispielhaft umsetzt.}
 \newcommand{\requirementOpenSource}{Es dürfen keine proprietären, sondern nur freie Technologien für die Umsetzung des Systems genutzt werden.}
 
-\chapter{Anforderungsanalyse} 
-\label{chapter:Kapitel3}
-\lhead{Kapitel 3 \emph{Anforderungsanalyse}}  
+\chapter{Anforderungsanalyse}\label{chapter:Kapitel3}  
 
 Das Ziel der vorliegenden Arbeit ist die prototypische Implementierung einer leichtgewichtigen Personal Learning Environment mit offline Fähigkeiten auf Basis aktueller Technologien. Das vorliegende Kapitel beginnt mit dem Aufbau eines möglichen Szenarios, in dem die zu entwickelnde PLE zum Einsatz kommt. Auf Basis dieses Szenarios werden im folgenden Abschnitt Anwendungsfälle definiert. Aus den Anwendungsfälle werden die funktionalen Anforderungen an das System abgeleitet. Anschließend werden die nichtfunktionale Anforderungen definiert. Das Kapitel schließt mit einer tabellarischen Auflistung der funktionalen und nichtfunktionalen Anforderungen. 
 
@@ -69,7 +67,7 @@ Zusätzlich haben sich Student 1, 2 und 4 zu einer virtuellen Lerngruppe zum The
 Student 1 und Student 2 leben in Kamerun. Beide haben dort das Problem, dass der Internetzugriff aus mehreren Gründen nicht immer gegeben ist. Student 1 hat zu Hause keinen Internetzugang. Er hat nur die Möglichkeit in der Universität oder in einem Internetcafe online zu gehen. Student 2 hat einen Internetzugang, allerdings ist dieser relativ langsam und wird nach Zeit abgerechnet, so dass es vorteilhaft für ihn ist, wenn er nur für kurze Zeit online ist. Aus diesem Grund benötigen die beiden idealerweise ein System, welches ihnen die Möglichkeit bietet die neuesten Informationen auch offline zu lesen und zumindest rudimentär auch offline kleine Aufgaben zu erledigen. Diese sollten sich bei Wiederverbindung mit dem Internet mit den entsprechenden Services synchronisieren. Des Weiteren sollten sie in der Lage sein, die Daten auch ohne Internetverbindung zwischen verschiedenen Rechnern auszutauschen. Insbesondere Student 1 sollte die Möglichkeit seine Aktionen bei sich zu Hause vorzunehmen und die durchgeführten Änderungen dann an einem Rechner mit Internetanschluss zu synchronisieren. Die Anforderungen von Student 3 sind ähnlich gelagert. Er ist sehr viel unterwegs und erledigt daher viele kurze Aufgaben mit dem Smartphone. Auch hier ist eine Internetverbindung nicht immer gewährleistet ist oder sie wird temporär deaktiviert um die Akkulaufzeit zu verlängern. Durch die Arbeit an unterschiedlichen Rechnern mit potentiell unterschiedlichen Betriebssystemen, ist die Installation einer komplexen Software nicht ohne Weiteres möglich. Wie durch diese kurze Beschreibung deutlich wird, haben die Teilnehmer dieses Kurses verschiedene Ausgangssituationen und damit auch spezifische Anforderungen an ein PLE-System. Die PLE, die für diese Arbeiten genutzt wird muss also diesen Anforderungen gerecht werden und den Studenten erlauben sich die benötigten Services und Applikationen so zusammenstellen wie es ihren Ansprüchen entspricht. Mögliche Arbeitsabläufe werden in Anhang (TODO ref) beschrieben. Betreuer und Studenten stehen über unterschiedliche Services in Kommunikation miteinander. Es müssen Termine geplant oder auch Notizen und Nachrichten hin und hergeschickt werden. Diese Services sollen auf einem zentralen Zugang so zusammengefasst sein, dass die Teilnehmer des Kurses alle relevanten Informationen an einer Stelle aufrufen und bearbeiten können. Dabei sind die Teilnehmer zu unterschiedlichen Zeiten online. Die Teilnehmer sollen das System offline nutzen können, um einfache Arbeiten wie das Schreiben von Twitter-Nachrichten, Notizen und Instant-Messaging Nachrichten oder eine Terminabsprache über einen Kalender erledigen zu können. Bei dem Wechsel zwischen online und offline müssen die Daten synchronisiert werden. Idealerweise haben die Nutzer alle Daten auf einem USB-Stick bei sich und können so von unterschiedlichsten Rechnern, wie beispielsweise in der Universität, im Internetcafe oder zu von Hause aus, arbeiten.
 
 \section{Funktionale Anforderungen / Anwendungsfälle}\label{section:anwendungsfaelle}
-\begin{figure}[hb]
+\begin{figure}[htb]
   \centering
   \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./Figures/anwendungsfaelle_quer.pdf}
     \rule{35em}{0.5pt}
@@ -80,135 +78,103 @@ Student 1 und Student 2 leben in Kamerun. Beide haben dort das Problem, dass der
 In diesem Abschnitt werden die Anwendungsfälle und die daraus resultierenden funktionalen Anforderungen beschrieben. Abbildung \ref{fig:anwendungsfaelle} zeigt Anwendungsfälle, die bei der Analyse des in Abschnitt \ref{section:szenario} vorgestellten Szenarios abgeleitet werden können. Die Anwendungsfälle werden im folgenden in textueller Form beschrieben. Aus diesen Beschreibungen werden dann direkt die funktionalen Anforderungen an das zu entwickelnde System abgeleitet. Die am Beginn der Arbeit aufgestellten Anwendungsfälle in Form einer technischen Dokumentation (mit preconditions, postconditions etc.) sind in Anhang (TODO ref) zu finden.
 
 \subsection{Anwendungsfall: Registrieren}
-Der Anwender ist nicht in der PLE registriert und kommt das erste Mal auf die Seite des Systems. Er bekommt auf der Startseite die Möglichkeit sich für den Zugang zum System zu registrieren. Er füllt ein Formular mit seinen Daten (Vorname, Nachname, E-Mail-Adresse, Nutzername, Passwort) aus und schickt das Formular ab. Das System stellt bei der Anmeldung sicher, dass der Anwender sowohl Nutzername, als auch Passwort und E-Mail-Adresse eingibt und Nutzername und E-Mail-Adresse nur einmal im System vorkommen dürfen. Anschließend ist der Anwender mit seiner gewählten Nutzername-/Passwortkombination und seiner E-Mail-Adresse im System hinterlegt und kann sich somit in das System einloggen. 
- 
-Aus diesem Anwendungsfall folgen die funktionalen Anforderungen \reqref{requirementRegistrieren} und \reqref{requirementUniqueLoginEmail}:\\
+Der Anwender ist nicht in der PLE registriert und kommt das erste Mal auf die Seite des Systems. Er bekommt auf der Startseite die Möglichkeit sich für den Zugang zum System zu registrieren. Er füllt ein Formular mit seinen Daten (Vorname, Nachname, E-Mail-Adresse, Nutzername, Passwort) aus und schickt das Formular ab. Das System stellt bei der Anmeldung sicher, dass der Anwender sowohl Nutzername, als auch Passwort und E-Mail-Adresse eingibt und Nutzername und E-Mail-Adresse nur einmal im System vorkommen dürfen. Anschließend ist der Anwender mit seiner gewählten Nutzername-/Passwortkombination und seiner E-Mail-Adresse im System hinterlegt und kann sich somit in das System einloggen. Aus diesem Anwendungsfall folgen die funktionalen Anforderungen \reqref{requirementRegistrieren} und \reqref{requirementUniqueLoginEmail}:\\
 \begin{itemize}
  \item \requirementf{\requirementRegistrieren}\label{requirementRegistrieren}
  \item \requirementf{\requirementUniqueLoginEmail}\label{requirementUniqueLoginEmail}
 \end{itemize}
  
 \subsection{Anwendungsfall: Login}
-Ist der Anwender im System registriert, bekommt auf der Startseite die Möglichkeit sich im System anzumelden. Er füllt ein Formular mit seiner Nutzername-/Passwortkombination aus und schickt das Formular ab. Der Anwender ist im System eingeloggt und das System präsentiert ihm eine Übersicht über seine aktuellen Work"-spaces samt der darauf befindlichen Widgets und die wichtigsten aggregierten Informationen dieser.
- 
-Aus diesem Anwendungsfall folgen die funktionalen Anforderungen \reqref{requirementLogin} und \reqref{requirementZugriffAufEigeneWidgets}:
+Ist der Anwender im System registriert, bekommt auf der Startseite die Möglichkeit sich im System anzumelden. Er füllt ein Formular mit seiner Nutzername"=/Passwortkombination aus und schickt das Formular ab. Der Anwender ist im System eingeloggt und das System präsentiert ihm eine Übersicht über seine aktuellen Work"-spaces samt der darauf befindlichen Widgets und die wichtigsten aggregierten Informationen dieser. Aus diesem Anwendungsfall folgen die funktionalen Anforderungen \reqref{requirementLogin} und \reqref{requirementZugriffAufEigeneWidgets}:
 \begin{itemize}
  \item \requirementf{\requirementLogin}\label{requirementLogin}
  \item \requirementf{\requirementZugriffAufEigeneWidgets}\label{requirementZugriffAufEigeneWidgets}
 \end{itemize}
 
 \subsection{Anwendungsfall: Logout}
-Wenn der Anwender ist eingeloggt ist, kann er die Aktion "`Logout"' auswählen. Anschließend wird er auf die Login-Seite weitergeleitet. Die aktuelle Session des Anwenders ist beendet und es ist ihm ohne einen weiteren Login nicht möglich, auf seine Daten zuzugreifen 
- 
-Aus diesem Anwendungsfall folgen die funktionale Anforderung \reqref{requirementLogout} und \reqref{requirementKeinZugriffNachLogout}:
+Wenn der Anwender ist eingeloggt ist, kann er die Aktion "`Logout"' auswählen. Anschließend wird er auf die Login-Seite weitergeleitet. Die aktuelle Session des Anwenders ist beendet und es ist ihm ohne einen weiteren Login nicht möglich, auf seine Daten zuzugreifen. Aus diesem Anwendungsfall folgen die funktionale Anforderung \reqref{requirementLogout} und \reqref{requirementKeinZugriffNachLogout}:
 \begin{itemize}
  \item \requirementf{\requirementLogout}\label{requirementLogout}
  \item \requirementf{\requirementKeinZugriffNachLogout}\label{requirementKeinZugriffNachLogout}
 \end{itemize}
 
 \subsection{Anwendungsfall: Workspace hinzufügen}
-Der Anwender wählt die Aktion "`Workspace hinzufügen"'. Es öffnet sich hierdurch ein neuer Bereich, welcher einen neuen Workspace repräsentiert. Der Anwender hat nun die Möglichkeit den Workspace nach seinen Wünschen anzupassen. Nach dem Speichern wurde dem System des Anwenders ein neuer Workspace hinzugefügt.
- 
-Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementWorkspaceAdd}:
+Der Anwender wählt die Aktion "`Workspace hinzufügen"'. Es öffnet sich hierdurch ein neuer Bereich, welcher einen neuen Workspace repräsentiert. Der Anwender hat nun die Möglichkeit den Workspace nach seinen Wünschen anzupassen. Nach dem Speichern wurde dem System des Anwenders ein neuer Workspace hinzugefügt. Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementWorkspaceAdd}:
 \begin{itemize}
  \item \requirementf{\requirementWorkspaceAdd}\label{requirementWorkspaceAdd}
 \end{itemize}
  
 \subsection{Anwendungsfall: Workspace bearbeiten}
-Der Anwender wählt bei einem Workspace die Aktion "`Workspace bearbeiten"'. Er hat nun die Möglichkeit den Workspace nach seinen Wünschen zu benennen und kann Widgets zu dem Workspace hinzufügen. Nach dem Speichern wurde der Workspace nach den Vorstellungen des Anwenders angepasst.
-
-Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementWorkspaceEdit}:
+Der Anwender wählt bei einem Workspace die Aktion "`Workspace bearbeiten"'. Er hat nun die Möglichkeit den Workspace nach seinen Wünschen zu benennen und kann Widgets zu dem Workspace hinzufügen. Nach dem Speichern wurde der Workspace nach den Vorstellungen des Anwenders angepasst. Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementWorkspaceEdit}:
 \begin{itemize}
  \item \requirementf{\requirementWorkspaceEdit}\label{requirementWorkspaceEdit}
 \end{itemize}
  
 \subsection{Anwendungsfall: Workspace löschen}
-Der Anwender wählt bei einem Workspace die Aktion "`Workspace löschen"'. Es erscheint eine Rückfrage, welche eine Bestätigung des Löschvorganges (mitsamt aller Widgets) erfragt. Bei positiver Rückmeldung löscht das System den Workspace und alle seine Widgets und informiert den Anwender darüber.
- 
-Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementWorkspaceDelete}:
+Der Anwender wählt bei einem Workspace die Aktion "`Workspace löschen"'. Es erscheint eine Rückfrage, welche eine Bestätigung des Löschvorganges (mitsamt aller Widgets) erfragt. Bei positiver Rückmeldung löscht das System den Workspace und alle seine Widgets und informiert den Anwender darüber. Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementWorkspaceDelete}:
 \begin{itemize}
  \item \requirementf{\requirementWorkspaceDelete}\label{requirementWorkspaceDelete}
 \end{itemize}
 
 \subsection{Anwendungsfall: Widget hinzufügen}
-Der Anwender befindet sich in einem Workspace und wählt die Aktion "`Widget hinzufügen"' Es erscheint eine Maske in der die zur Verfügung stehenden Widgets ausgewählt werden können. Der Anwender wählt das gewünschte Widget und fügt es dem Workspace hinzu. Wenn gewünscht kann der Anwender die Liste der Widgets über Suchfilter einschränken. Nach dem Speichern wurde das Widget dem Workspace hinzugefügt.
-
-Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementWidgetAdd}:
+Der Anwender befindet sich in einem Workspace und wählt die Aktion "`Widget hinzufügen"' Es erscheint eine Maske in der die zur Verfügung stehenden Widgets ausgewählt werden können. Der Anwender wählt das gewünschte Widget und fügt es dem Workspace hinzu. Wenn gewünscht kann der Anwender die Liste der Widgets über Suchfilter einschränken. Nach dem Speichern wurde das Widget dem Workspace hinzugefügt. Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementWidgetAdd}:
 \begin{itemize}
  \item \requirementf{\requirementWidgetAdd}\label{requirementWidgetAdd}
 \end{itemize}
 
 \subsection{Anwendungsfall: Widgets filtern}
-Der Anwender ist dabei einem Workspace ein Widget hinzuzufügen. Er gibt in einem Textfeld eine Zeichenkette an, nach der im Widget-Namen gesucht wird. Des Weiteren kann er in einem binären Filter wählen, ob er nur Widgets angezeigt bekommen möchte, die in der Lage sind in einem Offline-Modus zu arbeiten. Anschließend werden in der Liste der zur Auswahl stehenden Widgets nur noch diejenigen angezeigt, die der Filterung entsprechen.
- 
-Aus diesem Anwendungsfall folgen die funktionalen Anforderungen \reqref{requirementWidgetFilterName} und \reqref{requirementWidgetFilterOnline}:
+Der Anwender ist dabei einem Workspace ein Widget hinzuzufügen. Er gibt in einem Textfeld eine Zeichenkette an, nach der im Widget-Namen gesucht wird. Des Weiteren kann er in einem binären Filter wählen, ob er nur Widgets angezeigt bekommen möchte, die in der Lage sind in einem Offline-Modus zu arbeiten. Anschließend werden in der Liste der zur Auswahl stehenden Widgets nur noch diejenigen angezeigt, die der Filterung entsprechen. Aus diesem Anwendungsfall folgen die funktionalen Anforderungen \reqref{requirementWidgetFilterName} und \reqref{requirementWidgetFilterOnline}:
 \begin{itemize}
  \item \requirementf{\requirementWidgetFilterName}\label{requirementWidgetFilterName}
  \item \requirementf{\requirementWidgetFilterOnline}\label{requirementWidgetFilterOnline}
 \end{itemize}
  
 \subsection{Anwendungsfall: Widget löschen}
-Der Anwender befindet sich in einem Workspace und wählt bei einem Widget die Aktion "`Widget löschen"'. Es erscheint eine Rückfrage, welche eine Bestätigung des Löschvorganges erfragt. Bei positiver Rückmeldung löscht das System das Widget und informiert den Anwender darüber.
- 
-Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementWidgetDelete}:
+Der Anwender befindet sich in einem Workspace und wählt bei einem Widget die Aktion "`Widget löschen"'. Es erscheint eine Rückfrage, welche eine Bestätigung des Löschvorganges erfragt. Bei positiver Rückmeldung löscht das System das Widget und informiert den Anwender darüber. Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementWidgetDelete}:
 \begin{itemize}
  \item \requirementf{\requirementWidgetDelete}\label{requirementWidgetDelete}
 \end{itemize}
  
 \subsection{Anwendungsfall: Anordnung der Widgets ändern}
-Der Anwender hat die Möglichkeit die einzelnen Widgets innerhalb eines Work"-spaces über einen Drag and Drop Mechanismus neu anzuordnen. Er wählt hierfür ein Widget mit der Maus aus und zieht es an die gewünschte Position. Anschließend hat sich die Anordnung der Widgets innerhalb des Work"-spaces nach dem Wunsch des Anwenders geändert.
- 
-Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementWidgetSortDragNDrop}:
+Der Anwender hat die Möglichkeit die einzelnen Widgets innerhalb eines Work"-spaces über einen Drag and Drop Mechanismus neu anzuordnen. Er wählt hierfür ein Widget mit der Maus aus und zieht es an die gewünschte Position. Anschließend hat sich die Anordnung der Widgets innerhalb des Work"-spaces nach dem Wunsch des Anwenders geändert. Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementWidgetSortDragNDrop}:
 \begin{itemize}
  \item \requirementf{\requirementWidgetSortDragNDrop}\label{requirementWidgetSortDragNDrop}
 \end{itemize}
 
 \subsection{Anwendungsfall: Informationen über Widgets erhalten}
-Der Anwender bewegt sich im System und erhält für jedes Widget direkt die wichtigsten Informationen. Hierzu gehören die Informationen wie viele neue Einträge es gibt, wie viele eventuell noch nicht mit dem Backend synchronisiert sind und ob das Widget online oder offline ist.
- 
-Aus diesem Anwendungsfall folgen die funktionalen Anforderungen \reqref{requirementWidgetInformSystem} und \reqref{requirementWidgetInformUser}:
+Der Anwender bewegt sich im System und erhält für jedes Widget direkt die wichtigsten Informationen. Hierzu gehören die Informationen wie viele neue Einträge es gibt, wie viele eventuell noch nicht mit dem Backend synchronisiert sind und ob das Widget online oder offline ist. Aus diesem Anwendungsfall folgen die funktionalen Anforderungen \reqref{requirementWidgetInformSystem} und \reqref{requirementWidgetInformUser}:
 \begin{itemize}
  \item \requirementf{\requirementWidgetInformSystem}\label{requirementWidgetInformSystem}
  \item \requirementf{\requirementWidgetInformUser}\label{requirementWidgetInformUser}
 \end{itemize}
 
 \subsection{Anwendungsfall: Überblick über Workspace/Widgets verschaffen}
-Der Anwender wählt eine Aktion aus, die ihn zu einer Übersichtsseite innerhalb des Systems bringt. Das System leitet den Anwender auf eine Seite, welche ihm seine Work"-spaces und Widgets anzeigt und ihm die wichtigsten Informationen darüber vermittelt.
-
-Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementDashboard}:
+Der Anwender wählt eine Aktion aus, die ihn zu einer Übersichtsseite innerhalb des Systems bringt. Das System leitet den Anwender auf eine Seite, welche ihm seine Work"-spaces und Widgets anzeigt und ihm die wichtigsten Informationen darüber vermittelt. Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementDashboard}:
 \begin{itemize}
  \item \requirementf{\requirementDashboard}\label{requirementDashboard}
 \end{itemize}
 
 \subsection{Anwendungsfall: Erkennen des Onlinestatus}
-Der Anwender ist eingeloggt und sieht auf den ersten Blick, dass das System online ist. Sowohl die Hauptapplikation, als auch die Widgets zeigen ihm dies an. Beendet der Anwender die Internetverbindung aktualisieren sich diese Anzeigen und weisen damit den Anwender auf den veränderten Status hin.
- 
-Aus diesem Anwendungsfall folgen die funktionalen Anforderung \reqref{requirementCheckOnlineStatus} und reqref{\requirementOnlineStatusInformUser}:
+Der Anwender ist eingeloggt und sieht auf den ersten Blick, dass das System online ist. Sowohl die Hauptapplikation, als auch die Widgets zeigen ihm dies an. Beendet der Anwender die Internetverbindung aktualisieren sich diese Anzeigen und weisen damit den Anwender auf den veränderten Status hin. Aus diesem Anwendungsfall folgen die funktionalen Anforderung \reqref{requirementCheckOnlineStatus} und reqref{\requirementOnlineStatusInformUser}:
 \begin{itemize}
  \item \requirementf{\requirementCheckOnlineStatus}\label{requirementCheckOnlineStatus}
  \item \requirementf{\requirementOnlineStatusInformUser}\label{requirementOnlineStatusInformUser}
 \end{itemize}
 
 \subsection{Anwendungsfall: Starten der Anwendung ohne Internetverbindung}
-Dem Anwender steht keine Internetverbindung zur Verfügung. Er öffnet seinen Browser und gibt die URL der PLE ein. Das System hat sich trotz fehlender Internetverbindung geöffnet und stellt dem Studenten das ihm bekannte User-Interface dar.
- 
-Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementOfflineStart}:
+Dem Anwender steht keine Internetverbindung zur Verfügung. Er öffnet seinen Browser und gibt die URL der PLE ein. Das System hat sich trotz fehlender Internetverbindung geöffnet und stellt dem Studenten das ihm bekannte User-Interface dar. Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementOfflineStart}:
 \begin{itemize}
  \item \requirementf{\requirementOfflineStart}\label{requirementOfflineStart}
 \end{itemize}
 
 \subsection{Anwendungsfall: Arbeiten mit Widgets ohne Internetverbindung}
-Das System ist geladen, hat aber keine Internetverbindung. Der Anwender arbeitet mit den Widgets und kann neue Einträge etc. hinzufügen und bearbeiten. Alle Änderungen werden dem Anwender präsentiert, als wenn eine Internetverbindung bestehen würden. Die Änderungen wurden vom System zwischengespeichert. Der Anwender erhält diesbezüglich eine Information.
-
-Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementOfflineWork}:
+Das System ist geladen, hat aber keine Internetverbindung. Der Anwender arbeitet mit den Widgets und kann neue Einträge etc. hinzufügen und bearbeiten. Alle Änderungen werden dem Anwender präsentiert, als wenn eine Internetverbindung bestehen würden. Die Änderungen wurden vom System zwischengespeichert. Der Anwender erhält diesbezüglich eine Information. Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementOfflineWork}:
 \begin{itemize}
  \item \requirementf{\requirementOfflineWork}\label{requirementOfflineWork}
 \end{itemize}
 
 \subsection{Anwendungsfall: Herstellen einer Internetverbindung}
-Das System ist offline. Der Student hat in den Widgets Einträge hinzugefügt, bearbeitet oder gelöscht. Der Student stellt eine Verbindung mit dem Internet her. Anschließend werden die offline vorgenommenen Arbeiten wurden mit dem jeweiligen Backend synchronisiert.
-
-Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementOnlineSync}:
+Das System ist offline. Der Student hat in den Widgets Einträge hinzugefügt, bearbeitet oder gelöscht. Der Student stellt eine Verbindung mit dem Internet her. Anschließend werden die offline vorgenommenen Arbeiten wurden mit dem jeweiligen Backend synchronisiert. Aus diesem Anwendungsfall folgt die funktionale Anforderung \reqref{requirementOnlineSync}:
 \begin{itemize}
  \item \requirementf{\requirementOnlineSync}\label{requirementOnlineSync}
 \end{itemize}

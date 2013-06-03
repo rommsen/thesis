@@ -1,6 +1,4 @@
-\chapter{Details zur Lösung / Validierung der Anforderungen} 
-\label{chapter:Kapitel6}
-\lhead{Kapitel 6 \emph{Details zur Lösung - Plesynd}}  
+\chapter{Details zur Lösung / Validierung der Anforderungen}\label{chapter:Kapitel6}
 
 \section{Entwicklungsumgebung und eingesetzte Werkzeuge}\label{section:entwicklungsumgebungen_tools}
 Für die Entwicklung von Plesynd wurden unterschiedliche Tools und Frameworks genutzt. Entwickelt wurde das System auf Serverseite mit PHP. Der clientseitige Code wurde mit Javascript implementiert. Die für die Entwicklung von Plesynd eingesetzten Frameworks werden im Folgenden kurz vorgestellt.
@@ -70,7 +68,7 @@ Der Controller hat den Namen \texttt{TodoCtrl}. Seine Definition verlangt die In
 Im HTML wird die Direktive \texttt{ng-repeat} dazu genutzt, die im Controller hinterlegten Todo Objekte zu durchlaufen. Mit der Klammersyntax (z.B. \{\{todo.title\}\}) wird der Wert einer Variable oder einer Objekteigenschaft ausgegeben. Die Direktiven \texttt{ng-show} und \texttt{ng-hide} blenden ein DOM-Element ein oder aus, wenn angegebene Bedingung zu \texttt{true} auswertet. Mit einem Klick auf ein Icon, welches mit der \texttt{ng-click} Direktive ausgezeichnet wurde, wird die \texttt{todoCompleted} Methode im Controller aufgerufen, welches das aktuelle Todo-Objekt aktualisiert. Das im oberen Teil des Quellcodes abgebildete Formular dient zum Hinzufügen eines neuen Todo-Objektes. Das Input-Feld wird mit der \texttt{ng-model} Direktive mit der Variable \texttt{\$scope.newTodo} verknüpft. Trägt der Anwender etwas in das Formularfeld ein, ändert sich diese Variable automatisch im Controller. Der Controller initialisiert sie mit einem leeren String, so dass im Formularfeld kein vorausgefüllter Wert steht. Beim Abschicken des Formulars wird die in der \texttt{ng-submit} Direktive angegebene Methode \texttt{\$scope.addTodo} aufgerufen, welche auf Basis des eingegebenen Wertes für \texttt{\$scope.newTodo} und mit Hilfe des \texttt{todoService} ein neues Todo-Objekt erstellt und zur Kollektion hinzufügt. Auf Grund des oben erwähnten "`Two-Way-Data-Bindings"' wird das neue Todo automatisch in die über \texttt{ng-repeat} erstellte Liste der Todos aufgenommen. Der Entwickler muss sich nicht um etwaige DOM-Manipulationen kümmern, so dass die Anwendungslogik hiervon völlig unberührt bleibt.
 
 \subsection{Symfony2}\label{section:symfony2}
-\href{http://symfony.com}{Symfony2}\footnote{weitere Informationen auf: \url{http://symfony.com}} ist ein in PHP implementiertes komponentenbasiertes Framework zur Entwicklung von MVC (Model-View-Controller) Anwendungen. Zu den bereitgestellten Komponenten gehört beispielsweise ein Service Container. Dieser erlaubt es die von den genutzten Klassen benötigten Abhängigkeiten zu definieren. Der Container sorgt dann für eine Instantiierung der Abhängigkeiten und ein Injizieren\footnote{Dies ist eine Art der Umsetzung des Dependency Injection Design-Patterns. Dieses Muster wird dazu verwendet, um eine stärkere Entkopplung zwischen einzelnen Objekte in der objektorientierten Programmierung zu erreichen. Anstatt die Abhängigkeiten fest in einer Klasse zu verankern (in dem das benötigte Objekt in der Klasse instantiiert wird), gibt die Klasse entweder im Konstruktor oder in Setter-Methoden nur das Interface des benötigten Objektes an. Dies ermöglicht ein einfacheres Austauschen der eigentlichen Implementierung und kann insbesondere die Arbeit mit Unit Tests erleichtern (vgl. \cite{Fowler2004})} dieser zur Laufzeit. Des Weiteren bietet Symfony2 unter anderem die eigene Template-Engine \href{http://twig.sensiolabs.org/}{Twig}\footnote{weitere Informationen auf: \url{http://twig.sensiolabs.org/}}, sowie ein Event-Listener System, welches ermöglicht auf bestimmte Events zu reagieren. Ein Beispiel hierfür wäre das \texttt{onKernelResponse} Event, welches in der Lage ist die Antwort, die das System an den Client schickt, zu verändern, um beispielsweise zusätzliche Header zu setzen. Das Model wird in Symfony2 standardmäßig über Doctrine2 (siehe Abschnitt \ref{section:doctrine2}) abgebildet.
+\href{http://symfony.com}{Symfony2}\footnote{weitere Informationen auf: \url{http://symfony.com}} ist ein in PHP implementiertes komponenten\allowbreak basiertes Framework zur Entwicklung von MVC (Model"=View"=Controller) Anwendungen. Zu den bereitgestellten Komponenten gehört beispielsweise ein Service Container. Dieser erlaubt es die von den genutzten Klassen benötigten Abhängigkeiten zu definieren. Der Container sorgt dann für eine Instantiierung der Abhängigkeiten und ein Injizieren\footnote{Dies ist eine Art der Umsetzung des Dependency Injection Design-Patterns. Dieses Muster wird dazu verwendet, um eine stärkere Entkopplung zwischen einzelnen Objekte in der objektorientierten Programmierung zu erreichen. Anstatt die Abhängigkeiten fest in einer Klasse zu verankern (in dem das benötigte Objekt in der Klasse instantiiert wird), gibt die Klasse entweder im Konstruktor oder in Setter-Methoden nur das Interface des benötigten Objektes an. Dies ermöglicht ein einfacheres Austauschen der eigentlichen Implementierung und kann insbesondere die Arbeit mit Unit Tests erleichtern (vgl. \cite{Fowler2004})} dieser zur Laufzeit. Des Weiteren bietet Symfony2 unter anderem die eigene Template-Engine \href{http://twig.sensiolabs.org/}{Twig}\footnote{weitere Informationen auf: \url{http://twig.sensiolabs.org/}}, sowie ein Event"=Listener System, welches ermöglicht auf bestimmte Events zu reagieren. Ein Beispiel hierfür wäre das \texttt{onKernelResponse} Event, welches in der Lage ist die Antwort, die das System an den Client schickt, zu verändern, um beispielsweise zusätzliche Header zu setzen. Das Model wird in Symfony2 standardmäßig über Doctrine2 (siehe Abschnitt \ref{section:doctrine2}) abgebildet.
 Die Komponenten werden in Symfony2 über sogenannte Bundles implementiert. Bundles sind von dem System unabhängige Plugins, mit einer festen Verzeichnisstruktur, welche einfach in eine Applikation eingebunden werden können. Das besondere an Symfony2 ist, dass das gesamte System aus Bundles aufgebaut ist. Hierzu gehören also auch das Kern-Framework, alle Komponenten, zusätzlicher Third-Party-Code sowie die eigene Applikation selbst (vgl. \cite{Symfony2Bundles}).
 
 \subsection{Doctrine2}\label{section:doctrine2}
@@ -91,7 +89,7 @@ Für die Umsetzung von Plesynd wurden auf der Serverseite fünf Symfony2-Bundles
 \item Das \texttt{CorujaPlesyndBundle} bildet das Herzstück des Plesynd-System. Es enthält die zentralen \texttt{Workspace}- und \texttt{Widget}-Entitäten, in denen der größte Teil der Geschäftslogik für die Arbeit mit Plesynd abgebildet wird. Zusätzlich gibt es noch Controller, die für die \texttt{Workspace}- und \texttt{Widget}-Controller, welche die REST-Anfragen des Clients entgegen nehmen und abarbeiten, und den \texttt{Plesynd}-Controller, welcher für das initiale Bereitstellen der benötigten Daten zuständig ist. Hier findet man auch die Javascript-Dateien, welche für die Arbeit mit den Widgets, den Workspaces und dem Dashboard notwendig sind.
 \item Zur Kommunikation mit Wookie (siehe Abschnitt \ref{section:w3c_widgets}) wurde das \texttt{Coruja\allowbreak Wookie\allowbreak Connector\allowbreak Bundle} entwickelt. Dieses integriert das \href{http://wookie.apache.org/docs/embedding.html}{Wookie Connector Framework}\footnote{weitere Informationen auf: \url{http://wookie.apache.org/docs/embedding.html}} und versetzt das \texttt{CorujaPlesyndBundle} in die Lage, direkt Anfragen an Wookie zu versenden. Das Bundle ist über die normale Symfony2 Konfiguration konfigurierbar, so dass es mit unterschiedlichen Wookie-Instanzen kommunizieren kann.
 \item Das \texttt{CorujaUserBundle} basiert auf dem \href{https://github.com/FriendsOfSymfony/FOSUserBundle}{FOSUserbundle}\footnote{weitere Informationen auf: \url{https://github.com/FriendsOfSymfony/FOSUserBundle}} und ist für das User"=Management in Plesynd zuständig.
-\item Im \texttt{CorujaAngularModuleBundle} werden die AngularJS-Implementierungen hinterlegt, welche sowohl für das Plesynd-System als auch für zusätzliche Widgets verwendet werden können. Hierzu gehören insbesondere das System, welches für die Offline-Fähigkeiten zuständig ist, aber auch Services für die Inter-Frame-Kommunikation oder die Verwendung von HttpXmlRequests in Formularen.  
+\item Im \texttt{Coruja\allowbreak Angular\allowbreak Module\allowbreak Bundle} werden die AngularJS"=Implementierungen hinterlegt, welche sowohl für das Plesynd-System als auch für zusätzliche Widgets verwendet werden können. Hierzu gehören insbesondere das System, welches für die Offline-Fähigkeiten zuständig ist, aber auch Services für die Inter"=Frame"=Kommunikation oder die Verwendung von Http\allowbreak Xml\allowbreak Requests in Formularen.  
 \item Für eine prototypische Implementierung eines offline fähigen Widgets wurde das \texttt{CorujaTodoBundle} entwickelt. Dieses arbeitet mit dem Todo-Widget zusammen, nimmt dessen REST-Anfragen entgegen und bearbeitet diese. Für das User"=Management nutzt es ebenfalls das CorujaUserBundle.
 \end{itemize}
 
@@ -362,7 +360,7 @@ Durch die Umsetzung der in \reqref{requirementNewWidgetsWithApi} geforderten Sch
 
 \textbullet{} \reqref{requirementOpenSource} \emph{\requirementOpenSource}\\
 Alle Werkzeuge, die für die Umsetzung von Plesynd genutzt wurden (siehe Abschnitt \ref{section:entwicklungsumgebungen_tools}) stehen unter freien Lizenzen, welche es erlauben ohne kostenpflichtige Lizensierungen mit dem System zu arbeiten und dieses zu erweitern.
-\clearpage
+
 \subsection{Überblick über die Erfüllung der Anforderungen}
 Es folgt ein tabellarischer Überblick über die Anforderungen. Zusammenfassend kann also gesagt werden, dass Plesynd die Anforderungen aus Kapitel \ref{chapter:Kapitel3} bis auf Anforderung \reqref{requirementZugriffAufEigeneWidgets} vollständig erfüllen kann.
 Bedeutung der letzten Spalte:\\
@@ -389,8 +387,10 @@ Bedeutung der letzten Spalte:\\
 \reqref{requirementWidgetDelete} & \emph{\requirementWidgetDelete} & \checkmark \\ \hline 
 \reqref{requirementWidgetSortDragNDrop} & \emph{\requirementWidgetSortDragNDrop} & \checkmark \\ \hline 
 \reqref{requirementWidgetInformSystem} & \emph{\requirementWidgetInformSystem} & \checkmark \\ \hline 
+\reqref{requirementWidgetInformUser} & \emph{\requirementWidgetInformUser} & \checkmark \\ \hline 
 \reqref{requirementDashboard} & \emph{\requirementDashboard} & \checkmark \\ \hline 
 \reqref{requirementCheckOnlineStatus} & \emph{\requirementCheckOnlineStatus} & \checkmark \\ \hline 
+\reqref{requirementOnlineStatusInformUser} & \emph{\requirementOnlineStatusInformUser} & \checkmark \\ \hline 
 \reqref{requirementOfflineStart} & \emph{\requirementOfflineStart} & \checkmark \\ \hline 
 \reqref{requirementOfflineWork} & \emph{\requirementOfflineWork} & \checkmark \\ \hline 
 \reqref{requirementOnlineSync} & \emph{\requirementOnlineSync} & \checkmark \\ \hline 
@@ -398,12 +398,13 @@ Bedeutung der letzten Spalte:\\
 \label{table:funktionale_anforderungen_validierung}
 \end{table}
 
-\begin{table}[ht]
+\clearpage % damit die Tabelle oben erscheint
+\begin{table}[ht!]
 \caption{Nichtfunktionale Anforderungen Evaluation}
 \begin{tabularx}{\textwidth}{ l | X | c}
 \reqref{requirementAggregator} & \emph{\requirementAggregator} & \checkmark\\ \hline 
 \reqref{requirementWidgetStandard} & \emph{\requirementWidgetStandard} & \checkmark\\ \hline 
-\reqref{requirementUsbStick} & \emph{\requirementUsbStick} & \checkmark\\ \hline 
+\reqref{requirementUsbStick} & \emph{\requirementUsbStick} & (\checkmark)\\ \hline 
 \reqref{requirementUsageInBrowser} & \emph{\requirementUsageInBrowser} & \checkmark\\ \hline 
 \reqref{requirementNewWidgetsWithApi} & \emph{\requirementNewWidgetsWithApi} & \checkmark\\ \hline 
 \reqref{requirementExampleWidget} & \emph{\requirementExampleWidget} & \checkmark\\ \hline
