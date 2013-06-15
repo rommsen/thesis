@@ -23,18 +23,15 @@ Application.Controllers.controller('TodoCtrl', ['$scope', 'todoService', functio
   ];
   
   $scope.newTodo = '';
-
   $scope.addTodo = function () {
     if ($scope.newTodo.length === 0) { return; }
 
     var todo = {title : $scope.newTodo, completed : false,};
-
     todoService.post(todo, function () {
       $scope.todos.push(todo);
       $scope.newTodo = '';
     });
   };
-  
   $scope.todoCompleted = function (todo) {
     todo.completed = !todo.completed
     todoService.put(todo);
@@ -133,7 +130,6 @@ resource.put = function (item, success, error) {
         resource.localFallback(item, 'put', success, error);
         return promise;
     }
-
     // sende Anfrage an Server
     remoteResource.put(item,
         function (data, header) {
@@ -153,19 +149,14 @@ resource.put = function (item, success, error) {
 interface ResourceStorage {
   // holt alle Ressourcen anhand der Parameter
   array query(array params, callback success, callback error)
-  
   // holt eine Ressource anhand der Parameter
-  object get(array params, callback success, callback error) 
-  
+  object get(array params, callback success, callback error)  
   // erstellt eine neue Ressource
   promise post(object item, callback success, callback error)
-  
   // updated eine Ressource
   promise put(object item, callback success, callback error) 
-  
   // entfernt eine Ressource
   promise delete(object item, callback success, callback error) 
-  
   // Synchronisiert den Local-Storage mit dem Server
   void synchronize(callback success, callback error)
 };             
@@ -230,7 +221,6 @@ Aus diesen Gründen wurde entschieden alle iframes bei Systemstart direkt zu lad
 $scope.isWidgetVisible = function (widget) {
   return widget.workspace.id === $scope.activeWorkspace.id;
 };
-
 // im HTML
 <div ng-repeat="widget in widgets" ng-show="isWidgetVisible(widget)" ...>
 \end{lstlisting}
@@ -277,15 +267,12 @@ Sobald ein neues offline fähiges Widget einem Workspace hinzugefügt wird, meld
 // bei Erstaufruf
 .run([..., 'childFrameMessenger', function (..., childFrameMessenger) {
     childFrameMessenger.registerWithParent();
-    
 // im TodoService, nach Hinzufuegen eines TodoService
 service.post = function (item, success, error) {
   resource.post(item, success, error);
   service.notifyParentAboutItems();
 };
-   
 // Definition im childFrameMessenger Service //
-
 // registriere bei Plesynd
 ChildFrameMessenger.prototype.registerWithParent = function () {
     pm({
@@ -294,7 +281,6 @@ ChildFrameMessenger.prototype.registerWithParent = function () {
         data   : {id : this.name}
     });
 };
-
 // sende Infos an Plesynd
 ChildFrameMessenger.prototype.notifyParentAboutItems = function (data) {
     data.id = this.name;
@@ -316,7 +302,6 @@ ParentFrameMessenger.prototype.initialize = function () {
             $rootScope.$broadcast("childFrameRegistered", child);
         }
     });
-
     // Listener: eingehende Daten
     pm.bind("notify_about_items", function (data) {
         if (data['id'] != undefined) {
