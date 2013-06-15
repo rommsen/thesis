@@ -1,10 +1,10 @@
 \chapter{Beschreibung der wichtigsten Komponenten von Plesynd} \label{AppendixC}
 
 Dieser Anhang beschreibt die wichtigsten AngularJS-Komponenten auf Basis ihrer Symfony2 Bundle-Zugehörigkeit.
-\section{CorujaAngularModuleBundle}
+\section*{CorujaAngularModuleBundle}
 In dem CorujaAngularModuleBundle werden Komponenten zusammengefasst, welche sowohl von Plesynd direkt als auch von Widgets genutzt werden können. 
 
-\subsection{AngularJs-Komponenten}
+\subsection*{AngularJs-Komponenten}
 
 \subsubsection*{Ressources/public/app/coruja-auth}\label{section:coruja_auth}
 Die coruja-auth Komponente besteht aus dem \texttt{AccountActionCtrl} und einer \texttt{auth}-Direktive. Wenn diese Komponente genutzt wird, bekommt der Controller aus der Application Config die Info, welche Aktion der User wünscht. Möchte er seinen Account aktivieren ist der Controller dafür zuständig:
@@ -118,12 +118,12 @@ Der \texttt{localStorage}-Service in der coruja-resource Komponente wird genauer
 \subsubsection*{Ressources/public/app/lib}
 Dieses Verzeichnis beinhaltet die externen Bibliotheken, die von Plesynd und den Widgets genutzt werden. Hierzu gehören AngularJs, jQuery, aber auch das \texttt{http-\allowbreak auth-\allowbreak interceptor}"=Modul. Dieses prüft, ob der Server auf eine Anfrage mit einem 403 (Access-Denied) Statuscode antwortet. Ist dies der Fall werden diese Anfragen zwischengespeichert und ein \texttt{event:\allowbreak auth-\allowbreak loginRequired}-Event wird ausgelöst, welches dann von der coruja-auth Komponente (siehe Abschnitt \ref{section:coruja_auth}) behandelt wird. War der Login erfolgreich, werden die zwischengespeicherten Anfragen erneut an den Server gesendet. 
 
-\section{CorujaPlesyndBundle}
+\section*{CorujaPlesyndBundle}
 Dieses Bundle enthält die Komponenten, welche direkt für das Plesynd-System implementiert wurden.
 
-\subsection{PHP}
+\subsection*{PHP}
 
-\subsection{AngularJs-Komponenten}
+\subsection*{AngularJs-Komponenten}
 
 \subsubsection*{Ressources/public/app/application}\label{section:app_application}
 Diese Komponente enthält, neben der Datei \texttt{configuration-constants.js} in der die systemweiten Konfigurationseinstellungen hinterlegt werden, die Datei \texttt{application.js}. In dieser Datei werden die einzelnen Komponenten in einem AngularJs-Modul zusammengefasst, welches dann über die \texttt{ng-app}-Direktive dem Haupt-Dom-Knoten zugeordnet wird. Zusätzlich werden die Routen der Applikation (z.B. /dashboard, /workspace/23) definiert und es wird hinterlegt, welche Aktion das System bei dem Aufruf einer Route durchführen soll. Schlussendlich werden innerhalb der \texttt{run}-Methode wichtige Initialisierungen vorgenommen.
@@ -164,10 +164,10 @@ Diese Komponente besteht aus einem Controller zur Arbeit mit den Widgets (\textt
 \subsubsection*{Ressources/public/app/workspace}
 Diese Komponente bietet ähnlich wie die vorige Komponente einen Service und einen Controller zur Arbeit mit den Workspaces.
 
-\section{CorujaTodoBundle}
+\section*{CorujaTodoBundle}
 Dieses Bundle stellt die Funktionalitäten für das Todo-Widget zur Verfügung.
 
-\subsection{AngularJs-Komponenten}
+\subsection*{AngularJs-Komponenten}
 
 \subsubsection*{Ressources/public/app/application}
 Siehe Abschnitt \ref{section:app_application}.
