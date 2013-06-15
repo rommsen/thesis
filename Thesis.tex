@@ -28,7 +28,7 @@
 \usepackage[square]{natbib}  % Natbib für das Literaturverzeichnis
 \usepackage[onehalfspacing]{setspace} % 1,5 Zeilen Abstand
 \usepackage{geometry}
-\usepackage{float}
+\usepackage{float} % setze Bilder mit [H] an feste Position
 
 \usepackage{listings} % Quellcode-Listings
 \lstset{ % Einstellungen für Listings
@@ -60,15 +60,36 @@ xleftmargin=20pt}
 
 % ----------------------------------------------------------------------------
 % Titel (erst nach \begin{document}, damit babel bereits voll aktiv ist:
-\titlehead{Kopf über dem Titel mit Le(h/e)rstuhl u.\,ä.}% optional
+\titlehead{
+  \emph{Fernuniversität Hagen} \par
+  \emph{Fakultät: Mathematik und Informatik} \par
+  \emph{Lehrgebiet: Kooperative Systeme}
+}% optional
 \subject{Masterarbeit}% optional
 \title{Entwicklung einer leichtgewichtigen "`Personal Learning Environment"' auf Basis aktueller Web-Technologien} % obligatorisch
 \subtitle{}% optional
 \author{Roman Sachse}% obligatorisch
 \date{Juni 2013}% sinnvoll
-\publishers{Platz für Betreuer o.\,ä.}% optional
+\publishers{
+Erstprüfer: Prof. Dr.-Ing. Jörg M. Haake \par
+Zweitprüfer: Dr. Erick R. Gankam Tambo
+}% optional
 \maketitle% verwendet die zuvor gemachte Angaben zur Gestaltung eines Titels
 % ----------------------------------------------------------------------------
+
+\chapter*{}  % Abstract
+Die vorliegende Arbeit beschäftigt sich mit der Konzeption, dem Aufbau und der Umsetzung einer prototypischen Personal Learning Environment auf Basis aktueller Web-Technologien, welche den Anwender in die Lage versetzt, auch dann mit dem System zu arbeiten, wenn einmal keine Verbindung mit dem Internet besteht. Aufgrund der verstärkten Notwendigkeit des lebenslangen Lernens in unserer heutigen Gesellschaft sind Personal Learning Environments in den letzten Jahren immer stärker in das Blickfeld der Forschung im Bereich des computergestützten Lernens gerückt. Personal Learning Environments sind Lernumgebungen, in denen der Anwender selbst bestimmen kann, welche Werkzeuge er für seine persönliche Art des Lernens nutzen möchte und wie er diese Werkzeuge organisiert. Der Anwender kann für die Wahl seiner Werkzeuge zwischen den mannigfältig vorhandenen Services des heutigen Web 2.0 wählen. Eine Personal Learning Environment fasst diese Services für den Anwender zusammen und ermöglicht ihm an zentraler Stelle mit ihnen zu arbeiten. Leider steht dem Anwender jedoch nicht immer und zu jeder Zeit ein Internetzugang zur Verfügung. Die Gründe hierfür reichen von Netzabbrüchen bei der Nutzung von mobilen Endgeräten bis hin zu mangelnder Infrastruktur in strukturell eher schwächeren Ländern. Aus diesem Grund ist es wichtig, dass ein Anwender eine Lernumgebung und ihre Services auch dann noch benutzen kann, wenn ihm einmal keine Internetverbindung zur Verfügung steht. Das in dieser Arbeit konzipierte und entwickelte System stellt Funktionalitäten bereit mit denen diesen Anforderungen erfüllt werden.
+
+\chapter*{Erklärung über selbstständige Anfertigung der Masterarbeit}
+Ich, Roman Sachse, versichere, dass ich diese Arbeit ohne Hilfe Dritter und ohne Benutzung anderer als den angegebenen Quellen und Hilfsmitteln angefertigt und die den benutzten Quellen wörtlich oder inhaltlich entnommenen Stellen als solche kenntlich gemacht habe. Diese Arbeit hat in gleicher oder ähnlicher Form noch keiner Prüfungsbehörde vorgelegen.
+\\\\\\
+Datum:\\
+\rule[1em]{25em}{0.5pt} % Datum
+\\
+Unterschrift:\\
+\rule[1em]{25em}{0.5pt} % Unterschrift
+
+
 \tableofcontents % Inhaltsverzeichnis
 \listoffigures % Abbildungsverzeichnis
 \listoftables % Tabellenverzeichnis
