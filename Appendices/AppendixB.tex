@@ -15,11 +15,8 @@ Für die Installation von Plesynd müssen mehrere Schritte durchgeführt werden:
  \item Arbeitskopie aus github auschecken:\\ \texttt{git clone git@github.com:rommsen/plesynd.git}\\
  \texttt{verzeichnis\_in\_dem\_plesynd\_installiert\_werden\_soll}
  \item Symfony2 installieren: \texttt{./composer install} im Verzeichnis der Arbeitskopie
- \item Virtual Host im Webserver anlegen und Document Root auf \\
- \texttt{plesynd\_verzeichnis/web} setzen.
- \item Configs anpassen: In \texttt{app/config} die Datei parameters.yml.dist in parameters.yml umbenennen und die Einstellungen anpassen: 
+ \item im Dialog die config Parameter setzen:
  \begin{lstlisting}
- parameters:
     database_driver:   pdo_mysql
     database_host:     localhost
     database_port:     ~
@@ -28,9 +25,9 @@ Für die Installation von Plesynd müssen mehrere Schritte durchgeführt werden:
     database_password: [Datenbank-Password]
 
     mailer_transport:  smtp
-    mailer_host:       smtp.ipark-media.de
-    mailer_user:       [User für Mailversand]
-    mailer_password:   [Password für Mailversand]
+    mailer_host:       [Host fuer Mailversand]
+    mailer_user:       [User fuer Mailversand]
+    mailer_password:   [Password fuer Mailversand]
     mailer_encryption: null
     mailer_auth_mode:  plain
     mailer_port:       25
@@ -50,9 +47,11 @@ Für die Installation von Plesynd müssen mehrere Schritte durchgeführt werden:
     wookie_shared_data_key: [z.B. shared_data]
     wookie_login_name: [z.B. user]
  \end{lstlisting}
-
+ Die fertige Datei ist app/config/config.yml
+ \item Virtual Host im Webserver anlegen und Document Root auf \\
+ \texttt{plesynd\_verzeichnis/web} setzen.
  \item Datenbank erstellen: \texttt{./app/console doctrine:database:create} im Verzeichnis der Arbeitskopie
- \item Datenbankschema erstellen: \texttt{./app/console doctrine:schema:update --force} im Verzeichnis der Arbeitskopie
+ \item Datenbankschema erstellen: \texttt{./app/console doctrine:schema:create} im Verzeichnis der Arbeitskopie
  \item Wenn der Virtual Host auf z.B. auf http://plesynd hört, kann das System unter \path{http://plesynd/app.php} im Produktivmodus geöffnet werden. Für den Entwicklungsmodus kann \path{http://plesynd/app_dev.php} aufgerufen werden.   
 \end{enumerate}
 
@@ -63,6 +62,7 @@ Für die Installation von Plesynd müssen mehrere Schritte durchgeführt werden:
  \texttt{verzeichnis\_in\_dem\_das\_widget\_hinterlegt\_werden\_soll}
  \item Pfad von \texttt{wookie.root.dir} in \texttt{build.xml} auf das Installationsverzeichnis von Wookie anpassen.
  \item Pfad von \texttt{widget.root.dir} in \texttt{build.xml} auf den aktuellen Widgetordner anpassen.
+ \item \texttt{var base\_url} in der index.html anpassen
 \end{enumerate}
 
 \section*{Deployment}
@@ -74,7 +74,16 @@ Wenn bei den Konsolenkommandos der Parameter --env gesetzt wird, bestimmt dies o
  \item Aufwärmen des Caches \texttt{./app/console cache:warmup --env=prod|dev}
  \item Dumpen der Assets (Javascript-, CSS-Dateien) in ein Verzeichnis, auf das der Webserver zugreifen kann \texttt{./app/console assetic:dump --env=prod|dev}. Zusätzlich kann der Parameter \texttt{--watch} übergeben werden, damit die Assets bei Änderung der Datei erneut gedumpt werden.
 \end{enumerate}
+
 \subsection*{Todo-Widget}
 \begin{enumerate}
  \item Nachdem Wookie über \texttt{ant run} gestartet wurde kann das Widget aus dem Widget-Verzeichnis heraus über \texttt{ant deploy-widget -Dwidget.shortname=todo} in der Wookie Instanz hinterlegt werden.
+\end{enumerate}
+
+\subsection*{Generieren der automatischen Docs}
+\begin{enumerate}
+ \item installieren von phpdocumentor2 für PHP: \url{http://www.phpdoc.org/}
+ \item installieren von yuidoc für Javascript: \url{http://yui.github.io/yuidoc/}
+ \item für PHP: im Hauptverzeichnis von Plesynd: \texttt{phpdoc -d src/Coruja/ -t ../plesynd\_doc\_php} ausführen
+ \item für Javascript: im Hauptverzeichnis von Plesynd: \texttt{yuidoc -o ../plesynd\_doc\_js src/Coruja/} ausführen
 \end{enumerate}

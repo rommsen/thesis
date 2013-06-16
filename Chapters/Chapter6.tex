@@ -144,7 +144,7 @@ resource.put = function (item, success, error) {
     return promise;
 }; 
 \end{lstlisting}
-\texttt{CorujaLocalStorageService} stellt für die Arbeit mit Ressourcen ein Interface bereit, welches an die in Abschnitt (\ref{section:rest}) beschriebenen \ac{HTTP}-Methoden angelehnt ist:
+\texttt{CorujaLocalStorageService} stellt für die Arbeit mit Ressourcen ein Interface bereit, welches an die in Abschnitt \ref{section:rest} beschriebenen \ac{HTTP}-Methoden angelehnt ist:
 \begin{lstlisting}           
 interface ResourceStorage {
   // holt alle Ressourcen anhand der Parameter
@@ -248,8 +248,8 @@ Es ist natürlich möglich, dass unterschiedliche Widget-Instanzen zwar untersch
 \subsection{Drag and Drop}
 Zur Umsetzung der Drag and Drop Funktionalität zum Sortieren der Widgets auf einem Workspace wurde das \href{http://jqueryui.com/sortable/}{Sortable Widget}\footnote{weitere Informationen auf: \url{http://jqueryui.com/sortable/}} der \href{http://jqueryui.com}{jQueryUi-Bibliothek}\footnote{weitere Informationen auf: \url{http://jqueryui.com}} verwendet. Diese wurde in einer eigenen AngularJS-Direktive gekapselt, so dass das jQueryUi-Widget in der bestehenden Architektur verwendet werden konnte. Die Direktive verwendet den \texttt{WidgetService}, um die neue Position der Widgets dem Server mitzuteilen und den \texttt{Online\allowbreak Status\allowbreak Service}, um die Drag and Drop Funktionalität im Offline-Modus zu deaktivieren.
 
-\subsection{\ac{CORS}}\label{section:cors_implementierung}
-In einer Mashup-Anwendungen wie Plesynd ist es unumgänglich, dass XMLHttp Requests versendet werden. Insbesondere die Wookie-Instanz und dadurch die Origin aller Widgets unterscheidet sich von der Origin des eigentlichen Plesynd-Systems. Aus diesem Grund benötigt Plesynd eine \ac{CORS} (siehe Abschnitt \ref{section:same_origin_policy}) Implementierung. Zur Vereinfachung der Umsetzung wird das \href{https://github.com/nelmio/NelmioCorsBundle}{NelmioCorsBundle}\footnote{weitere Informationen auf: \url{https://github.com/nelmio/NelmioCorsBundle}} verwendet. Dieses erlaubt in der Systemkonfiguration die gewünschten Einstellungen vorzunehmen. Im Folgenden wird beispielhaft die Konfiguration für das Todo-Widget gezeigt: 
+\subsection{\acs{CORS}}\label{section:cors_implementierung}
+In einer Mashup-Anwendungen wie Plesynd ist es unumgänglich, dass XMLHttp Requests versendet werden. Insbesondere die Wookie-Instanz und dadurch die Origin aller Widgets unterscheidet sich von der Origin des eigentlichen Plesynd-Systems. Aus diesem Grund benötigt Plesynd eine \ac{CORS} Implementierung (siehe Abschnitt \ref{section:same_origin_policy}). Zur Vereinfachung der Umsetzung wird das \href{https://github.com/nelmio/NelmioCorsBundle}{NelmioCorsBundle}\footnote{weitere Informationen auf: \url{https://github.com/nelmio/NelmioCorsBundle}} verwendet. Dieses erlaubt in der Systemkonfiguration die gewünschten Einstellungen vorzunehmen. Im Folgenden wird beispielhaft die Konfiguration für das Todo-Widget gezeigt: 
 \begin{lstlisting}
 nelmio_cors:
   paths:
@@ -347,11 +347,9 @@ Durch die Umsetzung, der in \reqref{requirementNewWidgetsWithApi} geforderten Sc
 Alle Werkzeuge, die für die Umsetzung von Plesynd genutzt wurden (siehe Abschnitt \ref{section:entwicklungsumgebungen_tools}) stehen unter freien Lizenzen, welche es erlauben ohne kostenpflichtige Lizensierungen mit dem System zu arbeiten und dieses zu erweitern.
 
 \subsection{Überblick über die Erfüllung der Anforderungen}
-Es folgt ein tabellarischer Überblick über die Anforderungen. Zusammenfassend kann also gesagt werden, dass Plesynd die Anforderungen aus Kapitel \ref{chapter:Kapitel3} bis auf die Anforderungen \reqref{requirementKeinZugriffNachLogout} und \reqref{requirementUsbStick} vollständig erfüllen kann.
+Es folgt ein tabellarischer Überblick über die Anforderungen. Zusammenfassend kann also gesagt werden, dass Plesynd die Anforderungen aus Kapitel \ref{chapter:Kapitel3} bis auf die Anforderungen \reqref{requirementKeinZugriffNachLogout} und \reqref{requirementUsbStick} vollständig erfüllen kann.\\
 Bedeutung der letzten Spalte:\\
-\checkmark: Anforderung erfüllt\\
-(\checkmark): Anforderung teilweise erfüllt\\
-\textbf{x}: Anforderung nicht erfüllt
+\checkmark: Anforderung erfüllt / (\checkmark): Anforderung teilweise erfüllt / \textbf{x}: Anforderung nicht erfüllt
 
 \renewcommand{\arraystretch}{1.4} 
 
