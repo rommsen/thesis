@@ -133,7 +133,7 @@
                   <y:Geometry height="42.0" width="295.20751953125" x="51.756871541341184" y="246.375"/>
                   <y:Fill color="#FFFFFF" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" modelName="custom" textColor="#000000" visible="true" width="201.009765625" x="4.0" y="4.0">- Erstellt aus normalen HTML/JS- 
+                  <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" modelName="custom" textColor="#000000" visible="true" width="200.810546875" x="4.0" y="4.0">- erstellt aus normalen HTML/JS- 
   Anwendungen W3C-Widgets<y:LabelModel>
                       <y:SmartNodeLabelModel distance="4.0"/>
                     </y:LabelModel>

@@ -162,7 +162,7 @@
                       <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
                     </y:ModelParameter>
                   </y:NodeLabel>
-                  <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" modelName="custom" textColor="#000000" visible="true" width="334.234375" x="4.0" y="4.0">- Backend des Plesynd-Todo-Listen- Widgets: anlegen, 
+                  <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" modelName="custom" textColor="#000000" visible="true" width="330.419921875" x="4.0" y="4.0">- Backend des Plesynd-Todo-Listen-Widgets: anlegen, 
   bearbeiten, löschen von Todo-Listen und Todo-Items
   (jedes Plesynd-Widget im eigenen Bundle)<y:LabelModel>
                       <y:SmartNodeLabelModel distance="4.0"/>
