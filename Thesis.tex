@@ -14,14 +14,6 @@
                     
 \usepackage{tabularx} % Umbrüche in Tabellenspalten
 \usepackage{graphicx} % Grafiken einfügen
-% \usepackage[%
-%    acronym,
-%    toc,
-%    ]{glossaries}
-% \makeglossaries 
-% %%% Abkuerzungen
-% \newacronym{hvs}{hvs}{human visual system} 
-
 \usepackage{acronym} 
 
 \usepackage{amssymb}  % Mathematische Symbole 
@@ -96,15 +88,17 @@ Unterschrift:\\
 \cleardoublepage
 
 \addchap{Abkürzungsverzeichnis} % Abkürzungsverzeichnis
-  \begin{acronym}[SQL]
+  \begin{acronym}
+    \setlength{\itemsep}{-\parsep}
     \acro{API}{Application Programming Interface} 
-    \acro{CORS}{Cross-Origin Resource Sharing} 
+    \acro{CORS}{Cross"=Origin Resource Sharing} 
     \acro{CSS}{Cascading Style Sheets}
     \acro{DOM}{Document Object Model}
     \acro{HTML}{Hypertext Markup Language}
     \acro{HTTP}{Hypertext Transfer Protocol}
     \acro{JSON}{JavaScript Object Notation}
-    \acro{LMS}{Lern Management System}
+    \acro{LMS}{Lern-Management-System}
+    \acroplural{LMS}[LMS]{Lern-Management-Systeme}
     \acro{MVC}{Model View Controller}
     \acro{ORM}{Object Relational Mapping}
     \acro{PHP}{PHP: Hypertext Preprocessor}
@@ -114,8 +108,7 @@ Unterschrift:\\
     \acro{SQL}{Structured Query Language}
     \acro{SSL}{Secure Sockets Layer}
     \acro{URI}{Uniform Resource Identifier}
-    \acro{UMTS}{Universal Mobile Telecommunications System}
-    \acro{WLAN}{Wireless Local Area Network}
+    \acro{URL}{Uniform Resource Locator}
     \acro{W3C}{World Wide Web Consortium}
     \acro{XML}{eXtensible Markup Language}
   \end{acronym} 
